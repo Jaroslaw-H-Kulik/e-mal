@@ -1,0 +1,3740 @@
+{
+  "R0001": {
+    "id": "R0001",
+    "type": "biological_parent",
+    "from_person": "P0001",
+    "to_person": "P0289",
+    "role": "father",
+    "evidence": [
+      "E0001"
+    ]
+  },
+  "R0002": {
+    "id": "R0002",
+    "type": "biological_parent",
+    "from_person": "P0002",
+    "to_person": "P0289",
+    "role": "mother",
+    "evidence": [
+      "E0001"
+    ]
+  },
+  "R0003": {
+    "id": "R0003",
+    "type": "marriage",
+    "from_person": "P0001",
+    "to_person": "P0002",
+    "role": "spouse",
+    "evidence": [
+      "E0001"
+    ]
+  },
+  "R0004": {
+    "id": "R0004",
+    "type": "biological_parent",
+    "from_person": "P0006",
+    "to_person": "P0001",
+    "role": "father",
+    "evidence": [
+      "E0002"
+    ]
+  },
+  "R0005": {
+    "id": "R0005",
+    "type": "biological_parent",
+    "from_person": "P0007",
+    "to_person": "P0001",
+    "role": "mother",
+    "evidence": [
+      "E0002"
+    ]
+  },
+  "R0006": {
+    "id": "R0006",
+    "type": "marriage",
+    "from_person": "P0006",
+    "to_person": "P0007",
+    "role": "spouse",
+    "evidence": [
+      "E0002",
+      "E0011",
+      "E0021"
+    ]
+  },
+  "R0007": {
+    "id": "R0007",
+    "type": "biological_parent",
+    "from_person": "P0004",
+    "to_person": "P0011",
+    "role": "father",
+    "evidence": [
+      "E0003"
+    ]
+  },
+  "R0008": {
+    "id": "R0008",
+    "type": "biological_parent",
+    "from_person": "P0010",
+    "to_person": "P0011",
+    "role": "mother",
+    "evidence": [
+      "E0003"
+    ]
+  },
+  "R0009": {
+    "id": "R0009",
+    "type": "marriage",
+    "from_person": "P0004",
+    "to_person": "P0010",
+    "role": "spouse",
+    "evidence": [
+      "E0003"
+    ]
+  },
+  "R0010": {
+    "id": "R0010",
+    "type": "marriage",
+    "from_person": "P0015",
+    "to_person": "P0016",
+    "role": "spouse",
+    "evidence": [
+      "E0005"
+    ]
+  },
+  "R0011": {
+    "id": "R0011",
+    "type": "marriage",
+    "from_person": "P0020",
+    "to_person": "P0021",
+    "role": "spouse",
+    "evidence": [
+      "E0007"
+    ]
+  },
+  "R0012": {
+    "id": "R0012",
+    "type": "marriage",
+    "from_person": "P0022",
+    "to_person": "P0023",
+    "role": "spouse",
+    "evidence": [
+      "E0008"
+    ]
+  },
+  "R0013": {
+    "id": "R0013",
+    "type": "biological_parent",
+    "from_person": "P0006",
+    "to_person": "P0025",
+    "role": "father",
+    "evidence": [
+      "E0011"
+    ]
+  },
+  "R0014": {
+    "id": "R0014",
+    "type": "biological_parent",
+    "from_person": "P0007",
+    "to_person": "P0025",
+    "role": "mother",
+    "evidence": [
+      "E0011"
+    ]
+  },
+  "R0015": {
+    "id": "R0015",
+    "type": "biological_parent",
+    "from_person": "P0027",
+    "to_person": "P0029",
+    "role": "father",
+    "evidence": [
+      "E0012"
+    ]
+  },
+  "R0016": {
+    "id": "R0016",
+    "type": "biological_parent",
+    "from_person": "P0028",
+    "to_person": "P0029",
+    "role": "mother",
+    "evidence": [
+      "E0012"
+    ]
+  },
+  "R0017": {
+    "id": "R0017",
+    "type": "marriage",
+    "from_person": "P0027",
+    "to_person": "P0028",
+    "role": "spouse",
+    "evidence": [
+      "E0012"
+    ]
+  },
+  "R0018": {
+    "id": "R0018",
+    "type": "biological_parent",
+    "from_person": "P0032",
+    "to_person": "P0034",
+    "role": "father",
+    "evidence": [
+      "E0013"
+    ]
+  },
+  "R0019": {
+    "id": "R0019",
+    "type": "biological_parent",
+    "from_person": "P0033",
+    "to_person": "P0034",
+    "role": "mother",
+    "evidence": [
+      "E0013"
+    ]
+  },
+  "R0020": {
+    "id": "R0020",
+    "type": "marriage",
+    "from_person": "P0032",
+    "to_person": "P0033",
+    "role": "spouse",
+    "evidence": [
+      "E0013"
+    ]
+  },
+  "R0021": {
+    "id": "R0021",
+    "type": "godparent",
+    "from_person": "P0036",
+    "to_person": "P0034",
+    "role": "godparent",
+    "evidence": [
+      "E0013"
+    ]
+  },
+  "R0022": {
+    "id": "R0022",
+    "type": "godparent",
+    "from_person": "P0037",
+    "to_person": "P0034",
+    "role": "godparent",
+    "evidence": [
+      "E0013"
+    ]
+  },
+  "R0023": {
+    "id": "R0023",
+    "type": "biological_parent",
+    "from_person": "P0038",
+    "to_person": "P0040",
+    "role": "father",
+    "evidence": [
+      "E0014"
+    ]
+  },
+  "R0024": {
+    "id": "R0024",
+    "type": "biological_parent",
+    "from_person": "P0039",
+    "to_person": "P0040",
+    "role": "mother",
+    "evidence": [
+      "E0014"
+    ]
+  },
+  "R0025": {
+    "id": "R0025",
+    "type": "marriage",
+    "from_person": "P0038",
+    "to_person": "P0039",
+    "role": "spouse",
+    "evidence": [
+      "E0014"
+    ]
+  },
+  "R0026": {
+    "id": "R0026",
+    "type": "godparent",
+    "from_person": "P0042",
+    "to_person": "P0040",
+    "role": "godparent",
+    "evidence": [
+      "E0014"
+    ]
+  },
+  "R0027": {
+    "id": "R0027",
+    "type": "godparent",
+    "from_person": "P0043",
+    "to_person": "P0040",
+    "role": "godparent",
+    "evidence": [
+      "E0014"
+    ]
+  },
+  "R0028": {
+    "id": "R0028",
+    "type": "biological_parent",
+    "from_person": "P0018",
+    "to_person": "P0045",
+    "role": "father",
+    "evidence": [
+      "E0015"
+    ]
+  },
+  "R0029": {
+    "id": "R0029",
+    "type": "biological_parent",
+    "from_person": "P0044",
+    "to_person": "P0045",
+    "role": "mother",
+    "evidence": [
+      "E0015"
+    ]
+  },
+  "R0030": {
+    "id": "R0030",
+    "type": "marriage",
+    "from_person": "P0018",
+    "to_person": "P0044",
+    "role": "spouse",
+    "evidence": [
+      "E0015",
+      "E0035"
+    ]
+  },
+  "R0031": {
+    "id": "R0031",
+    "type": "godparent",
+    "from_person": "P0046",
+    "to_person": "P0045",
+    "role": "godparent",
+    "evidence": [
+      "E0015"
+    ]
+  },
+  "R0032": {
+    "id": "R0032",
+    "type": "godparent",
+    "from_person": "P0047",
+    "to_person": "P0045",
+    "role": "godparent",
+    "evidence": [
+      "E0015"
+    ]
+  },
+  "R0033": {
+    "id": "R0033",
+    "type": "biological_parent",
+    "from_person": "P0031",
+    "to_person": "P0049",
+    "role": "father",
+    "evidence": [
+      "E0016"
+    ]
+  },
+  "R0034": {
+    "id": "R0034",
+    "type": "biological_parent",
+    "from_person": "P0048",
+    "to_person": "P0049",
+    "role": "mother",
+    "evidence": [
+      "E0016"
+    ]
+  },
+  "R0035": {
+    "id": "R0035",
+    "type": "marriage",
+    "from_person": "P0031",
+    "to_person": "P0048",
+    "role": "spouse",
+    "evidence": [
+      "E0016"
+    ]
+  },
+  "R0036": {
+    "id": "R0036",
+    "type": "godparent",
+    "from_person": "P0051",
+    "to_person": "P0049",
+    "role": "godparent",
+    "evidence": [
+      "E0016"
+    ]
+  },
+  "R0037": {
+    "id": "R0037",
+    "type": "godparent",
+    "from_person": "P0052",
+    "to_person": "P0049",
+    "role": "godparent",
+    "evidence": [
+      "E0016"
+    ]
+  },
+  "R0038": {
+    "id": "R0038",
+    "type": "biological_parent",
+    "from_person": "P0053",
+    "to_person": "P0054",
+    "role": "father",
+    "evidence": [
+      "E0017"
+    ]
+  },
+  "R0039": {
+    "id": "R0039",
+    "type": "biological_parent",
+    "from_person": "P0049",
+    "to_person": "P0054",
+    "role": "mother",
+    "evidence": [
+      "E0017"
+    ]
+  },
+  "R0040": {
+    "id": "R0040",
+    "type": "marriage",
+    "from_person": "P0053",
+    "to_person": "P0049",
+    "role": "spouse",
+    "evidence": [
+      "E0017"
+    ]
+  },
+  "R0041": {
+    "id": "R0041",
+    "type": "biological_parent",
+    "from_person": "P0022",
+    "to_person": "P0057",
+    "role": "father",
+    "evidence": [
+      "E0018"
+    ]
+  },
+  "R0042": {
+    "id": "R0042",
+    "type": "biological_parent",
+    "from_person": "P0056",
+    "to_person": "P0057",
+    "role": "mother",
+    "evidence": [
+      "E0018"
+    ]
+  },
+  "R0043": {
+    "id": "R0043",
+    "type": "marriage",
+    "from_person": "P0022",
+    "to_person": "P0056",
+    "role": "spouse",
+    "evidence": [
+      "E0018"
+    ]
+  },
+  "R0044": {
+    "id": "R0044",
+    "type": "godparent",
+    "from_person": "P0059",
+    "to_person": "P0057",
+    "role": "godparent",
+    "evidence": [
+      "E0018"
+    ]
+  },
+  "R0045": {
+    "id": "R0045",
+    "type": "godparent",
+    "from_person": "P0060",
+    "to_person": "P0057",
+    "role": "godparent",
+    "evidence": [
+      "E0018"
+    ]
+  },
+  "R0046": {
+    "id": "R0046",
+    "type": "biological_parent",
+    "from_person": "P0061",
+    "to_person": "P0063",
+    "role": "father",
+    "evidence": [
+      "E0019"
+    ]
+  },
+  "R0047": {
+    "id": "R0047",
+    "type": "biological_parent",
+    "from_person": "P0062",
+    "to_person": "P0063",
+    "role": "mother",
+    "evidence": [
+      "E0019"
+    ]
+  },
+  "R0048": {
+    "id": "R0048",
+    "type": "marriage",
+    "from_person": "P0061",
+    "to_person": "P0062",
+    "role": "spouse",
+    "evidence": [
+      "E0019"
+    ]
+  },
+  "R0049": {
+    "id": "R0049",
+    "type": "biological_parent",
+    "from_person": "P0065",
+    "to_person": "P0067",
+    "role": "father",
+    "evidence": [
+      "E0020"
+    ]
+  },
+  "R0050": {
+    "id": "R0050",
+    "type": "biological_parent",
+    "from_person": "P0066",
+    "to_person": "P0067",
+    "role": "mother",
+    "evidence": [
+      "E0020"
+    ]
+  },
+  "R0051": {
+    "id": "R0051",
+    "type": "marriage",
+    "from_person": "P0065",
+    "to_person": "P0066",
+    "role": "spouse",
+    "evidence": [
+      "E0020"
+    ]
+  },
+  "R0052": {
+    "id": "R0052",
+    "type": "biological_parent",
+    "from_person": "P0006",
+    "to_person": "P0007",
+    "role": "father",
+    "evidence": [
+      "E0021"
+    ]
+  },
+  "R0053": {
+    "id": "R0053",
+    "type": "biological_parent",
+    "from_person": "P0007",
+    "to_person": "P0007",
+    "role": "mother",
+    "evidence": [
+      "E0021"
+    ]
+  },
+  "R0054": {
+    "id": "R0054",
+    "type": "biological_parent",
+    "from_person": "P0008",
+    "to_person": "P0007",
+    "role": "father",
+    "evidence": [
+      "E0022"
+    ]
+  },
+  "R0055": {
+    "id": "R0055",
+    "type": "biological_parent",
+    "from_person": "P0028",
+    "to_person": "P0007",
+    "role": "mother",
+    "evidence": [
+      "E0022"
+    ]
+  },
+  "R0056": {
+    "id": "R0056",
+    "type": "marriage",
+    "from_person": "P0008",
+    "to_person": "P0028",
+    "role": "spouse",
+    "evidence": [
+      "E0022"
+    ]
+  },
+  "R0057": {
+    "id": "R0057",
+    "type": "godparent",
+    "from_person": "P0070",
+    "to_person": "P0007",
+    "role": "godparent",
+    "evidence": [
+      "E0022"
+    ]
+  },
+  "R0058": {
+    "id": "R0058",
+    "type": "godparent",
+    "from_person": "P0071",
+    "to_person": "P0007",
+    "role": "godparent",
+    "evidence": [
+      "E0022"
+    ]
+  },
+  "R0059": {
+    "id": "R0059",
+    "type": "biological_parent",
+    "from_person": "P0041",
+    "to_person": "P0073",
+    "role": "father",
+    "evidence": [
+      "E0023"
+    ]
+  },
+  "R0060": {
+    "id": "R0060",
+    "type": "biological_parent",
+    "from_person": "P0072",
+    "to_person": "P0073",
+    "role": "mother",
+    "evidence": [
+      "E0023"
+    ]
+  },
+  "R0061": {
+    "id": "R0061",
+    "type": "marriage",
+    "from_person": "P0041",
+    "to_person": "P0072",
+    "role": "spouse",
+    "evidence": [
+      "E0023"
+    ]
+  },
+  "R0062": {
+    "id": "R0062",
+    "type": "godparent",
+    "from_person": "P0074",
+    "to_person": "P0073",
+    "role": "godparent",
+    "evidence": [
+      "E0023"
+    ]
+  },
+  "R0063": {
+    "id": "R0063",
+    "type": "godparent",
+    "from_person": "P0075",
+    "to_person": "P0073",
+    "role": "godparent",
+    "evidence": [
+      "E0023"
+    ]
+  },
+  "R0064": {
+    "id": "R0064",
+    "type": "biological_parent",
+    "from_person": "P0076",
+    "to_person": "P0078",
+    "role": "father",
+    "evidence": [
+      "E0024"
+    ]
+  },
+  "R0065": {
+    "id": "R0065",
+    "type": "biological_parent",
+    "from_person": "P0077",
+    "to_person": "P0078",
+    "role": "mother",
+    "evidence": [
+      "E0024"
+    ]
+  },
+  "R0066": {
+    "id": "R0066",
+    "type": "marriage",
+    "from_person": "P0076",
+    "to_person": "P0077",
+    "role": "spouse",
+    "evidence": [
+      "E0024",
+      "E0036"
+    ]
+  },
+  "R0067": {
+    "id": "R0067",
+    "type": "biological_parent",
+    "from_person": "P0080",
+    "to_person": "P0082",
+    "role": "father",
+    "evidence": [
+      "E0025"
+    ]
+  },
+  "R0068": {
+    "id": "R0068",
+    "type": "biological_parent",
+    "from_person": "P0081",
+    "to_person": "P0082",
+    "role": "mother",
+    "evidence": [
+      "E0025"
+    ]
+  },
+  "R0069": {
+    "id": "R0069",
+    "type": "marriage",
+    "from_person": "P0080",
+    "to_person": "P0081",
+    "role": "spouse",
+    "evidence": [
+      "E0025"
+    ]
+  },
+  "R0070": {
+    "id": "R0070",
+    "type": "godparent",
+    "from_person": "P0084",
+    "to_person": "P0082",
+    "role": "godparent",
+    "evidence": [
+      "E0025"
+    ]
+  },
+  "R0071": {
+    "id": "R0071",
+    "type": "godparent",
+    "from_person": "P0085",
+    "to_person": "P0082",
+    "role": "godparent",
+    "evidence": [
+      "E0025"
+    ]
+  },
+  "R0072": {
+    "id": "R0072",
+    "type": "marriage",
+    "from_person": "P0086",
+    "to_person": "P0087",
+    "role": "spouse",
+    "evidence": [
+      "E0026"
+    ]
+  },
+  "R0073": {
+    "id": "R0073",
+    "type": "biological_parent",
+    "from_person": "P0091",
+    "to_person": "P0093",
+    "role": "father",
+    "evidence": [
+      "E0027"
+    ]
+  },
+  "R0074": {
+    "id": "R0074",
+    "type": "biological_parent",
+    "from_person": "P0092",
+    "to_person": "P0093",
+    "role": "mother",
+    "evidence": [
+      "E0027"
+    ]
+  },
+  "R0075": {
+    "id": "R0075",
+    "type": "marriage",
+    "from_person": "P0091",
+    "to_person": "P0092",
+    "role": "spouse",
+    "evidence": [
+      "E0027"
+    ]
+  },
+  "R0076": {
+    "id": "R0076",
+    "type": "biological_parent",
+    "from_person": "P0095",
+    "to_person": "P0097",
+    "role": "father",
+    "evidence": [
+      "E0028"
+    ]
+  },
+  "R0077": {
+    "id": "R0077",
+    "type": "biological_parent",
+    "from_person": "P0096",
+    "to_person": "P0097",
+    "role": "mother",
+    "evidence": [
+      "E0028"
+    ]
+  },
+  "R0078": {
+    "id": "R0078",
+    "type": "marriage",
+    "from_person": "P0095",
+    "to_person": "P0096",
+    "role": "spouse",
+    "evidence": [
+      "E0028"
+    ]
+  },
+  "R0079": {
+    "id": "R0079",
+    "type": "biological_parent",
+    "from_person": "P0069",
+    "to_person": "P0099",
+    "role": "father",
+    "evidence": [
+      "E0029"
+    ]
+  },
+  "R0080": {
+    "id": "R0080",
+    "type": "biological_parent",
+    "from_person": "P0098",
+    "to_person": "P0099",
+    "role": "mother",
+    "evidence": [
+      "E0029"
+    ]
+  },
+  "R0081": {
+    "id": "R0081",
+    "type": "marriage",
+    "from_person": "P0069",
+    "to_person": "P0098",
+    "role": "spouse",
+    "evidence": [
+      "E0029"
+    ]
+  },
+  "R0082": {
+    "id": "R0082",
+    "type": "godparent",
+    "from_person": "P0027",
+    "to_person": "P0099",
+    "role": "godparent",
+    "evidence": [
+      "E0029"
+    ]
+  },
+  "R0083": {
+    "id": "R0083",
+    "type": "godparent",
+    "from_person": "P0062",
+    "to_person": "P0099",
+    "role": "godparent",
+    "evidence": [
+      "E0029"
+    ]
+  },
+  "R0084": {
+    "id": "R0084",
+    "type": "biological_parent",
+    "from_person": "P0100",
+    "to_person": "P0102",
+    "role": "father",
+    "evidence": [
+      "E0030"
+    ]
+  },
+  "R0085": {
+    "id": "R0085",
+    "type": "biological_parent",
+    "from_person": "P0101",
+    "to_person": "P0102",
+    "role": "mother",
+    "evidence": [
+      "E0030"
+    ]
+  },
+  "R0086": {
+    "id": "R0086",
+    "type": "marriage",
+    "from_person": "P0100",
+    "to_person": "P0101",
+    "role": "spouse",
+    "evidence": [
+      "E0030"
+    ]
+  },
+  "R0087": {
+    "id": "R0087",
+    "type": "godparent",
+    "from_person": "P0061",
+    "to_person": "P0102",
+    "role": "godparent",
+    "evidence": [
+      "E0030"
+    ]
+  },
+  "R0088": {
+    "id": "R0088",
+    "type": "godparent",
+    "from_person": "P0028",
+    "to_person": "P0102",
+    "role": "godparent",
+    "evidence": [
+      "E0030"
+    ]
+  },
+  "R0089": {
+    "id": "R0089",
+    "type": "biological_parent",
+    "from_person": "P0104",
+    "to_person": "P0106",
+    "role": "father",
+    "evidence": [
+      "E0031"
+    ]
+  },
+  "R0090": {
+    "id": "R0090",
+    "type": "biological_parent",
+    "from_person": "P0105",
+    "to_person": "P0106",
+    "role": "mother",
+    "evidence": [
+      "E0031"
+    ]
+  },
+  "R0091": {
+    "id": "R0091",
+    "type": "marriage",
+    "from_person": "P0104",
+    "to_person": "P0105",
+    "role": "spouse",
+    "evidence": [
+      "E0031"
+    ]
+  },
+  "R0092": {
+    "id": "R0092",
+    "type": "biological_parent",
+    "from_person": "P0103",
+    "to_person": "P0109",
+    "role": "father",
+    "evidence": [
+      "E0032"
+    ]
+  },
+  "R0093": {
+    "id": "R0093",
+    "type": "biological_parent",
+    "from_person": "P0108",
+    "to_person": "P0109",
+    "role": "mother",
+    "evidence": [
+      "E0032"
+    ]
+  },
+  "R0094": {
+    "id": "R0094",
+    "type": "marriage",
+    "from_person": "P0103",
+    "to_person": "P0108",
+    "role": "spouse",
+    "evidence": [
+      "E0032"
+    ]
+  },
+  "R0095": {
+    "id": "R0095",
+    "type": "biological_parent",
+    "from_person": "P0030",
+    "to_person": "P0111",
+    "role": "father",
+    "evidence": [
+      "E0033"
+    ]
+  },
+  "R0096": {
+    "id": "R0096",
+    "type": "biological_parent",
+    "from_person": "P0110",
+    "to_person": "P0111",
+    "role": "mother",
+    "evidence": [
+      "E0033"
+    ]
+  },
+  "R0097": {
+    "id": "R0097",
+    "type": "marriage",
+    "from_person": "P0030",
+    "to_person": "P0110",
+    "role": "spouse",
+    "evidence": [
+      "E0033"
+    ]
+  },
+  "R0098": {
+    "id": "R0098",
+    "type": "godparent",
+    "from_person": "P0084",
+    "to_person": "P0111",
+    "role": "godparent",
+    "evidence": [
+      "E0033"
+    ]
+  },
+  "R0099": {
+    "id": "R0099",
+    "type": "godparent",
+    "from_person": "P0113",
+    "to_person": "P0111",
+    "role": "godparent",
+    "evidence": [
+      "E0033"
+    ]
+  },
+  "R0100": {
+    "id": "R0100",
+    "type": "biological_parent",
+    "from_person": "P0114",
+    "to_person": "P0116",
+    "role": "father",
+    "evidence": [
+      "E0034"
+    ]
+  },
+  "R0101": {
+    "id": "R0101",
+    "type": "biological_parent",
+    "from_person": "P0115",
+    "to_person": "P0116",
+    "role": "mother",
+    "evidence": [
+      "E0034"
+    ]
+  },
+  "R0102": {
+    "id": "R0102",
+    "type": "marriage",
+    "from_person": "P0114",
+    "to_person": "P0115",
+    "role": "spouse",
+    "evidence": [
+      "E0034"
+    ]
+  },
+  "R0103": {
+    "id": "R0103",
+    "type": "godparent",
+    "from_person": "P0031",
+    "to_person": "P0116",
+    "role": "godparent",
+    "evidence": [
+      "E0034"
+    ]
+  },
+  "R0104": {
+    "id": "R0104",
+    "type": "godparent",
+    "from_person": "P0118",
+    "to_person": "P0116",
+    "role": "godparent",
+    "evidence": [
+      "E0034"
+    ]
+  },
+  "R0105": {
+    "id": "R0105",
+    "type": "biological_parent",
+    "from_person": "P0018",
+    "to_person": "P0119",
+    "role": "father",
+    "evidence": [
+      "E0035"
+    ]
+  },
+  "R0106": {
+    "id": "R0106",
+    "type": "biological_parent",
+    "from_person": "P0044",
+    "to_person": "P0119",
+    "role": "mother",
+    "evidence": [
+      "E0035"
+    ]
+  },
+  "R0107": {
+    "id": "R0107",
+    "type": "godparent",
+    "from_person": "P0010",
+    "to_person": "P0119",
+    "role": "godparent",
+    "evidence": [
+      "E0035"
+    ]
+  },
+  "R0108": {
+    "id": "R0108",
+    "type": "godparent",
+    "from_person": "P0120",
+    "to_person": "P0119",
+    "role": "godparent",
+    "evidence": [
+      "E0035"
+    ]
+  },
+  "R0109": {
+    "id": "R0109",
+    "type": "biological_parent",
+    "from_person": "P0076",
+    "to_person": "P0121",
+    "role": "father",
+    "evidence": [
+      "E0036"
+    ]
+  },
+  "R0110": {
+    "id": "R0110",
+    "type": "biological_parent",
+    "from_person": "P0077",
+    "to_person": "P0121",
+    "role": "mother",
+    "evidence": [
+      "E0036"
+    ]
+  },
+  "R0111": {
+    "id": "R0111",
+    "type": "biological_parent",
+    "from_person": "P0123",
+    "to_person": "P0125",
+    "role": "father",
+    "evidence": [
+      "E0037"
+    ]
+  },
+  "R0112": {
+    "id": "R0112",
+    "type": "biological_parent",
+    "from_person": "P0289",
+    "to_person": "P0125",
+    "role": "mother",
+    "evidence": [
+      "E0037"
+    ]
+  },
+  "R0113": {
+    "id": "R0113",
+    "type": "marriage",
+    "from_person": "P0123",
+    "to_person": "P0289",
+    "role": "spouse",
+    "evidence": [
+      "E0037",
+      "E0038",
+      "E0042",
+      "E0043",
+      "E0044",
+      "E0046"
+    ]
+  },
+  "R0114": {
+    "id": "R0114",
+    "type": "biological_parent",
+    "from_person": "P0123",
+    "to_person": "P0128",
+    "role": "father",
+    "evidence": [
+      "E0038"
+    ]
+  },
+  "R0115": {
+    "id": "R0115",
+    "type": "biological_parent",
+    "from_person": "P0289",
+    "to_person": "P0128",
+    "role": "mother",
+    "evidence": [
+      "E0038"
+    ]
+  },
+  "R0116": {
+    "id": "R0116",
+    "type": "biological_parent",
+    "from_person": "P0122",
+    "to_person": "P0130",
+    "role": "father",
+    "evidence": [
+      "E0039"
+    ]
+  },
+  "R0117": {
+    "id": "R0117",
+    "type": "biological_parent",
+    "from_person": "P0129",
+    "to_person": "P0130",
+    "role": "mother",
+    "evidence": [
+      "E0039"
+    ]
+  },
+  "R0118": {
+    "id": "R0118",
+    "type": "marriage",
+    "from_person": "P0122",
+    "to_person": "P0129",
+    "role": "spouse",
+    "evidence": [
+      "E0039",
+      "E0071",
+      "E0072"
+    ]
+  },
+  "R0119": {
+    "id": "R0119",
+    "type": "biological_parent",
+    "from_person": "P0131",
+    "to_person": "P0133",
+    "role": "father",
+    "evidence": [
+      "E0040"
+    ]
+  },
+  "R0120": {
+    "id": "R0120",
+    "type": "biological_parent",
+    "from_person": "P0132",
+    "to_person": "P0133",
+    "role": "mother",
+    "evidence": [
+      "E0040"
+    ]
+  },
+  "R0121": {
+    "id": "R0121",
+    "type": "marriage",
+    "from_person": "P0131",
+    "to_person": "P0132",
+    "role": "spouse",
+    "evidence": [
+      "E0040",
+      "E0073",
+      "E0150"
+    ]
+  },
+  "R0122": {
+    "id": "R0122",
+    "type": "biological_parent",
+    "from_person": "P0004",
+    "to_person": "P0137",
+    "role": "father",
+    "evidence": [
+      "E0041"
+    ]
+  },
+  "R0123": {
+    "id": "R0123",
+    "type": "biological_parent",
+    "from_person": "P0136",
+    "to_person": "P0137",
+    "role": "mother",
+    "evidence": [
+      "E0041"
+    ]
+  },
+  "R0124": {
+    "id": "R0124",
+    "type": "marriage",
+    "from_person": "P0004",
+    "to_person": "P0136",
+    "role": "spouse",
+    "evidence": [
+      "E0041"
+    ]
+  },
+  "R0125": {
+    "id": "R0125",
+    "type": "biological_parent",
+    "from_person": "P0123",
+    "to_person": "P0138",
+    "role": "father",
+    "evidence": [
+      "E0042"
+    ]
+  },
+  "R0126": {
+    "id": "R0126",
+    "type": "biological_parent",
+    "from_person": "P0289",
+    "to_person": "P0138",
+    "role": "mother",
+    "evidence": [
+      "E0042"
+    ]
+  },
+  "R0127": {
+    "id": "R0127",
+    "type": "biological_parent",
+    "from_person": "P0123",
+    "to_person": "P0140",
+    "role": "father",
+    "evidence": [
+      "E0043"
+    ]
+  },
+  "R0128": {
+    "id": "R0128",
+    "type": "biological_parent",
+    "from_person": "P0289",
+    "to_person": "P0140",
+    "role": "mother",
+    "evidence": [
+      "E0043"
+    ]
+  },
+  "R0129": {
+    "id": "R0129",
+    "type": "godparent",
+    "from_person": "P0007",
+    "to_person": "P0140",
+    "role": "godparent",
+    "evidence": [
+      "E0043"
+    ]
+  },
+  "R0130": {
+    "id": "R0130",
+    "type": "godparent",
+    "from_person": "P0142",
+    "to_person": "P0140",
+    "role": "godparent",
+    "evidence": [
+      "E0043"
+    ]
+  },
+  "R0131": {
+    "id": "R0131",
+    "type": "biological_parent",
+    "from_person": "P0123",
+    "to_person": "P0143",
+    "role": "father",
+    "evidence": [
+      "E0044"
+    ]
+  },
+  "R0132": {
+    "id": "R0132",
+    "type": "biological_parent",
+    "from_person": "P0289",
+    "to_person": "P0143",
+    "role": "mother",
+    "evidence": [
+      "E0044"
+    ]
+  },
+  "R0133": {
+    "id": "R0133",
+    "type": "biological_parent",
+    "from_person": "P0123",
+    "to_person": "P0146",
+    "role": "father",
+    "evidence": [
+      "E0046"
+    ]
+  },
+  "R0134": {
+    "id": "R0134",
+    "type": "biological_parent",
+    "from_person": "P0289",
+    "to_person": "P0146",
+    "role": "mother",
+    "evidence": [
+      "E0046"
+    ]
+  },
+  "R0135": {
+    "id": "R0135",
+    "type": "godparent",
+    "from_person": "P0147",
+    "to_person": "P0146",
+    "role": "godparent",
+    "evidence": [
+      "E0046"
+    ]
+  },
+  "R0136": {
+    "id": "R0136",
+    "type": "godparent",
+    "from_person": "P0148",
+    "to_person": "P0146",
+    "role": "godparent",
+    "evidence": [
+      "E0046"
+    ]
+  },
+  "R0137": {
+    "id": "R0137",
+    "type": "biological_parent",
+    "from_person": "P0149",
+    "to_person": "P0056",
+    "role": "father",
+    "evidence": [
+      "E0047"
+    ]
+  },
+  "R0138": {
+    "id": "R0138",
+    "type": "biological_parent",
+    "from_person": "P0023",
+    "to_person": "P0056",
+    "role": "mother",
+    "evidence": [
+      "E0047"
+    ]
+  },
+  "R0139": {
+    "id": "R0139",
+    "type": "marriage",
+    "from_person": "P0149",
+    "to_person": "P0023",
+    "role": "spouse",
+    "evidence": [
+      "E0047",
+      "E0144"
+    ]
+  },
+  "R0140": {
+    "id": "R0140",
+    "type": "biological_parent",
+    "from_person": "P0151",
+    "to_person": "P0153",
+    "role": "father",
+    "evidence": [
+      "E0048"
+    ]
+  },
+  "R0141": {
+    "id": "R0141",
+    "type": "biological_parent",
+    "from_person": "P0152",
+    "to_person": "P0153",
+    "role": "mother",
+    "evidence": [
+      "E0048"
+    ]
+  },
+  "R0142": {
+    "id": "R0142",
+    "type": "marriage",
+    "from_person": "P0151",
+    "to_person": "P0152",
+    "role": "spouse",
+    "evidence": [
+      "E0048",
+      "E0120"
+    ]
+  },
+  "R0143": {
+    "id": "R0143",
+    "type": "biological_parent",
+    "from_person": "P0155",
+    "to_person": "P0157",
+    "role": "father",
+    "evidence": [
+      "E0049"
+    ]
+  },
+  "R0144": {
+    "id": "R0144",
+    "type": "biological_parent",
+    "from_person": "P0156",
+    "to_person": "P0157",
+    "role": "mother",
+    "evidence": [
+      "E0049"
+    ]
+  },
+  "R0145": {
+    "id": "R0145",
+    "type": "marriage",
+    "from_person": "P0155",
+    "to_person": "P0156",
+    "role": "spouse",
+    "evidence": [
+      "E0049"
+    ]
+  },
+  "R0146": {
+    "id": "R0146",
+    "type": "godparent",
+    "from_person": "P0160",
+    "to_person": "P0157",
+    "role": "godparent",
+    "evidence": [
+      "E0049"
+    ]
+  },
+  "R0147": {
+    "id": "R0147",
+    "type": "godparent",
+    "from_person": "P0161",
+    "to_person": "P0157",
+    "role": "godparent",
+    "evidence": [
+      "E0049"
+    ]
+  },
+  "R0148": {
+    "id": "R0148",
+    "type": "biological_parent",
+    "from_person": "P0162",
+    "to_person": "P0164",
+    "role": "father",
+    "evidence": [
+      "E0050"
+    ]
+  },
+  "R0149": {
+    "id": "R0149",
+    "type": "biological_parent",
+    "from_person": "P0163",
+    "to_person": "P0164",
+    "role": "mother",
+    "evidence": [
+      "E0050"
+    ]
+  },
+  "R0150": {
+    "id": "R0150",
+    "type": "marriage",
+    "from_person": "P0162",
+    "to_person": "P0163",
+    "role": "spouse",
+    "evidence": [
+      "E0050",
+      "E0081"
+    ]
+  },
+  "R0151": {
+    "id": "R0151",
+    "type": "godparent",
+    "from_person": "P0167",
+    "to_person": "P0164",
+    "role": "godparent",
+    "evidence": [
+      "E0050"
+    ]
+  },
+  "R0152": {
+    "id": "R0152",
+    "type": "godparent",
+    "from_person": "P0168",
+    "to_person": "P0164",
+    "role": "godparent",
+    "evidence": [
+      "E0050"
+    ]
+  },
+  "R0153": {
+    "id": "R0153",
+    "type": "biological_parent",
+    "from_person": "P0169",
+    "to_person": "P0171",
+    "role": "father",
+    "evidence": [
+      "E0051"
+    ]
+  },
+  "R0154": {
+    "id": "R0154",
+    "type": "biological_parent",
+    "from_person": "P0170",
+    "to_person": "P0171",
+    "role": "mother",
+    "evidence": [
+      "E0051"
+    ]
+  },
+  "R0155": {
+    "id": "R0155",
+    "type": "marriage",
+    "from_person": "P0169",
+    "to_person": "P0170",
+    "role": "spouse",
+    "evidence": [
+      "E0051",
+      "E0086",
+      "E0153"
+    ]
+  },
+  "R0156": {
+    "id": "R0156",
+    "type": "biological_parent",
+    "from_person": "P0173",
+    "to_person": "P0175",
+    "role": "father",
+    "evidence": [
+      "E0052"
+    ]
+  },
+  "R0157": {
+    "id": "R0157",
+    "type": "biological_parent",
+    "from_person": "P0174",
+    "to_person": "P0175",
+    "role": "mother",
+    "evidence": [
+      "E0052"
+    ]
+  },
+  "R0158": {
+    "id": "R0158",
+    "type": "marriage",
+    "from_person": "P0173",
+    "to_person": "P0174",
+    "role": "spouse",
+    "evidence": [
+      "E0052"
+    ]
+  },
+  "R0159": {
+    "id": "R0159",
+    "type": "biological_parent",
+    "from_person": "P0178",
+    "to_person": "P0180",
+    "role": "father",
+    "evidence": [
+      "E0053"
+    ]
+  },
+  "R0160": {
+    "id": "R0160",
+    "type": "biological_parent",
+    "from_person": "P0179",
+    "to_person": "P0180",
+    "role": "mother",
+    "evidence": [
+      "E0053"
+    ]
+  },
+  "R0161": {
+    "id": "R0161",
+    "type": "marriage",
+    "from_person": "P0178",
+    "to_person": "P0179",
+    "role": "spouse",
+    "evidence": [
+      "E0053"
+    ]
+  },
+  "R0162": {
+    "id": "R0162",
+    "type": "biological_parent",
+    "from_person": "P0073",
+    "to_person": "P0184",
+    "role": "father",
+    "evidence": [
+      "E0054"
+    ]
+  },
+  "R0163": {
+    "id": "R0163",
+    "type": "biological_parent",
+    "from_person": "P0183",
+    "to_person": "P0184",
+    "role": "mother",
+    "evidence": [
+      "E0054"
+    ]
+  },
+  "R0164": {
+    "id": "R0164",
+    "type": "marriage",
+    "from_person": "P0073",
+    "to_person": "P0183",
+    "role": "spouse",
+    "evidence": [
+      "E0054"
+    ]
+  },
+  "R0165": {
+    "id": "R0165",
+    "type": "biological_parent",
+    "from_person": "P0051",
+    "to_person": "P0187",
+    "role": "father",
+    "evidence": [
+      "E0055"
+    ]
+  },
+  "R0166": {
+    "id": "R0166",
+    "type": "biological_parent",
+    "from_person": "P0186",
+    "to_person": "P0187",
+    "role": "mother",
+    "evidence": [
+      "E0055"
+    ]
+  },
+  "R0167": {
+    "id": "R0167",
+    "type": "marriage",
+    "from_person": "P0051",
+    "to_person": "P0186",
+    "role": "spouse",
+    "evidence": [
+      "E0055",
+      "E0112"
+    ]
+  },
+  "R0168": {
+    "id": "R0168",
+    "type": "godparent",
+    "from_person": "P0127",
+    "to_person": "P0187",
+    "role": "godparent",
+    "evidence": [
+      "E0055"
+    ]
+  },
+  "R0169": {
+    "id": "R0169",
+    "type": "godparent",
+    "from_person": "P0188",
+    "to_person": "P0187",
+    "role": "godparent",
+    "evidence": [
+      "E0055"
+    ]
+  },
+  "R0170": {
+    "id": "R0170",
+    "type": "biological_parent",
+    "from_person": "P0122",
+    "to_person": "P0200",
+    "role": "father",
+    "evidence": [
+      "E0071"
+    ]
+  },
+  "R0171": {
+    "id": "R0171",
+    "type": "biological_parent",
+    "from_person": "P0129",
+    "to_person": "P0200",
+    "role": "mother",
+    "evidence": [
+      "E0071"
+    ]
+  },
+  "R0172": {
+    "id": "R0172",
+    "type": "biological_parent",
+    "from_person": "P0122",
+    "to_person": "P0201",
+    "role": "father",
+    "evidence": [
+      "E0072"
+    ]
+  },
+  "R0173": {
+    "id": "R0173",
+    "type": "biological_parent",
+    "from_person": "P0129",
+    "to_person": "P0201",
+    "role": "mother",
+    "evidence": [
+      "E0072"
+    ]
+  },
+  "R0174": {
+    "id": "R0174",
+    "type": "godparent",
+    "from_person": "P0131",
+    "to_person": "P0201",
+    "role": "godparent",
+    "evidence": [
+      "E0072"
+    ]
+  },
+  "R0175": {
+    "id": "R0175",
+    "type": "godparent",
+    "from_person": "P0118",
+    "to_person": "P0201",
+    "role": "godparent",
+    "evidence": [
+      "E0072"
+    ]
+  },
+  "R0176": {
+    "id": "R0176",
+    "type": "biological_parent",
+    "from_person": "P0131",
+    "to_person": "P0202",
+    "role": "father",
+    "evidence": [
+      "E0073"
+    ]
+  },
+  "R0177": {
+    "id": "R0177",
+    "type": "biological_parent",
+    "from_person": "P0132",
+    "to_person": "P0202",
+    "role": "mother",
+    "evidence": [
+      "E0073"
+    ]
+  },
+  "R0178": {
+    "id": "R0178",
+    "type": "biological_parent",
+    "from_person": "P0204",
+    "to_person": "P0206",
+    "role": "father",
+    "evidence": [
+      "E0074"
+    ]
+  },
+  "R0179": {
+    "id": "R0179",
+    "type": "biological_parent",
+    "from_person": "P0205",
+    "to_person": "P0206",
+    "role": "mother",
+    "evidence": [
+      "E0074"
+    ]
+  },
+  "R0180": {
+    "id": "R0180",
+    "type": "marriage",
+    "from_person": "P0204",
+    "to_person": "P0205",
+    "role": "spouse",
+    "evidence": [
+      "E0074"
+    ]
+  },
+  "R0181": {
+    "id": "R0181",
+    "type": "biological_parent",
+    "from_person": "P0207",
+    "to_person": "P0209",
+    "role": "father",
+    "evidence": [
+      "E0075"
+    ]
+  },
+  "R0182": {
+    "id": "R0182",
+    "type": "biological_parent",
+    "from_person": "P0208",
+    "to_person": "P0209",
+    "role": "mother",
+    "evidence": [
+      "E0075"
+    ]
+  },
+  "R0183": {
+    "id": "R0183",
+    "type": "marriage",
+    "from_person": "P0207",
+    "to_person": "P0208",
+    "role": "spouse",
+    "evidence": [
+      "E0075"
+    ]
+  },
+  "R0184": {
+    "id": "R0184",
+    "type": "biological_parent",
+    "from_person": "P0054",
+    "to_person": "P0212",
+    "role": "father",
+    "evidence": [
+      "E0076"
+    ]
+  },
+  "R0185": {
+    "id": "R0185",
+    "type": "biological_parent",
+    "from_person": "P0211",
+    "to_person": "P0212",
+    "role": "mother",
+    "evidence": [
+      "E0076"
+    ]
+  },
+  "R0186": {
+    "id": "R0186",
+    "type": "marriage",
+    "from_person": "P0054",
+    "to_person": "P0211",
+    "role": "spouse",
+    "evidence": [
+      "E0076",
+      "E0142"
+    ]
+  },
+  "R0187": {
+    "id": "R0187",
+    "type": "biological_parent",
+    "from_person": "P0142",
+    "to_person": "P0214",
+    "role": "father",
+    "evidence": [
+      "E0077"
+    ]
+  },
+  "R0188": {
+    "id": "R0188",
+    "type": "biological_parent",
+    "from_person": "P0213",
+    "to_person": "P0214",
+    "role": "mother",
+    "evidence": [
+      "E0077"
+    ]
+  },
+  "R0189": {
+    "id": "R0189",
+    "type": "marriage",
+    "from_person": "P0142",
+    "to_person": "P0213",
+    "role": "spouse",
+    "evidence": [
+      "E0077",
+      "E0116"
+    ]
+  },
+  "R0190": {
+    "id": "R0190",
+    "type": "biological_parent",
+    "from_person": "P0216",
+    "to_person": "P0217",
+    "role": "father",
+    "evidence": [
+      "E0078"
+    ]
+  },
+  "R0191": {
+    "id": "R0191",
+    "type": "biological_parent",
+    "from_person": "P0196",
+    "to_person": "P0217",
+    "role": "mother",
+    "evidence": [
+      "E0078"
+    ]
+  },
+  "R0192": {
+    "id": "R0192",
+    "type": "marriage",
+    "from_person": "P0216",
+    "to_person": "P0196",
+    "role": "spouse",
+    "evidence": [
+      "E0078",
+      "E0140"
+    ]
+  },
+  "R0193": {
+    "id": "R0193",
+    "type": "biological_parent",
+    "from_person": "P0190",
+    "to_person": "P0219",
+    "role": "father",
+    "evidence": [
+      "E0079"
+    ]
+  },
+  "R0194": {
+    "id": "R0194",
+    "type": "biological_parent",
+    "from_person": "P0218",
+    "to_person": "P0219",
+    "role": "mother",
+    "evidence": [
+      "E0079"
+    ]
+  },
+  "R0195": {
+    "id": "R0195",
+    "type": "marriage",
+    "from_person": "P0190",
+    "to_person": "P0218",
+    "role": "spouse",
+    "evidence": [
+      "E0079"
+    ]
+  },
+  "R0196": {
+    "id": "R0196",
+    "type": "biological_parent",
+    "from_person": "P0221",
+    "to_person": "P0068",
+    "role": "father",
+    "evidence": [
+      "E0080"
+    ]
+  },
+  "R0197": {
+    "id": "R0197",
+    "type": "biological_parent",
+    "from_person": "P0222",
+    "to_person": "P0068",
+    "role": "mother",
+    "evidence": [
+      "E0080"
+    ]
+  },
+  "R0198": {
+    "id": "R0198",
+    "type": "marriage",
+    "from_person": "P0221",
+    "to_person": "P0222",
+    "role": "spouse",
+    "evidence": [
+      "E0080"
+    ]
+  },
+  "R0199": {
+    "id": "R0199",
+    "type": "biological_parent",
+    "from_person": "P0162",
+    "to_person": "P0224",
+    "role": "father",
+    "evidence": [
+      "E0081"
+    ]
+  },
+  "R0200": {
+    "id": "R0200",
+    "type": "biological_parent",
+    "from_person": "P0163",
+    "to_person": "P0224",
+    "role": "mother",
+    "evidence": [
+      "E0081"
+    ]
+  },
+  "R0201": {
+    "id": "R0201",
+    "type": "biological_parent",
+    "from_person": "P0226",
+    "to_person": "P0228",
+    "role": "father",
+    "evidence": [
+      "E0082"
+    ]
+  },
+  "R0202": {
+    "id": "R0202",
+    "type": "biological_parent",
+    "from_person": "P0227",
+    "to_person": "P0228",
+    "role": "mother",
+    "evidence": [
+      "E0082"
+    ]
+  },
+  "R0203": {
+    "id": "R0203",
+    "type": "marriage",
+    "from_person": "P0226",
+    "to_person": "P0227",
+    "role": "spouse",
+    "evidence": [
+      "E0082",
+      "E0158"
+    ]
+  },
+  "R0204": {
+    "id": "R0204",
+    "type": "biological_parent",
+    "from_person": "P0230",
+    "to_person": "P0232",
+    "role": "father",
+    "evidence": [
+      "E0083"
+    ]
+  },
+  "R0205": {
+    "id": "R0205",
+    "type": "biological_parent",
+    "from_person": "P0231",
+    "to_person": "P0232",
+    "role": "mother",
+    "evidence": [
+      "E0083"
+    ]
+  },
+  "R0206": {
+    "id": "R0206",
+    "type": "marriage",
+    "from_person": "P0230",
+    "to_person": "P0231",
+    "role": "spouse",
+    "evidence": [
+      "E0083"
+    ]
+  },
+  "R0207": {
+    "id": "R0207",
+    "type": "biological_parent",
+    "from_person": "P0154",
+    "to_person": "P0235",
+    "role": "father",
+    "evidence": [
+      "E0084"
+    ]
+  },
+  "R0208": {
+    "id": "R0208",
+    "type": "biological_parent",
+    "from_person": "P0234",
+    "to_person": "P0235",
+    "role": "mother",
+    "evidence": [
+      "E0084"
+    ]
+  },
+  "R0209": {
+    "id": "R0209",
+    "type": "marriage",
+    "from_person": "P0154",
+    "to_person": "P0234",
+    "role": "spouse",
+    "evidence": [
+      "E0084"
+    ]
+  },
+  "R0210": {
+    "id": "R0210",
+    "type": "biological_parent",
+    "from_person": "P0238",
+    "to_person": "P0240",
+    "role": "father",
+    "evidence": [
+      "E0085"
+    ]
+  },
+  "R0211": {
+    "id": "R0211",
+    "type": "biological_parent",
+    "from_person": "P0239",
+    "to_person": "P0240",
+    "role": "mother",
+    "evidence": [
+      "E0085"
+    ]
+  },
+  "R0212": {
+    "id": "R0212",
+    "type": "marriage",
+    "from_person": "P0238",
+    "to_person": "P0239",
+    "role": "spouse",
+    "evidence": [
+      "E0085",
+      "E0123"
+    ]
+  },
+  "R0213": {
+    "id": "R0213",
+    "type": "biological_parent",
+    "from_person": "P0169",
+    "to_person": "P0241",
+    "role": "father",
+    "evidence": [
+      "E0086"
+    ]
+  },
+  "R0214": {
+    "id": "R0214",
+    "type": "biological_parent",
+    "from_person": "P0170",
+    "to_person": "P0241",
+    "role": "mother",
+    "evidence": [
+      "E0086"
+    ]
+  },
+  "R0215": {
+    "id": "R0215",
+    "type": "biological_parent",
+    "from_person": "P0145",
+    "to_person": "P0095",
+    "role": "father",
+    "evidence": [
+      "E0087"
+    ]
+  },
+  "R0216": {
+    "id": "R0216",
+    "type": "biological_parent",
+    "from_person": "P0148",
+    "to_person": "P0095",
+    "role": "mother",
+    "evidence": [
+      "E0087"
+    ]
+  },
+  "R0217": {
+    "id": "R0217",
+    "type": "marriage",
+    "from_person": "P0145",
+    "to_person": "P0148",
+    "role": "spouse",
+    "evidence": [
+      "E0087",
+      "E0154"
+    ]
+  },
+  "R0218": {
+    "id": "R0218",
+    "type": "biological_parent",
+    "from_person": "P0182",
+    "to_person": "P0058",
+    "role": "father",
+    "evidence": [
+      "E0088"
+    ]
+  },
+  "R0219": {
+    "id": "R0219",
+    "type": "biological_parent",
+    "from_person": "P0196",
+    "to_person": "P0058",
+    "role": "mother",
+    "evidence": [
+      "E0088"
+    ]
+  },
+  "R0220": {
+    "id": "R0220",
+    "type": "marriage",
+    "from_person": "P0182",
+    "to_person": "P0196",
+    "role": "spouse",
+    "evidence": [
+      "E0088",
+      "E0147"
+    ]
+  },
+  "R0221": {
+    "id": "R0221",
+    "type": "biological_parent",
+    "from_person": "P0244",
+    "to_person": "P0246",
+    "role": "father",
+    "evidence": [
+      "E0089"
+    ]
+  },
+  "R0222": {
+    "id": "R0222",
+    "type": "biological_parent",
+    "from_person": "P0245",
+    "to_person": "P0246",
+    "role": "mother",
+    "evidence": [
+      "E0089"
+    ]
+  },
+  "R0223": {
+    "id": "R0223",
+    "type": "marriage",
+    "from_person": "P0244",
+    "to_person": "P0245",
+    "role": "spouse",
+    "evidence": [
+      "E0089"
+    ]
+  },
+  "R0224": {
+    "id": "R0224",
+    "type": "biological_parent",
+    "from_person": "P0247",
+    "to_person": "P0249",
+    "role": "father",
+    "evidence": [
+      "E0090"
+    ]
+  },
+  "R0225": {
+    "id": "R0225",
+    "type": "biological_parent",
+    "from_person": "P0248",
+    "to_person": "P0249",
+    "role": "mother",
+    "evidence": [
+      "E0090"
+    ]
+  },
+  "R0226": {
+    "id": "R0226",
+    "type": "marriage",
+    "from_person": "P0247",
+    "to_person": "P0248",
+    "role": "spouse",
+    "evidence": [
+      "E0090"
+    ]
+  },
+  "R0227": {
+    "id": "R0227",
+    "type": "biological_parent",
+    "from_person": "P0252",
+    "to_person": "P0010",
+    "role": "father",
+    "evidence": [
+      "E0091"
+    ]
+  },
+  "R0228": {
+    "id": "R0228",
+    "type": "biological_parent",
+    "from_person": "P0136",
+    "to_person": "P0010",
+    "role": "mother",
+    "evidence": [
+      "E0091"
+    ]
+  },
+  "R0229": {
+    "id": "R0229",
+    "type": "marriage",
+    "from_person": "P0252",
+    "to_person": "P0136",
+    "role": "spouse",
+    "evidence": [
+      "E0091"
+    ]
+  },
+  "R0230": {
+    "id": "R0230",
+    "type": "biological_parent",
+    "from_person": "P0012",
+    "to_person": "P0265",
+    "role": "father",
+    "evidence": [
+      "E0109"
+    ]
+  },
+  "R0231": {
+    "id": "R0231",
+    "type": "biological_parent",
+    "from_person": "P0264",
+    "to_person": "P0265",
+    "role": "mother",
+    "evidence": [
+      "E0109"
+    ]
+  },
+  "R0232": {
+    "id": "R0232",
+    "type": "marriage",
+    "from_person": "P0012",
+    "to_person": "P0264",
+    "role": "spouse",
+    "evidence": [
+      "E0109"
+    ]
+  },
+  "R0233": {
+    "id": "R0233",
+    "type": "biological_parent",
+    "from_person": "P0266",
+    "to_person": "P0268",
+    "role": "father",
+    "evidence": [
+      "E0110"
+    ]
+  },
+  "R0234": {
+    "id": "R0234",
+    "type": "biological_parent",
+    "from_person": "P0267",
+    "to_person": "P0268",
+    "role": "mother",
+    "evidence": [
+      "E0110"
+    ]
+  },
+  "R0235": {
+    "id": "R0235",
+    "type": "marriage",
+    "from_person": "P0266",
+    "to_person": "P0267",
+    "role": "spouse",
+    "evidence": [
+      "E0110"
+    ]
+  },
+  "R0236": {
+    "id": "R0236",
+    "type": "biological_parent",
+    "from_person": "P0053",
+    "to_person": "P0271",
+    "role": "father",
+    "evidence": [
+      "E0111"
+    ]
+  },
+  "R0237": {
+    "id": "R0237",
+    "type": "biological_parent",
+    "from_person": "P0270",
+    "to_person": "P0271",
+    "role": "mother",
+    "evidence": [
+      "E0111"
+    ]
+  },
+  "R0238": {
+    "id": "R0238",
+    "type": "marriage",
+    "from_person": "P0053",
+    "to_person": "P0270",
+    "role": "spouse",
+    "evidence": [
+      "E0111"
+    ]
+  },
+  "R0239": {
+    "id": "R0239",
+    "type": "biological_parent",
+    "from_person": "P0051",
+    "to_person": "P0274",
+    "role": "father",
+    "evidence": [
+      "E0112"
+    ]
+  },
+  "R0240": {
+    "id": "R0240",
+    "type": "biological_parent",
+    "from_person": "P0186",
+    "to_person": "P0274",
+    "role": "mother",
+    "evidence": [
+      "E0112"
+    ]
+  },
+  "R0241": {
+    "id": "R0241",
+    "type": "biological_parent",
+    "from_person": "P0135",
+    "to_person": "P0276",
+    "role": "father",
+    "evidence": [
+      "E0113"
+    ]
+  },
+  "R0242": {
+    "id": "R0242",
+    "type": "biological_parent",
+    "from_person": "P0275",
+    "to_person": "P0276",
+    "role": "mother",
+    "evidence": [
+      "E0113"
+    ]
+  },
+  "R0243": {
+    "id": "R0243",
+    "type": "marriage",
+    "from_person": "P0135",
+    "to_person": "P0275",
+    "role": "spouse",
+    "evidence": [
+      "E0113",
+      "E0152"
+    ]
+  },
+  "R0244": {
+    "id": "R0244",
+    "type": "godparent",
+    "from_person": "P0277",
+    "to_person": "P0276",
+    "role": "godparent",
+    "evidence": [
+      "E0113"
+    ]
+  },
+  "R0245": {
+    "id": "R0245",
+    "type": "godparent",
+    "from_person": "P0188",
+    "to_person": "P0276",
+    "role": "godparent",
+    "evidence": [
+      "E0113"
+    ]
+  },
+  "R0246": {
+    "id": "R0246",
+    "type": "biological_parent",
+    "from_person": "P0192",
+    "to_person": "P0279",
+    "role": "father",
+    "evidence": [
+      "E0114"
+    ]
+  },
+  "R0247": {
+    "id": "R0247",
+    "type": "biological_parent",
+    "from_person": "P0278",
+    "to_person": "P0279",
+    "role": "mother",
+    "evidence": [
+      "E0114"
+    ]
+  },
+  "R0248": {
+    "id": "R0248",
+    "type": "marriage",
+    "from_person": "P0192",
+    "to_person": "P0278",
+    "role": "spouse",
+    "evidence": [
+      "E0114"
+    ]
+  },
+  "R0249": {
+    "id": "R0249",
+    "type": "biological_parent",
+    "from_person": "P0142",
+    "to_person": "P0281",
+    "role": "father",
+    "evidence": [
+      "E0116"
+    ]
+  },
+  "R0250": {
+    "id": "R0250",
+    "type": "biological_parent",
+    "from_person": "P0213",
+    "to_person": "P0281",
+    "role": "mother",
+    "evidence": [
+      "E0116"
+    ]
+  },
+  "R0251": {
+    "id": "R0251",
+    "type": "biological_parent",
+    "from_person": "P0282",
+    "to_person": "P0284",
+    "role": "father",
+    "evidence": [
+      "E0117"
+    ]
+  },
+  "R0252": {
+    "id": "R0252",
+    "type": "biological_parent",
+    "from_person": "P0283",
+    "to_person": "P0284",
+    "role": "mother",
+    "evidence": [
+      "E0117"
+    ]
+  },
+  "R0253": {
+    "id": "R0253",
+    "type": "marriage",
+    "from_person": "P0282",
+    "to_person": "P0283",
+    "role": "spouse",
+    "evidence": [
+      "E0117"
+    ]
+  },
+  "R0254": {
+    "id": "R0254",
+    "type": "godparent",
+    "from_person": "P0285",
+    "to_person": "P0284",
+    "role": "godparent",
+    "evidence": [
+      "E0117"
+    ]
+  },
+  "R0255": {
+    "id": "R0255",
+    "type": "godparent",
+    "from_person": "P0286",
+    "to_person": "P0284",
+    "role": "godparent",
+    "evidence": [
+      "E0117"
+    ]
+  },
+  "R0256": {
+    "id": "R0256",
+    "type": "biological_parent",
+    "from_person": "P0287",
+    "to_person": "P0288",
+    "role": "father",
+    "evidence": [
+      "E0118"
+    ]
+  },
+  "R0257": {
+    "id": "R0257",
+    "type": "biological_parent",
+    "from_person": "P0081",
+    "to_person": "P0288",
+    "role": "mother",
+    "evidence": [
+      "E0118"
+    ]
+  },
+  "R0258": {
+    "id": "R0258",
+    "type": "marriage",
+    "from_person": "P0287",
+    "to_person": "P0081",
+    "role": "spouse",
+    "evidence": [
+      "E0118"
+    ]
+  },
+  "R0259": {
+    "id": "R0259",
+    "type": "biological_parent",
+    "from_person": "P0277",
+    "to_person": "P0290",
+    "role": "father",
+    "evidence": [
+      "E0119"
+    ]
+  },
+  "R0260": {
+    "id": "R0260",
+    "type": "biological_parent",
+    "from_person": "P0289",
+    "to_person": "P0290",
+    "role": "mother",
+    "evidence": [
+      "E0119"
+    ]
+  },
+  "R0261": {
+    "id": "R0261",
+    "type": "marriage",
+    "from_person": "P0277",
+    "to_person": "P0289",
+    "role": "spouse",
+    "evidence": [
+      "E0119"
+    ]
+  },
+  "R0262": {
+    "id": "R0262",
+    "type": "biological_parent",
+    "from_person": "P0151",
+    "to_person": "P0292",
+    "role": "father",
+    "evidence": [
+      "E0120"
+    ]
+  },
+  "R0263": {
+    "id": "R0263",
+    "type": "biological_parent",
+    "from_person": "P0152",
+    "to_person": "P0292",
+    "role": "mother",
+    "evidence": [
+      "E0120"
+    ]
+  },
+  "R0264": {
+    "id": "R0264",
+    "type": "biological_parent",
+    "from_person": "P0220",
+    "to_person": "P0294",
+    "role": "father",
+    "evidence": [
+      "E0121"
+    ]
+  },
+  "R0265": {
+    "id": "R0265",
+    "type": "biological_parent",
+    "from_person": "P0293",
+    "to_person": "P0294",
+    "role": "mother",
+    "evidence": [
+      "E0121"
+    ]
+  },
+  "R0266": {
+    "id": "R0266",
+    "type": "marriage",
+    "from_person": "P0220",
+    "to_person": "P0293",
+    "role": "spouse",
+    "evidence": [
+      "E0121"
+    ]
+  },
+  "R0267": {
+    "id": "R0267",
+    "type": "godparent",
+    "from_person": "P0295",
+    "to_person": "P0294",
+    "role": "godparent",
+    "evidence": [
+      "E0121"
+    ]
+  },
+  "R0268": {
+    "id": "R0268",
+    "type": "godparent",
+    "from_person": "P0296",
+    "to_person": "P0294",
+    "role": "godparent",
+    "evidence": [
+      "E0121"
+    ]
+  },
+  "R0269": {
+    "id": "R0269",
+    "type": "biological_parent",
+    "from_person": "P0297",
+    "to_person": "P0299",
+    "role": "father",
+    "evidence": [
+      "E0122"
+    ]
+  },
+  "R0270": {
+    "id": "R0270",
+    "type": "biological_parent",
+    "from_person": "P0298",
+    "to_person": "P0299",
+    "role": "mother",
+    "evidence": [
+      "E0122"
+    ]
+  },
+  "R0271": {
+    "id": "R0271",
+    "type": "marriage",
+    "from_person": "P0297",
+    "to_person": "P0298",
+    "role": "spouse",
+    "evidence": [
+      "E0122",
+      "E0155"
+    ]
+  },
+  "R0272": {
+    "id": "R0272",
+    "type": "biological_parent",
+    "from_person": "P0238",
+    "to_person": "P0302",
+    "role": "father",
+    "evidence": [
+      "E0123"
+    ]
+  },
+  "R0273": {
+    "id": "R0273",
+    "type": "biological_parent",
+    "from_person": "P0239",
+    "to_person": "P0302",
+    "role": "mother",
+    "evidence": [
+      "E0123"
+    ]
+  },
+  "R0274": {
+    "id": "R0274",
+    "type": "biological_parent",
+    "from_person": "P0303",
+    "to_person": "P0305",
+    "role": "father",
+    "evidence": [
+      "E0137"
+    ]
+  },
+  "R0275": {
+    "id": "R0275",
+    "type": "biological_parent",
+    "from_person": "P0304",
+    "to_person": "P0305",
+    "role": "mother",
+    "evidence": [
+      "E0137"
+    ]
+  },
+  "R0276": {
+    "id": "R0276",
+    "type": "marriage",
+    "from_person": "P0303",
+    "to_person": "P0304",
+    "role": "spouse",
+    "evidence": [
+      "E0137"
+    ]
+  },
+  "R0277": {
+    "id": "R0277",
+    "type": "biological_parent",
+    "from_person": "P0014",
+    "to_person": "P0306",
+    "role": "father",
+    "evidence": [
+      "E0138"
+    ]
+  },
+  "R0278": {
+    "id": "R0278",
+    "type": "biological_parent",
+    "from_person": "P0205",
+    "to_person": "P0306",
+    "role": "mother",
+    "evidence": [
+      "E0138"
+    ]
+  },
+  "R0279": {
+    "id": "R0279",
+    "type": "marriage",
+    "from_person": "P0014",
+    "to_person": "P0205",
+    "role": "spouse",
+    "evidence": [
+      "E0138"
+    ]
+  },
+  "R0280": {
+    "id": "R0280",
+    "type": "biological_parent",
+    "from_person": "P0307",
+    "to_person": "P0309",
+    "role": "father",
+    "evidence": [
+      "E0139"
+    ]
+  },
+  "R0281": {
+    "id": "R0281",
+    "type": "biological_parent",
+    "from_person": "P0308",
+    "to_person": "P0309",
+    "role": "mother",
+    "evidence": [
+      "E0139"
+    ]
+  },
+  "R0282": {
+    "id": "R0282",
+    "type": "marriage",
+    "from_person": "P0307",
+    "to_person": "P0308",
+    "role": "spouse",
+    "evidence": [
+      "E0139"
+    ]
+  },
+  "R0283": {
+    "id": "R0283",
+    "type": "godparent",
+    "from_person": "P0310",
+    "to_person": "P0309",
+    "role": "godparent",
+    "evidence": [
+      "E0139"
+    ]
+  },
+  "R0284": {
+    "id": "R0284",
+    "type": "godparent",
+    "from_person": "P0311",
+    "to_person": "P0309",
+    "role": "godparent",
+    "evidence": [
+      "E0139"
+    ]
+  },
+  "R0285": {
+    "id": "R0285",
+    "type": "biological_parent",
+    "from_person": "P0216",
+    "to_person": "P0312",
+    "role": "father",
+    "evidence": [
+      "E0140"
+    ]
+  },
+  "R0286": {
+    "id": "R0286",
+    "type": "biological_parent",
+    "from_person": "P0196",
+    "to_person": "P0312",
+    "role": "mother",
+    "evidence": [
+      "E0140"
+    ]
+  },
+  "R0287": {
+    "id": "R0287",
+    "type": "biological_parent",
+    "from_person": "P0313",
+    "to_person": "P0315",
+    "role": "father",
+    "evidence": [
+      "E0141"
+    ]
+  },
+  "R0288": {
+    "id": "R0288",
+    "type": "biological_parent",
+    "from_person": "P0314",
+    "to_person": "P0315",
+    "role": "mother",
+    "evidence": [
+      "E0141"
+    ]
+  },
+  "R0289": {
+    "id": "R0289",
+    "type": "marriage",
+    "from_person": "P0313",
+    "to_person": "P0314",
+    "role": "spouse",
+    "evidence": [
+      "E0141"
+    ]
+  },
+  "R0290": {
+    "id": "R0290",
+    "type": "godparent",
+    "from_person": "P0318",
+    "to_person": "P0315",
+    "role": "godparent",
+    "evidence": [
+      "E0141"
+    ]
+  },
+  "R0291": {
+    "id": "R0291",
+    "type": "godparent",
+    "from_person": "P0319",
+    "to_person": "P0315",
+    "role": "godparent",
+    "evidence": [
+      "E0141"
+    ]
+  },
+  "R0292": {
+    "id": "R0292",
+    "type": "biological_parent",
+    "from_person": "P0054",
+    "to_person": "P0320",
+    "role": "father",
+    "evidence": [
+      "E0142"
+    ]
+  },
+  "R0293": {
+    "id": "R0293",
+    "type": "biological_parent",
+    "from_person": "P0211",
+    "to_person": "P0320",
+    "role": "mother",
+    "evidence": [
+      "E0142"
+    ]
+  },
+  "R0294": {
+    "id": "R0294",
+    "type": "godparent",
+    "from_person": "P0321",
+    "to_person": "P0320",
+    "role": "godparent",
+    "evidence": [
+      "E0142"
+    ]
+  },
+  "R0295": {
+    "id": "R0295",
+    "type": "godparent",
+    "from_person": "P0322",
+    "to_person": "P0320",
+    "role": "godparent",
+    "evidence": [
+      "E0142"
+    ]
+  },
+  "R0296": {
+    "id": "R0296",
+    "type": "biological_parent",
+    "from_person": "P0323",
+    "to_person": "P0325",
+    "role": "father",
+    "evidence": [
+      "E0143"
+    ]
+  },
+  "R0297": {
+    "id": "R0297",
+    "type": "biological_parent",
+    "from_person": "P0324",
+    "to_person": "P0325",
+    "role": "mother",
+    "evidence": [
+      "E0143"
+    ]
+  },
+  "R0298": {
+    "id": "R0298",
+    "type": "marriage",
+    "from_person": "P0323",
+    "to_person": "P0324",
+    "role": "spouse",
+    "evidence": [
+      "E0143"
+    ]
+  },
+  "R0299": {
+    "id": "R0299",
+    "type": "godparent",
+    "from_person": "P0277",
+    "to_person": "P0325",
+    "role": "godparent",
+    "evidence": [
+      "E0143"
+    ]
+  },
+  "R0300": {
+    "id": "R0300",
+    "type": "godparent",
+    "from_person": "P0326",
+    "to_person": "P0325",
+    "role": "godparent",
+    "evidence": [
+      "E0143"
+    ]
+  },
+  "R0301": {
+    "id": "R0301",
+    "type": "biological_parent",
+    "from_person": "P0149",
+    "to_person": "P0327",
+    "role": "father",
+    "evidence": [
+      "E0144"
+    ]
+  },
+  "R0302": {
+    "id": "R0302",
+    "type": "biological_parent",
+    "from_person": "P0023",
+    "to_person": "P0327",
+    "role": "mother",
+    "evidence": [
+      "E0144"
+    ]
+  },
+  "R0303": {
+    "id": "R0303",
+    "type": "godparent",
+    "from_person": "P0227",
+    "to_person": "P0327",
+    "role": "godparent",
+    "evidence": [
+      "E0144"
+    ]
+  },
+  "R0304": {
+    "id": "R0304",
+    "type": "godparent",
+    "from_person": "P0001",
+    "to_person": "P0327",
+    "role": "godparent",
+    "evidence": [
+      "E0144"
+    ]
+  },
+  "R0305": {
+    "id": "R0305",
+    "type": "biological_parent",
+    "from_person": "P0127",
+    "to_person": "P0328",
+    "role": "father",
+    "evidence": [
+      "E0145"
+    ]
+  },
+  "R0306": {
+    "id": "R0306",
+    "type": "biological_parent",
+    "from_person": "P0218",
+    "to_person": "P0328",
+    "role": "mother",
+    "evidence": [
+      "E0145"
+    ]
+  },
+  "R0307": {
+    "id": "R0307",
+    "type": "marriage",
+    "from_person": "P0127",
+    "to_person": "P0218",
+    "role": "spouse",
+    "evidence": [
+      "E0145"
+    ]
+  },
+  "R0308": {
+    "id": "R0308",
+    "type": "godparent",
+    "from_person": "P0329",
+    "to_person": "P0328",
+    "role": "godparent",
+    "evidence": [
+      "E0145"
+    ]
+  },
+  "R0309": {
+    "id": "R0309",
+    "type": "godparent",
+    "from_person": "P0330",
+    "to_person": "P0328",
+    "role": "godparent",
+    "evidence": [
+      "E0145"
+    ]
+  },
+  "R0310": {
+    "id": "R0310",
+    "type": "biological_parent",
+    "from_person": "P0243",
+    "to_person": "P0332",
+    "role": "father",
+    "evidence": [
+      "E0146"
+    ]
+  },
+  "R0311": {
+    "id": "R0311",
+    "type": "biological_parent",
+    "from_person": "P0331",
+    "to_person": "P0332",
+    "role": "mother",
+    "evidence": [
+      "E0146"
+    ]
+  },
+  "R0312": {
+    "id": "R0312",
+    "type": "marriage",
+    "from_person": "P0243",
+    "to_person": "P0331",
+    "role": "spouse",
+    "evidence": [
+      "E0146"
+    ]
+  },
+  "R0313": {
+    "id": "R0313",
+    "type": "biological_parent",
+    "from_person": "P0182",
+    "to_person": "P0196",
+    "role": "father",
+    "evidence": [
+      "E0147"
+    ]
+  },
+  "R0314": {
+    "id": "R0314",
+    "type": "biological_parent",
+    "from_person": "P0196",
+    "to_person": "P0196",
+    "role": "mother",
+    "evidence": [
+      "E0147"
+    ]
+  },
+  "R0315": {
+    "id": "R0315",
+    "type": "godparent",
+    "from_person": "P0335",
+    "to_person": "P0196",
+    "role": "godparent",
+    "evidence": [
+      "E0147"
+    ]
+  },
+  "R0316": {
+    "id": "R0316",
+    "type": "godparent",
+    "from_person": "P0336",
+    "to_person": "P0196",
+    "role": "godparent",
+    "evidence": [
+      "E0147"
+    ]
+  },
+  "R0317": {
+    "id": "R0317",
+    "type": "biological_parent",
+    "from_person": "P0337",
+    "to_person": "P0280",
+    "role": "father",
+    "evidence": [
+      "E0148"
+    ]
+  },
+  "R0318": {
+    "id": "R0318",
+    "type": "biological_parent",
+    "from_person": "P0278",
+    "to_person": "P0280",
+    "role": "mother",
+    "evidence": [
+      "E0148"
+    ]
+  },
+  "R0319": {
+    "id": "R0319",
+    "type": "marriage",
+    "from_person": "P0337",
+    "to_person": "P0278",
+    "role": "spouse",
+    "evidence": [
+      "E0148"
+    ]
+  },
+  "R0320": {
+    "id": "R0320",
+    "type": "biological_parent",
+    "from_person": "P0193",
+    "to_person": "P0340",
+    "role": "father",
+    "evidence": [
+      "E0149"
+    ]
+  },
+  "R0321": {
+    "id": "R0321",
+    "type": "biological_parent",
+    "from_person": "P0339",
+    "to_person": "P0340",
+    "role": "mother",
+    "evidence": [
+      "E0149"
+    ]
+  },
+  "R0322": {
+    "id": "R0322",
+    "type": "marriage",
+    "from_person": "P0193",
+    "to_person": "P0339",
+    "role": "spouse",
+    "evidence": [
+      "E0149"
+    ]
+  },
+  "R0323": {
+    "id": "R0323",
+    "type": "biological_parent",
+    "from_person": "P0131",
+    "to_person": "P0341",
+    "role": "father",
+    "evidence": [
+      "E0150"
+    ]
+  },
+  "R0324": {
+    "id": "R0324",
+    "type": "biological_parent",
+    "from_person": "P0132",
+    "to_person": "P0341",
+    "role": "mother",
+    "evidence": [
+      "E0150"
+    ]
+  },
+  "R0325": {
+    "id": "R0325",
+    "type": "biological_parent",
+    "from_person": "P0135",
+    "to_person": "P0343",
+    "role": "father",
+    "evidence": [
+      "E0152"
+    ]
+  },
+  "R0326": {
+    "id": "R0326",
+    "type": "biological_parent",
+    "from_person": "P0275",
+    "to_person": "P0343",
+    "role": "mother",
+    "evidence": [
+      "E0152"
+    ]
+  },
+  "R0327": {
+    "id": "R0327",
+    "type": "biological_parent",
+    "from_person": "P0169",
+    "to_person": "P0344",
+    "role": "father",
+    "evidence": [
+      "E0153"
+    ]
+  },
+  "R0328": {
+    "id": "R0328",
+    "type": "biological_parent",
+    "from_person": "P0170",
+    "to_person": "P0344",
+    "role": "mother",
+    "evidence": [
+      "E0153"
+    ]
+  },
+  "R0329": {
+    "id": "R0329",
+    "type": "biological_parent",
+    "from_person": "P0145",
+    "to_person": "P0345",
+    "role": "father",
+    "evidence": [
+      "E0154"
+    ]
+  },
+  "R0330": {
+    "id": "R0330",
+    "type": "biological_parent",
+    "from_person": "P0148",
+    "to_person": "P0345",
+    "role": "mother",
+    "evidence": [
+      "E0154"
+    ]
+  },
+  "R0331": {
+    "id": "R0331",
+    "type": "biological_parent",
+    "from_person": "P0297",
+    "to_person": "P0346",
+    "role": "father",
+    "evidence": [
+      "E0155"
+    ]
+  },
+  "R0332": {
+    "id": "R0332",
+    "type": "biological_parent",
+    "from_person": "P0298",
+    "to_person": "P0346",
+    "role": "mother",
+    "evidence": [
+      "E0155"
+    ]
+  },
+  "R0333": {
+    "id": "R0333",
+    "type": "godparent",
+    "from_person": "P0348",
+    "to_person": "P0346",
+    "role": "godparent",
+    "evidence": [
+      "E0155"
+    ]
+  },
+  "R0334": {
+    "id": "R0334",
+    "type": "godparent",
+    "from_person": "P0349",
+    "to_person": "P0346",
+    "role": "godparent",
+    "evidence": [
+      "E0155"
+    ]
+  },
+  "R0335": {
+    "id": "R0335",
+    "type": "biological_parent",
+    "from_person": "P0350",
+    "to_person": "P0352",
+    "role": "father",
+    "evidence": [
+      "E0156"
+    ]
+  },
+  "R0336": {
+    "id": "R0336",
+    "type": "biological_parent",
+    "from_person": "P0351",
+    "to_person": "P0352",
+    "role": "mother",
+    "evidence": [
+      "E0156"
+    ]
+  },
+  "R0337": {
+    "id": "R0337",
+    "type": "marriage",
+    "from_person": "P0350",
+    "to_person": "P0351",
+    "role": "spouse",
+    "evidence": [
+      "E0156"
+    ]
+  },
+  "R0338": {
+    "id": "R0338",
+    "type": "godparent",
+    "from_person": "P0353",
+    "to_person": "P0352",
+    "role": "godparent",
+    "evidence": [
+      "E0156"
+    ]
+  },
+  "R0339": {
+    "id": "R0339",
+    "type": "godparent",
+    "from_person": "P0196",
+    "to_person": "P0352",
+    "role": "godparent",
+    "evidence": [
+      "E0156"
+    ]
+  },
+  "R0340": {
+    "id": "R0340",
+    "type": "biological_parent",
+    "from_person": "P0354",
+    "to_person": "P0356",
+    "role": "father",
+    "evidence": [
+      "E0157"
+    ]
+  },
+  "R0341": {
+    "id": "R0341",
+    "type": "biological_parent",
+    "from_person": "P0355",
+    "to_person": "P0356",
+    "role": "mother",
+    "evidence": [
+      "E0157"
+    ]
+  },
+  "R0342": {
+    "id": "R0342",
+    "type": "marriage",
+    "from_person": "P0354",
+    "to_person": "P0355",
+    "role": "spouse",
+    "evidence": [
+      "E0157"
+    ]
+  },
+  "R0343": {
+    "id": "R0343",
+    "type": "godparent",
+    "from_person": "P0223",
+    "to_person": "P0356",
+    "role": "godparent",
+    "evidence": [
+      "E0157"
+    ]
+  },
+  "R0344": {
+    "id": "R0344",
+    "type": "godparent",
+    "from_person": "P0196",
+    "to_person": "P0356",
+    "role": "godparent",
+    "evidence": [
+      "E0157"
+    ]
+  },
+  "R0345": {
+    "id": "R0345",
+    "type": "biological_parent",
+    "from_person": "P0226",
+    "to_person": "P0017",
+    "role": "father",
+    "evidence": [
+      "E0158"
+    ]
+  },
+  "R0346": {
+    "id": "R0346",
+    "type": "biological_parent",
+    "from_person": "P0227",
+    "to_person": "P0017",
+    "role": "mother",
+    "evidence": [
+      "E0158"
+    ]
+  },
+  "R0347": {
+    "id": "R0347",
+    "type": "biological_parent",
+    "from_person": "P0329",
+    "to_person": "P0358",
+    "role": "father",
+    "evidence": [
+      "E0159"
+    ]
+  },
+  "R0348": {
+    "id": "R0348",
+    "type": "biological_parent",
+    "from_person": "P0357",
+    "to_person": "P0358",
+    "role": "mother",
+    "evidence": [
+      "E0159"
+    ]
+  },
+  "R0349": {
+    "id": "R0349",
+    "type": "marriage",
+    "from_person": "P0329",
+    "to_person": "P0357",
+    "role": "spouse",
+    "evidence": [
+      "E0159"
+    ]
+  },
+  "R0350": {
+    "id": "R0350",
+    "type": "biological_parent",
+    "from_person": "P0216",
+    "to_person": "P0374",
+    "role": "father",
+    "evidence": [
+      "E0176"
+    ]
+  },
+  "R0351": {
+    "id": "R0351",
+    "type": "biological_parent",
+    "from_person": "P0326",
+    "to_person": "P0374",
+    "role": "mother",
+    "evidence": [
+      "E0176"
+    ]
+  },
+  "R0352": {
+    "id": "R0352",
+    "type": "marriage",
+    "from_person": "P0216",
+    "to_person": "P0326",
+    "role": "spouse",
+    "evidence": [
+      "E0176"
+    ]
+  },
+  "R0353": {
+    "id": "R0353",
+    "type": "biological_parent",
+    "from_person": "P0277",
+    "to_person": "P0428",
+    "role": "father",
+    "evidence": [
+      "E0247"
+    ]
+  },
+  "R0354": {
+    "id": "R0354",
+    "type": "biological_parent",
+    "from_person": "P0427",
+    "to_person": "P0428",
+    "role": "mother",
+    "evidence": [
+      "E0247"
+    ]
+  },
+  "R0355": {
+    "id": "R0355",
+    "type": "marriage",
+    "from_person": "P0277",
+    "to_person": "P0427",
+    "role": "spouse",
+    "evidence": [
+      "E0247"
+    ]
+  },
+  "R0356": {
+    "id": "R0356",
+    "type": "biological_parent",
+    "from_person": "P0419",
+    "to_person": "P0444",
+    "role": "father",
+    "evidence": [
+      "E0264"
+    ]
+  },
+  "R0357": {
+    "id": "R0357",
+    "type": "biological_parent",
+    "from_person": "P0443",
+    "to_person": "P0444",
+    "role": "mother",
+    "evidence": [
+      "E0264"
+    ]
+  },
+  "R0358": {
+    "id": "R0358",
+    "type": "marriage",
+    "from_person": "P0419",
+    "to_person": "P0443",
+    "role": "spouse",
+    "evidence": [
+      "E0264"
+    ]
+  },
+  "R0359": {
+    "id": "R0359",
+    "type": "biological_parent",
+    "from_person": "P0419",
+    "to_person": "P0446",
+    "role": "father",
+    "evidence": [
+      "E0266"
+    ]
+  },
+  "R0360": {
+    "id": "R0360",
+    "type": "biological_parent",
+    "from_person": "P0445",
+    "to_person": "P0446",
+    "role": "mother",
+    "evidence": [
+      "E0266"
+    ]
+  },
+  "R0361": {
+    "id": "R0361",
+    "type": "marriage",
+    "from_person": "P0419",
+    "to_person": "P0445",
+    "role": "spouse",
+    "evidence": [
+      "E0266"
+    ]
+  },
+  "R0362": {
+    "id": "R0362",
+    "type": "biological_parent",
+    "from_person": "P0277",
+    "to_person": "P0447",
+    "role": "father",
+    "evidence": [
+      "E0267"
+    ]
+  },
+  "R0363": {
+    "id": "R0363",
+    "type": "biological_parent",
+    "from_person": "P0443",
+    "to_person": "P0447",
+    "role": "mother",
+    "evidence": [
+      "E0267"
+    ]
+  },
+  "R0364": {
+    "id": "R0364",
+    "type": "marriage",
+    "from_person": "P0277",
+    "to_person": "P0443",
+    "role": "spouse",
+    "evidence": [
+      "E0267"
+    ]
+  },
+  "R0365": {
+    "id": "R0365",
+    "type": "biological_parent",
+    "from_person": "P0419",
+    "to_person": "P0448",
+    "role": "father",
+    "evidence": [
+      "E0268"
+    ]
+  },
+  "R0366": {
+    "id": "R0366",
+    "type": "biological_parent",
+    "from_person": "P0290",
+    "to_person": "P0448",
+    "role": "mother",
+    "evidence": [
+      "E0268"
+    ]
+  },
+  "R0367": {
+    "id": "R0367",
+    "type": "marriage",
+    "from_person": "P0419",
+    "to_person": "P0290",
+    "role": "spouse",
+    "evidence": [
+      "E0268"
+    ]
+  },
+  "R0368": {
+    "id": "R0368",
+    "type": "biological_parent",
+    "from_person": "P0277",
+    "to_person": "P0450",
+    "role": "father",
+    "evidence": [
+      "E0269"
+    ]
+  },
+  "R0369": {
+    "id": "R0369",
+    "type": "biological_parent",
+    "from_person": "P0449",
+    "to_person": "P0450",
+    "role": "mother",
+    "evidence": [
+      "E0269"
+    ]
+  },
+  "R0370": {
+    "id": "R0370",
+    "type": "marriage",
+    "from_person": "P0277",
+    "to_person": "P0449",
+    "role": "spouse",
+    "evidence": [
+      "E0269"
+    ]
+  },
+  "R0371": {
+    "id": "R0371",
+    "type": "marriage",
+    "from_person": "P0466",
+    "to_person": "P0467",
+    "role": "spouse",
+    "evidence": [
+      "E0283"
+    ]
+  }
+}

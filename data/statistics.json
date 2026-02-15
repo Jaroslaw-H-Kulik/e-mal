@@ -1,0 +1,35 @@
+{
+  "total_persons": 621,
+  "total_events": 298,
+  "total_relationships": 315,
+  "events_by_type": {
+    "birth": 178,
+    "death": 116,
+    "marriage": 4
+  },
+  "relationships_by_type": {
+    "biological_parent": 173,
+    "godparent": 138,
+    "marriage": 4
+  },
+  "persons_by_gender": {
+    "M": 51,
+    "F": 41,
+    "U": 529
+  },
+  "persons_with_birth_year": 257,
+  "persons_with_death_year": 101,
+  "persons_with_occupations": 25,
+  "most_common_surnames": {
+    "Unknown": 93,
+    "Kiełek": 23,
+    "Surdey": 18,
+    "Drożdż": 18,
+    "Głód": 12,
+    "Słyk": 11,
+    "Myszka": 11,
+    "Niewczas": 9,
+    "Łęcki": 9,
+    "Kozik": 9
+  }
+}

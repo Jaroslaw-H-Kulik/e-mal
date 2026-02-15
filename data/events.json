@@ -1,0 +1,4302 @@
+{
+  "E0001": {
+    "id": "E0001",
+    "type": "birth",
+    "year": 1826,
+    "original_text": "Jan Surdey i Helena z d. Minda, św: Kazimierz Łapacz (32) i Jan Głód (33) - chrz. K.Ł.. i Rozalia Surdey. Ur: Brygida",
+    "source_line": 25,
+    "child": "P0289",
+    "father": "P0001",
+    "mother": "P0002",
+    "mother_maiden_name": "Minda",
+    "witnesses": [
+      "P0004",
+      "P0005"
+    ]
+  },
+  "E0002": {
+    "id": "E0002",
+    "type": "birth",
+    "year": 1826,
+    "original_text": "Wojciech Surdey i Marianna z d. Paszkowska (22), św: Józef Surdey (26 brat Jana, syn Wojciecha) i Marcin Niewczas (45) - chrz. J.S. i Marianna Jarosz. Ur: Jan",
+    "source_line": 26,
+    "child": "P0001",
+    "father": "P0006",
+    "mother": "P0007",
+    "mother_maiden_name": "Paszkowska (22)",
+    "witnesses": [
+      "P0008",
+      "P0009"
+    ]
+  },
+  "E0003": {
+    "id": "E0003",
+    "type": "birth",
+    "year": 1828,
+    "original_text": "Kazimierz Łapacz (33) i Agnieszka z d. Ciołek, św: Wincenty Zatorski (24) i Wojciech Surdey (35 syn Tadeusza) - chrz. W.Z. i Marianna Jarosz. Ur: Antoni",
+    "source_line": 29,
+    "child": "P0011",
+    "father": "P0004",
+    "mother": "P0010",
+    "mother_maiden_name": "Ciołek",
+    "witnesses": [
+      "P0012",
+      "P0006"
+    ]
+  },
+  "E0004": {
+    "id": "E0004",
+    "type": "death",
+    "year": 1828,
+    "original_text": "Św: Franciszek Zarzycki (60), Krzysztof Słyk (60), Wojciech Surdey (ojciec Jana, dziadek Brygidy)",
+    "source_line": 31,
+    "deceased": "P0013",
+    "witnesses": [
+      "P0014"
+    ]
+  },
+  "E0005": {
+    "id": "E0005",
+    "type": "birth",
+    "year": 1831,
+    "house_number": "30",
+    "original_text": "Ignacy Raczyński (młynarz) i Agnieszka Raczyńska z d. Turezińska: dom 30 św: Tomasz Kiełek i Onufry Zatorski",
+    "source_line": 35,
+    "father": "P0015",
+    "mother": "P0016",
+    "mother_maiden_name": "Turezińska",
+    "witnesses": [
+      "P0017",
+      "P0018"
+    ]
+  },
+  "E0006": {
+    "id": "E0006",
+    "type": "birth",
+    "year": 1831,
+    "house_number": "4",
+    "original_text": "Leonard Głód (wyrobnik) I Elżbieta z d. Krak?: dom 4 - św: Onufry, Melchior Zatorscy",
+    "source_line": 36,
+    "witnesses": [
+      "P0019"
+    ]
+  },
+  "E0007": {
+    "id": "E0007",
+    "type": "birth",
+    "year": 1831,
+    "house_number": "25",
+    "original_text": "Fabian Kiełek i Rozalia z d. Kuchanow?: dom 25",
+    "source_line": 37,
+    "father": "P0020",
+    "mother": "P0021",
+    "mother_maiden_name": "Kuchanow?"
+  },
+  "E0008": {
+    "id": "E0008",
+    "type": "birth",
+    "year": 1831,
+    "house_number": "20",
+    "original_text": "Mateusz Zarzycki i Franciszka z d. Woźniak: dom 20",
+    "source_line": 38,
+    "father": "P0022",
+    "mother": "P0023",
+    "mother_maiden_name": "Woźniak"
+  },
+  "E0009": {
+    "id": "E0009",
+    "type": "birth",
+    "year": 1831,
+    "house_number": "8",
+    "original_text": "Adam Słyk - ojciec Szczepana: dom 8",
+    "source_line": 39
+  },
+  "E0010": {
+    "id": "E0010",
+    "type": "death",
+    "year": 1831,
+    "house_number": "21",
+    "original_text": "Św: Onufry Zatorski  (32) i Tomasz Kiełek (46), Salomea Surdey (Niewczas) (córka Józefa, żona Wojciecha, wyrobnica, 80 lat), dom 21",
+    "source_line": 41,
+    "deceased": "P0024",
+    "witnesses": [
+      "P0018",
+      "P0017"
+    ]
+  },
+  "E0011": {
+    "id": "E0011",
+    "type": "birth",
+    "year": 1833,
+    "house_number": "15",
+    "original_text": "Wojciech Surdey (35) i Marianna Surdey z d. Paszkowska: dom 15 - św: Kazimierz Łapacz (35) i Piotr Kleczaj (30) - chrz. P.K. i Marianna Surdey. Ur. Franciszka Surdey",
+    "source_line": 52,
+    "child": "P0025",
+    "father": "P0006",
+    "mother": "P0007",
+    "mother_maiden_name": "Paszkowska",
+    "witnesses": [
+      "P0004",
+      "P0026"
+    ]
+  },
+  "E0012": {
+    "id": "E0012",
+    "type": "birth",
+    "year": 1833,
+    "house_number": "19",
+    "original_text": "Andrzej Surdey i Elżbieta Surdey z d. Kozik: dom 19 -  św: Jan Ziewiecki i Wojciech Drożdż - chrz. W.D. i Elżbieta Surdey. Ur. Augustyn Surdey",
+    "source_line": 64,
+    "child": "P0029",
+    "father": "P0027",
+    "mother": "P0028",
+    "mother_maiden_name": "Kozik",
+    "witnesses": [
+      "P0030",
+      "P0031"
+    ]
+  },
+  "E0013": {
+    "id": "E0013",
+    "type": "birth",
+    "year": 1833,
+    "house_number": "2",
+    "original_text": "Jakub Drożdż i Rozalia Drożdż: dom 2 -  św: Onufry Zatorski i Ludwik Kiełek - chrz. Jan Kozik i Marianna Jarosz. Ur. Jacek Drożdż",
+    "source_line": 65,
+    "child": "P0034",
+    "father": "P0032",
+    "mother": "P0033",
+    "witnesses": [
+      "P0018",
+      "P0035"
+    ],
+    "godparents": [
+      "P0036",
+      "P0037"
+    ]
+  },
+  "E0014": {
+    "id": "E0014",
+    "type": "birth",
+    "year": 1833,
+    "house_number": "28",
+    "original_text": "Wawrzyniec Zięba i Franciszka Zięba z d. Wiślak: dom 28 -  św: Wojciech Surdey (50) i Bernard Salwa - chrz. Bernard Borowiec i Magdalena Surdey. Ur. Regina Zięba",
+    "source_line": 66,
+    "child": "P0040",
+    "father": "P0038",
+    "mother": "P0039",
+    "mother_maiden_name": "Wiślak",
+    "witnesses": [
+      "P0006",
+      "P0041"
+    ],
+    "godparents": [
+      "P0042",
+      "P0043"
+    ]
+  },
+  "E0015": {
+    "id": "E0015",
+    "type": "birth",
+    "year": 1833,
+    "house_number": "3",
+    "original_text": "Onufry Zatorski i Petronella Zatorska z d. Minda: dom 3 -  św:Kazimierz Łapacz i Wojciech Surdey (50) - chrz. Karol Stumborz i Anna Morawińska. Ur. Karolina Zatorska",
+    "source_line": 67,
+    "child": "P0045",
+    "father": "P0018",
+    "mother": "P0044",
+    "mother_maiden_name": "Minda",
+    "witnesses": [
+      "P0004",
+      "P0006"
+    ],
+    "godparents": [
+      "P0046",
+      "P0047"
+    ]
+  },
+  "E0016": {
+    "id": "E0016",
+    "type": "birth",
+    "year": 1834,
+    "house_number": "2",
+    "original_text": "Wojciech Drożdż i Tekla Drożdż z d. Czajka: dom 2 -  św: Jan Krakowiak i Onufry Zatorski - chrz. Wawrzyniec Surdey i Rozalia Jarosz. Ur: Marianna Drożdż",
+    "source_line": 69,
+    "child": "P0049",
+    "father": "P0031",
+    "mother": "P0048",
+    "mother_maiden_name": "Czajka",
+    "witnesses": [
+      "P0050",
+      "P0018"
+    ],
+    "godparents": [
+      "P0051",
+      "P0052"
+    ]
+  },
+  "E0017": {
+    "id": "E0017",
+    "type": "birth",
+    "year": 1834,
+    "house_number": "6",
+    "original_text": "Tomasz Drożdż i Marianna Drożdż z d. Słyk: dom 6 -  św: Piotr Krakowiak i Kazimierz Łapacz - chrz.K.Ł.  I Baryła? Kozłówka. Ur: Jan Drożdż",
+    "source_line": 70,
+    "child": "P0054",
+    "father": "P0053",
+    "mother": "P0049",
+    "mother_maiden_name": "Słyk",
+    "witnesses": [
+      "P0055",
+      "P0004"
+    ]
+  },
+  "E0018": {
+    "id": "E0018",
+    "type": "birth",
+    "year": 1834,
+    "house_number": "22",
+    "original_text": "Mateusz Zarzycki i Marianna Zarzycka: dom 22 -  św: Jan Surdey (52) i Stanisław Kiełek - chrz. Adam Wolski i Gertruda Zatorska. Ur: Walenty Zarzycki",
+    "source_line": 71,
+    "child": "P0057",
+    "father": "P0022",
+    "mother": "P0056",
+    "witnesses": [
+      "P0001",
+      "P0058"
+    ],
+    "godparents": [
+      "P0059",
+      "P0060"
+    ]
+  },
+  "E0019": {
+    "id": "E0019",
+    "type": "birth",
+    "year": 1834,
+    "house_number": "13",
+    "original_text": "Walenty Pietrzyk i Barbara Pietrzyk z d. Kiełek: dom 13 -  św: Dominik Chmolowski i Onufry Zatorski - chrz. O.Z. i Marianna Jaros. Ur: Kazimierz Pietrzyk",
+    "source_line": 72,
+    "child": "P0063",
+    "father": "P0061",
+    "mother": "P0062",
+    "mother_maiden_name": "Kiełek",
+    "witnesses": [
+      "P0064",
+      "P0018"
+    ]
+  },
+  "E0020": {
+    "id": "E0020",
+    "type": "birth",
+    "year": 1834,
+    "house_number": "15",
+    "original_text": "Jakub Słyk i Zofia Słyk: dom 15 -  św: Jan Różalski i Wincenty Zatorski - chrz. W.Z. i Ludwika Falińska. Ur: Gabriel Słyk",
+    "source_line": 73,
+    "child": "P0067",
+    "father": "P0065",
+    "mother": "P0066",
+    "witnesses": [
+      "P0068",
+      "P0012"
+    ]
+  },
+  "E0021": {
+    "id": "E0021",
+    "type": "birth",
+    "year": 1834,
+    "house_number": "15",
+    "original_text": "Wojciech Surdey (46) i Marianna Surdey z d. Paszkowska: dom 15 -  św: Kazimierz Łapacz i Jakub Kiełek - chrz. J.K. i Petronella Zatorska. Ur: Marianna Surdey",
+    "source_line": 74,
+    "child": "P0007",
+    "father": "P0006",
+    "mother": "P0007",
+    "mother_maiden_name": "Paszkowska",
+    "witnesses": [
+      "P0004",
+      "P0069"
+    ]
+  },
+  "E0022": {
+    "id": "E0022",
+    "type": "birth",
+    "year": 1834,
+    "house_number": "24",
+    "original_text": "Józef Surdey (33) i Elżbieta Surdey z d. Kozik: dom 24 -  św: Jan Głód i Stanisław Kiełek - chrz. Stanisław Niewczas i Petronella Surdey. Ur: Marianna Surdey",
+    "source_line": 75,
+    "child": "P0007",
+    "father": "P0008",
+    "mother": "P0028",
+    "mother_maiden_name": "Kozik",
+    "witnesses": [
+      "P0005",
+      "P0058"
+    ],
+    "godparents": [
+      "P0070",
+      "P0071"
+    ]
+  },
+  "E0023": {
+    "id": "E0023",
+    "type": "birth",
+    "year": 1834,
+    "house_number": "20",
+    "original_text": "Bernard Salwa i Apolonia Salwa z d. Jagiełło: dom 20 -  św: Onufry Zatorski i Jan Surdey (50) - chrz. Józef Grubiński i Julianna Niewczas. Ur: Teofil Salwa",
+    "source_line": 76,
+    "child": "P0073",
+    "father": "P0041",
+    "mother": "P0072",
+    "mother_maiden_name": "Jagiełło",
+    "witnesses": [
+      "P0018",
+      "P0001"
+    ],
+    "godparents": [
+      "P0074",
+      "P0075"
+    ]
+  },
+  "E0024": {
+    "id": "E0024",
+    "type": "birth",
+    "year": 1834,
+    "house_number": "37",
+    "original_text": "Onufry Mieszała (młynarz) i Marianna Mieszała z d. Salwa: dom 37? -  św: Onufry Zatorski i Jan Myszka - chrz. O.Z. i Marianna Drożdż. Ur: Joanna Mieszała",
+    "source_line": 77,
+    "child": "P0078",
+    "father": "P0076",
+    "mother": "P0077",
+    "mother_maiden_name": "Salwa",
+    "witnesses": [
+      "P0018",
+      "P0079"
+    ]
+  },
+  "E0025": {
+    "id": "E0025",
+    "type": "birth",
+    "year": 1834,
+    "house_number": "37",
+    "original_text": "Wawrzyniec Łęcki i Marianna Łęcka z d. Zięba: dom 37 -  św: Wincenty Kozik i Onufry Zatorski - chrz. Franciszek Niewczas i Franciszka Kozik. Ur: Petronella Łęcka",
+    "source_line": 78,
+    "child": "P0082",
+    "father": "P0080",
+    "mother": "P0081",
+    "mother_maiden_name": "Zięba",
+    "witnesses": [
+      "P0083",
+      "P0018"
+    ],
+    "godparents": [
+      "P0084",
+      "P0085"
+    ]
+  },
+  "E0026": {
+    "id": "E0026",
+    "type": "birth",
+    "year": 1834,
+    "house_number": "41",
+    "original_text": "Józef Morawiński (podleśny lasów rządowych) i Joanna Morawińska z d. Walichowska: dom 41 -  św: Stanisław Chruścicki (leśniczy z Wąchocka) i Józef Grubiński (organista) - chrz. Stanisław Chru(o?)ścicki i Zofia W…?. Ur: X",
+    "source_line": 79,
+    "father": "P0086",
+    "mother": "P0087",
+    "mother_maiden_name": "Walichowska",
+    "witnesses": [
+      "P0088",
+      "P0074"
+    ],
+    "godparents": [
+      "P0089",
+      "P0090"
+    ]
+  },
+  "E0027": {
+    "id": "E0027",
+    "type": "birth",
+    "year": 1834,
+    "house_number": "12",
+    "original_text": "Adam Orłowski i Anna Orłowska z d. Sikora: dom 12 -  św: Jan Myszka i Piotr Kozik - chrz. J.M. i Petronella Zatorska. Ur: Jacek Orłowski",
+    "source_line": 80,
+    "child": "P0093",
+    "father": "P0091",
+    "mother": "P0092",
+    "mother_maiden_name": "Sikora",
+    "witnesses": [
+      "P0079",
+      "P0094"
+    ]
+  },
+  "E0028": {
+    "id": "E0028",
+    "type": "birth",
+    "year": 1834,
+    "house_number": "4",
+    "original_text": "Leonard Głód i Elżbieta Głód z d. Krakowiak: dom 4 -  św: Onufry Zatorski i Jan Różalski - chrz. J.R. i Marianna Kiełek?. Ur: Ludwik Głód",
+    "source_line": 81,
+    "child": "P0097",
+    "father": "P0095",
+    "mother": "P0096",
+    "mother_maiden_name": "Krakowiak",
+    "witnesses": [
+      "P0018",
+      "P0068"
+    ]
+  },
+  "E0029": {
+    "id": "E0029",
+    "type": "birth",
+    "year": 1834,
+    "house_number": "25",
+    "original_text": "Jakub Kiełek i Julianna Kiełek z d. Myszka: dom 25 -  św: Jan Surdey (40) i Onufry Zatorski - chrz. Andrzej Surdey i Barbara Pietrzyk. Ur: Michał Kiełek",
+    "source_line": 82,
+    "child": "P0099",
+    "father": "P0069",
+    "mother": "P0098",
+    "mother_maiden_name": "Myszka",
+    "witnesses": [
+      "P0001",
+      "P0018"
+    ],
+    "godparents": [
+      "P0027",
+      "P0062"
+    ]
+  },
+  "E0030": {
+    "id": "E0030",
+    "type": "birth",
+    "year": 1834,
+    "house_number": "9",
+    "original_text": "Paweł Jaroszek i Katarzyna Jaroszek z d. Ciołek: dom 9 -  św: Ludwik Kiełek i Antoni Łęcki - chrz. Walenty Pietrzyk i Elżbieta Surdey . Ur: Wincenty Jaroszek",
+    "source_line": 83,
+    "child": "P0102",
+    "father": "P0100",
+    "mother": "P0101",
+    "mother_maiden_name": "Ciołek",
+    "witnesses": [
+      "P0035",
+      "P0103"
+    ],
+    "godparents": [
+      "P0061",
+      "P0028"
+    ]
+  },
+  "E0031": {
+    "id": "E0031",
+    "type": "birth",
+    "year": 1834,
+    "house_number": "8",
+    "original_text": "Wincenty Wolski i Małgorzata Wolska z d. Jagiełło: dom 8 -  św: Onufry Zatorski i Andrzej Kozik - chrz. A.K. i Magdalena Dobolska?. Ur: Jadwiga Wolska",
+    "source_line": 84,
+    "child": "P0106",
+    "father": "P0104",
+    "mother": "P0105",
+    "mother_maiden_name": "Jagiełło",
+    "witnesses": [
+      "P0018",
+      "P0107"
+    ]
+  },
+  "E0032": {
+    "id": "E0032",
+    "type": "birth",
+    "year": 1834,
+    "house_number": "6",
+    "original_text": "Antoni Łęcki i Elżbieta Łęcka z d. Jarosz: dom 6 -  św: Onufry Zatorski i Wojciech Drożdż - chrz. W.D. i Marianna Jarosz. Ur: Leonard Łęcki",
+    "source_line": 85,
+    "child": "P0109",
+    "father": "P0103",
+    "mother": "P0108",
+    "mother_maiden_name": "Jarosz",
+    "witnesses": [
+      "P0018",
+      "P0031"
+    ]
+  },
+  "E0033": {
+    "id": "E0033",
+    "type": "birth",
+    "year": 1834,
+    "house_number": "25",
+    "original_text": "Jan Ziewiecki (kowal) i Małgorzata Ziewiecka z d. Surdey: dom 25 -  św: Adam Drożdż i Onufry Zatorski - chrz. Franciszek Niewczas i Marianna Mamczarz. Ur: Stanisław Ziewiecki",
+    "source_line": 86,
+    "child": "P0111",
+    "father": "P0030",
+    "mother": "P0110",
+    "mother_maiden_name": "Surdey",
+    "witnesses": [
+      "P0112",
+      "P0018"
+    ],
+    "godparents": [
+      "P0084",
+      "P0113"
+    ]
+  },
+  "E0034": {
+    "id": "E0034",
+    "type": "birth",
+    "year": 1834,
+    "house_number": "29",
+    "original_text": "Wojciech Dąbek i Marianna Dąbek z d. Kiełek: dom 29 -  św: Wincenty Surdey (39) i Jan Myszka - chrz. Wojciech Drożdż i Salomea Ziewiecka. Ur: Jędrzej Dąbek",
+    "source_line": 87,
+    "child": "P0116",
+    "father": "P0114",
+    "mother": "P0115",
+    "mother_maiden_name": "Kiełek",
+    "witnesses": [
+      "P0117",
+      "P0079"
+    ],
+    "godparents": [
+      "P0031",
+      "P0118"
+    ]
+  },
+  "E0035": {
+    "id": "E0035",
+    "type": "birth",
+    "year": 1835,
+    "house_number": "3",
+    "original_text": "Onufry Zatorski i Petronella z d. Minda?: dom 3 -  św: Jakub Drożdż i Piotr Krakowiak - chrz. Agnieszka Łapacz i Jakub Jaroszek. Ur: Wojciech",
+    "source_line": 90,
+    "child": "P0119",
+    "father": "P0018",
+    "mother": "P0044",
+    "mother_maiden_name": "Minda?",
+    "witnesses": [
+      "P0032",
+      "P0055"
+    ],
+    "godparents": [
+      "P0010",
+      "P0120"
+    ]
+  },
+  "E0036": {
+    "id": "E0036",
+    "type": "birth",
+    "year": 1837,
+    "house_number": "32",
+    "original_text": "Onufry Mieszała (młynarz) i Marianna z d. Salwa: dom 32/37? -  św: Grzegorz Spadło i Adam Drożdż - chrz. G.S. i Marianna Dęb…?. Ur: Katarzyna",
+    "source_line": 92,
+    "child": "P0121",
+    "father": "P0076",
+    "mother": "P0077",
+    "mother_maiden_name": "Salwa",
+    "witnesses": [
+      "P0122",
+      "P0112"
+    ]
+  },
+  "E0037": {
+    "id": "E0037",
+    "type": "birth",
+    "year": 1843,
+    "house_number": "23",
+    "original_text": "Szczepan Słyk i Brygida z d. Surdey: dom 23 -  św: Jan Głód (60) I Józef Kiełek (25) - chrz. J.K. i Julianna Synal. Ur. Jan",
+    "source_line": 94,
+    "child": "P0125",
+    "father": "P0123",
+    "mother": "P0289",
+    "mother_maiden_name": "Surdey",
+    "witnesses": [
+      "P0126",
+      "P0127"
+    ]
+  },
+  "E0038": {
+    "id": "E0038",
+    "type": "birth",
+    "year": 1844,
+    "house_number": "33",
+    "original_text": "Szczepan Słyk i Brygida z d. Surdey: dom 33 -  św: Jan Głód (60) I Tomasz Drożdż (30) - chrz. T.D. i Wiktoria Chojnacka. Ur. Franciszek",
+    "source_line": 96,
+    "child": "P0128",
+    "father": "P0123",
+    "mother": "P0289",
+    "mother_maiden_name": "Surdey",
+    "witnesses": [
+      "P0126",
+      "P0053"
+    ]
+  },
+  "E0039": {
+    "id": "E0039",
+    "type": "birth",
+    "year": 1844,
+    "house_number": "20",
+    "original_text": "Grzegorz Spadło i Marianna z d. Jaros: dom 20 -  św: Jan Głód (60) I Onufry Zatorski (42) - chrz. Brygida Słyk i O.Z. Ur. Agnieszka",
+    "source_line": 97,
+    "child": "P0130",
+    "father": "P0122",
+    "mother": "P0129",
+    "mother_maiden_name": "Jaros",
+    "witnesses": [
+      "P0126",
+      "P0018"
+    ]
+  },
+  "E0040": {
+    "id": "E0040",
+    "type": "birth",
+    "year": 1845,
+    "house_number": "38",
+    "original_text": "Jacek Dymiński i Marianna z d. Surdey: dom 38 -  św: Wojciech Słyk I Łukasz Myszka - chrz. Brygida Słyk i W.S. Ur. Tomasz",
+    "source_line": 99,
+    "child": "P0133",
+    "father": "P0131",
+    "mother": "P0132",
+    "mother_maiden_name": "Surdey",
+    "witnesses": [
+      "P0134",
+      "P0135"
+    ]
+  },
+  "E0041": {
+    "id": "E0041",
+    "type": "birth",
+    "year": 1847,
+    "house_number": "27",
+    "original_text": "Kazimierz Łapacz i Petronella z d. Gut: dom 27 -  św: Wojciech Słyk I Dominik Chmolowski - chrz. W.S. i Marianna Nobis. Ur. Jan Chryzostom",
+    "source_line": 101,
+    "child": "P0137",
+    "father": "P0004",
+    "mother": "P0136",
+    "mother_maiden_name": "Gut",
+    "witnesses": [
+      "P0134",
+      "P0064"
+    ]
+  },
+  "E0042": {
+    "id": "E0042",
+    "type": "birth",
+    "year": 1848,
+    "house_number": "?",
+    "original_text": "Szczepan Słyk i Brygida z d. Surdey: dom ? -  św: Mateusz Zarzycki (46) I Wawrzyniec Ziewiecki (34) - chrz. W.Z. i Katarzyna Myszka. Ur. Anna",
+    "source_line": 103,
+    "child": "P0138",
+    "father": "P0123",
+    "mother": "P0289",
+    "mother_maiden_name": "Surdey",
+    "witnesses": [
+      "P0022",
+      "P0139"
+    ]
+  },
+  "E0043": {
+    "id": "E0043",
+    "type": "birth",
+    "year": 1849,
+    "house_number": "30",
+    "original_text": "Szczepan Słyk i Brygida z d. Surdey: dom 30 -  św: Stanisław Kiełek (50) I Józef Surdey (58) - chrz. Marianna Surdey i Karol Łęcki. Ur. Ewa",
+    "source_line": 105,
+    "child": "P0140",
+    "father": "P0123",
+    "mother": "P0289",
+    "mother_maiden_name": "Surdey",
+    "witnesses": [
+      "P0058",
+      "P0141"
+    ],
+    "godparents": [
+      "P0007",
+      "P0142"
+    ]
+  },
+  "E0044": {
+    "id": "E0044",
+    "type": "birth",
+    "year": 1853,
+    "house_number": "30",
+    "original_text": "Szczepan Słyk i Brygida z d. Surdey: dom 30 -  św: Wawrzyniec Surdey (40) i Józef Poński? - chrz. J.P. i Katarzyna Kleczaj. Ur. Marianna",
+    "source_line": 108,
+    "child": "P0143",
+    "father": "P0123",
+    "mother": "P0289",
+    "mother_maiden_name": "Surdey",
+    "witnesses": [
+      "P0051",
+      "P0144"
+    ]
+  },
+  "E0045": {
+    "id": "E0045",
+    "type": "death",
+    "year": 1853,
+    "house_number": "22",
+    "original_text": "św. Wawrzyniec Surdey (41) i Antoni Głód (30), Ewa Słyk (córka Brygidy i Szczepana Słyków), dom 22",
+    "source_line": 110,
+    "deceased": "P0140",
+    "witnesses": [
+      "P0051",
+      "P0145"
+    ]
+  },
+  "E0046": {
+    "id": "E0046",
+    "type": "birth",
+    "year": 1855,
+    "date_day": 21,
+    "date_month": 2,
+    "house_number": "10",
+    "original_text": "Szczepan Słyk (34) i Brygida z d. Surdey: dom 10 -  św: Wawrzyniec Surdey (33) i Józef Surdey (50) - chrz. Jan Minda (z Gatki) i Jadwiga Głód. Ur. Katarzyna (21.02)",
+    "source_line": 114,
+    "child": "P0146",
+    "father": "P0123",
+    "mother": "P0289",
+    "mother_maiden_name": "Surdey",
+    "witnesses": [
+      "P0051",
+      "P0008"
+    ],
+    "godparents": [
+      "P0147",
+      "P0148"
+    ]
+  },
+  "E0047": {
+    "id": "E0047",
+    "type": "birth",
+    "year": 1855,
+    "house_number": "36",
+    "original_text": "Leonard Zarzycki (38) i Franciszka z d. Słyk: dom 36 -  św: Wawrzyniec Surdey (42) i Antoni Głód (3x) - chrz. W.S. i Petronella Łapacz. Ur: Marianna",
+    "source_line": 115,
+    "child": "P0056",
+    "father": "P0149",
+    "mother": "P0023",
+    "mother_maiden_name": "Słyk",
+    "witnesses": [
+      "P0051",
+      "P0150"
+    ]
+  },
+  "E0048": {
+    "id": "E0048",
+    "type": "birth",
+    "year": 1855,
+    "house_number": "20",
+    "original_text": "Bartłomiej Drożdż (30) i Justyna z d. Kiełek: dom 20 -  św: Antoni Głód (30) i Tomasz Kozik (40) - chrz. A.G i Salomea Brandburka. Ur: Franciszka",
+    "source_line": 116,
+    "child": "P0153",
+    "father": "P0151",
+    "mother": "P0152",
+    "mother_maiden_name": "Kiełek",
+    "witnesses": [
+      "P0145",
+      "P0154"
+    ]
+  },
+  "E0049": {
+    "id": "E0049",
+    "type": "birth",
+    "year": 1855,
+    "original_text": "Justyn Wyszkowski (24, dziedzic dóbr Żakowiec/Zakowiec? Naddzierżawca wsi rządowej Grzybowa Góra) i Kamila z d. Zaręba -  św: Antoni Zaborowski (61, naddzierżawca wsi rządowej Jagodne) i Ludwik Zaborowski (31, wójt gminy Jagodne) - chrz. Józef Odolski i Olimpia Odolska. Ur: Leon Alexander - Grzybowa Góra",
+    "source_line": 117,
+    "child": "P0157",
+    "father": "P0155",
+    "mother": "P0156",
+    "mother_maiden_name": "Zaręba -  św",
+    "witnesses": [
+      "P0158",
+      "P0159"
+    ],
+    "godparents": [
+      "P0160",
+      "P0161"
+    ]
+  },
+  "E0050": {
+    "id": "E0050",
+    "type": "birth",
+    "year": 1855,
+    "original_text": "Łukasz Sawicki (28, organista w Mircu) i Ewa z d. Kołaczewska -  św: Grzegoż Łyżwa i Leonard (?) - chrz. Xiądz Andrzej Wierzbicki (wikary mirecki) i Brygida Wójcikowska?. Ur: Józef Albin 0 Mirzec",
+    "source_line": 118,
+    "child": "P0164",
+    "father": "P0162",
+    "mother": "P0163",
+    "mother_maiden_name": "Kołaczewska -  św",
+    "witnesses": [
+      "P0165",
+      "P0166"
+    ],
+    "godparents": [
+      "P0167",
+      "P0168"
+    ]
+  },
+  "E0051": {
+    "id": "E0051",
+    "type": "birth",
+    "year": 1855,
+    "house_number": "41",
+    "original_text": "Franciszek Gralec (30) i Franciszka z d. Zając: dom 41 -  św: Antoni Głód (32) i Piotr Drożdż (40) - chrz. A.G. i Brygida Słyk. Ur: Teofila",
+    "source_line": 119,
+    "child": "P0171",
+    "father": "P0169",
+    "mother": "P0170",
+    "mother_maiden_name": "Zając",
+    "witnesses": [
+      "P0145",
+      "P0172"
+    ]
+  },
+  "E0052": {
+    "id": "E0052",
+    "type": "birth",
+    "year": 1855,
+    "original_text": "Franciszek Przyrowski (44, młynarz w Mircu) i Tekla z d. Szmit -  św: Józef Pogodzieński (29, młynarz w Tychowie) i Ambroży Dymiński (71, dziad szpitalny) - chrz. J.P. i Agnieszka Nosowicz. Ur: Anastazja - Mirzec",
+    "source_line": 120,
+    "child": "P0175",
+    "father": "P0173",
+    "mother": "P0174",
+    "mother_maiden_name": "Szmit -  św",
+    "witnesses": [
+      "P0176",
+      "P0177"
+    ]
+  },
+  "E0053": {
+    "id": "E0053",
+    "type": "birth",
+    "year": 1855,
+    "house_number": "8",
+    "original_text": "Wincenty Zatorski (25) i Gertruda z d. Marzec?: dom 8 -  św: Jan Sikora (29) i Maciej Kiełek (34) - chrz. J.S. i Marta Surdey. Ur: Czesław",
+    "source_line": 121,
+    "child": "P0180",
+    "father": "P0178",
+    "mother": "P0179",
+    "mother_maiden_name": "Marzec?",
+    "witnesses": [
+      "P0181",
+      "P0182"
+    ]
+  },
+  "E0054": {
+    "id": "E0054",
+    "type": "birth",
+    "year": 1855,
+    "house_number": "16",
+    "original_text": "Teofil Salwa (25) i Franciszka z d. Jaros (wdowa po Franciszku Surdey, syn Marcina - pewnie rodzina): dom 16 -  św: Wawrzyniec Surdey (26) i Jakub Jaros (40) - chrz. W.S. i Brygida Słyk. Ur: Jadwiga",
+    "source_line": 122,
+    "child": "P0184",
+    "father": "P0073",
+    "mother": "P0183",
+    "mother_maiden_name": "Jaros (wdowa po Franciszku Surdey",
+    "witnesses": [
+      "P0051",
+      "P0185"
+    ]
+  },
+  "E0055": {
+    "id": "E0055",
+    "type": "birth",
+    "year": 1855,
+    "house_number": "35",
+    "original_text": "Wawrzyniec Surdey (26) i Katarzyna z d. Kiełek: dom 35 -  św: Dominik Chmolowski (50) i Grzegorz Spadło (45) - chrz. Józef Kiełek i Franciszka Zarzycka. Ur: Jan Kapistran",
+    "source_line": 123,
+    "child": "P0187",
+    "father": "P0051",
+    "mother": "P0186",
+    "mother_maiden_name": "Kiełek",
+    "witnesses": [
+      "P0064",
+      "P0122"
+    ],
+    "godparents": [
+      "P0127",
+      "P0188"
+    ]
+  },
+  "E0056": {
+    "id": "E0056",
+    "type": "birth",
+    "year": 1855,
+    "original_text": "X (?) i X z d. X: dom X -  św: X (?) i X (?) - chrz. X i X. Ur: X",
+    "source_line": 124,
+    "mother_maiden_name": "X"
+  },
+  "E0057": {
+    "id": "E0057",
+    "type": "death",
+    "year": 1855,
+    "date_day": 6,
+    "date_month": 2,
+    "house_number": "2",
+    "original_text": "św. Walenty Łęcki (26, syn) i Antoni Łecki (70, brat), dom 2, Wawrzyniec Łęcki (56, wyrobnik) (06.02)",
+    "source_line": 126,
+    "deceased": "P0080",
+    "witnesses": [
+      "P0189"
+    ]
+  },
+  "E0058": {
+    "id": "E0058",
+    "type": "death",
+    "year": 1855,
+    "original_text": "Św: Maciej Kiełek (32) i Józef Kiełek (28), Jan Głód (72, wyrobnik, mąż Klary Jaskros)",
+    "source_line": 127,
+    "deceased": "P0005",
+    "witnesses": [
+      "P0182",
+      "P0190"
+    ]
+  },
+  "E0059": {
+    "id": "E0059",
+    "type": "death",
+    "year": 1855,
+    "date_day": 2,
+    "date_month": 3,
+    "house_number": "3",
+    "original_text": "św. Walenty Nobis (24) i Ambroży Dymiński (70, dziad szpitalny), dom 3, Wincenty Różalski (50) (02.03)",
+    "source_line": 128,
+    "deceased": "P0191",
+    "witnesses": [
+      "P0192",
+      "P0177"
+    ]
+  },
+  "E0060": {
+    "id": "E0060",
+    "type": "death",
+    "year": 1855,
+    "date_day": 2,
+    "date_month": 4,
+    "house_number": "7",
+    "original_text": "św. Józef Krakowiak (2x) i Antoni Zełga? (40), dom 7, Bernard Salwa (52) (02.04)",
+    "source_line": 129,
+    "deceased": "P0041",
+    "witnesses": [
+      "P0193",
+      "P0194"
+    ]
+  },
+  "E0061": {
+    "id": "E0061",
+    "type": "death",
+    "year": 1855,
+    "date_day": 9,
+    "date_month": 5,
+    "house_number": "2",
+    "original_text": "św. Piotr Drożdż (48) i Ambroży Dymiński (71, dziad), dom 2, Teofila Gralec (2 tygodnie) (09.05) (córka Franciszka Gralca)",
+    "source_line": 130,
+    "deceased": "P0171",
+    "age_at_death": 2,
+    "witnesses": [
+      "P0195",
+      "P0177"
+    ]
+  },
+  "E0062": {
+    "id": "E0062",
+    "type": "death",
+    "year": 1855,
+    "date_day": 5,
+    "date_month": 8,
+    "original_text": "św. Wawrzyniec Surdey (40) i Józef Surdey (55 - stryj), Szczepan Słyk (05.08)",
+    "source_line": 131,
+    "deceased": "P0123",
+    "witnesses": [
+      "P0051",
+      "P0008"
+    ]
+  },
+  "E0063": {
+    "id": "E0063",
+    "type": "death",
+    "year": 1855,
+    "date_day": 18,
+    "date_month": 8,
+    "house_number": "30",
+    "original_text": "św. Wawrzyniec Surdey (42) i Tomasz Drożdż (32), dom 30, Marianna Kiełek (19) (18.08)",
+    "source_line": 132,
+    "deceased": "P0196",
+    "witnesses": [
+      "P0051",
+      "P0053"
+    ]
+  },
+  "E0064": {
+    "id": "E0064",
+    "type": "death",
+    "year": 1855,
+    "date_day": 5,
+    "date_month": 9,
+    "original_text": "św. Maciej Kiełek (32) i Józef Kiełek (28), Jan Głód (72) (05.09) - w Jasieńcu",
+    "source_line": 133,
+    "deceased": "P0005",
+    "witnesses": [
+      "P0182",
+      "P0190"
+    ]
+  },
+  "E0065": {
+    "id": "E0065",
+    "type": "death",
+    "year": 1855,
+    "date_day": 28,
+    "date_month": 9,
+    "house_number": "8",
+    "original_text": "św. Jan Myszka (50) i Tomasz Kozik (40), dom 8, Kacper Zięba (27, syn Wawrzyńca) (28.09)",
+    "source_line": 134,
+    "deceased": "P0197",
+    "witnesses": [
+      "P0079",
+      "P0154"
+    ]
+  },
+  "E0066": {
+    "id": "E0066",
+    "type": "death",
+    "year": 1855,
+    "date_day": 6,
+    "date_month": 10,
+    "house_number": "17",
+    "original_text": "św. Dominik Chmolowski (50) i Grzegorz Spadło (45), dom 17, Jadwiga Salwa (2 tygodnie, córka Teofila) (06.10)",
+    "source_line": 135,
+    "deceased": "P0184",
+    "age_at_death": 2,
+    "witnesses": [
+      "P0064",
+      "P0122"
+    ]
+  },
+  "E0067": {
+    "id": "E0067",
+    "type": "death",
+    "year": 1855,
+    "date_day": 18,
+    "date_month": 12,
+    "house_number": "5",
+    "original_text": "św. Stanisław Kiełek (50) i Piotr Kozik (49), dom 5, Ignacy Kozik (2 miesiące?, syn Jędrzeja) (18.12)",
+    "source_line": 136,
+    "deceased": "P0198",
+    "witnesses": [
+      "P0058",
+      "P0094"
+    ]
+  },
+  "E0068": {
+    "id": "E0068",
+    "type": "death",
+    "year": 1855,
+    "date_day": 17,
+    "date_month": 12,
+    "house_number": "32",
+    "original_text": "św. Tomasz Kozik (35) i Józef Kiełek (27), dom 32, Magdalena Myszka (x miesięcy, córka Łukasza) (17.12)",
+    "source_line": 137,
+    "deceased": "P0199",
+    "witnesses": [
+      "P0154",
+      "P0190"
+    ]
+  },
+  "E0069": {
+    "id": "E0069",
+    "type": "death",
+    "year": 1855,
+    "original_text": "św. X (?) i X (?), dom X, X (?) (?)",
+    "source_line": 138
+  },
+  "E0070": {
+    "id": "E0070",
+    "type": "death",
+    "year": 1855,
+    "original_text": "Brygida zostaje z Franciszkiem (11 lat), Marianna (2 lata) i Katarzyną (noworodek)",
+    "source_line": 140
+  },
+  "E0071": {
+    "id": "E0071",
+    "type": "birth",
+    "year": 1856,
+    "house_number": "33",
+    "original_text": "Grzegorz Spadło (40) i Marianna z d. Jaros: dom 33 -  św: Karol Łęcki (26) i Jacek Dymiński (34) - chrz. K.Ł. i Anastazja Sikora. Ur: Szczepan - bliźniak",
+    "source_line": 143,
+    "child": "P0200",
+    "father": "P0122",
+    "mother": "P0129",
+    "mother_maiden_name": "Jaros",
+    "witnesses": [
+      "P0142",
+      "P0131"
+    ]
+  },
+  "E0072": {
+    "id": "E0072",
+    "type": "birth",
+    "year": 1856,
+    "house_number": "33",
+    "original_text": "Grzegorz Spadło (40) i Marianna z d. Jaros: dom 33 -  św: Karol Łęcki (26) i Jacek Dymiński (34) - chrz. Jacek Dymiński i Salomea Ziewiecka. Ur: Jan - bliźniak",
+    "source_line": 144,
+    "child": "P0201",
+    "father": "P0122",
+    "mother": "P0129",
+    "mother_maiden_name": "Jaros",
+    "witnesses": [
+      "P0142",
+      "P0131"
+    ],
+    "godparents": [
+      "P0131",
+      "P0118"
+    ]
+  },
+  "E0073": {
+    "id": "E0073",
+    "type": "birth",
+    "year": 1856,
+    "house_number": "15",
+    "original_text": "Jacek Dymiński (44) i Marianna z d. Surdey: dom 15 -  św: Jan Maciejczak (31 z Tychowa) i Antoni Łęcki (60) - chrz. J.M. i Marianna Banasik. Ur: Julianna",
+    "source_line": 145,
+    "child": "P0202",
+    "father": "P0131",
+    "mother": "P0132",
+    "mother_maiden_name": "Surdey",
+    "witnesses": [
+      "P0203",
+      "P0103"
+    ]
+  },
+  "E0074": {
+    "id": "E0074",
+    "type": "birth",
+    "year": 1856,
+    "house_number": "29",
+    "original_text": "Franciszek Zarzycki (21) i Antonina z d. Chojnacka: dom 29 -  św: Jan Sikora (31) i Grzegorz Spadło (44) - chrz. J.S. i Justyna Drożdż. Ur: Julianna",
+    "source_line": 146,
+    "child": "P0206",
+    "father": "P0204",
+    "mother": "P0205",
+    "mother_maiden_name": "Chojnacka",
+    "witnesses": [
+      "P0181",
+      "P0122"
+    ]
+  },
+  "E0075": {
+    "id": "E0075",
+    "type": "birth",
+    "year": 1856,
+    "house_number": "8",
+    "original_text": "Marianna Zatorska (44, akuszerka), NN i Elżbieta z d. Zatorska (wyrobnica): dom 8 -  św: Michał Orłowski (24) i Maciej Kiełek (32) - chrz. M.O. i Teofila Zatorska. Ur: Leon (umrze w 1857)",
+    "source_line": 147,
+    "child": "P0209",
+    "father": "P0207",
+    "mother": "P0208",
+    "mother_maiden_name": "Zatorska (wyrobnica)",
+    "witnesses": [
+      "P0210",
+      "P0182"
+    ]
+  },
+  "E0076": {
+    "id": "E0076",
+    "type": "birth",
+    "year": 1856,
+    "house_number": "18",
+    "original_text": "Jan Drożdż (21) i Józefa z d. Myszka: dom 18 -  św: Ambroży Dymiński (72, dziad szpitalny) i Wawrzyniec Ziewiecki (42) - chrz. A.D i Salomea ?. Ur: Marek",
+    "source_line": 148,
+    "child": "P0212",
+    "father": "P0054",
+    "mother": "P0211",
+    "mother_maiden_name": "Myszka",
+    "witnesses": [
+      "P0177",
+      "P0139"
+    ]
+  },
+  "E0077": {
+    "id": "E0077",
+    "type": "birth",
+    "year": 1856,
+    "house_number": "12",
+    "original_text": "Karol Łęcki (26) i Anastazja z d. Gralec (siostra cioteczna B.): dom 12 -  św: Michał Niewczas (36 z Tychowa) i Ambroży Dymiński (72, dziad szpitalny) - chrz. M.N. i Brygida Słyk. Ur: Piotr",
+    "source_line": 149,
+    "child": "P0214",
+    "father": "P0142",
+    "mother": "P0213",
+    "mother_maiden_name": "Gralec (siostra cioteczna B.)",
+    "witnesses": [
+      "P0215",
+      "P0177"
+    ]
+  },
+  "E0078": {
+    "id": "E0078",
+    "type": "birth",
+    "year": 1856,
+    "house_number": "13",
+    "original_text": "Jan Kiełek (21) i Marianna z d. Gralec: dom 13 -  św: Antoni Łęcki (80) i Tomasz Drożdż (48) - chrz. K.Ł. i Domicelija Gralec. Ur: Antonina",
+    "source_line": 150,
+    "child": "P0217",
+    "father": "P0216",
+    "mother": "P0196",
+    "mother_maiden_name": "Gralec",
+    "witnesses": [
+      "P0103",
+      "P0053"
+    ]
+  },
+  "E0079": {
+    "id": "E0079",
+    "type": "birth",
+    "year": 1856,
+    "house_number": "30",
+    "original_text": "Józef Kiełek (32) i Wiktoria z d. Myszka: dom 30 -  św: Szczepan Myszka (21) i Tomasz Kozik (40) - chrz. Sz.M. i Józefa Drożdż. Ur: Jan",
+    "source_line": 151,
+    "child": "P0219",
+    "father": "P0190",
+    "mother": "P0218",
+    "mother_maiden_name": "Myszka",
+    "witnesses": [
+      "P0220",
+      "P0154"
+    ]
+  },
+  "E0080": {
+    "id": "E0080",
+    "type": "birth",
+    "year": 1856,
+    "house_number": "40",
+    "original_text": "Józef Różalski (23) i Franciszka z d. Woźniak: dom 40 -  św: Antoni Głód (34) i Jakub Niewczas (29 z Tychowa) - chrz. A.G. i Ewa Myszka. Ur: Jan",
+    "source_line": 152,
+    "child": "P0068",
+    "father": "P0221",
+    "mother": "P0222",
+    "mother_maiden_name": "Woźniak",
+    "witnesses": [
+      "P0145",
+      "P0223"
+    ]
+  },
+  "E0081": {
+    "id": "E0081",
+    "type": "birth",
+    "year": 1856,
+    "original_text": "Łukasz Sawicki (29, organista z Mirca) i Ewa z d. Kołaczewska -  św: Ambroży Dymiński (72, dziad szpitalny) i Ludwik Nosowicz (34, kowal z Mirca) - chrz. A.D. i Elżbieta Dymińska. Ur: Piotr - Mirzec",
+    "source_line": 153,
+    "child": "P0224",
+    "father": "P0162",
+    "mother": "P0163",
+    "mother_maiden_name": "Kołaczewska -  św",
+    "witnesses": [
+      "P0177",
+      "P0225"
+    ]
+  },
+  "E0082": {
+    "id": "E0082",
+    "type": "birth",
+    "year": 1856,
+    "house_number": "4",
+    "original_text": "Łukasz Kiełek (27) i Konstancja z d. Chmolowska: dom 4 -  św: Jacek Chmolowski (27) i Wawrzyniec Surdey (29) - chrz. J.Ch. i Katarzyna Surdey. Ur: Magdalena",
+    "source_line": 154,
+    "child": "P0228",
+    "father": "P0226",
+    "mother": "P0227",
+    "mother_maiden_name": "Chmolowska",
+    "witnesses": [
+      "P0229",
+      "P0051"
+    ]
+  },
+  "E0083": {
+    "id": "E0083",
+    "type": "birth",
+    "year": 1856,
+    "house_number": "40",
+    "original_text": "Wincenty Słyk (34) i Antonina z d. Kiełek: dom 40 -  św: Jan Sikora (30) i Wincenty Zatorski (32) - chrz. J.S. i Marianna Zatorska. Ur: Wawrzyniec",
+    "source_line": 155,
+    "child": "P0232",
+    "father": "P0230",
+    "mother": "P0231",
+    "mother_maiden_name": "Kiełek",
+    "witnesses": [
+      "P0181",
+      "P0233"
+    ]
+  },
+  "E0084": {
+    "id": "E0084",
+    "type": "birth",
+    "year": 1856,
+    "house_number": "30",
+    "original_text": "Tomasz Kozik (40) i Małgorzata z d. Kurek (34): dom 30 -  św: Jakub Jaros (50) i Jana Myszki (60) - chrz. J.J. i Franciszka Jędrzejewska?. Ur: Joachim",
+    "source_line": 156,
+    "child": "P0235",
+    "father": "P0154",
+    "mother": "P0234",
+    "mother_maiden_name": "Kurek (34)",
+    "witnesses": [
+      "P0236",
+      "P0237"
+    ]
+  },
+  "E0085": {
+    "id": "E0085",
+    "type": "birth",
+    "year": 1856,
+    "house_number": "14",
+    "original_text": "Józef Synal (32) i Julianna z d. Zatorska: dom 14 -  św: Jan Drożdż (23) i Antoni Łęcki (60) - chrz. J.D. i Konstancja Kiełek. Ur: Mateusz",
+    "source_line": 157,
+    "child": "P0240",
+    "father": "P0238",
+    "mother": "P0239",
+    "mother_maiden_name": "Zatorska",
+    "witnesses": [
+      "P0054",
+      "P0103"
+    ]
+  },
+  "E0086": {
+    "id": "E0086",
+    "type": "birth",
+    "year": 1856,
+    "house_number": "1",
+    "original_text": "Franciszek Gralec (34) i Franciszka z d. Zając: dom 1 -  św: Antoni Głód (35) i Wawrzyniec Surdey (34) - chrz. W.S. i Marianna Kiełek. Ur: Leonard",
+    "source_line": 158,
+    "child": "P0241",
+    "father": "P0169",
+    "mother": "P0170",
+    "mother_maiden_name": "Zając",
+    "witnesses": [
+      "P0145",
+      "P0051"
+    ]
+  },
+  "E0087": {
+    "id": "E0087",
+    "type": "birth",
+    "year": 1856,
+    "house_number": "2",
+    "original_text": "Antoni Głód (35) i Jadwiga z d. Kruk: dom 2 -  św: Józef Kruk (32, wieś Bor, kto to?) i Wojciech Kruk (25, brat Jędrzeja K. z Tychowa) - chrz. J.K. i Barbara Kruk. Ur: Leonard",
+    "source_line": 159,
+    "child": "P0095",
+    "father": "P0145",
+    "mother": "P0148",
+    "mother_maiden_name": "Kruk",
+    "witnesses": [
+      "P0242",
+      "P0243"
+    ]
+  },
+  "E0088": {
+    "id": "E0088",
+    "type": "birth",
+    "year": 1856,
+    "house_number": "41",
+    "original_text": "Maciej Kiełek (32) i Marianna z d. Słyk: dom 41 -  św: Wincenty Zatorski (28) i Tomasz Drożdż (32) - chrz. W.Z. i Marianna Kiełek. Ur: Stanisław",
+    "source_line": 160,
+    "child": "P0058",
+    "father": "P0182",
+    "mother": "P0196",
+    "mother_maiden_name": "Słyk",
+    "witnesses": [
+      "P0178",
+      "P0053"
+    ]
+  },
+  "E0089": {
+    "id": "E0089",
+    "type": "birth",
+    "year": 1856,
+    "house_number": "42",
+    "original_text": "Jan Niewczas (25) i Małgorzata z d. Kozik: dom 42 -  św: Franciszek Gralec (33) i Piotr Kozik (40) - chrz. F.G. i Marianna Maciejczak. Ur: Katarzyna",
+    "source_line": 161,
+    "child": "P0246",
+    "father": "P0244",
+    "mother": "P0245",
+    "mother_maiden_name": "Kozik",
+    "witnesses": [
+      "P0169",
+      "P0094"
+    ]
+  },
+  "E0090": {
+    "id": "E0090",
+    "type": "birth",
+    "year": 1856,
+    "original_text": "Antoni Janowski (38, zawiadowca kopalni rządowej we wsi Dziewiętnikach) i Teofila z d. Łękawska -  św: Leon Buchowski (40, oficjalista Fabryk Żelaznych Chlewisk) i Florian Chojnacki (50, górnik) - chrz. L.B. i Helena Łękawska. Ur: Bronisław Teofil - Dziewiętniki",
+    "source_line": 162,
+    "child": "P0249",
+    "father": "P0247",
+    "mother": "P0248",
+    "mother_maiden_name": "Łękawska -  św",
+    "witnesses": [
+      "P0250",
+      "P0251"
+    ]
+  },
+  "E0091": {
+    "id": "E0091",
+    "type": "birth",
+    "year": 1856,
+    "house_number": "25",
+    "original_text": "Kazimierz Łapacz (54) i Petronella z d. Gut: dom 25 -  św: Wawrzyniec Surdey (37) i Jacek Dymiński (40) - chrz. W.S. i Agnieszka Sikora. Ur: Agnieszka",
+    "source_line": 163,
+    "child": "P0010",
+    "father": "P0252",
+    "mother": "P0136",
+    "mother_maiden_name": "Gut",
+    "witnesses": [
+      "P0051",
+      "P0131"
+    ]
+  },
+  "E0092": {
+    "id": "E0092",
+    "type": "birth",
+    "year": 1856,
+    "original_text": "X (?) i X z d. X: dom X -  św: X (?) i X (?) - chrz. X i X. Ur: X",
+    "source_line": 164,
+    "mother_maiden_name": "X"
+  },
+  "E0093": {
+    "id": "E0093",
+    "type": "death",
+    "year": 1856,
+    "date_day": 6,
+    "date_month": 1,
+    "house_number": "48",
+    "original_text": "św. Łukasz Kiełek (27, syn zmarłego) i Jakub Kiełek (52, brat zmarłego), dom 48, Stanisław Kiełek (57, wdowa Antonina) (06.01)",
+    "source_line": 168,
+    "deceased": "P0058",
+    "witnesses": [
+      "P0226"
+    ]
+  },
+  "E0094": {
+    "id": "E0094",
+    "type": "death",
+    "year": 1856,
+    "date_day": 12,
+    "date_month": 1,
+    "house_number": "33",
+    "original_text": "św. Kazimierz Łapacz (55) i Jakub Słyk (48), dom 33, Jan Spadło (12 dni, syn Grzegorza) (12.01)",
+    "source_line": 169,
+    "deceased": "P0253",
+    "age_at_death": 12,
+    "witnesses": [
+      "P0252",
+      "P0065"
+    ]
+  },
+  "E0095": {
+    "id": "E0095",
+    "type": "death",
+    "year": 1856,
+    "date_day": 26,
+    "date_month": 1,
+    "house_number": "16",
+    "original_text": "św. Jakub Słyk (50) i Wojciech Pomorski (26 z Jasieńca), dom 16, Jan Surdey (14 tygodni, syn Wawrzyńca) (26.01)",
+    "source_line": 170,
+    "deceased": "P0001",
+    "age_at_death": 14,
+    "witnesses": [
+      "P0065",
+      "P0254"
+    ]
+  },
+  "E0096": {
+    "id": "E0096",
+    "type": "death",
+    "year": 1856,
+    "date_day": 11,
+    "date_month": 2,
+    "house_number": "2",
+    "original_text": "św. Antoni Drożdż (25, syn zmarłej) i Ambroży Dymiński (72, dziad szpitalny), dom 2, Agnieszka Drożdż (69, wyrobnica) (11.02)",
+    "source_line": 171,
+    "deceased": "P0255",
+    "witnesses": [
+      "P0256"
+    ]
+  },
+  "E0097": {
+    "id": "E0097",
+    "type": "death",
+    "year": 1856,
+    "date_day": 1,
+    "date_month": 3,
+    "house_number": "42",
+    "original_text": "św. Jan Niewczas (41, syn zmarłej) i Piotr Kozik (60), dom 42, Agnieszka Niewczas (70, wdowa po Dominiku) (01.03)",
+    "source_line": 172,
+    "deceased": "P0257",
+    "witnesses": [
+      "P0244"
+    ]
+  },
+  "E0098": {
+    "id": "E0098",
+    "type": "death",
+    "year": 1856,
+    "date_day": 30,
+    "date_month": 5,
+    "house_number": "30",
+    "original_text": "św. Ambroży Dymiński (72, dziad szpitalny) i Grzegorz Spadło (45), dom 30, Leonard Głód (14 lat, syn Leonarda) (30.05)",
+    "source_line": 173,
+    "deceased": "P0095",
+    "age_at_death": 14,
+    "witnesses": [
+      "P0177"
+    ]
+  },
+  "E0099": {
+    "id": "E0099",
+    "type": "death",
+    "year": 1856,
+    "date_day": 25,
+    "date_month": 7,
+    "house_number": "14",
+    "original_text": "św. Antoni Łęcki (79) i Ambroży Dymiński (72, dziad szpitalny), dom 14, Piotr Łęcki (8 tygodni, syn Karola) (25.07)",
+    "source_line": 174,
+    "deceased": "P0258",
+    "age_at_death": 8,
+    "witnesses": [
+      "P0103",
+      "P0177"
+    ]
+  },
+  "E0100": {
+    "id": "E0100",
+    "type": "death",
+    "year": 1856,
+    "date_day": 16,
+    "date_month": 8,
+    "house_number": "30",
+    "original_text": "św. Łukasz Kiełek (30) i Antoni Głód (36), dom 30, Kazimierz Drożdż (23, syn Stanisława) (16.08)",
+    "source_line": 175,
+    "deceased": "P0259",
+    "witnesses": [
+      "P0226",
+      "P0145"
+    ]
+  },
+  "E0101": {
+    "id": "E0101",
+    "type": "death",
+    "year": 1856,
+    "date_day": 20,
+    "date_month": 9,
+    "house_number": "13",
+    "original_text": "św. Wincenty Słyk (40) i Ambroży Dymiński (72, dziad szpitalny), dom 13, Mateusz Synal (4 dni, syn Józefa) (20.09)",
+    "source_line": 176,
+    "deceased": "P0240",
+    "age_at_death": 4,
+    "witnesses": [
+      "P0260",
+      "P0177"
+    ]
+  },
+  "E0102": {
+    "id": "E0102",
+    "type": "death",
+    "year": 1856,
+    "date_day": 25,
+    "date_month": 11,
+    "house_number": "30",
+    "original_text": "św. Józef Kiełek (30) i Jan Myszka (31), dom 30, Ludwik Kiełek (6 miesięcy, syn Jana) (25.11)",
+    "source_line": 177,
+    "deceased": "P0035",
+    "age_at_death": 6,
+    "witnesses": [
+      "P0190",
+      "P0079"
+    ]
+  },
+  "E0103": {
+    "id": "E0103",
+    "type": "death",
+    "year": 1856,
+    "date_day": 7,
+    "date_month": 12,
+    "house_number": "20",
+    "original_text": "św. Jan Sikora (30) i Jędrzej Kozik (42), dom 20, Magdalena Surdey (4 lata, córka Józefa) (07.12)",
+    "source_line": 178,
+    "deceased": "P0043",
+    "age_at_death": 4,
+    "witnesses": [
+      "P0181",
+      "P0261"
+    ]
+  },
+  "E0104": {
+    "id": "E0104",
+    "type": "death",
+    "year": 1856,
+    "date_day": 12,
+    "date_month": 12,
+    "house_number": "7",
+    "original_text": "św. Mateusz Zarzycki (60) i Jakub Kiełek (50), dom 7, Marianna Zarzycka (2 lata, córka Leonarda) (12.12)",
+    "source_line": 179,
+    "deceased": "P0262",
+    "age_at_death": 2,
+    "witnesses": [
+      "P0022",
+      "P0069"
+    ]
+  },
+  "E0105": {
+    "id": "E0105",
+    "type": "death",
+    "year": 1856,
+    "original_text": "św. X (?) i X (?), dom X, X (?) (?)",
+    "source_line": 180
+  },
+  "E0106": {
+    "id": "E0106",
+    "type": "death",
+    "year": 1856,
+    "original_text": "św. X (?) i X (?), dom X, X (?) (?)",
+    "source_line": 181
+  },
+  "E0107": {
+    "id": "E0107",
+    "type": "death",
+    "year": 1856,
+    "original_text": "św. X (?) i X (?), dom X, X (?) (?)",
+    "source_line": 182
+  },
+  "E0108": {
+    "id": "E0108",
+    "type": "birth",
+    "year": 1857,
+    "house_number": "2",
+    "original_text": "NN i Elżbieta Głód (wyrobnica) z d. Dymińska: dom 2 -  św: Wiktoria Chojnacka (akuszerka), Karol Łęcki i Jan Myszka - chrz. K.Ł. i Julianna Łapacz. Ur: Julianna Dymińska - dom 2, św: Jędrzej Kozik i Ambroży Dymiński (73 - dziad szpitalny z Mirca) - zm: Julianna Dymińska",
+    "source_line": 185,
+    "mother_maiden_name": "Dymińska",
+    "witnesses": [
+      "P0263",
+      "P0079"
+    ]
+  },
+  "E0109": {
+    "id": "E0109",
+    "type": "birth",
+    "year": 1857,
+    "house_number": "8",
+    "original_text": "Wincenty Zatorski i Giertruda z d. Marcula: dom 8 -  św: Jacek Dymiński i Jan Sikora - chrz. J.D. i Konstancja Kiełek. Ur: Wiktoria",
+    "source_line": 186,
+    "child": "P0265",
+    "father": "P0012",
+    "mother": "P0264",
+    "mother_maiden_name": "Marcula",
+    "witnesses": [
+      "P0131",
+      "P0181"
+    ]
+  },
+  "E0110": {
+    "id": "E0110",
+    "type": "birth",
+    "year": 1857,
+    "house_number": "30",
+    "original_text": "Ludwik Molga i Konstancja z d. Kuckowska?: dom 30 -  św: Jan Sikora i Jakub Myszka - chrz. Marianna Dymińska i J.S.. Ur: Józef",
+    "source_line": 187,
+    "child": "P0268",
+    "father": "P0266",
+    "mother": "P0267",
+    "mother_maiden_name": "Kuckowska?",
+    "witnesses": [
+      "P0181",
+      "P0269"
+    ]
+  },
+  "E0111": {
+    "id": "E0111",
+    "type": "birth",
+    "year": 1857,
+    "house_number": "39",
+    "original_text": "Tomasz Drożdż i Magdalena z d. Pachnik: dom 39 -  św: Wojech Zatorski i Karol Gizan - chrz. W.Z. i Tekla Przyrowska. Ur: Erazm",
+    "source_line": 188,
+    "child": "P0271",
+    "father": "P0053",
+    "mother": "P0270",
+    "mother_maiden_name": "Pachnik",
+    "witnesses": [
+      "P0272",
+      "P0273"
+    ]
+  },
+  "E0112": {
+    "id": "E0112",
+    "type": "birth",
+    "year": 1857,
+    "house_number": "15",
+    "original_text": "Wawrzyniec Surdey (27) i Katarzyna z d. Kiełek: dom 15 -  św: Szczepan Myszka i Jacek Dymiński - chrz. Sz.M. i Wiktoria Kiełek. Ur: Małgorzata",
+    "source_line": 189,
+    "child": "P0274",
+    "father": "P0051",
+    "mother": "P0186",
+    "mother_maiden_name": "Kiełek",
+    "witnesses": [
+      "P0220",
+      "P0131"
+    ]
+  },
+  "E0113": {
+    "id": "E0113",
+    "type": "birth",
+    "year": 1857,
+    "house_number": "33",
+    "original_text": "Łukasz Myszka i Franciszka z d. Drożdż: dom 33 -  św: Piotr Kozik i Wawrzyniec Ziewiecki - chrz. Jędrzej Kruk i Franciszka Zarzycka. Ur: Antoni",
+    "source_line": 190,
+    "child": "P0276",
+    "father": "P0135",
+    "mother": "P0275",
+    "mother_maiden_name": "Drożdż",
+    "witnesses": [
+      "P0094",
+      "P0139"
+    ],
+    "godparents": [
+      "P0277",
+      "P0188"
+    ]
+  },
+  "E0114": {
+    "id": "E0114",
+    "type": "birth",
+    "year": 1857,
+    "house_number": "2",
+    "original_text": "Walenty Nobis i Katarzyna z d. Rozalska: dom 2 -  św: Piotr Nobis i Jacek Chmolowski - chrz. X i X. Ur: Małgorzata",
+    "source_line": 191,
+    "child": "P0279",
+    "father": "P0192",
+    "mother": "P0278",
+    "mother_maiden_name": "Rozalska",
+    "witnesses": [
+      "P0280",
+      "P0229"
+    ]
+  },
+  "E0115": {
+    "id": "E0115",
+    "type": "birth",
+    "year": 1857,
+    "house_number": "18",
+    "original_text": "NN i Małgorzata (NN) z d. Głód: dom 18 -  św: Zofia Słyk (akuszerka), Wawrzyniec Surdey i Tomasz Drożdż - chrz. W.S. i Konstancja Molga. Ur: Józef (1857-1860)",
+    "source_line": 192,
+    "mother_maiden_name": "Głód",
+    "witnesses": [
+      "P0066",
+      "P0053"
+    ]
+  },
+  "E0116": {
+    "id": "E0116",
+    "type": "birth",
+    "year": 1857,
+    "house_number": "14",
+    "original_text": "Karol Łęcki i Anastazja z d. Gralec: dom 14 -  św: Leonard Łęcki i Jacek Dymiński - chrz. L.Ł. i Agata Dymińska. Ur: Bonawentura",
+    "source_line": 193,
+    "child": "P0281",
+    "father": "P0142",
+    "mother": "P0213",
+    "mother_maiden_name": "Gralec",
+    "witnesses": [
+      "P0109",
+      "P0131"
+    ]
+  },
+  "E0117": {
+    "id": "E0117",
+    "type": "birth",
+    "year": 1857,
+    "house_number": "1",
+    "original_text": "Aleksander Klimkowski (strzelec lasów rządowych) i Marianna z d. Żukowska: dom 1 -  św: Wawrzyniec Surdey i Antoni Głód - chrz. Konstanty Gurmiński (podleśny) i Teofila Janowska. Ur: Ignacy Antoni",
+    "source_line": 194,
+    "child": "P0284",
+    "father": "P0282",
+    "mother": "P0283",
+    "mother_maiden_name": "Żukowska",
+    "witnesses": [
+      "P0051",
+      "P0145"
+    ],
+    "godparents": [
+      "P0285",
+      "P0286"
+    ]
+  },
+  "E0118": {
+    "id": "E0118",
+    "type": "birth",
+    "year": 1857,
+    "house_number": "3",
+    "original_text": "Maciej Łęcki i Marianna z d. Chojnacka: dom 3 -  św: Jan Sikora i Jan Myszka - chrz. J.S. i Katarzyna Kleczaj. Ur: Katarzyna",
+    "source_line": 195,
+    "child": "P0288",
+    "father": "P0287",
+    "mother": "P0081",
+    "mother_maiden_name": "Chojnacka",
+    "witnesses": [
+      "P0181",
+      "P0079"
+    ]
+  },
+  "E0119": {
+    "id": "E0119",
+    "type": "birth",
+    "year": 1857,
+    "house_number": "23",
+    "original_text": "Jędrzej Kruk (30) i Brygida (30) z d. Surdey: dom 23 -  św: Jacek Dymińsk (37) i Wawrzyniec Surdey (40) - chrz. J.D. i Marianna Surdey Ur: Wawrzyniec",
+    "source_line": 196,
+    "child": "P0290",
+    "father": "P0277",
+    "mother": "P0289",
+    "mother_maiden_name": "Surdey",
+    "witnesses": [
+      "P0291",
+      "P0051"
+    ]
+  },
+  "E0120": {
+    "id": "E0120",
+    "type": "birth",
+    "year": 1857,
+    "house_number": "35",
+    "original_text": "Bartłomiej Drożdż i Justyna z d. Kiełek: dom 35 -  św: Jan Kiełek i Franciszek Gralec - chrz. Franciszka Marlica i J.K.. Ur: Władysław",
+    "source_line": 197,
+    "child": "P0292",
+    "father": "P0151",
+    "mother": "P0152",
+    "mother_maiden_name": "Kiełek",
+    "witnesses": [
+      "P0216",
+      "P0169"
+    ]
+  },
+  "E0121": {
+    "id": "E0121",
+    "type": "birth",
+    "year": 1857,
+    "house_number": "1",
+    "original_text": "Szczepan Myszka i Marianna z d. Surdey: dom 1 -  św: Maciej Łęcki i Wawrzyniec Ziewiecki - chrz. Jakub Chmolowski i Agnieszka Grudzień. Ur: Feliks",
+    "source_line": 198,
+    "child": "P0294",
+    "father": "P0220",
+    "mother": "P0293",
+    "mother_maiden_name": "Surdey",
+    "witnesses": [
+      "P0287",
+      "P0139"
+    ],
+    "godparents": [
+      "P0295",
+      "P0296"
+    ]
+  },
+  "E0122": {
+    "id": "E0122",
+    "type": "birth",
+    "year": 1857,
+    "house_number": "1",
+    "original_text": "Józef Prendowski (naddzierżawca dóbr w Mircu) i Jadwiga z d. Wojciechowska: dom 1 (Mirzec) -  św: Kazimierz Kłokocki (dziedzic dóbr w Łomnie) i Wincenty Podleski  (zastępca wójta gminy Mirzec)  - chrz. K.K. i Izabela Kłokocka (z d. Wojciechowska, siostra Jadwigi). Ur: Kajetan (imię po ojcu Jadwigi)",
+    "source_line": 199,
+    "child": "P0299",
+    "father": "P0297",
+    "mother": "P0298",
+    "mother_maiden_name": "Wojciechowska",
+    "witnesses": [
+      "P0300",
+      "P0301"
+    ]
+  },
+  "E0123": {
+    "id": "E0123",
+    "type": "birth",
+    "year": 1857,
+    "house_number": "13",
+    "original_text": "Józef Synal i Julianna z d. Zatorska: dom 13 -  św: Wincenty Zatorski i Tomasz Drożdż - chrz. Katarzyna Surdey i W.Z.. Ur: Teofil",
+    "source_line": 200,
+    "child": "P0302",
+    "father": "P0238",
+    "mother": "P0239",
+    "mother_maiden_name": "Zatorska",
+    "witnesses": [
+      "P0012",
+      "P0053"
+    ]
+  },
+  "E0124": {
+    "id": "E0124",
+    "type": "death",
+    "year": 1857,
+    "date_day": 11,
+    "date_month": 9,
+    "house_number": "23",
+    "original_text": "św. Wawrzyniec Surdey (44) i Józef Surdey (57), Katarzyna Słyk (córka Brygidy i Szczepana Słyków), dom 23 (11.09)",
+    "source_line": 202,
+    "deceased": "P0146",
+    "witnesses": [
+      "P0051",
+      "P0008"
+    ]
+  },
+  "E0125": {
+    "id": "E0125",
+    "type": "death",
+    "year": 1857,
+    "house_number": "48",
+    "original_text": "św. Jakub Kiełek i Łukasz Kiełek (rolnicy), Stanisław Kiełek (syn Marcina i Tekli z Głodów), dom 48",
+    "source_line": 203,
+    "deceased": "P0058",
+    "witnesses": [
+      "P0069",
+      "P0226"
+    ]
+  },
+  "E0126": {
+    "id": "E0126",
+    "type": "death",
+    "year": 1857,
+    "house_number": "33",
+    "original_text": "Św: Kazimierz Łapacz i Jakub Słyk, Jan Spadło (Grzegorz i Marianna z Jarosów), dom 33",
+    "source_line": 204,
+    "deceased": "P0201",
+    "witnesses": [
+      "P0004",
+      "P0065"
+    ]
+  },
+  "E0127": {
+    "id": "E0127",
+    "type": "death",
+    "year": 1857,
+    "house_number": "16",
+    "original_text": "Św: Jakub Słyk i Wojciech Pomorski, Jan Surdey (14, syn Wawrzyńca i Katarzyny z Kiełków), dom 16",
+    "source_line": 205,
+    "deceased": "P0001",
+    "witnesses": [
+      "P0065",
+      "P0254"
+    ]
+  },
+  "E0128": {
+    "id": "E0128",
+    "type": "death",
+    "year": 1857,
+    "house_number": "2",
+    "original_text": "Św: Antoni Drożdż i Ambroży Dymiński (dziad szpitalny), Agnieszka Drożdż (wyrobnica, córka Wawrzyńca i Anny Drabików), dom 2",
+    "source_line": 206,
+    "deceased": "P0255",
+    "witnesses": [
+      "P0256",
+      "P0177"
+    ]
+  },
+  "E0129": {
+    "id": "E0129",
+    "type": "death",
+    "year": 1857,
+    "house_number": "42",
+    "original_text": "Św: Jan Niewczas i Piotr Kozik, Agnieszka Niewczas (wyrobnica z Maciejczaków), dom 42",
+    "source_line": 207,
+    "deceased": "P0257",
+    "witnesses": [
+      "P0244",
+      "P0094"
+    ]
+  },
+  "E0130": {
+    "id": "E0130",
+    "type": "death",
+    "year": 1857,
+    "house_number": "30",
+    "original_text": "Św: Ambroży Dymiński (dziad szpitalny) i Grzegorz Spadło, Leonard Głód (syn wyrobników Leonarda i Elżbiety), dom 30",
+    "source_line": 208,
+    "deceased": "P0095",
+    "witnesses": [
+      "P0177",
+      "P0122"
+    ]
+  },
+  "E0131": {
+    "id": "E0131",
+    "type": "death",
+    "year": 1857,
+    "house_number": "14",
+    "original_text": "Św: Antoni Łęcki i Ambroży Dymiński, Piotr Łęcki (syn Karola i Anastazji Łęckich), dom 14",
+    "source_line": 209,
+    "deceased": "P0214",
+    "witnesses": [
+      "P0103",
+      "P0177"
+    ]
+  },
+  "E0132": {
+    "id": "E0132",
+    "type": "death",
+    "year": 1857,
+    "house_number": "30",
+    "original_text": "Św: Łukasz Kiełek i Antoni Głód, Kazimierz Drożdż (wyrobnik syn Stanisława i Marianny), dom 30",
+    "source_line": 210,
+    "deceased": "P0259",
+    "witnesses": [
+      "P0226",
+      "P0145"
+    ]
+  },
+  "E0133": {
+    "id": "E0133",
+    "type": "death",
+    "year": 1857,
+    "house_number": "13",
+    "original_text": "Św: Wincenty Słyk i Ambroży Dymiński, Mateusz Synal (syn Józefa i Juliany), dom 13",
+    "source_line": 211,
+    "deceased": "P0240",
+    "witnesses": [
+      "P0230",
+      "P0177"
+    ]
+  },
+  "E0134": {
+    "id": "E0134",
+    "type": "death",
+    "year": 1857,
+    "house_number": "30",
+    "original_text": "Św: Józef Kiełek i Jan Myszka, Ludwik Kiełek (syn wyrobników Jana i Anny), dom 30",
+    "source_line": 212,
+    "deceased": "P0035",
+    "witnesses": [
+      "P0127",
+      "P0079"
+    ]
+  },
+  "E0135": {
+    "id": "E0135",
+    "type": "death",
+    "year": 1857,
+    "house_number": "22",
+    "original_text": "Św: Jan Sikora i Jędrzej Kozik, Magdalena Surdey (Józefa i Elżbiety Surdeyów), dom 22",
+    "source_line": 213,
+    "deceased": "P0043",
+    "witnesses": [
+      "P0181",
+      "P0261"
+    ]
+  },
+  "E0136": {
+    "id": "E0136",
+    "type": "death",
+    "year": 1857,
+    "house_number": "7",
+    "original_text": "Św: Mateusz Zarzycki i Jakub Kiełek, Marianna Zarzycka (córka Leonarda i Franciszki), dom 7",
+    "source_line": 214,
+    "deceased": "P0262",
+    "witnesses": [
+      "P0022",
+      "P0069"
+    ]
+  },
+  "E0137": {
+    "id": "E0137",
+    "type": "birth",
+    "year": 1858,
+    "house_number": "5",
+    "original_text": "Grzegorz Bąk i Apolonia z d. Zatorska: dom 5 -  św: Ludwik Molga i Łukasz Kiełek - chrz. Marianna Jaskra i L.M. Ur: Marianna",
+    "source_line": 217,
+    "child": "P0305",
+    "father": "P0303",
+    "mother": "P0304",
+    "mother_maiden_name": "Zatorska",
+    "witnesses": [
+      "P0266",
+      "P0226"
+    ]
+  },
+  "E0138": {
+    "id": "E0138",
+    "type": "birth",
+    "year": 1858,
+    "house_number": "30",
+    "original_text": "Franciszek Zarzycki i Antonina z d. Chojnacka: dom 30 -  św: Grzegorz Spadło i Antoni Łęcki - chrz. G.S. i Brygida Kruk. Ur: Antoni",
+    "source_line": 218,
+    "child": "P0306",
+    "father": "P0014",
+    "mother": "P0205",
+    "mother_maiden_name": "Chojnacka",
+    "witnesses": [
+      "P0122",
+      "P0103"
+    ]
+  },
+  "E0139": {
+    "id": "E0139",
+    "type": "birth",
+    "year": 1858,
+    "house_number": "1",
+    "original_text": "Konstanty Gumiński (podleśny lasów rządowych straż Małyszyn) i Rozalia z d. Knopek: dom 1 -  św: Antoni Janowski (sztygar kopalni rządowej - Dziewiątniki) i Leon Buchowski (dozorca węglarstwa - Dziewiątniki) - chrz. Ildefons Knoph i Helena Knoph. Ur: Władysław Julian Bolesław",
+    "source_line": 219,
+    "child": "P0309",
+    "father": "P0307",
+    "mother": "P0308",
+    "mother_maiden_name": "Knopek",
+    "godparents": [
+      "P0310",
+      "P0311"
+    ]
+  },
+  "E0140": {
+    "id": "E0140",
+    "type": "birth",
+    "year": 1858,
+    "house_number": "12",
+    "original_text": "Jan Kiełek i Marianna z d. Gralec: dom 12-  św: Jacek Chmolowski i Tomasz Drożdż - chrz. J.Ch. i Agata Dymińska. Ur: Benedykt",
+    "source_line": 220,
+    "child": "P0312",
+    "father": "P0216",
+    "mother": "P0196",
+    "mother_maiden_name": "Gralec",
+    "witnesses": [
+      "P0229",
+      "P0053"
+    ]
+  },
+  "E0141": {
+    "id": "E0141",
+    "type": "birth",
+    "year": 1858,
+    "house_number": "1",
+    "original_text": "Marcin Rafalik (służący w Mircu) i Marianna z dom. Pachne: dom 1 (Mirzec) -  św: Tomasz dalecki (kucharz Mirzec) i Józef Barański (karbowy Mirzec) - chrz. Tomasz Dalecki i Antonina Birkowska. Ur: Franciszka",
+    "source_line": 221,
+    "child": "P0315",
+    "father": "P0313",
+    "mother": "P0314",
+    "witnesses": [
+      "P0316",
+      "P0317"
+    ],
+    "godparents": [
+      "P0318",
+      "P0319"
+    ]
+  },
+  "E0142": {
+    "id": "E0142",
+    "type": "birth",
+    "year": 1858,
+    "house_number": "6",
+    "original_text": "Jan Drożdż i Józefa z d. Myszka: dom 6 -  św: Wincenty Słyk i Antoni Łęcki - chrz. Konstanty? Marlica i Marianna Chmolowska. Ur: Damian",
+    "source_line": 222,
+    "child": "P0320",
+    "father": "P0054",
+    "mother": "P0211",
+    "mother_maiden_name": "Myszka",
+    "witnesses": [
+      "P0230",
+      "P0103"
+    ],
+    "godparents": [
+      "P0321",
+      "P0322"
+    ]
+  },
+  "E0143": {
+    "id": "E0143",
+    "type": "birth",
+    "year": 1858,
+    "house_number": "6",
+    "original_text": "Jędrzej Buz (cieśla) i Marianna z d. Sławińska: dom 6 -  św: Jędrzej Kruk i Leonard Zarzycki- chrz. Jędrzej Kruk i Anna Kiełek. Ur: Antonina",
+    "source_line": 223,
+    "child": "P0325",
+    "father": "P0323",
+    "mother": "P0324",
+    "mother_maiden_name": "Sławińska",
+    "witnesses": [
+      "P0277",
+      "P0149"
+    ],
+    "godparents": [
+      "P0277",
+      "P0326"
+    ]
+  },
+  "E0144": {
+    "id": "E0144",
+    "type": "birth",
+    "year": 1858,
+    "house_number": "7",
+    "original_text": "Leonard Zarzycki i Franciszka z d. Myszka: dom 7 -  św: Józef Surdey i Jakub Jaros - chrz. Konstancja Kiełek i Jan Surdey. Ur: Stanisław",
+    "source_line": 224,
+    "child": "P0327",
+    "father": "P0149",
+    "mother": "P0023",
+    "mother_maiden_name": "Myszka",
+    "witnesses": [
+      "P0008",
+      "P0185"
+    ],
+    "godparents": [
+      "P0227",
+      "P0001"
+    ]
+  },
+  "E0145": {
+    "id": "E0145",
+    "type": "birth",
+    "year": 1858,
+    "house_number": "22",
+    "original_text": "Józef Kiełek i Wiktoria z d. Myszka: dom 22 -  św: Antoni Głód i Wawrzyniec Surdey - chrz. Bonawentura Myszka i Marianna Chmielowska. Ur: Erazm",
+    "source_line": 225,
+    "child": "P0328",
+    "father": "P0127",
+    "mother": "P0218",
+    "mother_maiden_name": "Myszka",
+    "witnesses": [
+      "P0145",
+      "P0051"
+    ],
+    "godparents": [
+      "P0329",
+      "P0330"
+    ]
+  },
+  "E0146": {
+    "id": "E0146",
+    "type": "birth",
+    "year": 1858,
+    "house_number": "32",
+    "original_text": "Wojciech Kruk i Barbara: dom 32 (Tychów) -  św: Jędrzej Kruk i Leonard Sobczyk - chrz. J.K. i Józefa Niewczas. Ur: Alojzy",
+    "source_line": 226,
+    "child": "P0332",
+    "father": "P0243",
+    "mother": "P0331",
+    "witnesses": [
+      "P0277",
+      "P0333"
+    ]
+  },
+  "E0147": {
+    "id": "E0147",
+    "type": "birth",
+    "year": 1858,
+    "house_number": "30",
+    "original_text": "Maciej Kiełek (zm.) i Marianna z d. Słyk: dom 30 -  św: Rozalia Słyk (akuszerka), Wawrzyniec Ziewiecki i Karol Łęcki - chrz. Jakub Lebioda i Marianna ?. Ur: Marianna",
+    "source_line": 227,
+    "child": "P0196",
+    "father": "P0182",
+    "mother": "P0196",
+    "mother_maiden_name": "Słyk",
+    "witnesses": [
+      "P0334",
+      "P0142"
+    ],
+    "godparents": [
+      "P0335",
+      "P0336"
+    ]
+  },
+  "E0148": {
+    "id": "E0148",
+    "type": "birth",
+    "year": 1858,
+    "house_number": "26",
+    "original_text": "Stanisław Nobis i Katarzyna z d. Różalska: dom 26 -  św: Szymon Łęcki i Franciszek Zarzycki - chrz. F.Z. i Wiktoria Kiełek. Ur: Piotr",
+    "source_line": 228,
+    "child": "P0280",
+    "father": "P0337",
+    "mother": "P0278",
+    "mother_maiden_name": "Różalska",
+    "witnesses": [
+      "P0338",
+      "P0014"
+    ]
+  },
+  "E0149": {
+    "id": "E0149",
+    "type": "birth",
+    "year": 1858,
+    "house_number": "30",
+    "original_text": "Józef Krakowiak i Julianna z d. Drożdż: dom 30 -  św: Leonard Zarzycki i Wawrzyniec Surdey - chrz. Brygida Kruk i L.Z.. Ur: Teodoryk",
+    "source_line": 229,
+    "child": "P0340",
+    "father": "P0193",
+    "mother": "P0339",
+    "mother_maiden_name": "Drożdż",
+    "witnesses": [
+      "P0149",
+      "P0051"
+    ]
+  },
+  "E0150": {
+    "id": "E0150",
+    "type": "birth",
+    "year": 1858,
+    "house_number": "15",
+    "original_text": "Jacek Dymiński i Marianna z d. Surdey: dom 15 -  św: Jan Surdey i Wincenty Zatorski - chrz. J.S. i Marianna Kiełek. Ur: Ignacy",
+    "source_line": 230,
+    "child": "P0341",
+    "father": "P0131",
+    "mother": "P0132",
+    "mother_maiden_name": "Surdey",
+    "witnesses": [
+      "P0001",
+      "P0012"
+    ]
+  },
+  "E0151": {
+    "id": "E0151",
+    "type": "birth",
+    "year": 1858,
+    "house_number": "46",
+    "original_text": "NN i Teofila (wyrobnica 1839-1870) z d. Zatorska: dom 46 -  św: Marianna Zatorska (akuszerka) i Michał Niewczas i Stefan Wójcik (54 dziad kościelny z Mirca) - chrz. M.N. i Marianna Łęcka. Ur: Joanna (1858-1859)",
+    "source_line": 231,
+    "mother_maiden_name": "Zatorska",
+    "witnesses": [
+      "P0207",
+      "P0215",
+      "P0342"
+    ]
+  },
+  "E0152": {
+    "id": "E0152",
+    "type": "birth",
+    "year": 1858,
+    "house_number": "2",
+    "original_text": "Łukasz Myszka i Franciszka z d. Drożdż: dom 2 -  św: Jan Drożdż i Tomasz Kozik - chrz. Marta Surdey i J.D. Ur: Ludwik",
+    "source_line": 232,
+    "child": "P0343",
+    "father": "P0135",
+    "mother": "P0275",
+    "mother_maiden_name": "Drożdż",
+    "witnesses": [
+      "P0054",
+      "P0154"
+    ]
+  },
+  "E0153": {
+    "id": "E0153",
+    "type": "birth",
+    "year": 1858,
+    "house_number": "1",
+    "original_text": "Franciszek Gralec i Franciszka z d. Zając: dom 1 -  św: Jędrzej Kruk i Antoni Głód - chrz. J.K. i Wiktoria Chojnacka. Ur: Tomasz",
+    "source_line": 233,
+    "child": "P0344",
+    "father": "P0169",
+    "mother": "P0170",
+    "mother_maiden_name": "Zając",
+    "witnesses": [
+      "P0277",
+      "P0145"
+    ]
+  },
+  "E0154": {
+    "id": "E0154",
+    "type": "birth",
+    "year": 1858,
+    "house_number": "?",
+    "original_text": "Antoni Głód i Jadwiga z d. Kruk: dom ? -  św: Jan Surdey i Wawrzyniec Surdey - chrz. J.S. i Wiktoria Kurek. Ur: Jędrzej",
+    "source_line": 234,
+    "child": "P0345",
+    "father": "P0145",
+    "mother": "P0148",
+    "mother_maiden_name": "Kruk",
+    "witnesses": [
+      "P0001",
+      "P0051"
+    ]
+  },
+  "E0155": {
+    "id": "E0155",
+    "type": "birth",
+    "year": 1858,
+    "house_number": "1",
+    "original_text": "Józef Prendowski (naddzierżawca dóbr supprymowanych w Mircu) i Jadwiga z d. Wojciechowska: dom 1 (Mirzec) -  św: Łukasz Sawicki (organista w Mircu) i Franciszek Polakowski (oficjalista w Osinach)  - chrz. Łukasz Zawicki i Ewa Zawicka. Ur: Zdzisław Tadeusz Jan",
+    "source_line": 235,
+    "child": "P0346",
+    "father": "P0297",
+    "mother": "P0298",
+    "mother_maiden_name": "Wojciechowska",
+    "witnesses": [
+      "P0162",
+      "P0347"
+    ],
+    "godparents": [
+      "P0348",
+      "P0349"
+    ]
+  },
+  "E0156": {
+    "id": "E0156",
+    "type": "birth",
+    "year": 1858,
+    "house_number": "?",
+    "original_text": "Jan Zatorski i Franciszka z d. Kruk: dom ? -  św: Wawrzyniec Ziewiecki i Wawrzyniec Surdey - chrz. Franciszek Kozik i Marianna Kiełek. Ur: Tomas",
+    "source_line": 236,
+    "child": "P0352",
+    "father": "P0350",
+    "mother": "P0351",
+    "mother_maiden_name": "Kruk",
+    "witnesses": [
+      "P0139",
+      "P0051"
+    ],
+    "godparents": [
+      "P0353",
+      "P0196"
+    ]
+  },
+  "E0157": {
+    "id": "E0157",
+    "type": "birth",
+    "year": 1858,
+    "house_number": "?",
+    "original_text": "Szczepan Rozalski i Katarzyna z d. Szary?: dom ? -  św: Jakub Niewczas i Wawrzyniec Ziewiecki - chrz. Jakub Niewczas i Marianna Kiełek. Ur: Ewa",
+    "source_line": 237,
+    "child": "P0356",
+    "father": "P0354",
+    "mother": "P0355",
+    "mother_maiden_name": "Szary?",
+    "witnesses": [
+      "P0223",
+      "P0139"
+    ],
+    "godparents": [
+      "P0223",
+      "P0196"
+    ]
+  },
+  "E0158": {
+    "id": "E0158",
+    "type": "birth",
+    "year": 1858,
+    "house_number": "?",
+    "original_text": "Łukasz Kiełek i Konstancja z d. Chmolowska: dom ? -  św: Wawrzyniec Surdey i Piotr Kozik - chrz. W.S. i Marianna Chmolowska. Ur: Tomasz",
+    "source_line": 238,
+    "child": "P0017",
+    "father": "P0226",
+    "mother": "P0227",
+    "mother_maiden_name": "Chmolowska",
+    "witnesses": [
+      "P0051",
+      "P0094"
+    ]
+  },
+  "E0159": {
+    "id": "E0159",
+    "type": "birth",
+    "year": 1858,
+    "house_number": "?",
+    "original_text": "Bonawentura Myszka i Małgorzata z d. Marlica: dom ? -  św: Walenty Marlica i Wawrzyniec Ziewiecki - chrz. W.M. i Józefa Drożdż. Ur: Marcjanna",
+    "source_line": 239,
+    "child": "P0358",
+    "father": "P0329",
+    "mother": "P0357",
+    "mother_maiden_name": "Marlica",
+    "witnesses": [
+      "P0359",
+      "P0139"
+    ]
+  },
+  "E0160": {
+    "id": "E0160",
+    "type": "death",
+    "year": 1858,
+    "house_number": "1",
+    "original_text": "Św: Wawrzyniec Ziewiecki i Maciej Łęcki, Jan Myszka (syn Stanisława i Krystyny), dom 1",
+    "source_line": 242,
+    "deceased": "P0079",
+    "witnesses": [
+      "P0139",
+      "P0287"
+    ]
+  },
+  "E0161": {
+    "id": "E0161",
+    "type": "death",
+    "year": 1858,
+    "house_number": "53",
+    "original_text": "Św: Wawrzyniec Ziewiec i Maciej Łęcki, Marianna Kozłowska (córka Mikołaja i Zuzanny Głód), dom 53",
+    "source_line": 243,
+    "deceased": "P0360",
+    "witnesses": [
+      "P0361",
+      "P0287"
+    ]
+  },
+  "E0162": {
+    "id": "E0162",
+    "type": "death",
+    "year": 1858,
+    "house_number": "30",
+    "original_text": "Św: Antoni Łęcki i Ludwika Molga, Marianna Zarzycka (córka Mikołaja i Krystyna, żona MAteusza Zarzyckiego), dom 30",
+    "source_line": 244,
+    "deceased": "P0262",
+    "witnesses": [
+      "P0103",
+      "P0362"
+    ]
+  },
+  "E0163": {
+    "id": "E0163",
+    "type": "death",
+    "year": 1858,
+    "house_number": "40",
+    "original_text": "Św: Grzegorz Spadło i Karol Łęcki, Elżbieta Salwa (córka Piotra i Krystyny, wdowa po Bernardzie Salwie), dom 40",
+    "source_line": 245,
+    "deceased": "P0363",
+    "witnesses": [
+      "P0122",
+      "P0142"
+    ]
+  },
+  "E0164": {
+    "id": "E0164",
+    "type": "death",
+    "year": 1858,
+    "house_number": "20",
+    "original_text": "Św: Karol Łęcki i Franciszek Zarzycki, Wawrzyniec Nobis (Walenty i KAtarzyna), dom 20",
+    "source_line": 246,
+    "deceased": "P0364",
+    "witnesses": [
+      "P0142",
+      "P0014"
+    ]
+  },
+  "E0165": {
+    "id": "E0165",
+    "type": "death",
+    "year": 1858,
+    "house_number": "30",
+    "original_text": "Św: Wincenty Słyk i Szczepan Różalski, Maciej Kiełek (Tomasz i Małgorzata), dom 30",
+    "source_line": 247,
+    "deceased": "P0182",
+    "witnesses": [
+      "P0230",
+      "P0365"
+    ]
+  },
+  "E0166": {
+    "id": "E0166",
+    "type": "death",
+    "year": 1858,
+    "house_number": "50",
+    "original_text": "Św: Wojciech Zatorsk i Wincenty Słyk, Wawrzyniec Dębiec (syn Wojciecha i Marianny), dom 50",
+    "source_line": 248,
+    "deceased": "P0366",
+    "witnesses": [
+      "P0367",
+      "P0230"
+    ]
+  },
+  "E0167": {
+    "id": "E0167",
+    "type": "death",
+    "year": 1858,
+    "house_number": "20",
+    "original_text": "Św: Walenty Pietrzyk i Józef Kiełek, Władysław Drożdż (syn małoletni Bartłomieja i Justyny), dom 20",
+    "source_line": 249,
+    "deceased": "P0292",
+    "witnesses": [
+      "P0061",
+      "P0127"
+    ]
+  },
+  "E0168": {
+    "id": "E0168",
+    "type": "death",
+    "year": 1858,
+    "house_number": "8",
+    "original_text": "Św: Jan Sikora i Wawrzyniec Ziewiecki, Wiktoria Zatorska (córka Wincentego i Gertrudy Zatorskich), dom 8",
+    "source_line": 250,
+    "deceased": "P0368",
+    "witnesses": [
+      "P0181",
+      "P0139"
+    ]
+  },
+  "E0169": {
+    "id": "E0169",
+    "type": "death",
+    "year": 1858,
+    "house_number": "2",
+    "original_text": "Św: Walenty Pietrzyk i Antoni Głód, Joanna Gralec (małoletnia córka Franciszka i Franciszki Gralców), dom 2",
+    "source_line": 251,
+    "deceased": "P0369",
+    "witnesses": [
+      "P0061",
+      "P0145"
+    ]
+  },
+  "E0170": {
+    "id": "E0170",
+    "type": "death",
+    "year": 1858,
+    "house_number": "33",
+    "original_text": "Św: Józef Kiełek i Jędrzej Kruk, Jan Myszka (11, syn Łukasza i Franciszki), dom 33",
+    "source_line": 252,
+    "deceased": "P0079",
+    "witnesses": [
+      "P0127",
+      "P0277"
+    ]
+  },
+  "E0171": {
+    "id": "E0171",
+    "type": "death",
+    "year": 1858,
+    "house_number": "5",
+    "original_text": "Św: Wojciech Zatorski i Józef Synal, Wiktoria Jaskros (4 lata, córka Jana i Marianny), dom 5",
+    "source_line": 253,
+    "deceased": "P0370",
+    "age_at_death": 4,
+    "witnesses": [
+      "P0119",
+      "P0238"
+    ]
+  },
+  "E0172": {
+    "id": "E0172",
+    "type": "death",
+    "year": 1858,
+    "house_number": "20",
+    "original_text": "Św: Szczepan Myszka i Wojciech Zatorski, Joachim Głód (6 lat, syn Antoniego i Jadwigi), dom 20",
+    "source_line": 254,
+    "deceased": "P0371",
+    "age_at_death": 6,
+    "witnesses": [
+      "P0220",
+      "P0119"
+    ]
+  },
+  "E0173": {
+    "id": "E0173",
+    "type": "death",
+    "year": 1858,
+    "house_number": "3",
+    "original_text": "Św: Łukasz Kiełek i Józef Jaros, Katarzyna Łęcka (1 rok, Maciej i Marianna), dom 3",
+    "source_line": 255,
+    "deceased": "P0372",
+    "age_at_death": 1,
+    "witnesses": [
+      "P0226",
+      "P0373"
+    ]
+  },
+  "E0174": {
+    "id": "E0174",
+    "type": "death",
+    "year": 1858,
+    "house_number": "1",
+    "original_text": "Św: Jędrzej Kruk i Antoni Głód,Tomasz Gralec (noworodek, Franciszek i Franciszka), dom 1",
+    "source_line": 256,
+    "witnesses": [
+      "P0277",
+      "P0145"
+    ]
+  },
+  "E0175": {
+    "id": "E0175",
+    "type": "death",
+    "year": 1858,
+    "house_number": "?",
+    "original_text": "Św: Tomasz Kozik i Józef Kiełek, Ludwik Myszka (noworodek, syn Łukasza i Franciszki), dom ?",
+    "source_line": 257,
+    "deceased": "P0343",
+    "witnesses": [
+      "P0154",
+      "P0127"
+    ]
+  },
+  "E0176": {
+    "id": "E0176",
+    "type": "birth",
+    "year": 1859,
+    "house_number": "?",
+    "original_text": "Jan Kiełek i Anna z d. Kozicka: dom ? -  św: Wawrzyniec Surdey i Józef Surdey - chrz.Wawrzyniec Surdej i Antonina Zarzycka. Ur: Maciej",
+    "source_line": 260,
+    "child": "P0374",
+    "father": "P0216",
+    "mother": "P0326",
+    "mother_maiden_name": "Kozicka",
+    "witnesses": [
+      "P0051",
+      "P0008"
+    ]
+  },
+  "E0177": {
+    "id": "E0177",
+    "type": "birth",
+    "year": 1859,
+    "original_text": "Józef Rozalski, św: Jędrzej Pietrzyk i Franciszek Gralec, z Franciszka z d. Woźniak: dom X, chrz: J.P. i Marianna Łabędzka, ur: Józef",
+    "source_line": 261,
+    "witnesses": [
+      "P0375",
+      "P0169",
+      "P0376"
+    ]
+  },
+  "E0178": {
+    "id": "E0178",
+    "type": "birth",
+    "year": 1859,
+    "original_text": "Jan Kozłowski (wyrobnik), św: Maciej Łęcki i Wawrzyniec Ziewiecki, z Julianna z d. Szmit: dom X, chrz: Jędrzej Kleczaj i Cecylia Chojnacka, ur: Gabryel",
+    "source_line": 262,
+    "witnesses": [
+      "P0287",
+      "P0139",
+      "P0377"
+    ]
+  },
+  "E0179": {
+    "id": "E0179",
+    "type": "birth",
+    "year": 1859,
+    "house_number": "?",
+    "original_text": "Antoni Janowski (zawiadowca kopalni rządowej Dziewiętniki), św: Konstanty Gumiński (podleśny lasów rządowych Iłża) i Antoni Głębowicz (górnik), z Teofila z d. Łękowska: dom ? (Dziewiętniki), chrz: K.G. i Rozalia Gumińska, ur: Matylda",
+    "source_line": 263,
+    "witnesses": [
+      "P0307",
+      "P0378",
+      "P0379"
+    ]
+  },
+  "E0180": {
+    "id": "E0180",
+    "type": "birth",
+    "year": 1859,
+    "house_number": "?",
+    "original_text": "Jan Kiełek, św: Piotr Kozik i Wawrzyniec Surdey, z Antonina z d. ?: dom ?, chrz: W.S. i Małgorzata Niewczas, ur: Anastazja",
+    "source_line": 264,
+    "witnesses": [
+      "P0094",
+      "P0051",
+      "P0245"
+    ]
+  },
+  "E0181": {
+    "id": "E0181",
+    "type": "birth",
+    "year": 1859,
+    "house_number": "?",
+    "original_text": "Wincenty Zatorski, św: Jan Surdej i Tomasza? Drożdż, z Gertruda z d. ?: dom ?, chrz: J.S. i Marianna Chmolowska, ur: Dionizy",
+    "source_line": 265,
+    "witnesses": [
+      "P0380",
+      "P0381",
+      "P0322"
+    ]
+  },
+  "E0182": {
+    "id": "E0182",
+    "type": "birth",
+    "year": 1859,
+    "original_text": "Wincenty Kowalski (wyrobnik), św: Jacek Chmolowski i Kamil? Łapacz, z ? z d. ?: dom X, chrz: Jacek Chmolowski i Marianna Dymińska, ur: Wojciech",
+    "source_line": 266,
+    "witnesses": [
+      "P0229",
+      "P0382",
+      "P0383"
+    ]
+  },
+  "E0183": {
+    "id": "E0183",
+    "type": "birth",
+    "year": 1859,
+    "original_text": "Ludwik Molga, św: Jacek Chmolowski i Jacek Dymiński, z Konstancja z d. Kuckowska: dom X, chrz: J.Ch. i Marianna Kiełek, ur: Katarzyna",
+    "source_line": 267,
+    "witnesses": [
+      "P0229",
+      "P0131",
+      "P0196"
+    ]
+  },
+  "E0184": {
+    "id": "E0184",
+    "type": "birth",
+    "year": 1859,
+    "original_text": "Ludwik Molga, św: Jacek Chmolowski i Jan Kozik, z Konstancja z d. Kuckowska: dom X, chrz: J.K. i Marianna Łęcka, ur: Domicella",
+    "source_line": 268,
+    "witnesses": [
+      "P0229",
+      "P0036",
+      "P0384"
+    ]
+  },
+  "E0185": {
+    "id": "E0185",
+    "type": "birth",
+    "year": 1859,
+    "original_text": "Bartłomiej Drożdż, św: Paweł Kolasa i Franciszek Gralec, z Justyna z d. Kiełek: dom X, chrz: P.K. i Martyna Surdey, ur: Józef",
+    "source_line": 269,
+    "witnesses": [
+      "P0385",
+      "P0169",
+      "P0386"
+    ]
+  },
+  "E0186": {
+    "id": "E0186",
+    "type": "birth",
+    "year": 1859,
+    "original_text": "Józef Jaros, św: Jacek Chmolowski i Paweł Kozik, z Julianna z d. Ziewiecka: dom X, chrz: J.Ch. i Marianna Myszka, ur: Julianna",
+    "source_line": 270,
+    "witnesses": [
+      "P0229",
+      "P0387",
+      "P0293"
+    ]
+  },
+  "E0187": {
+    "id": "E0187",
+    "type": "birth",
+    "year": 1859,
+    "original_text": "Jędrzej Kruk, św: X i X, z X z d. X: dom X, chrz: Petronella Pacek i Jędrzej ?, ur: Marianna",
+    "source_line": 271,
+    "witnesses": [
+      "P0388"
+    ]
+  },
+  "E0188": {
+    "id": "E0188",
+    "type": "birth",
+    "year": 1859,
+    "original_text": "Grzegorz Spadło, św: Jan Kiełek i Ludwik Molga, z Marianna z d. Jaros: dom X, chrz: Marianna Jan Kiełek i Katarzyna Kozik, ur: Wiktoria",
+    "source_line": 272,
+    "witnesses": [
+      "P0216",
+      "P0266",
+      "P0389"
+    ]
+  },
+  "E0189": {
+    "id": "E0189",
+    "type": "birth",
+    "year": 1859,
+    "original_text": "Teofil Salwa, św: Franciszek Zarzycki i Grzegorz Spadło, z Franciszka z d. Jaros: dom X, chrz: F.Z. i Katarzyna Nobis., ur: Magdalena",
+    "source_line": 273,
+    "witnesses": [
+      "P0014",
+      "P0122",
+      "P0278"
+    ]
+  },
+  "E0190": {
+    "id": "E0190",
+    "type": "birth",
+    "year": 1859,
+    "original_text": "Maciej Łęcki, św: Bonawentura Myszka (wyrobnik) i Wawrzyniec Ziewiecki, z Marianna z d. Chojnacka, chrz: B.M. i Agnieszka Pogodzińska, ur: Dominik",
+    "source_line": 274,
+    "witnesses": [
+      "P0329",
+      "P0139",
+      "P0390"
+    ]
+  },
+  "E0191": {
+    "id": "E0191",
+    "type": "birth",
+    "year": 1859,
+    "original_text": "Łukasz Myszka, św: Józef Kruk (35) i Wawrzyniec Surdey, z Franciszka z d. Drożdż:, chrz: J.K. i Brygida Kruk, ur: Michał",
+    "source_line": 275,
+    "witnesses": [
+      "P0242",
+      "P0051",
+      "P0289"
+    ]
+  },
+  "E0192": {
+    "id": "E0192",
+    "type": "birth",
+    "year": 1859,
+    "original_text": "Szymon Łęcki, św: Walenty Nobis i Michał Orłowski, z Marianna z d. Z:, chrz: M.O. i Katarzyna Surdey, ur: Brygida",
+    "source_line": 276,
+    "witnesses": [
+      "P0192",
+      "P0210",
+      "P0186"
+    ]
+  },
+  "E0193": {
+    "id": "E0193",
+    "type": "birth",
+    "year": 1859,
+    "original_text": "Jacek Chmolowski, św: Jakub Chmolowski i Kazimierz Łapacz, z Agnieszka z d. Gut:, chrz: J.Ch. i Marianna Kleczaj, ur: Sabina",
+    "source_line": 277,
+    "witnesses": [
+      "P0295",
+      "P0004",
+      "P0391"
+    ]
+  },
+  "E0194": {
+    "id": "E0194",
+    "type": "birth",
+    "year": 1859,
+    "original_text": "Franciszek Gralec, św: Antoni Głód i Wawrzyniec Surdey, z Franciszka z d. Zając:, chrz: Franciszek Kozik i Agata Niewczas, ur: Elżbieta",
+    "source_line": 278,
+    "witnesses": [
+      "P0145",
+      "P0051",
+      "P0392"
+    ]
+  },
+  "E0195": {
+    "id": "E0195",
+    "type": "birth",
+    "year": 1859,
+    "original_text": "Szczepan Myszka, św: Wawrzyniec Ziewiecki i Maciej Łęcki, z Marianna z d. Surdey:, chrz: Jan Surdey i Brygida Kruk, ur: Barbara",
+    "source_line": 279,
+    "witnesses": [
+      "P0139",
+      "P0287",
+      "P0289"
+    ]
+  },
+  "E0196": {
+    "id": "E0196",
+    "type": "birth",
+    "year": 1859,
+    "original_text": "Kazimierz Łapacz, św: Feliks Bogucki i Jacek Chmolowski, z Petronella z d. Gut:, chrz: F.B. i Józefa Wancerz, ur: Łucja",
+    "source_line": 280,
+    "witnesses": [
+      "P0393",
+      "P0229",
+      "P0394"
+    ]
+  },
+  "E0197": {
+    "id": "E0197",
+    "type": "birth",
+    "year": 1859,
+    "original_text": "Franciszek Zarzycki, św: Karol Łęcki i Grzegorz Spadło, z Antonina z d. Chojnacka, chrz: K.Ł. i Marianna Łęcka, ur: Aleksander",
+    "source_line": 281,
+    "witnesses": [
+      "P0142",
+      "P0122",
+      "P0384"
+    ]
+  },
+  "E0198": {
+    "id": "E0198",
+    "type": "birth",
+    "year": 1859,
+    "original_text": "X, św: X i X, z X z d. X:, chrz: X i X, ur: X",
+    "source_line": 282
+  },
+  "E0199": {
+    "id": "E0199",
+    "type": "birth",
+    "year": 1859,
+    "original_text": "X, św: X i X, z X z d. X:, chrz: X i X, ur: X",
+    "source_line": 283
+  },
+  "E0200": {
+    "id": "E0200",
+    "type": "death",
+    "year": 1859,
+    "date_day": 7,
+    "date_month": 2,
+    "original_text": "św. Jakub Jaros i Józef Surdey (5x), Marianna Słyk (córka Brygidy i Szczepana Słyków) (07.02)",
+    "source_line": 285,
+    "deceased": "P0143",
+    "witnesses": [
+      "P0185",
+      "P0395"
+    ]
+  },
+  "E0201": {
+    "id": "E0201",
+    "type": "death",
+    "year": 1859,
+    "house_number": "?",
+    "original_text": "Św: Michał Orłowski i Wojciech Zatorski, Gertruda Pajek (7 lat, córka Mikołaja i Marianny wyrobników), dom ?",
+    "source_line": 286,
+    "deceased": "P0396",
+    "age_at_death": 7,
+    "witnesses": [
+      "P0210",
+      "P0119"
+    ]
+  },
+  "E0202": {
+    "id": "E0202",
+    "type": "death",
+    "year": 1859,
+    "house_number": "?",
+    "original_text": "Św: Tomasz Kozik i Jakub Jaskros, Anna Kiełek (5 lat, córka Józefa i ?), dom ?",
+    "source_line": 287,
+    "deceased": "P0326",
+    "age_at_death": 5,
+    "witnesses": [
+      "P0154",
+      "P0397"
+    ]
+  },
+  "E0203": {
+    "id": "E0203",
+    "type": "death",
+    "year": 1859,
+    "house_number": "?",
+    "original_text": "Św: Szczepan Myszka i Maciej Łęcki, Marianna Myszka (4 tygodnie, córka Bonawentury i Małgorzaty wyrobnicy), dom ?",
+    "source_line": 288,
+    "deceased": "P0293",
+    "age_at_death": 4,
+    "witnesses": [
+      "P0220",
+      "P0287"
+    ]
+  },
+  "E0204": {
+    "id": "E0204",
+    "type": "death",
+    "year": 1859,
+    "house_number": "?",
+    "original_text": "Św: Szczepan Myszka i Maciej Łęcki, Józef Ziewicki (5 lat, syn Wawrzyniec i Salomea), dom ?",
+    "source_line": 289,
+    "deceased": "P0398",
+    "age_at_death": 5,
+    "witnesses": [
+      "P0220",
+      "P0287"
+    ]
+  },
+  "E0205": {
+    "id": "E0205",
+    "type": "death",
+    "year": 1859,
+    "house_number": "?",
+    "original_text": "Św: Józef Surdey i Jakub Jaros, Marianna Słyk (6 lat, córka Szczepana i Brygidy Słyk, Jędrzej Kruk), dom ?",
+    "source_line": 290,
+    "deceased": "P0143",
+    "age_at_death": 6,
+    "witnesses": [
+      "P0008",
+      "P0185"
+    ]
+  },
+  "E0206": {
+    "id": "E0206",
+    "type": "death",
+    "year": 1859,
+    "house_number": "?",
+    "original_text": "Św: Michał Kiełek i Leonard Kiełek, Franciszka Drożdż (4 lata, Bartłomiej i Justyna), dom ?",
+    "source_line": 291,
+    "deceased": "P0153",
+    "age_at_death": 4,
+    "witnesses": [
+      "P0099",
+      "P0399"
+    ]
+  },
+  "E0207": {
+    "id": "E0207",
+    "type": "death",
+    "year": 1859,
+    "house_number": "?",
+    "original_text": "Św: Walenty Pietrzyk i Wawrzyniec Surdey, Jędrzej Głód (13 tygodn, syn Antoniego i Jadwigi z d. Kruk), dom ?",
+    "source_line": 292,
+    "deceased": "P0400",
+    "age_at_death": 13,
+    "witnesses": [
+      "P0061",
+      "P0051"
+    ]
+  },
+  "E0208": {
+    "id": "E0208",
+    "type": "death",
+    "year": 1859,
+    "house_number": "?",
+    "original_text": "Św: Wincenty Zatorski i Wawrzyniec Ziewiecki, Joanna Zatorska (6 miesięcy, córka Teofili Zatorskiej, wyrobnica), dom ?",
+    "source_line": 293,
+    "deceased": "P0401",
+    "age_at_death": 6,
+    "witnesses": [
+      "P0012",
+      "P0139"
+    ]
+  },
+  "E0209": {
+    "id": "E0209",
+    "type": "death",
+    "year": 1859,
+    "house_number": "?",
+    "original_text": "Św: Karol Łęcki i Franciszek Zarzycki, Franciszka Łęcka (2 lata, córka Szymona i Marianny), dom ?",
+    "source_line": 294,
+    "deceased": "P0402",
+    "age_at_death": 2,
+    "witnesses": [
+      "P0142",
+      "P0014"
+    ]
+  },
+  "E0210": {
+    "id": "E0210",
+    "type": "death",
+    "year": 1859,
+    "house_number": "?",
+    "original_text": "Św: Wawrzyniec Surdey i Wawrzyniec Ziewiecki, Ignacy Dymiński (8 miesięcy, syn Jacka i Marianny), dom ?",
+    "source_line": 295,
+    "deceased": "P0403",
+    "age_at_death": 8,
+    "witnesses": [
+      "P0051",
+      "P0139"
+    ]
+  },
+  "E0211": {
+    "id": "E0211",
+    "type": "death",
+    "year": 1859,
+    "house_number": "?",
+    "original_text": "Św: Jędrzej Kruk i Łukasz Myszka, Teodor Krakowiak (1 rok, syn Józefa i Julianny wyrobnicy), dom ?",
+    "source_line": 296,
+    "deceased": "P0404",
+    "age_at_death": 1,
+    "witnesses": [
+      "P0277",
+      "P0135"
+    ]
+  },
+  "E0212": {
+    "id": "E0212",
+    "type": "death",
+    "year": 1859,
+    "house_number": "?",
+    "original_text": "Św: Wawrzyniec Ziewiecki i Szczepan Myszka, Gabriel Kozłowski (3 tygodnie, syn Jana i Julianny wyrobników), dom ?",
+    "source_line": 297,
+    "deceased": "P0405",
+    "age_at_death": 3,
+    "witnesses": [
+      "P0139",
+      "P0220"
+    ]
+  },
+  "E0213": {
+    "id": "E0213",
+    "type": "death",
+    "year": 1859,
+    "house_number": "?",
+    "original_text": "Św: Franciszek Gralec i Szczepan Różalski, Antonina Kiełek (1 rok, córka Jan i Marianna), dom ?",
+    "source_line": 298,
+    "deceased": "P0217",
+    "age_at_death": 1,
+    "witnesses": [
+      "P0169",
+      "P0365"
+    ]
+  },
+  "E0214": {
+    "id": "E0214",
+    "type": "death",
+    "year": 1859,
+    "house_number": "?",
+    "original_text": "Św: Franciszek Gralec i Szczepan Różalski, Ignacy Zatorski (5 lat, syn Antoniego i Marianny), dom ?",
+    "source_line": 299,
+    "deceased": "P0406",
+    "age_at_death": 5,
+    "witnesses": [
+      "P0169",
+      "P0365"
+    ]
+  },
+  "E0215": {
+    "id": "E0215",
+    "type": "death",
+    "year": 1859,
+    "original_text": "Św: Florian Gadys? i Wincenty Słyk, Erazm Drożdż (2 lata, syn Tomasza i Magdaleny), dom X",
+    "source_line": 300,
+    "deceased": "P0271",
+    "age_at_death": 2,
+    "witnesses": [
+      "P0407",
+      "P0230"
+    ]
+  },
+  "E0216": {
+    "id": "E0216",
+    "type": "death",
+    "year": 1859,
+    "original_text": "Św: Jędrzej Jędrzejowski i Michał Orłowski, Małgorzata Skrzyńska (2 lata, Jakub i Apolonia wyrobnicy), dom X",
+    "source_line": 301,
+    "deceased": "P0408",
+    "age_at_death": 2,
+    "witnesses": [
+      "P0409",
+      "P0210"
+    ]
+  },
+  "E0217": {
+    "id": "E0217",
+    "type": "death",
+    "year": 1859,
+    "original_text": "Św: Antoni Łęcki i Jędrzej Kruk, Franciszka Zatorska (20 lat, córka Piotra i Magdaleny Kozików, żona Jana Zatorskiego), dom X",
+    "source_line": 302,
+    "deceased": "P0410",
+    "age_at_death": 20,
+    "witnesses": [
+      "P0103",
+      "P0277"
+    ]
+  },
+  "E0218": {
+    "id": "E0218",
+    "type": "death",
+    "year": 1859,
+    "house_number": "?",
+    "original_text": "Św: Antoni Łęcki i Jacek Dymiński, Julianna Krakowiak (12 lat, córka Józefa i Konstancji), dom ?",
+    "source_line": 303,
+    "deceased": "P0339",
+    "age_at_death": 12,
+    "witnesses": [
+      "P0103",
+      "P0131"
+    ]
+  },
+  "E0219": {
+    "id": "E0219",
+    "type": "death",
+    "year": 1859,
+    "house_number": "?",
+    "original_text": "Św: Antoni Łęcki i Grzegorz Bąk, Anastazja Kiełek (3 tygodnie, córka Jana i Antoniny), dom ?",
+    "source_line": 304,
+    "deceased": "P0411",
+    "age_at_death": 3,
+    "witnesses": [
+      "P0103",
+      "P0303"
+    ]
+  },
+  "E0220": {
+    "id": "E0220",
+    "type": "death",
+    "year": 1859,
+    "original_text": "Św: Wawrzyniec Ziewiecki i Jacek Dymiński, Scholastyka Myszka (50 lat, córka Jan i Zofia Grudzień, żona Jana Myszki), dom X",
+    "source_line": 305,
+    "deceased": "P0412",
+    "age_at_death": 50,
+    "witnesses": [
+      "P0139",
+      "P0131"
+    ]
+  },
+  "E0221": {
+    "id": "E0221",
+    "type": "death",
+    "year": 1859,
+    "original_text": "Św: Wawrzyniec Ziewiecki i Jacek Dymiński, Apolonia Synal (6 lat, córka Józefa i Julianny), dom X",
+    "source_line": 306,
+    "deceased": "P0413",
+    "age_at_death": 6,
+    "witnesses": [
+      "P0139",
+      "P0131"
+    ]
+  },
+  "E0222": {
+    "id": "E0222",
+    "type": "death",
+    "year": 1859,
+    "house_number": "?",
+    "original_text": "Św: Wawrzyniec Surdey i Jędrzej Kruk, Maciej Kiełek (10 tygodni, syn Jana i Anny), dom ?",
+    "source_line": 307,
+    "deceased": "P0414",
+    "age_at_death": 10,
+    "witnesses": [
+      "P0051",
+      "P0277"
+    ]
+  },
+  "E0223": {
+    "id": "E0223",
+    "type": "death",
+    "year": 1859,
+    "original_text": "Św: Wawrzyniec Surdey i Jędrzej Kruk, Helena Surdey (80 lat, Józef i Marianna Minda, żona Jana), dom X",
+    "source_line": 308,
+    "deceased": "P0002",
+    "age_at_death": 80,
+    "witnesses": [
+      "P0051",
+      "P0277"
+    ]
+  },
+  "E0224": {
+    "id": "E0224",
+    "type": "death",
+    "year": 1859,
+    "original_text": "Św: Wawrzyniec Surdey i Wawrzyniec Ziewiecki, Józef Gumiński (90 lat, syn Kacpra i ?), dom X",
+    "source_line": 309,
+    "deceased": "P0415",
+    "age_at_death": 90,
+    "witnesses": [
+      "P0051",
+      "P0139"
+    ]
+  },
+  "E0225": {
+    "id": "E0225",
+    "type": "death",
+    "year": 1859,
+    "original_text": "Św: Wawrzyniec Surdey i Józef Surdey, Jan Gadys (17 lat, syn Floriana i Petroneli), dom X",
+    "source_line": 310,
+    "deceased": "P0416",
+    "age_at_death": 17,
+    "witnesses": [
+      "P0051",
+      "P0008"
+    ]
+  },
+  "E0226": {
+    "id": "E0226",
+    "type": "death",
+    "year": 1859,
+    "original_text": "Św: Ignacy Bukowski wyrobnik i Paweł Kolasa wyrobnik, Katarzyna Molga (5 miesięcy, córka Ludwika i Konstancji), dom X",
+    "source_line": 311,
+    "deceased": "P0417",
+    "age_at_death": 5,
+    "witnesses": [
+      "P0418",
+      "P0385"
+    ]
+  },
+  "E0227": {
+    "id": "E0227",
+    "type": "death",
+    "year": 1859,
+    "original_text": "Św: Franciszek Gralec i Paweł Kolasa (wyrobnik), Jan Różalski (3 miesiące, syn Józefa i Franciszki), dom X",
+    "source_line": 312,
+    "deceased": "P0068",
+    "witnesses": [
+      "P0169",
+      "P0385"
+    ]
+  },
+  "E0228": {
+    "id": "E0228",
+    "type": "birth",
+    "year": 1860,
+    "original_text": "Jan Kiełek, św: Michał Orłowski i Antoni Głód, z Marianna z d. Gralec:, chrz: M.O. i Małgorzata Niewczas, ur: Agata Kiełek",
+    "source_line": 316,
+    "witnesses": [
+      "P0210",
+      "P0145",
+      "P0245"
+    ]
+  },
+  "E0229": {
+    "id": "E0229",
+    "type": "birth",
+    "year": 1860,
+    "original_text": "Michał Orłowski, św: Piotr Kozik i Jan Niewczas, z Małgorzata z d. Surdey:, chrz:Bonawentura Myszka i Gertruda Zatorska, ur: Julianna Orłowska",
+    "source_line": 317,
+    "witnesses": [
+      "P0094",
+      "P0244",
+      "P0060"
+    ]
+  },
+  "E0230": {
+    "id": "E0230",
+    "type": "birth",
+    "year": 1860,
+    "original_text": "Wojciech Zatorski, św: Jan Zatorski i Piotr Kozik, z Marjanna z d. Stąpor:, chrz: Jan Zatorski i Konstancja Kiełek, ur: Eleonora Zatorska",
+    "source_line": 318,
+    "witnesses": [
+      "P0350",
+      "P0094",
+      "P0227"
+    ]
+  },
+  "E0231": {
+    "id": "E0231",
+    "type": "birth",
+    "year": 1860,
+    "original_text": "Bonawentura Myszka (27, urlopowany żołnierz wojsk cesarskich), św: Jan Zatorski i Wawrzyniec Ziewiecki, z Małgorzata z d. Maciejczak:, chrz: Jan Zatorski i Salomea Ziewiecka, ur: Franciszka Myszka",
+    "source_line": 319,
+    "witnesses": [
+      "P0350",
+      "P0139",
+      "P0118"
+    ]
+  },
+  "E0232": {
+    "id": "E0232",
+    "type": "birth",
+    "year": 1860,
+    "original_text": "Aleksander Klimkowski (55, strzelec lasów rządowych w Małyszynie), św: Antoni Janowski (sztygar w Dziewiętnikach) i Konstanty Gumiński (34, podleśny lasów rządowych w Małyszynie), z Marianna z d. Żuchowska:, chrz: Antoni Janowski i Rozalia Gumińska, ur: Rozalia Pulia Klimkowska",
+    "source_line": 320,
+    "witnesses": [
+      "P0247",
+      "P0307",
+      "P0379"
+    ]
+  },
+  "E0233": {
+    "id": "E0233",
+    "type": "birth",
+    "year": 1860,
+    "original_text": "Jan Kiełek (wyrobnik), św: Walenty Nobis i Tomasz Kozik, z Anna z d. Korzeniowska:, chrz: Walenty Nobis i Katarzyna Kozik, ur: Wojciech Kiełek",
+    "source_line": 321,
+    "witnesses": [
+      "P0192",
+      "P0154",
+      "P0389"
+    ]
+  },
+  "E0234": {
+    "id": "E0234",
+    "type": "birth",
+    "year": 1860,
+    "original_text": "Józef Kiełek, św: Jan Sikora i Bonawentura Myszka, z Wiktoria z d. Myszka:, chrz: J.S. i Franciszka Surdey, ur: Filip Kiełek",
+    "source_line": 322,
+    "witnesses": [
+      "P0181",
+      "P0329",
+      "P0025"
+    ]
+  },
+  "E0235": {
+    "id": "E0235",
+    "type": "birth",
+    "year": 1860,
+    "original_text": "Antoni Głód, św: Wincenty Kruk i Wawrzyniec Surdey, z Jadwigaz d. Kruk:, chrz: Wincenty Kruk i Marianna Karczmarska, ur: Florentyna Głód",
+    "source_line": 323,
+    "witnesses": [
+      "P0419",
+      "P0051",
+      "P0420"
+    ]
+  },
+  "E0236": {
+    "id": "E0236",
+    "type": "birth",
+    "year": 1860,
+    "original_text": "Jan Drożdż, św: Jędrzej Kruk i Antoni Łęcki, z Józefa z d. Myszka:, chrz: Jędrzej Kruk i Antonina Zarzycka, ur: Józef Drożdż",
+    "source_line": 324,
+    "witnesses": [
+      "P0277",
+      "P0103",
+      "P0421"
+    ]
+  },
+  "E0237": {
+    "id": "E0237",
+    "type": "birth",
+    "year": 1860,
+    "original_text": "Barbara Pietrzyk (akuszerka), św: Franciszek Gralec i Antoni Głód, z Elżbieta Dymińska (wyrobnica) z d. Głód (mąż Onufry od lat dziewiętnastu pozostaje w armii cesarskiej):, chrz: Franciszek Gralec i Marianna Surdey, ur: Zofia Głód (ojciec nieznany)",
+    "source_line": 325,
+    "witnesses": [
+      "P0169",
+      "P0145",
+      "P0007"
+    ]
+  },
+  "E0238": {
+    "id": "E0238",
+    "type": "birth",
+    "year": 1860,
+    "original_text": "Jan Kiełek, św: Jan Niewczas i Piotr Kozik, z Antonina z d. X:, chrz: Stanisław Mazurek i Marianna Dymińska, ur: Marianna Kiełek",
+    "source_line": 326,
+    "witnesses": [
+      "P0244",
+      "P0094",
+      "P0383"
+    ]
+  },
+  "E0239": {
+    "id": "E0239",
+    "type": "birth",
+    "year": 1860,
+    "original_text": "Grzegorz Bąk (wyrobnik), św: Piotr Kozik i KAcper Kozik, z Apolonia z d. Rafalska:, chrz: Jan Zatorski i Regina Słyk, ur: Marianna Bąk",
+    "source_line": 327,
+    "witnesses": [
+      "P0094",
+      "P0422"
+    ]
+  },
+  "E0240": {
+    "id": "E0240",
+    "type": "birth",
+    "year": 1860,
+    "original_text": "Andrzej Kwieciński (karczmarz/młynarz?), św: Jędrzej Kruk i Antoni Głód, z Emilia z d. Korzeniec:, chrz: Jędrzej Kruk i Martyna Surdey, ur: Wincenty Kwieciński",
+    "source_line": 328,
+    "witnesses": [
+      "P0277",
+      "P0145",
+      "P0386"
+    ]
+  },
+  "E0241": {
+    "id": "E0241",
+    "type": "birth",
+    "year": 1860,
+    "original_text": "Izydob Dębiec, św: Piotr Kozik i Filip ?, z Elżbieta z d. Drożdż:, chrz: Jan Zatorski i Marianna Kiełek, ur: Bonawentura Kiełek",
+    "source_line": 329,
+    "witnesses": [
+      "P0094",
+      "P0423",
+      "P0196"
+    ]
+  },
+  "E0242": {
+    "id": "E0242",
+    "type": "birth",
+    "year": 1860,
+    "original_text": "Jan Kozłowski (komornik), św: Jan Zatorski i Maciej Łęcki?, z Julianna z d. X:, chrz: Jan Zatorski i Katarzyna Idziak?, ur: X",
+    "source_line": 330,
+    "witnesses": [
+      "P0350",
+      "P0287",
+      "P0424"
+    ]
+  },
+  "E0243": {
+    "id": "E0243",
+    "type": "birth",
+    "year": 1860,
+    "original_text": "Rozalia Słyk (70, akuszeka), św: Jan Sikora i Szczepan Różalski, z Marianna Różalska (24, wyrobnica):, chrz: Jan Sikora i Antonina Korzeniewicz, ur: Jan Różalski",
+    "source_line": 331,
+    "witnesses": [
+      "P0181",
+      "P0365",
+      "P0425"
+    ]
+  },
+  "E0244": {
+    "id": "E0244",
+    "type": "birth",
+    "year": 1860,
+    "original_text": "Leonard Łęcki, św: Jędrzej Jędros i Franciszek Zarzycki, z Jadwiga z d. X:, chrz: Jędrzej Jędros i Marianna Łęcka, ur: Gracjan Łęcki",
+    "source_line": 332,
+    "witnesses": [
+      "P0426",
+      "P0014",
+      "P0384"
+    ]
+  },
+  "E0245": {
+    "id": "E0245",
+    "type": "birth",
+    "year": 1860,
+    "original_text": "X, św: X i X, z X z d. X:, chrz: X i X, ur: X",
+    "source_line": 333
+  },
+  "E0246": {
+    "id": "E0246",
+    "type": "marriage",
+    "year": 1860,
+    "original_text": "św. Wawrzyniec Surdey (49) i Karol Łęcki (30), Wincenty Kruk (brat Andrzeja, ur. Bór Iłżecki) i Agata Dymińska",
+    "source_line": 337,
+    "witnesses": [
+      "P0051",
+      "P0142"
+    ]
+  },
+  "E0247": {
+    "id": "E0247",
+    "type": "birth",
+    "year": 1861,
+    "original_text": "Jędrzej Kruk, św. Antoni Głód (36) i Franciszek Gralec (37), z Brygida z d. Surdey, chrz. Stanisław Mazurek i Martyna/Marianna Surdej (córka stryja Józefa), ur. Katarzyna",
+    "source_line": 340,
+    "child": "P0428",
+    "father": "P0277",
+    "mother": "P0427"
+  },
+  "E0248": {
+    "id": "E0248",
+    "type": "death",
+    "year": 1862,
+    "original_text": "św: Antoni Łęcki i Ludwik Molga, Marianna Spadło (Grzegorz i Marianna) 3 tyg.",
+    "source_line": 343,
+    "deceased": "P0129",
+    "witnesses": [
+      "P0103",
+      "P0266"
+    ]
+  },
+  "E0249": {
+    "id": "E0249",
+    "type": "death",
+    "year": 1862,
+    "original_text": "św: Wawrzyniec Surdey i Wawrzyniec Ziewiecki, Marianna Spadło (Stanisław i Marianna), 45 lat",
+    "source_line": 344,
+    "deceased": "P0129",
+    "witnesses": [
+      "P0051",
+      "P0139"
+    ]
+  },
+  "E0250": {
+    "id": "E0250",
+    "type": "death",
+    "year": 1862,
+    "original_text": "św: Tomasz Doleck (kucharz)i i Szczepan Maj (lokal), Ludwik Prendowski (obywatel w Mircu zamieszkały przy familii - wdowiec po Wiktori - ojciec Józefa? - ur w Nidkach w Galicji ) (Andrzej i Tekla), 72 lat",
+    "source_line": 345,
+    "deceased": "P0429",
+    "witnesses": [
+      "P0430",
+      "P0431"
+    ]
+  },
+  "E0251": {
+    "id": "E0251",
+    "type": "death",
+    "year": 1862,
+    "original_text": "św: Jan Kiełek i Kazimierz Łapacz, Ludwika Surdey (Wawrzyniec i Katarzyna), 10 miesięcy",
+    "source_line": 346,
+    "deceased": "P0432",
+    "witnesses": [
+      "P0216",
+      "P0004"
+    ]
+  },
+  "E0252": {
+    "id": "E0252",
+    "type": "death",
+    "year": 1862,
+    "original_text": "św: Antoni Łęcki i Łukasz Kiełek, Anastazja Sikora - żona Jana (Szymon i Marcjanna Zatorscy), 63 lat",
+    "source_line": 347,
+    "deceased": "P0433",
+    "witnesses": [
+      "P0103",
+      "P0226"
+    ]
+  },
+  "E0253": {
+    "id": "E0253",
+    "type": "death",
+    "year": 1862,
+    "original_text": "św: Michał Orłowski i Karol Łęcki, Agata Kiełek (Jan i Marianna), 3 lat",
+    "source_line": 348,
+    "deceased": "P0434",
+    "witnesses": [
+      "P0210",
+      "P0142"
+    ]
+  },
+  "E0254": {
+    "id": "E0254",
+    "type": "death",
+    "year": 1862,
+    "original_text": "św: Antoni Łęcki i Ludwik Molga, Balbina Zielińska (Stanisław i Eleonora), 9 miesięcy",
+    "source_line": 349,
+    "deceased": "P0435",
+    "witnesses": [
+      "P0103",
+      "P0266"
+    ]
+  },
+  "E0255": {
+    "id": "E0255",
+    "type": "birth",
+    "year": 1863,
+    "original_text": "Jędrzej Kruk, św: Jan Surdey i Antoni Głód, Brygida z d. Surdey, chrz. J.S. i Katarzyna Przydatek, ur. Franciszka",
+    "source_line": 352,
+    "witnesses": [
+      "P0001",
+      "P0145",
+      "P0436"
+    ]
+  },
+  "E0256": {
+    "id": "E0256",
+    "type": "birth",
+    "year": 1863,
+    "original_text": "św: Xi X, X (X i X), X lat",
+    "source_line": 353,
+    "witnesses": [
+      "P0437"
+    ]
+  },
+  "E0257": {
+    "id": "E0257",
+    "type": "death",
+    "year": 1863,
+    "original_text": "św: Kazimierz Łapacz i Antoni Łęcki, Marianna Chmielowska (Jacek i Marianna), 16 tygodni",
+    "source_line": 355,
+    "deceased": "P0330",
+    "witnesses": [
+      "P0004",
+      "P0103"
+    ]
+  },
+  "E0258": {
+    "id": "E0258",
+    "type": "death",
+    "year": 1863,
+    "original_text": "św: Szczepan Myszka i Teofil Salwa, Anna Kozłowska (Jan i Julianna), 4 tygodni",
+    "source_line": 356,
+    "deceased": "P0438",
+    "witnesses": [
+      "P0220",
+      "P0073"
+    ]
+  },
+  "E0259": {
+    "id": "E0259",
+    "type": "death",
+    "year": 1863,
+    "original_text": "św: Jan Łukawski (wikray w Mircu) i Antoni Janowski (sztygar), Brygida Wojciechowska (obywatelka matka Jadwigi) (X i X), 56 lat (ur w Buleszynie z Józefa i Barbary Reklewskich, wdowa po Kajetanie)",
+    "source_line": 357,
+    "deceased": "P0439",
+    "witnesses": [
+      "P0440",
+      "P0247"
+    ]
+  },
+  "E0260": {
+    "id": "E0260",
+    "type": "death",
+    "year": 1863,
+    "original_text": "św: Józef Surdej i Wawrzyniec Ziewiecki, Marianna Słyk (Jan i Helena Surdey), 38 lat, małżonka Grzegorza Słyka",
+    "source_line": 358,
+    "deceased": "P0143",
+    "witnesses": [
+      "P0441",
+      "P0139"
+    ]
+  },
+  "E0261": {
+    "id": "E0261",
+    "type": "death",
+    "year": 1863,
+    "original_text": "św: Szczepan Różalski i Józef Kiełek, Józef Synal (Mateusz i Jadwiga), 42 lat, małżonek Julianny z Zatorskich",
+    "source_line": 359,
+    "deceased": "P0238",
+    "witnesses": [
+      "P0365",
+      "P0127"
+    ]
+  },
+  "E0262": {
+    "id": "E0262",
+    "type": "death",
+    "year": 1863,
+    "original_text": "św: Szczepan Myszka i Józef Krasiński, Julianna Krakowiak (Stanisław i Marianna Drożdż), 45 lat, małżonka Józefa Krakowiaka",
+    "source_line": 360,
+    "deceased": "P0339",
+    "witnesses": [
+      "P0220",
+      "P0442"
+    ]
+  },
+  "E0263": {
+    "id": "E0263",
+    "type": "death",
+    "year": 1863,
+    "original_text": "św: Xi X, X (X i X), X lat",
+    "source_line": 361,
+    "witnesses": [
+      "P0437"
+    ]
+  },
+  "E0264": {
+    "id": "E0264",
+    "type": "birth",
+    "year": 1864,
+    "original_text": "Wincenty Kruk, św. Jan Surdey (27) i Antoni Łęcki (83), z Agata z d. Dymińska, chrz. Jan Surdey i Brygida Kruk, ur. Agnieszka",
+    "source_line": 364,
+    "child": "P0444",
+    "father": "P0419",
+    "mother": "P0443"
+  },
+  "E0265": {
+    "id": "E0265",
+    "type": "marriage",
+    "year": 1864,
+    "original_text": "św. Bartłomiej Drożdż (40) i Jan Zatorski (26), Franciszek Słyk (syn Brygidy) i Anastazja Sobczyk",
+    "source_line": 366,
+    "witnesses": [
+      "P0151",
+      "P0350"
+    ]
+  },
+  "E0266": {
+    "id": "E0266",
+    "type": "birth",
+    "year": 1865,
+    "original_text": "Wincenty Kruk, św. Stanisław Zieliński (24) i Karol Łęcki (34), z Agata z d. Dymińska, chrz. Wincenty Skiba i Marianna Kruk, ur. Marianna",
+    "source_line": 369,
+    "child": "P0446",
+    "father": "P0419",
+    "mother": "P0445"
+  },
+  "E0267": {
+    "id": "E0267",
+    "type": "birth",
+    "year": 1865,
+    "original_text": "Jędrzej Kruk, św. Wawrzyniec Surdey (52) i Antoni Głód (35), z Brygida z d. Surdey, chrz. Jan Kiełek i Elżbieta Głód, ur. Jan",
+    "source_line": 370,
+    "child": "P0447",
+    "father": "P0277",
+    "mother": "P0443"
+  },
+  "E0268": {
+    "id": "E0268",
+    "type": "birth",
+    "year": 1867,
+    "original_text": "Wincenty Kruk, św. Jan Zatorski (29) i Wawrzyniec Surdey (60), z Agata z d. Dymińska, chrz. Jan Zatorski i Małgorzata Słyk, ur. Helena",
+    "source_line": 373,
+    "child": "P0448",
+    "father": "P0419",
+    "mother": "P0290"
+  },
+  "E0269": {
+    "id": "E0269",
+    "type": "birth",
+    "year": 1867,
+    "original_text": "Jędrzej Kruk, św. Franciszek Gralec (40) i Jakub Jaros (50), z Brygida z d. Surdey, chrz. Maciej Pietrzyk i Katarzyna Kaczmarczyk, ur. Antonina",
+    "source_line": 374,
+    "child": "P0450",
+    "father": "P0277",
+    "mother": "P0449"
+  },
+  "E0270": {
+    "id": "E0270",
+    "type": "birth",
+    "year": 1870,
+    "original_text": "Jędrzej Kruk, św: Franciszek Gralec (43) i Wawrzyniec Surdey (33), z Brygida z d. Surdey:, chrz: Franciszka Surdey i Maksymilian Głód, ur: Małgorzata",
+    "source_line": 379,
+    "witnesses": [
+      "P0169",
+      "P0051",
+      "P0451"
+    ]
+  },
+  "E0271": {
+    "id": "E0271",
+    "type": "birth",
+    "year": 1872,
+    "original_text": "Wincenty Kruk, św: Kazimierz Łapacz i Karol Łęcki?, z Katarzyna z d. Niewczas:, chrz: Marianna Łapacz i Michał Orłowski, ur: Andrzej",
+    "source_line": 382,
+    "witnesses": [
+      "P0004",
+      "P0142",
+      "P0210"
+    ]
+  },
+  "E0272": {
+    "id": "E0272",
+    "type": "death",
+    "year": 1872,
+    "original_text": "Św: Błażej Niewczas? (46) i Feliks Pacek (4x), rodz: Józef i Marianna Minda, Elżbieta Gralec z d. Minda (żona Wojciecha, 80 lat) - Tychów",
+    "source_line": 384,
+    "deceased": "P0452",
+    "witnesses": [
+      "P0453",
+      "P0454"
+    ]
+  },
+  "E0273": {
+    "id": "E0273",
+    "type": "birth",
+    "year": 1873,
+    "original_text": "Jędrzej Kruk, św: Piotr Surdey (33) i Wawrzyniec Surdey (60), z Brygida z d. Surdey:, chrz: Michał Orłowski i Jadwiga Głód, ur: Marianna",
+    "source_line": 387,
+    "witnesses": [
+      "P0455",
+      "P0051",
+      "P0148"
+    ]
+  },
+  "E0274": {
+    "id": "E0274",
+    "type": "birth",
+    "year": 1873,
+    "original_text": "Wincenty Kruk, św: Kazimierz? Łapacz i ? Spadło, z Katarzyna z d. Niewczas:, chrz: Jędrzej Kruk i Marianna Chmolowska, ur: Jadwiga",
+    "source_line": 388,
+    "witnesses": [
+      "P0456",
+      "P0322"
+    ]
+  },
+  "E0275": {
+    "id": "E0275",
+    "type": "birth",
+    "year": 1874,
+    "original_text": "Jan Surdey, św: Jan Kozik i Franciszek Gralec, z Agnieszka z d. Romanowska:, chrz: J.K. i Agnieszka Surdey, ur: Mikołaj",
+    "source_line": 392,
+    "witnesses": [
+      "P0036",
+      "P0169",
+      "P0457"
+    ]
+  },
+  "E0276": {
+    "id": "E0276",
+    "type": "birth",
+    "year": 1874,
+    "original_text": "Jan Sikora, św: Izydor ? i Wojciech Krasiński, z Katarzyna z d. Bonie:, chrz: Izydor ? i Marianna ?, ur: Barbara",
+    "source_line": 393,
+    "witnesses": [
+      "P0458",
+      "P0459",
+      "P0336"
+    ]
+  },
+  "E0277": {
+    "id": "E0277",
+    "type": "birth",
+    "year": 1875,
+    "original_text": "Wincenty Kruk, św: Wawrzyniec Surdey i Franciszek Gralec, Katarzyna z d. Niewczas:, chrz: Maksymilian Głód i Katarzyna Karczmarczyk, ur: Jakub",
+    "source_line": 396,
+    "witnesses": [
+      "P0051",
+      "P0169",
+      "P0460"
+    ]
+  },
+  "E0278": {
+    "id": "E0278",
+    "type": "death",
+    "year": 1875,
+    "original_text": "Św: Jędrzej Kruk i Antoni Głód, rodz: Wincenty i Katarzyna Kruk, Anna Kruk",
+    "source_line": 398,
+    "deceased": "P0461",
+    "witnesses": [
+      "P0277",
+      "P0145"
+    ]
+  },
+  "E0279": {
+    "id": "E0279",
+    "type": "death",
+    "year": 1876,
+    "original_text": "Św: Onufry Głód i Walenty ?, rodz: rodz: Wincenty i Katarzyna Kruk, Jakub Kruk",
+    "source_line": 401,
+    "deceased": "P0449",
+    "witnesses": [
+      "P0462",
+      "P0463"
+    ]
+  },
+  "E0280": {
+    "id": "E0280",
+    "type": "birth",
+    "year": 1879,
+    "original_text": "Wincenty Kruk, św: Jan Surdey (4x) i Franciszek Gralec, Katarzyna z d. Niewczas:, chrz: Jan Kozik i Franciszka Kruk, ur: Anna",
+    "source_line": 404,
+    "witnesses": [
+      "P0001",
+      "P0169",
+      "P0464"
+    ]
+  },
+  "E0281": {
+    "id": "E0281",
+    "type": "birth",
+    "year": 1880,
+    "original_text": "Wincenty Kruk, św: Jan Surdey (4x) i Franciszek Gralec, Katarzyna z d. Niewczas:, chrz: Jan Pomorski i Elżbieta Kruk, ur: Jadwiga",
+    "source_line": 408,
+    "witnesses": [
+      "P0001",
+      "P0169",
+      "P0465"
+    ]
+  },
+  "E0282": {
+    "id": "E0282",
+    "type": "birth",
+    "year": 1880,
+    "original_text": "ślub:",
+    "source_line": 409
+  },
+  "E0283": {
+    "id": "E0283",
+    "type": "birth",
+    "year": 1880,
+    "original_text": "Paweł Niewczas (syn Agaty, siostry Franciszka Gralca - sąsiada) i Marianna Surus (siostra Franciszki - matka Pawła), św: Jan Niewczas (30) i Grzegorz Pacholec (49) - Gaworzyna",
+    "source_line": 410,
+    "father": "P0466",
+    "mother": "P0467"
+  },
+  "E0284": {
+    "id": "E0284",
+    "type": "death",
+    "year": 1881,
+    "original_text": "Św: Maciej Łęcki i Wawrzyniec Surdey, rodz: Melchior i Gertruda z d. Jaskros, Wincenty Zatorski (mąż Gertrudy z d. Marcula)",
+    "source_line": 413,
+    "deceased": "P0012",
+    "witnesses": [
+      "P0287",
+      "P0051"
+    ]
+  },
+  "E0285": {
+    "id": "E0285",
+    "type": "death",
+    "year": 1881,
+    "original_text": "Św: Bartłomiej Drożdż i Franciszek Gralec, rodz. Jan Surdey i Helena z d. Minda, Wawrzyniec Surdey",
+    "source_line": 414,
+    "deceased": "P0051",
+    "witnesses": [
+      "P0151",
+      "P0169"
+    ]
+  },
+  "E0286": {
+    "id": "E0286",
+    "type": "birth",
+    "year": 1883,
+    "original_text": "Wincenty Kruk, św: Jan Surdey (4x) i Franciszek Gralec, Katarzyna z d. Niewczas:, chrz: Jan Gralec i Karolina Wancerz, ur: Agnieszka",
+    "source_line": 417,
+    "witnesses": [
+      "P0001",
+      "P0169",
+      "P0468"
+    ]
+  },
+  "E0287": {
+    "id": "E0287",
+    "type": "birth",
+    "year": 1884,
+    "original_text": "Paweł Niewczas, św: Stanisław X (?) i Paweł Surus (40), Marianna z d. Surus:, chrz: Czesław Kulik (brat Pawła) i Marianna Jurek, ur: Stanisław - Gaworzyna",
+    "source_line": 420
+  },
+  "E0288": {
+    "id": "E0288",
+    "type": "birth",
+    "year": 1885,
+    "original_text": "Wincenty Kruk, św: Jan Surdey (4x) i Paweł Jaśkowicz, Katarzyna z d. Niewczas:, chrz: Wincent Surdey i Marianna Siwiec, ur: Józef",
+    "source_line": 423,
+    "witnesses": [
+      "P0001",
+      "P0469",
+      "P0470"
+    ]
+  },
+  "E0289": {
+    "id": "E0289",
+    "type": "death",
+    "year": 1885,
+    "original_text": "Św. Szymon Łęcki i Jan Surdey, Onufry Głód (64)",
+    "source_line": 425,
+    "deceased": "P0462",
+    "witnesses": [
+      "P0338",
+      "P0001"
+    ]
+  },
+  "E0290": {
+    "id": "E0290",
+    "type": "birth",
+    "year": 1887,
+    "original_text": "Wincenty Kruk, św: Antoni Głód i Erazm Kiełek, Katarzyna z d. Niewczas:, chrz: Paweł Głód i Małgorzata Skiba, ur: Agnieszka",
+    "source_line": 429,
+    "witnesses": [
+      "P0145",
+      "P0328",
+      "P0471"
+    ]
+  },
+  "E0291": {
+    "id": "E0291",
+    "type": "birth",
+    "year": 1889,
+    "original_text": "Wincenty Kruk, św: Antoni Głód i Jan Surdey, Katarzyna z d. Niewczas:, chrz: Stanisław Nowak i Franciszka Krasińska, ur: Karolina",
+    "source_line": 432,
+    "witnesses": [
+      "P0145",
+      "P0001",
+      "P0472"
+    ]
+  },
+  "E0292": {
+    "id": "E0292",
+    "type": "marriage",
+    "year": 1890,
+    "original_text": "św. Jan Surdey i Kazimierz Kaczmarczyk, Wawrzyniec Surus (23, syn Jakuba i Franciszki z d. Grunt z Gaworzyny?) i Marianna Surdey (20, córka Piotra i Franciszki z d. Czubak)",
+    "source_line": 435,
+    "witnesses": [
+      "P0001",
+      "P0473"
+    ]
+  },
+  "E0293": {
+    "id": "E0293",
+    "type": "birth",
+    "year": 1891,
+    "original_text": "Wincenty Kruk, św: Franciszek Gralec i Jan Surdey, Katarzyna z d. Niewczas:, chrz: Antoni Niewczas i Franciszka Surdey, ur: Józefa",
+    "source_line": 438,
+    "witnesses": [
+      "P0169",
+      "P0001",
+      "P0025"
+    ]
+  },
+  "E0294": {
+    "id": "E0294",
+    "type": "death",
+    "year": 1891,
+    "original_text": "św: Piotr Surdey i Antoni Głód, Jędrzej Kruk (Gabriel i Franciszka), 62 lat - 03/15.07",
+    "source_line": 440,
+    "deceased": "P0277",
+    "witnesses": [
+      "P0455",
+      "P0145"
+    ]
+  },
+  "E0295": {
+    "id": "E0295",
+    "type": "death",
+    "year": 1891,
+    "original_text": "św: Piotr Surdey i Antoni Głód, Brygida Kruk (Jan i Helena), 72 - 01.12",
+    "source_line": 441,
+    "deceased": "P0289",
+    "witnesses": [
+      "P0455",
+      "P0145"
+    ]
+  },
+  "E0296": {
+    "id": "E0296",
+    "type": "death",
+    "year": 1891,
+    "original_text": "Św. Jan Surdey i Franciszek Gralec, Andrzej Kwieciński (Kazimierz i Marianna)",
+    "source_line": 442,
+    "deceased": "P0474",
+    "witnesses": [
+      "P0001",
+      "P0169"
+    ]
+  },
+  "E0297": {
+    "id": "E0297",
+    "type": "death",
+    "year": 1891,
+    "original_text": "Św: Jan Gralec i Aleksander Wancerz, Jadwiga Głód (Gabriel i Franciszka Kruk)",
+    "source_line": 443,
+    "deceased": "P0148",
+    "witnesses": [
+      "P0475",
+      "P0476"
+    ]
+  },
+  "E0298": {
+    "id": "E0298",
+    "type": "death",
+    "year": 1891,
+    "original_text": "Św. Wawrzyniec Surdey i Jacek Chmolowski, Grzegorz Spadło (Mikołaj i Barbara), lat 80",
+    "source_line": 444,
+    "deceased": "P0122",
+    "witnesses": [
+      "P0051",
+      "P0229"
+    ]
+  },
+  "E0299": {
+    "id": "E0299",
+    "type": "marriage",
+    "year": 1892,
+    "original_text": "św. Erazm Kiełek i Wincenty Kruk, Paweł Kulik (25) i Marianna Kruk (19) - 14.06",
+    "source_line": 447,
+    "witnesses": [
+      "P0328",
+      "P0419"
+    ]
+  },
+  "E0300": {
+    "id": "E0300",
+    "type": "death",
+    "year": 1894,
+    "original_text": "św: Piotr Surdey i Aleksander Wancerz, Antoni Głód (Jan i Klara), 76 lat",
+    "source_line": 450,
+    "deceased": "P0145",
+    "witnesses": [
+      "P0455",
+      "P0476"
+    ]
+  },
+  "E0301": {
+    "id": "E0301",
+    "type": "birth",
+    "year": 1898,
+    "original_text": "Paweł Kulik, św: Antoni Matesz? i Kacper Seremak, z Marianna z d. Kruk:, chrz: K.S. i Łucja Niewczas, ur: Andrzej Kulik",
+    "source_line": 455,
+    "witnesses": [
+      "P0477",
+      "P0478",
+      "P0479"
+    ]
+  },
+  "E0302": {
+    "id": "E0302",
+    "type": "birth",
+    "year": 1900,
+    "original_text": "Paweł Kulik, św: Tomasz Niewczas i Paweł Ma…?, z Marianna z d. Kruk:, chrz: Józef S? i Katarzyna Derlatka, ur: Katarzyna Kulik",
+    "source_line": 458,
+    "witnesses": [
+      "P0480",
+      "P0481",
+      "P0482"
+    ]
+  },
+  "E0303": {
+    "id": "E0303",
+    "type": "birth",
+    "year": 1902,
+    "original_text": "Paweł Kulik, św: Jan Jabłko i Kacper Seremak, z Marianna z d. Kruk:, chrz: Kazimierz Wicha? i Jadwiga Wancerz, ur: Józefa Kulik",
+    "source_line": 461,
+    "witnesses": [
+      "P0483",
+      "P0478",
+      "P0484"
+    ]
+  },
+  "E0304": {
+    "id": "E0304",
+    "type": "birth",
+    "year": 1903,
+    "original_text": "Czesław Kulik, św: Tomasz Niewczas i Kacper Seremak, z Marianna z d. Sokołowska:, chrz: Franciszek Zbircz? i Elżbieta Niewczas, ur: Zofia Kulik",
+    "source_line": 464,
+    "witnesses": [
+      "P0480",
+      "P0478",
+      "P0485"
+    ]
+  },
+  "E0305": {
+    "id": "E0305",
+    "type": "birth",
+    "year": 1905,
+    "original_text": "Paweł Kulik, św: Teofil Derlatka i Jan Szczepanowski, z Marianna z d. Kruk:, chrz: Józef Śnieżek? i Katarzyna Lech, ur: Stefan Kulik",
+    "source_line": 467,
+    "witnesses": [
+      "P0486",
+      "P0487",
+      "P0488"
+    ]
+  },
+  "E0306": {
+    "id": "E0306",
+    "type": "birth",
+    "year": 1909,
+    "original_text": "Paweł Kulik, św: Jan Derlatka i Kacper Seremak, z Marianna z d. Kruk:, chrz: Dominik Maciejski? i Marianna Kulik, ur: Wojciech Kulik",
+    "source_line": 470,
+    "witnesses": [
+      "P0489",
+      "P0478",
+      "P0490"
+    ]
+  },
+  "E0307": {
+    "id": "E0307",
+    "type": "birth",
+    "year": 1912,
+    "original_text": "Paweł Kulik, św: Franciszek Wrzesień i Teofil Derlatka, z Marianna z d. Kruk:, chrz: Julia Kończak i T.D., ur: Władysław Kulik",
+    "source_line": 473,
+    "witnesses": [
+      "P0491",
+      "P0486"
+    ]
+  },
+  "E0308": {
+    "id": "E0308",
+    "type": "birth",
+    "year": 1914,
+    "original_text": "Paweł Kulik, św: Antoni Derlatka i Teofil Derlatka, z Marianna z d. Kruk:, chrz: Franciszka Kulik i Benedykt Kiełek, ur: Anna Kulik",
+    "source_line": 476,
+    "witnesses": [
+      "P0492",
+      "P0486",
+      "P0312"
+    ]
+  }
+}

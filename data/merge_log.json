@@ -1,0 +1,21 @@
+{
+  "instructions": "This file contains merge records. The parser will automatically apply these merges when processing base.md.",
+  "merges": [
+    {
+      "kept_person": "P0289",
+      "merged_person": "P0124",
+      "kept_name": "Brygida Kruk",
+      "merged_name": "Brygida Słyk",
+      "timestamp": "2026-02-15T07:57:39.333Z"
+    },
+    {
+      "kept_person": "P0289",
+      "merged_person": "P0003",
+      "kept_name": "Brygida Kruk",
+      "merged_name": "Brygida Surdey",
+      "timestamp": "2026-02-15T07:58:51.498Z"
+    }
+  ],
+  "total_merges": 2,
+  "last_updated": "2026-02-15T07:58:51.507Z"
+}

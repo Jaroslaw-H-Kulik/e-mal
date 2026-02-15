@@ -1,0 +1,864 @@
+{
+  "duplicate_candidates": [
+    {
+      "name": "jan surdey",
+      "count": 4,
+      "candidates": [
+        {
+          "id": "P0001",
+          "given_name": "Jan",
+          "surname": "Surdey",
+          "birth_year": 1782,
+          "death_year": 1857,
+          "gender": "M",
+          "occupations": []
+        },
+        {
+          "id": "P0080",
+          "given_name": "Jan",
+          "surname": "Surdey",
+          "birth_year": 1794,
+          "death_year": null,
+          "gender": "U",
+          "occupations": []
+        },
+        {
+          "id": "P0549",
+          "given_name": "Jan",
+          "surname": "Surdey",
+          "birth_year": 1875,
+          "death_year": null,
+          "gender": "U",
+          "occupations": []
+        },
+        {
+          "id": "P0564",
+          "given_name": "Jan",
+          "surname": "Surdey",
+          "birth_year": 1881,
+          "death_year": null,
+          "gender": "U",
+          "occupations": []
+        }
+      ]
+    },
+    {
+      "name": "marianna unknown",
+      "count": 4,
+      "candidates": [
+        {
+          "id": "P0007",
+          "given_name": "Marianna",
+          "surname": "Unknown",
+          "birth_year": 1853,
+          "death_year": null,
+          "gender": "F",
+          "occupations": []
+        },
+        {
+          "id": "P0361",
+          "given_name": "Marianna",
+          "surname": "Unknown",
+          "birth_year": 1859,
+          "death_year": null,
+          "gender": "U",
+          "occupations": []
+        },
+        {
+          "id": "P0510",
+          "given_name": "Marianna",
+          "surname": "Unknown",
+          "birth_year": 1865,
+          "death_year": null,
+          "gender": "U",
+          "occupations": []
+        },
+        {
+          "id": "P0524",
+          "given_name": "Marianna",
+          "surname": "Unknown",
+          "birth_year": 1873,
+          "death_year": null,
+          "gender": "U",
+          "occupations": []
+        }
+      ]
+    },
+    {
+      "name": "jan unknown",
+      "count": 3,
+      "candidates": [
+        {
+          "id": "P0008",
+          "given_name": "Jan",
+          "surname": "Unknown",
+          "birth_year": 1826,
+          "death_year": null,
+          "gender": "U",
+          "occupations": []
+        },
+        {
+          "id": "P0169",
+          "given_name": "Jan",
+          "surname": "Unknown",
+          "birth_year": 1856,
+          "death_year": null,
+          "gender": "U",
+          "occupations": []
+        },
+        {
+          "id": "P0511",
+          "given_name": "Jan",
+          "surname": "Unknown",
+          "birth_year": 1865,
+          "death_year": null,
+          "gender": "U",
+          "occupations": []
+        }
+      ]
+    },
+    {
+      "name": "agnieszka unknown",
+      "count": 3,
+      "candidates": [
+        {
+          "id": "P0011",
+          "given_name": "Agnieszka",
+          "surname": "Unknown",
+          "birth_year": 1856,
+          "death_year": null,
+          "gender": "F",
+          "occupations": []
+        },
+        {
+          "id": "P0507",
+          "given_name": "Agnieszka",
+          "surname": "Unknown",
+          "birth_year": 1864,
+          "death_year": null,
+          "gender": "U",
+          "occupations": []
+        },
+        {
+          "id": "P0555",
+          "given_name": "Agnieszka",
+          "surname": "Unknown",
+          "birth_year": 1883,
+          "death_year": null,
+          "gender": "U",
+          "occupations": []
+        }
+      ]
+    },
+    {
+      "name": "wincenty zatorski",
+      "count": 3,
+      "candidates": [
+        {
+          "id": "P0013",
+          "given_name": "Wincenty",
+          "surname": "Zatorski",
+          "birth_year": 1804,
+          "death_year": 1881,
+          "gender": "U",
+          "occupations": []
+        },
+        {
+          "id": "P0139",
+          "given_name": "Wincenty",
+          "surname": "Zatorski",
+          "birth_year": 1830,
+          "death_year": null,
+          "gender": "M",
+          "occupations": []
+        },
+        {
+          "id": "P0196",
+          "given_name": "Wincenty",
+          "surname": "Zatorski",
+          "birth_year": 1824,
+          "death_year": null,
+          "gender": "U",
+          "occupations": []
+        }
+      ]
+    },
+    {
+      "name": "wawrzyniec surdey",
+      "count": 3,
+      "candidates": [
+        {
+          "id": "P0029",
+          "given_name": "Wawrzyniec",
+          "surname": "Surdey",
+          "birth_year": 1813,
+          "death_year": 1881,
+          "gender": "U",
+          "occupations": []
+        },
+        {
+          "id": "P0115",
+          "given_name": "Wawrzyniec",
+          "surname": "Surdey",
+          "birth_year": 1822,
+          "death_year": null,
+          "gender": "U",
+          "occupations": []
+        },
+        {
+          "id": "P0145",
+          "given_name": "Wawrzyniec",
+          "surname": "Surdey",
+          "birth_year": 1829,
+          "death_year": null,
+          "gender": "U",
+          "occupations": []
+        }
+      ]
+    },
+    {
+      "name": "katarzyna unknown",
+      "count": 3,
+      "candidates": [
+        {
+          "id": "P0108",
+          "given_name": "Katarzyna",
+          "surname": "Unknown",
+          "birth_year": 1837,
+          "death_year": null,
+          "gender": "U",
+          "occupations": []
+        },
+        {
+          "id": "P0114",
+          "given_name": "Katarzyna",
+          "surname": "Unknown",
+          "birth_year": 1855,
+          "death_year": null,
+          "gender": "U",
+          "occupations": []
+        },
+        {
+          "id": "P0485",
+          "given_name": "Katarzyna",
+          "surname": "Unknown",
+          "birth_year": 1861,
+          "death_year": null,
+          "gender": "U",
+          "occupations": []
+        }
+      ]
+    },
+    {
+      "name": "jadwiga unknown",
+      "count": 3,
+      "candidates": [
+        {
+          "id": "P0144",
+          "given_name": "Jadwiga",
+          "surname": "Unknown",
+          "birth_year": 1855,
+          "death_year": null,
+          "gender": "U",
+          "occupations": []
+        },
+        {
+          "id": "P0529",
+          "given_name": "Jadwiga",
+          "surname": "Unknown",
+          "birth_year": 1873,
+          "death_year": null,
+          "gender": "U",
+          "occupations": []
+        },
+        {
+          "id": "P0552",
+          "given_name": "Jadwiga",
+          "surname": "Unknown",
+          "birth_year": 1880,
+          "death_year": null,
+          "gender": "U",
+          "occupations": []
+        }
+      ]
+    },
+    {
+      "name": "brygida unknown",
+      "count": 2,
+      "candidates": [
+        {
+          "id": "P0003",
+          "given_name": "Brygida",
+          "surname": "Unknown",
+          "birth_year": 1826,
+          "death_year": null,
+          "gender": "U",
+          "occupations": []
+        },
+        {
+          "id": "P0373",
+          "given_name": "Brygida",
+          "surname": "Unknown",
+          "birth_year": 1859,
+          "death_year": null,
+          "gender": "U",
+          "occupations": []
+        }
+      ]
+    },
+    {
+      "name": "kazimierz łapacz",
+      "count": 2,
+      "candidates": [
+        {
+          "id": "P0004",
+          "given_name": "Kazimierz",
+          "surname": "Łapacz",
+          "birth_year": 1794,
+          "death_year": null,
+          "gender": "U",
+          "occupations": []
+        },
+        {
+          "id": "P0211",
+          "given_name": "Kazimierz",
+          "surname": "Łapacz",
+          "birth_year": 1802,
+          "death_year": null,
+          "gender": "M",
+          "occupations": []
+        }
+      ]
+    },
+    {
+      "name": "józef surdey",
+      "count": 2,
+      "candidates": [
+        {
+          "id": "P0009",
+          "given_name": "Józef",
+          "surname": "Surdey",
+          "birth_year": 1800,
+          "death_year": null,
+          "gender": "U",
+          "occupations": []
+        },
+        {
+          "id": "P0392",
+          "given_name": "Józef",
+          "surname": "Surdey",
+          "birth_year": 1854,
+          "death_year": null,
+          "gender": "U",
+          "occupations": []
+        }
+      ]
+    },
+    {
+      "name": "antoni unknown",
+      "count": 2,
+      "candidates": [
+        {
+          "id": "P0012",
+          "given_name": "Antoni",
+          "surname": "Unknown",
+          "birth_year": 1828,
+          "death_year": null,
+          "gender": "U",
+          "occupations": []
+        },
+        {
+          "id": "P0239",
+          "given_name": "Antoni",
+          "surname": "Unknown",
+          "birth_year": 1857,
+          "death_year": null,
+          "gender": "U",
+          "occupations": []
+        }
+      ]
+    },
+    {
+      "name": "franciszek zarzycki",
+      "count": 2,
+      "candidates": [
+        {
+          "id": "P0014",
+          "given_name": "Franciszek",
+          "surname": "Zarzycki",
+          "birth_year": 1768,
+          "death_year": null,
+          "gender": "U",
+          "occupations": []
+        },
+        {
+          "id": "P0173",
+          "given_name": "Franciszek",
+          "surname": "Zarzycki",
+          "birth_year": 1835,
+          "death_year": null,
+          "gender": "M",
+          "occupations": []
+        }
+      ]
+    },
+    {
+      "name": "franciszka unknown",
+      "count": 2,
+      "candidates": [
+        {
+          "id": "P0021",
+          "given_name": "Franciszka",
+          "surname": "Unknown",
+          "birth_year": 1855,
+          "death_year": null,
+          "gender": "F",
+          "occupations": []
+        },
+        {
+          "id": "P0494",
+          "given_name": "Franciszka",
+          "surname": "Unknown",
+          "birth_year": 1863,
+          "death_year": null,
+          "gender": "U",
+          "occupations": []
+        }
+      ]
+    },
+    {
+      "name": "tomasz drożdż",
+      "count": 2,
+      "candidates": [
+        {
+          "id": "P0031",
+          "given_name": "Tomasz",
+          "surname": "Drożdż",
+          "birth_year": 1823,
+          "death_year": null,
+          "gender": "M",
+          "occupations": []
+        },
+        {
+          "id": "P0184",
+          "given_name": "Tomasz",
+          "surname": "Drożdż",
+          "birth_year": 1808,
+          "death_year": null,
+          "gender": "U",
+          "occupations": []
+        }
+      ]
+    },
+    {
+      "name": "jan myszka",
+      "count": 2,
+      "candidates": [
+        {
+          "id": "P0060",
+          "given_name": "Jan",
+          "surname": "Myszka",
+          "birth_year": 1805,
+          "death_year": 1858,
+          "gender": "U",
+          "occupations": []
+        },
+        {
+          "id": "P0225",
+          "given_name": "Jan",
+          "surname": "Myszka",
+          "birth_year": 1825,
+          "death_year": null,
+          "gender": "U",
+          "occupations": []
+        }
+      ]
+    },
+    {
+      "name": "piotr kozik",
+      "count": 2,
+      "candidates": [
+        {
+          "id": "P0074",
+          "given_name": "Piotr",
+          "surname": "Kozik",
+          "birth_year": 1806,
+          "death_year": null,
+          "gender": "U",
+          "occupations": []
+        },
+        {
+          "id": "P0207",
+          "given_name": "Piotr",
+          "surname": "Kozik",
+          "birth_year": 1816,
+          "death_year": null,
+          "gender": "U",
+          "occupations": []
+        }
+      ]
+    },
+    {
+      "name": "antoni łęcki",
+      "count": 2,
+      "candidates": [
+        {
+          "id": "P0086",
+          "given_name": "Antoni",
+          "surname": "Łęcki",
+          "birth_year": 1796,
+          "death_year": null,
+          "gender": "U",
+          "occupations": []
+        },
+        {
+          "id": "P0183",
+          "given_name": "Antoni",
+          "surname": "Łęcki",
+          "birth_year": 1776,
+          "death_year": null,
+          "gender": "U",
+          "occupations": []
+        }
+      ]
+    },
+    {
+      "name": "wojciech unknown",
+      "count": 2,
+      "candidates": [
+        {
+          "id": "P0104",
+          "given_name": "Wojciech",
+          "surname": "Unknown",
+          "birth_year": 1835,
+          "death_year": null,
+          "gender": "U",
+          "occupations": []
+        },
+        {
+          "id": "P0351",
+          "given_name": "Wojciech",
+          "surname": "Unknown",
+          "birth_year": 1859,
+          "death_year": null,
+          "gender": "U",
+          "occupations": []
+        }
+      ]
+    },
+    {
+      "name": "grzegorz spadło",
+      "count": 2,
+      "candidates": [
+        {
+          "id": "P0109",
+          "given_name": "Grzegorz",
+          "surname": "Spadło",
+          "birth_year": 1810,
+          "death_year": null,
+          "gender": "U",
+          "occupations": []
+        },
+        {
+          "id": "P0165",
+          "given_name": "Grzegorz",
+          "surname": "Spadło",
+          "birth_year": 1816,
+          "death_year": null,
+          "gender": "M",
+          "occupations": []
+        }
+      ]
+    },
+    {
+      "name": "antoni głód",
+      "count": 2,
+      "candidates": [
+        {
+          "id": "P0113",
+          "given_name": "Antoni",
+          "surname": "Głód",
+          "birth_year": 1823,
+          "death_year": null,
+          "gender": "U",
+          "occupations": []
+        },
+        {
+          "id": "P0119",
+          "given_name": "Antoni",
+          "surname": "Głód",
+          "birth_year": 1852,
+          "death_year": null,
+          "gender": "U",
+          "occupations": []
+        }
+      ]
+    },
+    {
+      "name": "piotr drożdż",
+      "count": 2,
+      "candidates": [
+        {
+          "id": "P0135",
+          "given_name": "Piotr",
+          "surname": "Drożdż",
+          "birth_year": 1815,
+          "death_year": null,
+          "gender": "U",
+          "occupations": []
+        },
+        {
+          "id": "P0159",
+          "given_name": "Piotr",
+          "surname": "Drożdż",
+          "birth_year": 1807,
+          "death_year": null,
+          "gender": "U",
+          "occupations": []
+        }
+      ]
+    },
+    {
+      "name": "maciej kiełek",
+      "count": 2,
+      "candidates": [
+        {
+          "id": "P0143",
+          "given_name": "Maciej",
+          "surname": "Kiełek",
+          "birth_year": 1821,
+          "death_year": 1858,
+          "gender": "U",
+          "occupations": []
+        },
+        {
+          "id": "P0417",
+          "given_name": "Maciej",
+          "surname": "Kiełek",
+          "birth_year": 1849,
+          "death_year": 1859,
+          "gender": "U",
+          "occupations": []
+        }
+      ]
+    },
+    {
+      "name": "jakub jaros",
+      "count": 2,
+      "candidates": [
+        {
+          "id": "P0146",
+          "given_name": "Jakub",
+          "surname": "Jaros",
+          "birth_year": 1815,
+          "death_year": null,
+          "gender": "U",
+          "occupations": []
+        },
+        {
+          "id": "P0199",
+          "given_name": "Jakub",
+          "surname": "Jaros",
+          "birth_year": 1806,
+          "death_year": null,
+          "gender": "U",
+          "occupations": []
+        }
+      ]
+    },
+    {
+      "name": "jacek dymiński",
+      "count": 2,
+      "candidates": [
+        {
+          "id": "P0168",
+          "given_name": "Jacek",
+          "surname": "Dymiński",
+          "birth_year": 1822,
+          "death_year": null,
+          "gender": "U",
+          "occupations": []
+        },
+        {
+          "id": "P0170",
+          "given_name": "Jacek",
+          "surname": "Dymiński",
+          "birth_year": 1812,
+          "death_year": null,
+          "gender": "M",
+          "occupations": []
+        }
+      ]
+    },
+    {
+      "name": "antonina unknown",
+      "count": 2,
+      "candidates": [
+        {
+          "id": "P0174",
+          "given_name": "Antonina",
+          "surname": "Unknown",
+          "birth_year": 1856,
+          "death_year": null,
+          "gender": "F",
+          "occupations": []
+        },
+        {
+          "id": "P0512",
+          "given_name": "Antonina",
+          "surname": "Unknown",
+          "birth_year": 1867,
+          "death_year": null,
+          "gender": "U",
+          "occupations": []
+        }
+      ]
+    },
+    {
+      "name": "wincenty słyk",
+      "count": 2,
+      "candidates": [
+        {
+          "id": "P0194",
+          "given_name": "Wincenty",
+          "surname": "Słyk",
+          "birth_year": 1822,
+          "death_year": null,
+          "gender": "M",
+          "occupations": []
+        },
+        {
+          "id": "P0223",
+          "given_name": "Wincenty",
+          "surname": "Słyk",
+          "birth_year": 1816,
+          "death_year": null,
+          "gender": "U",
+          "occupations": []
+        }
+      ]
+    },
+    {
+      "name": "małgorzata unknown",
+      "count": 2,
+      "candidates": [
+        {
+          "id": "P0197",
+          "given_name": "Małgorzata",
+          "surname": "Unknown",
+          "birth_year": 1857,
+          "death_year": null,
+          "gender": "F",
+          "occupations": []
+        },
+        {
+          "id": "P0513",
+          "given_name": "Małgorzata",
+          "surname": "Unknown",
+          "birth_year": 1870,
+          "death_year": null,
+          "gender": "U",
+          "occupations": []
+        }
+      ]
+    },
+    {
+      "name": "stanisław unknown",
+      "count": 2,
+      "candidates": [
+        {
+          "id": "P0205",
+          "given_name": "Stanisław",
+          "surname": "Unknown",
+          "birth_year": 1856,
+          "death_year": null,
+          "gender": "U",
+          "occupations": []
+        },
+        {
+          "id": "P0558",
+          "given_name": "Stanisław",
+          "surname": "Unknown",
+          "birth_year": 1884,
+          "death_year": null,
+          "gender": "U",
+          "occupations": []
+        }
+      ]
+    },
+    {
+      "name": "józef unknown",
+      "count": 2,
+      "candidates": [
+        {
+          "id": "P0233",
+          "given_name": "Józef",
+          "surname": "Unknown",
+          "birth_year": 1857,
+          "death_year": null,
+          "gender": "U",
+          "occupations": []
+        },
+        {
+          "id": "P0563",
+          "given_name": "Józef",
+          "surname": "Unknown",
+          "birth_year": 1885,
+          "death_year": null,
+          "gender": "U",
+          "occupations": []
+        }
+      ]
+    },
+    {
+      "name": "barbara unknown",
+      "count": 2,
+      "candidates": [
+        {
+          "id": "P0288",
+          "given_name": "Barbara",
+          "surname": "Unknown",
+          "birth_year": 1859,
+          "death_year": null,
+          "gender": "F",
+          "occupations": []
+        },
+        {
+          "id": "P0536",
+          "given_name": "Barbara",
+          "surname": "Unknown",
+          "birth_year": 1874,
+          "death_year": null,
+          "gender": "U",
+          "occupations": []
+        }
+      ]
+    },
+    {
+      "name": "wawrzyniec surdey, z brygida z d. surdey:,",
+      "count": 2,
+      "candidates": [
+        {
+          "id": "P0514",
+          "given_name": "Wawrzyniec",
+          "surname": "Surdey, z Brygida z d. Surdey:,",
+          "birth_year": 1837,
+          "death_year": null,
+          "gender": "U",
+          "occupations": []
+        },
+        {
+          "id": "P0526",
+          "given_name": "Wawrzyniec",
+          "surname": "Surdey, z Brygida z d. Surdey:,",
+          "birth_year": 1813,
+          "death_year": null,
+          "gender": "U",
+          "occupations": []
+        }
+      ]
+    }
+  ],
+  "total_unique_names": 579,
+  "names_with_multiple_ids": 32
+}

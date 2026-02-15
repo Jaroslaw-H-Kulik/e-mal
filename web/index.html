@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Genealogical Database - Grzybowa Góra (1826-1914)</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1>🌳 Genealogical Database</h1>
+            <p class="subtitle">Parish of Grzybowa Góra (1826-1914)</p>
+        </header>
+
+        <!-- Stats Bar -->
+        <div class="stats-bar">
+            <div class="stat-card">
+                <div class="stat-number" id="total-persons">0</div>
+                <div class="stat-label">Persons</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="total-events">0</div>
+                <div class="stat-label">Events</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="total-relationships">0</div>
+                <div class="stat-label">Relationships</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="total-families">0</div>
+                <div class="stat-label">Families</div>
+            </div>
+        </div>
+
+        <!-- Editor Toolbar -->
+        <div class="toolbar">
+            <button class="btn-success" onclick="editor && editor.openMergeModal()">🔗 Merge Persons</button>
+            <button class="btn-secondary" onclick="editor && editor.showChangesModal()">📋 View Changes</button>
+            <button class="btn-primary" onclick="editor && editor.exportChanges()">💾 Export Data</button>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="search-section">
+            <div class="search-bar">
+                <input
+                    type="text"
+                    id="search-input"
+                    placeholder="Search by name, surname, or person ID (e.g., 'Jan Surdey' or 'P0001')..."
+                    autocomplete="off"
+                />
+                <button id="search-btn">🔍 Search</button>
+                <button id="reset-btn">↻ Reset View</button>
+            </div>
+            <div class="filter-options">
+                <label>
+                    <input type="checkbox" id="filter-surname" />
+                    Filter by surname:
+                </label>
+                <select id="surname-select" disabled>
+                    <option value="">All surnames</option>
+                </select>
+
+                <label style="margin-left: 20px;">
+                    Year range:
+                </label>
+                <input type="number" id="year-from" placeholder="From" min="1826" max="1914" style="width: 80px;" />
+                <span>-</span>
+                <input type="number" id="year-to" placeholder="To" min="1826" max="1914" style="width: 80px;" />
+                <button id="apply-filters-btn">Apply Filters</button>
+            </div>
+            <div id="search-results" class="search-results"></div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Network Visualization -->
+            <div class="visualization-panel">
+                <div class="panel-header">
+                    <h2>Community Network</h2>
+                    <div class="view-controls">
+                        <button id="view-all-btn" class="active">All</button>
+                        <button id="view-families-btn">Families</button>
+                        <button id="view-marriages-btn">Marriages</button>
+                        <button id="view-godparents-btn">Godparents</button>
+                        <button id="view-witnesses-btn">Witnesses</button>
+                    </div>
+                </div>
+                <div id="network-container"></div>
+                <div class="legend">
+                    <div class="legend-item">
+                        <span class="legend-color" style="background: #4A90E2;"></span>
+                        <span>Male</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-color" style="background: #E94B8B;"></span>
+                        <span>Female</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-color" style="background: #95A5A6;"></span>
+                        <span>Unknown</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-line parent"></span>
+                        <span>Parent-Child</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-line marriage"></span>
+                        <span>Marriage</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-line godparent"></span>
+                        <span>Godparent</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-line witness"></span>
+                        <span>Witness</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Person Details Panel -->
+            <div class="details-panel">
+                <div class="panel-header">
+                    <h2>Person Details</h2>
+                    <button id="close-details-btn" style="display: none;">✕</button>
+                </div>
+                <div id="person-details" class="person-details">
+                    <div class="empty-state">
+                        <div class="empty-icon">👤</div>
+                        <p>Click on a person in the network to view details</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Loading Overlay -->
+        <div id="loading-overlay" class="loading-overlay">
+            <div class="loader"></div>
+            <p>Loading genealogical data...</p>
+        </div>
+    </div>
+
+    <script src="app.js?v=5"></script>
+    <script src="editor.js?v=5"></script>
+</body>
+</html>

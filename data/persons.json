@@ -1,0 +1,3777 @@
+{
+  "P0001": {
+    "id": "P0001",
+    "given_name": "Jan",
+    "surname": "Surdey",
+    "gender": "M",
+    "death_year_estimate": 1856,
+    "confidence": "medium"
+  },
+  "P0002": {
+    "id": "P0002",
+    "given_name": "Helena",
+    "surname": "Surdey",
+    "maiden_name": "Minda",
+    "gender": "F",
+    "death_year_estimate": 1859,
+    "confidence": "medium"
+  },
+  "P0004": {
+    "id": "P0004",
+    "given_name": "Kazimierz",
+    "surname": "Łapacz",
+    "gender": "M",
+    "birth_year_estimate": 1794,
+    "confidence": "medium"
+  },
+  "P0005": {
+    "id": "P0005",
+    "given_name": "Jan",
+    "surname": "Głód",
+    "gender": "M",
+    "birth_year_estimate": 1793,
+    "death_year_estimate": 1855,
+    "confidence": "medium"
+  },
+  "P0006": {
+    "id": "P0006",
+    "given_name": "Wojciech",
+    "surname": "Surdey",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0007": {
+    "id": "P0007",
+    "given_name": "Marianna",
+    "surname": "Surdey",
+    "maiden_name": "Paszkowska (22)",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0008": {
+    "id": "P0008",
+    "given_name": "Józef",
+    "surname": "Surdey",
+    "gender": "M",
+    "birth_year_estimate": 1800,
+    "confidence": "medium"
+  },
+  "P0009": {
+    "id": "P0009",
+    "given_name": "Marcin",
+    "surname": "Niewczas",
+    "gender": "M",
+    "birth_year_estimate": 1781,
+    "confidence": "medium"
+  },
+  "P0010": {
+    "id": "P0010",
+    "given_name": "Agnieszka",
+    "surname": "Łapacz",
+    "maiden_name": "Ciołek",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0011": {
+    "id": "P0011",
+    "given_name": "Antoni",
+    "surname": "Łapacz",
+    "gender": "M",
+    "birth_year_estimate": 1828,
+    "confidence": "medium"
+  },
+  "P0012": {
+    "id": "P0012",
+    "given_name": "Wincenty",
+    "surname": "Zatorski",
+    "gender": "M",
+    "birth_year_estimate": 1804,
+    "death_year_estimate": 1881,
+    "confidence": "medium"
+  },
+  "P0013": {
+    "id": "P0013",
+    "given_name": "Krzysztof",
+    "surname": "Słyk",
+    "gender": "M",
+    "death_year_estimate": 1828,
+    "confidence": "medium"
+  },
+  "P0014": {
+    "id": "P0014",
+    "given_name": "Franciszek",
+    "surname": "Zarzycki",
+    "gender": "M",
+    "birth_year_estimate": 1768,
+    "confidence": "medium"
+  },
+  "P0015": {
+    "id": "P0015",
+    "given_name": "Ignacy",
+    "surname": "Raczyński",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0016": {
+    "id": "P0016",
+    "given_name": "Agnieszka",
+    "surname": "Raczyński",
+    "maiden_name": "Turezińska",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0017": {
+    "id": "P0017",
+    "given_name": "Tomasz",
+    "surname": "Kiełek",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0018": {
+    "id": "P0018",
+    "given_name": "Onufry",
+    "surname": "Zatorski",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0019": {
+    "id": "P0019",
+    "given_name": "Onufry",
+    "surname": "Unknown",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0020": {
+    "id": "P0020",
+    "given_name": "Fabian",
+    "surname": "Kiełek",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0021": {
+    "id": "P0021",
+    "given_name": "Rozalia",
+    "surname": "Kiełek",
+    "maiden_name": "Kuchanow?",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0022": {
+    "id": "P0022",
+    "given_name": "Mateusz",
+    "surname": "Zarzycki",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0023": {
+    "id": "P0023",
+    "given_name": "Franciszka",
+    "surname": "Zarzycki",
+    "maiden_name": "Woźniak",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0024": {
+    "id": "P0024",
+    "given_name": "Salomea",
+    "surname": "Surdey",
+    "gender": "F",
+    "death_year_estimate": 1831,
+    "confidence": "medium"
+  },
+  "P0025": {
+    "id": "P0025",
+    "given_name": "Franciszka",
+    "surname": "Surdey",
+    "gender": "F",
+    "birth_year_estimate": 1833,
+    "confidence": "medium"
+  },
+  "P0026": {
+    "id": "P0026",
+    "given_name": "Piotr",
+    "surname": "Kleczaj",
+    "gender": "M",
+    "birth_year_estimate": 1803,
+    "confidence": "medium"
+  },
+  "P0027": {
+    "id": "P0027",
+    "given_name": "Andrzej",
+    "surname": "Surdey",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0028": {
+    "id": "P0028",
+    "given_name": "Elżbieta",
+    "surname": "Surdey",
+    "maiden_name": "Kozik",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0029": {
+    "id": "P0029",
+    "given_name": "Augustyn",
+    "surname": "Surdey",
+    "gender": "M",
+    "birth_year_estimate": 1833,
+    "confidence": "medium"
+  },
+  "P0030": {
+    "id": "P0030",
+    "given_name": "Jan",
+    "surname": "Ziewiecki",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0031": {
+    "id": "P0031",
+    "given_name": "Wojciech",
+    "surname": "Drożdż",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0032": {
+    "id": "P0032",
+    "given_name": "Jakub",
+    "surname": "Drożdż",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0033": {
+    "id": "P0033",
+    "given_name": "Rozalia",
+    "surname": "Drożdż",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0034": {
+    "id": "P0034",
+    "given_name": "Jacek",
+    "surname": "Drożdż",
+    "gender": "M",
+    "birth_year_estimate": 1833,
+    "confidence": "medium"
+  },
+  "P0035": {
+    "id": "P0035",
+    "given_name": "Ludwik",
+    "surname": "Kiełek",
+    "gender": "M",
+    "death_year_estimate": 1856,
+    "confidence": "medium"
+  },
+  "P0036": {
+    "id": "P0036",
+    "given_name": "Jan",
+    "surname": "Kozik",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0037": {
+    "id": "P0037",
+    "given_name": "Marianna",
+    "surname": "Jarosz",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0038": {
+    "id": "P0038",
+    "given_name": "Wawrzyniec",
+    "surname": "Zięba",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0039": {
+    "id": "P0039",
+    "given_name": "Franciszka",
+    "surname": "Zięba",
+    "maiden_name": "Wiślak",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0040": {
+    "id": "P0040",
+    "given_name": "Regina",
+    "surname": "Zięba",
+    "gender": "F",
+    "birth_year_estimate": 1833,
+    "confidence": "medium"
+  },
+  "P0041": {
+    "id": "P0041",
+    "given_name": "Bernard",
+    "surname": "Salwa",
+    "gender": "M",
+    "death_year_estimate": 1855,
+    "confidence": "medium"
+  },
+  "P0042": {
+    "id": "P0042",
+    "given_name": "Bernard",
+    "surname": "Borowiec",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0043": {
+    "id": "P0043",
+    "given_name": "Magdalena",
+    "surname": "Surdey",
+    "gender": "F",
+    "death_year_estimate": 1856,
+    "confidence": "medium"
+  },
+  "P0044": {
+    "id": "P0044",
+    "given_name": "Petronella",
+    "surname": "Zatorski",
+    "maiden_name": "Minda",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0045": {
+    "id": "P0045",
+    "given_name": "Karolina",
+    "surname": "Zatorska",
+    "gender": "F",
+    "birth_year_estimate": 1833,
+    "confidence": "medium"
+  },
+  "P0046": {
+    "id": "P0046",
+    "given_name": "Karol",
+    "surname": "Stumborz",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0047": {
+    "id": "P0047",
+    "given_name": "Anna",
+    "surname": "Morawińska",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0048": {
+    "id": "P0048",
+    "given_name": "Tekla",
+    "surname": "Drożdż",
+    "maiden_name": "Czajka",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0049": {
+    "id": "P0049",
+    "given_name": "Marianna",
+    "surname": "Drożdż",
+    "maiden_name": "Słyk",
+    "gender": "F",
+    "birth_year_estimate": 1834,
+    "confidence": "medium"
+  },
+  "P0050": {
+    "id": "P0050",
+    "given_name": "Jan",
+    "surname": "Krakowiak",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0051": {
+    "id": "P0051",
+    "given_name": "Wawrzyniec",
+    "surname": "Surdey",
+    "gender": "M",
+    "death_year_estimate": 1881,
+    "confidence": "medium"
+  },
+  "P0052": {
+    "id": "P0052",
+    "given_name": "Rozalia",
+    "surname": "Jarosz",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0053": {
+    "id": "P0053",
+    "given_name": "Tomasz",
+    "surname": "Drożdż",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0054": {
+    "id": "P0054",
+    "given_name": "Jan",
+    "surname": "Drożdż",
+    "gender": "M",
+    "birth_year_estimate": 1834,
+    "confidence": "medium"
+  },
+  "P0055": {
+    "id": "P0055",
+    "given_name": "Piotr",
+    "surname": "Krakowiak",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0056": {
+    "id": "P0056",
+    "given_name": "Marianna",
+    "surname": "Zarzycki",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0057": {
+    "id": "P0057",
+    "given_name": "Walenty",
+    "surname": "Zarzycki",
+    "gender": "M",
+    "birth_year_estimate": 1834,
+    "confidence": "medium"
+  },
+  "P0058": {
+    "id": "P0058",
+    "given_name": "Stanisław",
+    "surname": "Kiełek",
+    "gender": "M",
+    "death_year_estimate": 1856,
+    "confidence": "medium"
+  },
+  "P0059": {
+    "id": "P0059",
+    "given_name": "Adam",
+    "surname": "Wolski",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0060": {
+    "id": "P0060",
+    "given_name": "Gertruda",
+    "surname": "Zatorska",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0061": {
+    "id": "P0061",
+    "given_name": "Walenty",
+    "surname": "Pietrzyk",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0062": {
+    "id": "P0062",
+    "given_name": "Barbara",
+    "surname": "Pietrzyk",
+    "maiden_name": "Kiełek",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0063": {
+    "id": "P0063",
+    "given_name": "Kazimierz",
+    "surname": "Pietrzyk",
+    "gender": "M",
+    "birth_year_estimate": 1834,
+    "confidence": "medium"
+  },
+  "P0064": {
+    "id": "P0064",
+    "given_name": "Dominik",
+    "surname": "Chmolowski",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0065": {
+    "id": "P0065",
+    "given_name": "Jakub",
+    "surname": "Słyk",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0066": {
+    "id": "P0066",
+    "given_name": "Zofia",
+    "surname": "Słyk",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0067": {
+    "id": "P0067",
+    "given_name": "Gabriel",
+    "surname": "Słyk",
+    "gender": "M",
+    "birth_year_estimate": 1834,
+    "confidence": "medium"
+  },
+  "P0068": {
+    "id": "P0068",
+    "given_name": "Jan",
+    "surname": "Różalski",
+    "gender": "M",
+    "death_year_estimate": 1859,
+    "confidence": "medium"
+  },
+  "P0069": {
+    "id": "P0069",
+    "given_name": "Jakub",
+    "surname": "Kiełek",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0070": {
+    "id": "P0070",
+    "given_name": "Stanisław",
+    "surname": "Niewczas",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0071": {
+    "id": "P0071",
+    "given_name": "Petronella",
+    "surname": "Surdey",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0072": {
+    "id": "P0072",
+    "given_name": "Apolonia",
+    "surname": "Salwa",
+    "maiden_name": "Jagiełło",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0073": {
+    "id": "P0073",
+    "given_name": "Teofil",
+    "surname": "Salwa",
+    "gender": "M",
+    "birth_year_estimate": 1834,
+    "confidence": "medium"
+  },
+  "P0074": {
+    "id": "P0074",
+    "given_name": "Józef",
+    "surname": "Grubiński",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0075": {
+    "id": "P0075",
+    "given_name": "Julianna",
+    "surname": "Niewczas",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0076": {
+    "id": "P0076",
+    "given_name": "Onufry",
+    "surname": "Mieszała",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0077": {
+    "id": "P0077",
+    "given_name": "Marianna",
+    "surname": "Mieszała",
+    "maiden_name": "Salwa",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0078": {
+    "id": "P0078",
+    "given_name": "Joanna",
+    "surname": "Mieszała",
+    "gender": "F",
+    "birth_year_estimate": 1834,
+    "confidence": "medium"
+  },
+  "P0079": {
+    "id": "P0079",
+    "given_name": "Jan",
+    "surname": "Myszka",
+    "gender": "M",
+    "death_year_estimate": 1858,
+    "confidence": "medium"
+  },
+  "P0080": {
+    "id": "P0080",
+    "given_name": "Wawrzyniec",
+    "surname": "Łęcki",
+    "gender": "M",
+    "death_year_estimate": 1855,
+    "confidence": "medium"
+  },
+  "P0081": {
+    "id": "P0081",
+    "given_name": "Marianna",
+    "surname": "Łęcki",
+    "maiden_name": "Zięba",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0082": {
+    "id": "P0082",
+    "given_name": "Petronella",
+    "surname": "Łęcka",
+    "gender": "F",
+    "birth_year_estimate": 1834,
+    "confidence": "medium"
+  },
+  "P0083": {
+    "id": "P0083",
+    "given_name": "Wincenty",
+    "surname": "Kozik",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0084": {
+    "id": "P0084",
+    "given_name": "Franciszek",
+    "surname": "Niewczas",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0085": {
+    "id": "P0085",
+    "given_name": "Franciszka",
+    "surname": "Kozik",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0086": {
+    "id": "P0086",
+    "given_name": "Józef",
+    "surname": "Morawiński",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0087": {
+    "id": "P0087",
+    "given_name": "Joanna",
+    "surname": "Morawiński",
+    "maiden_name": "Walichowska",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0088": {
+    "id": "P0088",
+    "given_name": "Stanisław",
+    "surname": "Chruścicki",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0089": {
+    "id": "P0089",
+    "given_name": "Stanisław",
+    "surname": "Chru",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0090": {
+    "id": "P0090",
+    "given_name": "Zofia",
+    "surname": "Unknown",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0091": {
+    "id": "P0091",
+    "given_name": "Adam",
+    "surname": "Orłowski",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0092": {
+    "id": "P0092",
+    "given_name": "Anna",
+    "surname": "Orłowski",
+    "maiden_name": "Sikora",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0093": {
+    "id": "P0093",
+    "given_name": "Jacek",
+    "surname": "Orłowski",
+    "gender": "M",
+    "birth_year_estimate": 1834,
+    "confidence": "medium"
+  },
+  "P0094": {
+    "id": "P0094",
+    "given_name": "Piotr",
+    "surname": "Kozik",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0095": {
+    "id": "P0095",
+    "given_name": "Leonard",
+    "surname": "Głód",
+    "gender": "M",
+    "death_year_estimate": 1856,
+    "confidence": "medium"
+  },
+  "P0096": {
+    "id": "P0096",
+    "given_name": "Elżbieta",
+    "surname": "Głód",
+    "maiden_name": "Krakowiak",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0097": {
+    "id": "P0097",
+    "given_name": "Ludwik",
+    "surname": "Głód",
+    "gender": "M",
+    "birth_year_estimate": 1834,
+    "confidence": "medium"
+  },
+  "P0098": {
+    "id": "P0098",
+    "given_name": "Julianna",
+    "surname": "Kiełek",
+    "maiden_name": "Myszka",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0099": {
+    "id": "P0099",
+    "given_name": "Michał",
+    "surname": "Kiełek",
+    "gender": "M",
+    "birth_year_estimate": 1834,
+    "confidence": "medium"
+  },
+  "P0100": {
+    "id": "P0100",
+    "given_name": "Paweł",
+    "surname": "Jaroszek",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0101": {
+    "id": "P0101",
+    "given_name": "Katarzyna",
+    "surname": "Jaroszek",
+    "maiden_name": "Ciołek",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0102": {
+    "id": "P0102",
+    "given_name": "Wincenty",
+    "surname": "Jaroszek",
+    "gender": "M",
+    "birth_year_estimate": 1834,
+    "confidence": "medium"
+  },
+  "P0103": {
+    "id": "P0103",
+    "given_name": "Antoni",
+    "surname": "Łęcki",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0104": {
+    "id": "P0104",
+    "given_name": "Wincenty",
+    "surname": "Wolski",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0105": {
+    "id": "P0105",
+    "given_name": "Małgorzata",
+    "surname": "Wolski",
+    "maiden_name": "Jagiełło",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0106": {
+    "id": "P0106",
+    "given_name": "Jadwiga",
+    "surname": "Wolska",
+    "gender": "F",
+    "birth_year_estimate": 1834,
+    "confidence": "medium"
+  },
+  "P0107": {
+    "id": "P0107",
+    "given_name": "Andrzej",
+    "surname": "Kozik",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0108": {
+    "id": "P0108",
+    "given_name": "Elżbieta",
+    "surname": "Łęcki",
+    "maiden_name": "Jarosz",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0109": {
+    "id": "P0109",
+    "given_name": "Leonard",
+    "surname": "Łęcki",
+    "gender": "M",
+    "birth_year_estimate": 1834,
+    "confidence": "medium"
+  },
+  "P0110": {
+    "id": "P0110",
+    "given_name": "Małgorzata",
+    "surname": "Ziewiecki",
+    "maiden_name": "Surdey",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0111": {
+    "id": "P0111",
+    "given_name": "Stanisław",
+    "surname": "Ziewiecki",
+    "gender": "M",
+    "birth_year_estimate": 1834,
+    "confidence": "medium"
+  },
+  "P0112": {
+    "id": "P0112",
+    "given_name": "Adam",
+    "surname": "Drożdż",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0113": {
+    "id": "P0113",
+    "given_name": "Marianna",
+    "surname": "Mamczarz",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0114": {
+    "id": "P0114",
+    "given_name": "Wojciech",
+    "surname": "Dąbek",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0115": {
+    "id": "P0115",
+    "given_name": "Marianna",
+    "surname": "Dąbek",
+    "maiden_name": "Kiełek",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0116": {
+    "id": "P0116",
+    "given_name": "Jędrzej",
+    "surname": "Dąbek",
+    "gender": "M",
+    "birth_year_estimate": 1834,
+    "confidence": "medium"
+  },
+  "P0117": {
+    "id": "P0117",
+    "given_name": "Wincenty",
+    "surname": "Surdey",
+    "gender": "M",
+    "birth_year_estimate": 1795,
+    "confidence": "medium"
+  },
+  "P0118": {
+    "id": "P0118",
+    "given_name": "Salomea",
+    "surname": "Ziewiecka",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0119": {
+    "id": "P0119",
+    "given_name": "Wojciech",
+    "surname": "Zatorski",
+    "gender": "M",
+    "birth_year_estimate": 1835,
+    "confidence": "medium"
+  },
+  "P0120": {
+    "id": "P0120",
+    "given_name": "Jakub",
+    "surname": "Jaroszek",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0121": {
+    "id": "P0121",
+    "given_name": "Katarzyna",
+    "surname": "Mieszała",
+    "gender": "F",
+    "birth_year_estimate": 1837,
+    "confidence": "medium"
+  },
+  "P0122": {
+    "id": "P0122",
+    "given_name": "Grzegorz",
+    "surname": "Spadło",
+    "gender": "M",
+    "death_year_estimate": 1891,
+    "confidence": "medium"
+  },
+  "P0123": {
+    "id": "P0123",
+    "given_name": "Szczepan",
+    "surname": "Słyk",
+    "gender": "M",
+    "death_year_estimate": 1855,
+    "confidence": "medium"
+  },
+  "P0125": {
+    "id": "P0125",
+    "given_name": "Jan",
+    "surname": "Słyk",
+    "gender": "M",
+    "birth_year_estimate": 1843,
+    "confidence": "medium"
+  },
+  "P0126": {
+    "id": "P0126",
+    "given_name": "Jan",
+    "surname": "Głód",
+    "gender": "M",
+    "birth_year_estimate": 1783,
+    "confidence": "medium"
+  },
+  "P0127": {
+    "id": "P0127",
+    "given_name": "Józef",
+    "surname": "Kiełek",
+    "gender": "M",
+    "birth_year_estimate": 1818,
+    "confidence": "medium"
+  },
+  "P0128": {
+    "id": "P0128",
+    "given_name": "Franciszek",
+    "surname": "Słyk",
+    "gender": "M",
+    "birth_year_estimate": 1844,
+    "confidence": "medium"
+  },
+  "P0129": {
+    "id": "P0129",
+    "given_name": "Marianna",
+    "surname": "Spadło",
+    "maiden_name": "Jaros",
+    "gender": "F",
+    "death_year_estimate": 1862,
+    "confidence": "medium"
+  },
+  "P0130": {
+    "id": "P0130",
+    "given_name": "Agnieszka",
+    "surname": "Spadło",
+    "gender": "F",
+    "birth_year_estimate": 1844,
+    "confidence": "medium"
+  },
+  "P0131": {
+    "id": "P0131",
+    "given_name": "Jacek",
+    "surname": "Dymiński",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0132": {
+    "id": "P0132",
+    "given_name": "Marianna",
+    "surname": "Dymiński",
+    "maiden_name": "Surdey",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0133": {
+    "id": "P0133",
+    "given_name": "Tomasz",
+    "surname": "Dymiński",
+    "gender": "M",
+    "birth_year_estimate": 1845,
+    "confidence": "medium"
+  },
+  "P0134": {
+    "id": "P0134",
+    "given_name": "Wojciech",
+    "surname": "Słyk",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0135": {
+    "id": "P0135",
+    "given_name": "Łukasz",
+    "surname": "Myszka",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0136": {
+    "id": "P0136",
+    "given_name": "Petronella",
+    "surname": "Łapacz",
+    "maiden_name": "Gut",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0137": {
+    "id": "P0137",
+    "given_name": "Jan",
+    "surname": "Chryzostom",
+    "gender": "M",
+    "birth_year_estimate": 1847,
+    "confidence": "medium"
+  },
+  "P0138": {
+    "id": "P0138",
+    "given_name": "Anna",
+    "surname": "Słyk",
+    "gender": "F",
+    "birth_year_estimate": 1848,
+    "confidence": "medium"
+  },
+  "P0139": {
+    "id": "P0139",
+    "given_name": "Wawrzyniec",
+    "surname": "Ziewiecki",
+    "gender": "M",
+    "birth_year_estimate": 1814,
+    "confidence": "medium"
+  },
+  "P0140": {
+    "id": "P0140",
+    "given_name": "Ewa",
+    "surname": "Słyk",
+    "gender": "F",
+    "birth_year_estimate": 1849,
+    "death_year_estimate": 1853,
+    "confidence": "medium"
+  },
+  "P0141": {
+    "id": "P0141",
+    "given_name": "Józef",
+    "surname": "Surdey",
+    "gender": "M",
+    "birth_year_estimate": 1791,
+    "confidence": "medium"
+  },
+  "P0142": {
+    "id": "P0142",
+    "given_name": "Karol",
+    "surname": "Łęcki",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0143": {
+    "id": "P0143",
+    "given_name": "Marianna",
+    "surname": "Słyk",
+    "gender": "F",
+    "birth_year_estimate": 1853,
+    "death_year_estimate": 1859,
+    "confidence": "medium"
+  },
+  "P0144": {
+    "id": "P0144",
+    "given_name": "Józef",
+    "surname": "Poński",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0145": {
+    "id": "P0145",
+    "given_name": "Antoni",
+    "surname": "Głód",
+    "gender": "M",
+    "birth_year_estimate": 1823,
+    "death_year_estimate": 1894,
+    "confidence": "medium"
+  },
+  "P0146": {
+    "id": "P0146",
+    "given_name": "Katarzyna",
+    "surname": "Słyk",
+    "gender": "F",
+    "birth_year_estimate": 1855,
+    "death_year_estimate": 1857,
+    "confidence": "medium"
+  },
+  "P0147": {
+    "id": "P0147",
+    "given_name": "Jan",
+    "surname": "Minda",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0148": {
+    "id": "P0148",
+    "given_name": "Jadwiga",
+    "surname": "Głód",
+    "maiden_name": "Kruk",
+    "gender": "F",
+    "death_year_estimate": 1891,
+    "confidence": "medium"
+  },
+  "P0149": {
+    "id": "P0149",
+    "given_name": "Leonard",
+    "surname": "Zarzycki",
+    "gender": "M",
+    "birth_year_estimate": 1817,
+    "confidence": "medium"
+  },
+  "P0150": {
+    "id": "P0150",
+    "given_name": "Antoni",
+    "surname": "Głód",
+    "gender": "M",
+    "birth_year_estimate": 1852,
+    "confidence": "medium"
+  },
+  "P0151": {
+    "id": "P0151",
+    "given_name": "Bartłomiej",
+    "surname": "Drożdż",
+    "gender": "M",
+    "birth_year_estimate": 1825,
+    "confidence": "medium"
+  },
+  "P0152": {
+    "id": "P0152",
+    "given_name": "Justyna",
+    "surname": "Drożdż",
+    "maiden_name": "Kiełek",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0153": {
+    "id": "P0153",
+    "given_name": "Franciszka",
+    "surname": "Drożdż",
+    "gender": "F",
+    "birth_year_estimate": 1855,
+    "death_year_estimate": 1859,
+    "confidence": "medium"
+  },
+  "P0154": {
+    "id": "P0154",
+    "given_name": "Tomasz",
+    "surname": "Kozik",
+    "gender": "M",
+    "birth_year_estimate": 1815,
+    "confidence": "medium"
+  },
+  "P0155": {
+    "id": "P0155",
+    "given_name": "Justyn",
+    "surname": "Wyszkowski",
+    "gender": "M",
+    "birth_year_estimate": 1831,
+    "confidence": "medium"
+  },
+  "P0156": {
+    "id": "P0156",
+    "given_name": "Kamila",
+    "surname": "Wyszkowski",
+    "maiden_name": "Zaręba -  św",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0157": {
+    "id": "P0157",
+    "given_name": "Leon",
+    "surname": "Alexander",
+    "gender": "M",
+    "birth_year_estimate": 1855,
+    "confidence": "medium"
+  },
+  "P0158": {
+    "id": "P0158",
+    "given_name": "Antoni",
+    "surname": "Zaborowski",
+    "gender": "M",
+    "birth_year_estimate": 1794,
+    "confidence": "medium"
+  },
+  "P0159": {
+    "id": "P0159",
+    "given_name": "Ludwik",
+    "surname": "Zaborowski",
+    "gender": "M",
+    "birth_year_estimate": 1824,
+    "confidence": "medium"
+  },
+  "P0160": {
+    "id": "P0160",
+    "given_name": "Józef",
+    "surname": "Odolski",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0161": {
+    "id": "P0161",
+    "given_name": "Olimpia",
+    "surname": "Odolska",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0162": {
+    "id": "P0162",
+    "given_name": "Łukasz",
+    "surname": "Sawicki",
+    "gender": "M",
+    "birth_year_estimate": 1827,
+    "confidence": "medium"
+  },
+  "P0163": {
+    "id": "P0163",
+    "given_name": "Ewa",
+    "surname": "Sawicki",
+    "maiden_name": "Kołaczewska -  św",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0164": {
+    "id": "P0164",
+    "given_name": "Józef",
+    "surname": "Albin",
+    "gender": "M",
+    "birth_year_estimate": 1855,
+    "confidence": "medium"
+  },
+  "P0165": {
+    "id": "P0165",
+    "given_name": "Grzegoż",
+    "surname": "Łyżwa",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0166": {
+    "id": "P0166",
+    "given_name": "Leonard",
+    "surname": "Unknown",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0167": {
+    "id": "P0167",
+    "given_name": "Xiądz",
+    "surname": "Andrzej",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0168": {
+    "id": "P0168",
+    "given_name": "Brygida",
+    "surname": "Wójcikowska",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0169": {
+    "id": "P0169",
+    "given_name": "Franciszek",
+    "surname": "Gralec",
+    "gender": "M",
+    "birth_year_estimate": 1825,
+    "confidence": "medium"
+  },
+  "P0170": {
+    "id": "P0170",
+    "given_name": "Franciszka",
+    "surname": "Gralec",
+    "maiden_name": "Zając",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0171": {
+    "id": "P0171",
+    "given_name": "Teofila",
+    "surname": "Gralec",
+    "gender": "F",
+    "birth_year_estimate": 1855,
+    "death_year_estimate": 1855,
+    "confidence": "medium"
+  },
+  "P0172": {
+    "id": "P0172",
+    "given_name": "Piotr",
+    "surname": "Drożdż",
+    "gender": "M",
+    "birth_year_estimate": 1815,
+    "confidence": "medium"
+  },
+  "P0173": {
+    "id": "P0173",
+    "given_name": "Franciszek",
+    "surname": "Przyrowski",
+    "gender": "M",
+    "birth_year_estimate": 1811,
+    "confidence": "medium"
+  },
+  "P0174": {
+    "id": "P0174",
+    "given_name": "Tekla",
+    "surname": "Przyrowski",
+    "maiden_name": "Szmit -  św",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0175": {
+    "id": "P0175",
+    "given_name": "Anastazja",
+    "surname": "Przyrowski",
+    "gender": "F",
+    "birth_year_estimate": 1855,
+    "confidence": "medium"
+  },
+  "P0176": {
+    "id": "P0176",
+    "given_name": "Józef",
+    "surname": "Pogodzieński",
+    "gender": "M",
+    "birth_year_estimate": 1826,
+    "confidence": "medium"
+  },
+  "P0177": {
+    "id": "P0177",
+    "given_name": "Ambroży",
+    "surname": "Dymiński",
+    "gender": "M",
+    "birth_year_estimate": 1784,
+    "confidence": "medium"
+  },
+  "P0178": {
+    "id": "P0178",
+    "given_name": "Wincenty",
+    "surname": "Zatorski",
+    "gender": "M",
+    "birth_year_estimate": 1830,
+    "confidence": "medium"
+  },
+  "P0179": {
+    "id": "P0179",
+    "given_name": "Gertruda",
+    "surname": "Zatorski",
+    "maiden_name": "Marzec?",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0180": {
+    "id": "P0180",
+    "given_name": "Czesław",
+    "surname": "Zatorski",
+    "gender": "M",
+    "birth_year_estimate": 1855,
+    "confidence": "medium"
+  },
+  "P0181": {
+    "id": "P0181",
+    "given_name": "Jan",
+    "surname": "Sikora",
+    "gender": "M",
+    "birth_year_estimate": 1826,
+    "confidence": "medium"
+  },
+  "P0182": {
+    "id": "P0182",
+    "given_name": "Maciej",
+    "surname": "Kiełek",
+    "gender": "M",
+    "birth_year_estimate": 1821,
+    "death_year_estimate": 1858,
+    "confidence": "medium"
+  },
+  "P0183": {
+    "id": "P0183",
+    "given_name": "Franciszka",
+    "surname": "Salwa",
+    "maiden_name": "Jaros (wdowa po Franciszku Surdey",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0184": {
+    "id": "P0184",
+    "given_name": "Jadwiga",
+    "surname": "Salwa",
+    "gender": "F",
+    "birth_year_estimate": 1855,
+    "death_year_estimate": 1855,
+    "confidence": "medium"
+  },
+  "P0185": {
+    "id": "P0185",
+    "given_name": "Jakub",
+    "surname": "Jaros",
+    "gender": "M",
+    "birth_year_estimate": 1815,
+    "confidence": "medium"
+  },
+  "P0186": {
+    "id": "P0186",
+    "given_name": "Katarzyna",
+    "surname": "Surdey",
+    "maiden_name": "Kiełek",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0187": {
+    "id": "P0187",
+    "given_name": "Jan",
+    "surname": "Kapistran",
+    "gender": "M",
+    "birth_year_estimate": 1855,
+    "confidence": "medium"
+  },
+  "P0188": {
+    "id": "P0188",
+    "given_name": "Franciszka",
+    "surname": "Zarzycka",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0189": {
+    "id": "P0189",
+    "given_name": "Walenty",
+    "surname": "Łęcki",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0190": {
+    "id": "P0190",
+    "given_name": "Józef",
+    "surname": "Kiełek",
+    "gender": "M",
+    "birth_year_estimate": 1827,
+    "confidence": "medium"
+  },
+  "P0191": {
+    "id": "P0191",
+    "given_name": "Wincenty",
+    "surname": "Różalski",
+    "gender": "M",
+    "death_year_estimate": 1855,
+    "confidence": "medium"
+  },
+  "P0192": {
+    "id": "P0192",
+    "given_name": "Walenty",
+    "surname": "Nobis",
+    "gender": "M",
+    "birth_year_estimate": 1831,
+    "confidence": "medium"
+  },
+  "P0193": {
+    "id": "P0193",
+    "given_name": "Józef",
+    "surname": "Krakowiak",
+    "gender": "M",
+    "birth_year_estimate": 1853,
+    "confidence": "medium"
+  },
+  "P0194": {
+    "id": "P0194",
+    "given_name": "Antoni",
+    "surname": "Zełga",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0195": {
+    "id": "P0195",
+    "given_name": "Piotr",
+    "surname": "Drożdż",
+    "gender": "M",
+    "birth_year_estimate": 1807,
+    "confidence": "medium"
+  },
+  "P0196": {
+    "id": "P0196",
+    "given_name": "Marianna",
+    "surname": "Kiełek",
+    "maiden_name": "Gralec",
+    "gender": "F",
+    "death_year_estimate": 1855,
+    "confidence": "medium"
+  },
+  "P0197": {
+    "id": "P0197",
+    "given_name": "Kacper",
+    "surname": "Zięba",
+    "gender": "M",
+    "death_year_estimate": 1855,
+    "confidence": "medium"
+  },
+  "P0198": {
+    "id": "P0198",
+    "given_name": "Ignacy",
+    "surname": "Kozik",
+    "gender": "M",
+    "death_year_estimate": 1855,
+    "confidence": "medium"
+  },
+  "P0199": {
+    "id": "P0199",
+    "given_name": "Magdalena",
+    "surname": "Myszka",
+    "gender": "F",
+    "death_year_estimate": 1855,
+    "confidence": "medium"
+  },
+  "P0200": {
+    "id": "P0200",
+    "given_name": "Szczepan",
+    "surname": "Spadło",
+    "gender": "M",
+    "birth_year_estimate": 1856,
+    "confidence": "medium"
+  },
+  "P0201": {
+    "id": "P0201",
+    "given_name": "Jan",
+    "surname": "Spadło",
+    "gender": "M",
+    "birth_year_estimate": 1856,
+    "death_year_estimate": 1857,
+    "confidence": "medium"
+  },
+  "P0202": {
+    "id": "P0202",
+    "given_name": "Julianna",
+    "surname": "Dymiński",
+    "gender": "F",
+    "birth_year_estimate": 1856,
+    "confidence": "medium"
+  },
+  "P0203": {
+    "id": "P0203",
+    "given_name": "Jan",
+    "surname": "Maciejczak",
+    "gender": "M",
+    "birth_year_estimate": 1825,
+    "confidence": "medium"
+  },
+  "P0204": {
+    "id": "P0204",
+    "given_name": "Franciszek",
+    "surname": "Zarzycki",
+    "gender": "M",
+    "birth_year_estimate": 1835,
+    "confidence": "medium"
+  },
+  "P0205": {
+    "id": "P0205",
+    "given_name": "Antonina",
+    "surname": "Zarzycki",
+    "maiden_name": "Chojnacka",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0206": {
+    "id": "P0206",
+    "given_name": "Julianna",
+    "surname": "Zarzycki",
+    "gender": "F",
+    "birth_year_estimate": 1856,
+    "confidence": "medium"
+  },
+  "P0207": {
+    "id": "P0207",
+    "given_name": "Marianna",
+    "surname": "Zatorska",
+    "gender": "M",
+    "birth_year_estimate": 1812,
+    "confidence": "medium"
+  },
+  "P0208": {
+    "id": "P0208",
+    "given_name": "Elżbieta",
+    "surname": "Zatorska",
+    "maiden_name": "Zatorska (wyrobnica)",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0209": {
+    "id": "P0209",
+    "given_name": "Leon",
+    "surname": "Zatorska",
+    "gender": "M",
+    "birth_year_estimate": 1856,
+    "confidence": "medium"
+  },
+  "P0210": {
+    "id": "P0210",
+    "given_name": "Michał",
+    "surname": "Orłowski",
+    "gender": "M",
+    "birth_year_estimate": 1832,
+    "confidence": "medium"
+  },
+  "P0211": {
+    "id": "P0211",
+    "given_name": "Józefa",
+    "surname": "Drożdż",
+    "maiden_name": "Myszka",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0212": {
+    "id": "P0212",
+    "given_name": "Marek",
+    "surname": "Drożdż",
+    "gender": "M",
+    "birth_year_estimate": 1856,
+    "confidence": "medium"
+  },
+  "P0213": {
+    "id": "P0213",
+    "given_name": "Anastazja",
+    "surname": "Łęcki",
+    "maiden_name": "Gralec (siostra cioteczna B.)",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0214": {
+    "id": "P0214",
+    "given_name": "Piotr",
+    "surname": "Łęcki",
+    "gender": "M",
+    "birth_year_estimate": 1856,
+    "death_year_estimate": 1857,
+    "confidence": "medium"
+  },
+  "P0215": {
+    "id": "P0215",
+    "given_name": "Michał",
+    "surname": "Niewczas",
+    "gender": "M",
+    "birth_year_estimate": 1820,
+    "confidence": "medium"
+  },
+  "P0216": {
+    "id": "P0216",
+    "given_name": "Jan",
+    "surname": "Kiełek",
+    "gender": "M",
+    "birth_year_estimate": 1835,
+    "confidence": "medium"
+  },
+  "P0217": {
+    "id": "P0217",
+    "given_name": "Antonina",
+    "surname": "Kiełek",
+    "gender": "F",
+    "birth_year_estimate": 1856,
+    "death_year_estimate": 1859,
+    "confidence": "medium"
+  },
+  "P0218": {
+    "id": "P0218",
+    "given_name": "Wiktoria",
+    "surname": "Kiełek",
+    "maiden_name": "Myszka",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0219": {
+    "id": "P0219",
+    "given_name": "Jan",
+    "surname": "Kiełek",
+    "gender": "M",
+    "birth_year_estimate": 1856,
+    "confidence": "medium"
+  },
+  "P0220": {
+    "id": "P0220",
+    "given_name": "Szczepan",
+    "surname": "Myszka",
+    "gender": "M",
+    "birth_year_estimate": 1835,
+    "confidence": "medium"
+  },
+  "P0221": {
+    "id": "P0221",
+    "given_name": "Józef",
+    "surname": "Różalski",
+    "gender": "M",
+    "birth_year_estimate": 1833,
+    "confidence": "medium"
+  },
+  "P0222": {
+    "id": "P0222",
+    "given_name": "Franciszka",
+    "surname": "Różalski",
+    "maiden_name": "Woźniak",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0223": {
+    "id": "P0223",
+    "given_name": "Jakub",
+    "surname": "Niewczas",
+    "gender": "M",
+    "birth_year_estimate": 1827,
+    "confidence": "medium"
+  },
+  "P0224": {
+    "id": "P0224",
+    "given_name": "Piotr",
+    "surname": "Sawicki",
+    "gender": "M",
+    "birth_year_estimate": 1856,
+    "confidence": "medium"
+  },
+  "P0225": {
+    "id": "P0225",
+    "given_name": "Ludwik",
+    "surname": "Nosowicz",
+    "gender": "M",
+    "birth_year_estimate": 1822,
+    "confidence": "medium"
+  },
+  "P0226": {
+    "id": "P0226",
+    "given_name": "Łukasz",
+    "surname": "Kiełek",
+    "gender": "M",
+    "birth_year_estimate": 1829,
+    "confidence": "medium"
+  },
+  "P0227": {
+    "id": "P0227",
+    "given_name": "Konstancja",
+    "surname": "Kiełek",
+    "maiden_name": "Chmolowska",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0228": {
+    "id": "P0228",
+    "given_name": "Magdalena",
+    "surname": "Kiełek",
+    "gender": "F",
+    "birth_year_estimate": 1856,
+    "confidence": "medium"
+  },
+  "P0229": {
+    "id": "P0229",
+    "given_name": "Jacek",
+    "surname": "Chmolowski",
+    "gender": "M",
+    "birth_year_estimate": 1829,
+    "confidence": "medium"
+  },
+  "P0230": {
+    "id": "P0230",
+    "given_name": "Wincenty",
+    "surname": "Słyk",
+    "gender": "M",
+    "birth_year_estimate": 1822,
+    "confidence": "medium"
+  },
+  "P0231": {
+    "id": "P0231",
+    "given_name": "Antonina",
+    "surname": "Słyk",
+    "maiden_name": "Kiełek",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0232": {
+    "id": "P0232",
+    "given_name": "Wawrzyniec",
+    "surname": "Słyk",
+    "gender": "M",
+    "birth_year_estimate": 1856,
+    "confidence": "medium"
+  },
+  "P0233": {
+    "id": "P0233",
+    "given_name": "Wincenty",
+    "surname": "Zatorski",
+    "gender": "M",
+    "birth_year_estimate": 1824,
+    "confidence": "medium"
+  },
+  "P0234": {
+    "id": "P0234",
+    "given_name": "Małgorzata",
+    "surname": "Kozik",
+    "maiden_name": "Kurek (34)",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0235": {
+    "id": "P0235",
+    "given_name": "Joachim",
+    "surname": "Kozik",
+    "gender": "M",
+    "birth_year_estimate": 1856,
+    "confidence": "medium"
+  },
+  "P0236": {
+    "id": "P0236",
+    "given_name": "Jakub",
+    "surname": "Jaros",
+    "gender": "M",
+    "birth_year_estimate": 1806,
+    "confidence": "medium"
+  },
+  "P0237": {
+    "id": "P0237",
+    "given_name": "Jana",
+    "surname": "Myszki",
+    "gender": "F",
+    "birth_year_estimate": 1796,
+    "confidence": "medium"
+  },
+  "P0238": {
+    "id": "P0238",
+    "given_name": "Józef",
+    "surname": "Synal",
+    "gender": "M",
+    "birth_year_estimate": 1824,
+    "death_year_estimate": 1863,
+    "confidence": "medium"
+  },
+  "P0239": {
+    "id": "P0239",
+    "given_name": "Julianna",
+    "surname": "Synal",
+    "maiden_name": "Zatorska",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0240": {
+    "id": "P0240",
+    "given_name": "Mateusz",
+    "surname": "Synal",
+    "gender": "M",
+    "birth_year_estimate": 1856,
+    "death_year_estimate": 1856,
+    "confidence": "medium"
+  },
+  "P0241": {
+    "id": "P0241",
+    "given_name": "Leonard",
+    "surname": "Gralec",
+    "gender": "M",
+    "birth_year_estimate": 1856,
+    "confidence": "medium"
+  },
+  "P0242": {
+    "id": "P0242",
+    "given_name": "Józef",
+    "surname": "Kruk",
+    "gender": "M",
+    "birth_year_estimate": 1824,
+    "confidence": "medium"
+  },
+  "P0243": {
+    "id": "P0243",
+    "given_name": "Wojciech",
+    "surname": "Kruk",
+    "gender": "M",
+    "birth_year_estimate": 1831,
+    "confidence": "medium"
+  },
+  "P0244": {
+    "id": "P0244",
+    "given_name": "Jan",
+    "surname": "Niewczas",
+    "gender": "M",
+    "birth_year_estimate": 1831,
+    "confidence": "medium"
+  },
+  "P0245": {
+    "id": "P0245",
+    "given_name": "Małgorzata",
+    "surname": "Niewczas",
+    "maiden_name": "Kozik",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0246": {
+    "id": "P0246",
+    "given_name": "Katarzyna",
+    "surname": "Niewczas",
+    "gender": "F",
+    "birth_year_estimate": 1856,
+    "confidence": "medium"
+  },
+  "P0247": {
+    "id": "P0247",
+    "given_name": "Antoni",
+    "surname": "Janowski",
+    "gender": "M",
+    "birth_year_estimate": 1818,
+    "confidence": "medium"
+  },
+  "P0248": {
+    "id": "P0248",
+    "given_name": "Teofila",
+    "surname": "Janowski",
+    "maiden_name": "Łękawska -  św",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0249": {
+    "id": "P0249",
+    "given_name": "Bronisław",
+    "surname": "Teofil",
+    "gender": "M",
+    "birth_year_estimate": 1856,
+    "confidence": "medium"
+  },
+  "P0250": {
+    "id": "P0250",
+    "given_name": "Leon",
+    "surname": "Buchowski",
+    "gender": "M",
+    "birth_year_estimate": 1816,
+    "confidence": "medium"
+  },
+  "P0251": {
+    "id": "P0251",
+    "given_name": "Florian",
+    "surname": "Chojnacki",
+    "gender": "M",
+    "birth_year_estimate": 1806,
+    "confidence": "medium"
+  },
+  "P0252": {
+    "id": "P0252",
+    "given_name": "Kazimierz",
+    "surname": "Łapacz",
+    "gender": "M",
+    "birth_year_estimate": 1802,
+    "confidence": "medium"
+  },
+  "P0253": {
+    "id": "P0253",
+    "given_name": "Jan",
+    "surname": "Spadło",
+    "gender": "M",
+    "birth_year_estimate": 1844,
+    "death_year_estimate": 1856,
+    "confidence": "medium"
+  },
+  "P0254": {
+    "id": "P0254",
+    "given_name": "Wojciech",
+    "surname": "Pomorski",
+    "gender": "M",
+    "birth_year_estimate": 1830,
+    "confidence": "medium"
+  },
+  "P0255": {
+    "id": "P0255",
+    "given_name": "Agnieszka",
+    "surname": "Drożdż",
+    "gender": "F",
+    "death_year_estimate": 1856,
+    "confidence": "medium"
+  },
+  "P0256": {
+    "id": "P0256",
+    "given_name": "Antoni",
+    "surname": "Drożdż",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0257": {
+    "id": "P0257",
+    "given_name": "Agnieszka",
+    "surname": "Niewczas",
+    "gender": "F",
+    "death_year_estimate": 1856,
+    "confidence": "medium"
+  },
+  "P0258": {
+    "id": "P0258",
+    "given_name": "Piotr",
+    "surname": "Łęcki",
+    "gender": "M",
+    "birth_year_estimate": 1848,
+    "death_year_estimate": 1856,
+    "confidence": "medium"
+  },
+  "P0259": {
+    "id": "P0259",
+    "given_name": "Kazimierz",
+    "surname": "Drożdż",
+    "gender": "M",
+    "death_year_estimate": 1856,
+    "confidence": "medium"
+  },
+  "P0260": {
+    "id": "P0260",
+    "given_name": "Wincenty",
+    "surname": "Słyk",
+    "gender": "M",
+    "birth_year_estimate": 1816,
+    "confidence": "medium"
+  },
+  "P0261": {
+    "id": "P0261",
+    "given_name": "Jędrzej",
+    "surname": "Kozik",
+    "gender": "M",
+    "birth_year_estimate": 1814,
+    "confidence": "medium"
+  },
+  "P0262": {
+    "id": "P0262",
+    "given_name": "Marianna",
+    "surname": "Zarzycka",
+    "gender": "F",
+    "birth_year_estimate": 1854,
+    "death_year_estimate": 1856,
+    "confidence": "medium"
+  },
+  "P0263": {
+    "id": "P0263",
+    "given_name": "Wiktoria",
+    "surname": "Chojnacka",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0264": {
+    "id": "P0264",
+    "given_name": "Giertruda",
+    "surname": "Zatorski",
+    "maiden_name": "Marcula",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0265": {
+    "id": "P0265",
+    "given_name": "Wiktoria",
+    "surname": "Zatorski",
+    "gender": "F",
+    "birth_year_estimate": 1857,
+    "confidence": "medium"
+  },
+  "P0266": {
+    "id": "P0266",
+    "given_name": "Ludwik",
+    "surname": "Molga",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0267": {
+    "id": "P0267",
+    "given_name": "Konstancja",
+    "surname": "Molga",
+    "maiden_name": "Kuckowska?",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0268": {
+    "id": "P0268",
+    "given_name": "Józef",
+    "surname": "Molga",
+    "gender": "M",
+    "birth_year_estimate": 1857,
+    "confidence": "medium"
+  },
+  "P0269": {
+    "id": "P0269",
+    "given_name": "Jakub",
+    "surname": "Myszka",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0270": {
+    "id": "P0270",
+    "given_name": "Magdalena",
+    "surname": "Drożdż",
+    "maiden_name": "Pachnik",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0271": {
+    "id": "P0271",
+    "given_name": "Erazm",
+    "surname": "Drożdż",
+    "gender": "M",
+    "birth_year_estimate": 1857,
+    "death_year_estimate": 1859,
+    "confidence": "medium"
+  },
+  "P0272": {
+    "id": "P0272",
+    "given_name": "Wojech",
+    "surname": "Zatorski",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0273": {
+    "id": "P0273",
+    "given_name": "Karol",
+    "surname": "Gizan",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0274": {
+    "id": "P0274",
+    "given_name": "Małgorzata",
+    "surname": "Surdey",
+    "gender": "F",
+    "birth_year_estimate": 1857,
+    "confidence": "medium"
+  },
+  "P0275": {
+    "id": "P0275",
+    "given_name": "Franciszka",
+    "surname": "Myszka",
+    "maiden_name": "Drożdż",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0276": {
+    "id": "P0276",
+    "given_name": "Antoni",
+    "surname": "Myszka",
+    "gender": "M",
+    "birth_year_estimate": 1857,
+    "confidence": "medium"
+  },
+  "P0277": {
+    "id": "P0277",
+    "given_name": "Jędrzej",
+    "surname": "Kruk",
+    "gender": "M",
+    "death_year_estimate": 1891,
+    "confidence": "medium"
+  },
+  "P0278": {
+    "id": "P0278",
+    "given_name": "Katarzyna",
+    "surname": "Nobis",
+    "maiden_name": "Rozalska",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0279": {
+    "id": "P0279",
+    "given_name": "Małgorzata",
+    "surname": "Nobis",
+    "gender": "F",
+    "birth_year_estimate": 1857,
+    "confidence": "medium"
+  },
+  "P0280": {
+    "id": "P0280",
+    "given_name": "Piotr",
+    "surname": "Nobis",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0281": {
+    "id": "P0281",
+    "given_name": "Bonawentura",
+    "surname": "Łęcki",
+    "gender": "M",
+    "birth_year_estimate": 1857,
+    "confidence": "medium"
+  },
+  "P0282": {
+    "id": "P0282",
+    "given_name": "Aleksander",
+    "surname": "Klimkowski",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0283": {
+    "id": "P0283",
+    "given_name": "Marianna",
+    "surname": "Klimkowski",
+    "maiden_name": "Żukowska",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0284": {
+    "id": "P0284",
+    "given_name": "Ignacy",
+    "surname": "Antoni",
+    "gender": "M",
+    "birth_year_estimate": 1857,
+    "confidence": "medium"
+  },
+  "P0285": {
+    "id": "P0285",
+    "given_name": "Konstanty",
+    "surname": "Gurmiński",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0286": {
+    "id": "P0286",
+    "given_name": "Teofila",
+    "surname": "Janowska",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0287": {
+    "id": "P0287",
+    "given_name": "Maciej",
+    "surname": "Łęcki",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0288": {
+    "id": "P0288",
+    "given_name": "Katarzyna",
+    "surname": "Łęcki",
+    "gender": "F",
+    "birth_year_estimate": 1857,
+    "confidence": "medium"
+  },
+  "P0289": {
+    "id": "P0289",
+    "given_name": "Brygida",
+    "surname": "Kruk",
+    "maiden_name": "Surdey",
+    "gender": "F",
+    "death_year_estimate": 1891,
+    "confidence": "medium"
+  },
+  "P0290": {
+    "id": "P0290",
+    "given_name": "Wawrzyniec",
+    "surname": "Kruk",
+    "gender": "M",
+    "birth_year_estimate": 1857,
+    "confidence": "medium"
+  },
+  "P0291": {
+    "id": "P0291",
+    "given_name": "Jacek",
+    "surname": "Dymińsk",
+    "gender": "M",
+    "birth_year_estimate": 1820,
+    "confidence": "medium"
+  },
+  "P0292": {
+    "id": "P0292",
+    "given_name": "Władysław",
+    "surname": "Drożdż",
+    "gender": "M",
+    "birth_year_estimate": 1857,
+    "death_year_estimate": 1858,
+    "confidence": "medium"
+  },
+  "P0293": {
+    "id": "P0293",
+    "given_name": "Marianna",
+    "surname": "Myszka",
+    "maiden_name": "Surdey",
+    "gender": "F",
+    "death_year_estimate": 1859,
+    "confidence": "medium"
+  },
+  "P0294": {
+    "id": "P0294",
+    "given_name": "Feliks",
+    "surname": "Myszka",
+    "gender": "M",
+    "birth_year_estimate": 1857,
+    "confidence": "medium"
+  },
+  "P0295": {
+    "id": "P0295",
+    "given_name": "Jakub",
+    "surname": "Chmolowski",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0296": {
+    "id": "P0296",
+    "given_name": "Agnieszka",
+    "surname": "Grudzień",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0297": {
+    "id": "P0297",
+    "given_name": "Józef",
+    "surname": "Prendowski",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0298": {
+    "id": "P0298",
+    "given_name": "Jadwiga",
+    "surname": "Prendowski",
+    "maiden_name": "Wojciechowska",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0299": {
+    "id": "P0299",
+    "given_name": "Kajetan",
+    "surname": "Prendowski",
+    "gender": "M",
+    "birth_year_estimate": 1857,
+    "confidence": "medium"
+  },
+  "P0300": {
+    "id": "P0300",
+    "given_name": "Kazimierz",
+    "surname": "Kłokocki",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0301": {
+    "id": "P0301",
+    "given_name": "Wincenty",
+    "surname": "Podleski",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0302": {
+    "id": "P0302",
+    "given_name": "Teofil",
+    "surname": "Synal",
+    "gender": "M",
+    "birth_year_estimate": 1857,
+    "confidence": "medium"
+  },
+  "P0303": {
+    "id": "P0303",
+    "given_name": "Grzegorz",
+    "surname": "Bąk",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0304": {
+    "id": "P0304",
+    "given_name": "Apolonia",
+    "surname": "Bąk",
+    "maiden_name": "Zatorska",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0305": {
+    "id": "P0305",
+    "given_name": "Marianna",
+    "surname": "Bąk",
+    "gender": "F",
+    "birth_year_estimate": 1858,
+    "confidence": "medium"
+  },
+  "P0306": {
+    "id": "P0306",
+    "given_name": "Antoni",
+    "surname": "Zarzycki",
+    "gender": "M",
+    "birth_year_estimate": 1858,
+    "confidence": "medium"
+  },
+  "P0307": {
+    "id": "P0307",
+    "given_name": "Konstanty",
+    "surname": "Gumiński",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0308": {
+    "id": "P0308",
+    "given_name": "Rozalia",
+    "surname": "Gumiński",
+    "maiden_name": "Knopek",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0309": {
+    "id": "P0309",
+    "given_name": "Władysław",
+    "surname": "Julian",
+    "gender": "M",
+    "birth_year_estimate": 1858,
+    "confidence": "medium"
+  },
+  "P0310": {
+    "id": "P0310",
+    "given_name": "Ildefons",
+    "surname": "Knoph",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0311": {
+    "id": "P0311",
+    "given_name": "Helena",
+    "surname": "Knoph",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0312": {
+    "id": "P0312",
+    "given_name": "Benedykt",
+    "surname": "Kiełek",
+    "gender": "M",
+    "birth_year_estimate": 1858,
+    "confidence": "medium"
+  },
+  "P0313": {
+    "id": "P0313",
+    "given_name": "Marcin",
+    "surname": "Rafalik",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0314": {
+    "id": "P0314",
+    "given_name": "Marianna",
+    "surname": "Rafalik",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0315": {
+    "id": "P0315",
+    "given_name": "Franciszka",
+    "surname": "Rafalik",
+    "gender": "F",
+    "birth_year_estimate": 1858,
+    "confidence": "medium"
+  },
+  "P0316": {
+    "id": "P0316",
+    "given_name": "Tomasz",
+    "surname": "Unknown",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0317": {
+    "id": "P0317",
+    "given_name": "Józef",
+    "surname": "Barański",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0318": {
+    "id": "P0318",
+    "given_name": "Tomasz",
+    "surname": "Dalecki",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0319": {
+    "id": "P0319",
+    "given_name": "Antonina",
+    "surname": "Birkowska",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0320": {
+    "id": "P0320",
+    "given_name": "Damian",
+    "surname": "Drożdż",
+    "gender": "M",
+    "birth_year_estimate": 1858,
+    "confidence": "medium"
+  },
+  "P0321": {
+    "id": "P0321",
+    "given_name": "Konstanty",
+    "surname": "Unknown",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0322": {
+    "id": "P0322",
+    "given_name": "Marianna",
+    "surname": "Chmolowska",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0323": {
+    "id": "P0323",
+    "given_name": "Jędrzej",
+    "surname": "Buz",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0324": {
+    "id": "P0324",
+    "given_name": "Marianna",
+    "surname": "Buz",
+    "maiden_name": "Sławińska",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0325": {
+    "id": "P0325",
+    "given_name": "Antonina",
+    "surname": "Buz",
+    "gender": "F",
+    "birth_year_estimate": 1858,
+    "confidence": "medium"
+  },
+  "P0326": {
+    "id": "P0326",
+    "given_name": "Anna",
+    "surname": "Kiełek",
+    "maiden_name": "Kozicka",
+    "gender": "F",
+    "death_year_estimate": 1859,
+    "confidence": "medium"
+  },
+  "P0327": {
+    "id": "P0327",
+    "given_name": "Stanisław",
+    "surname": "Zarzycki",
+    "gender": "M",
+    "birth_year_estimate": 1858,
+    "confidence": "medium"
+  },
+  "P0328": {
+    "id": "P0328",
+    "given_name": "Erazm",
+    "surname": "Kiełek",
+    "gender": "M",
+    "birth_year_estimate": 1858,
+    "confidence": "medium"
+  },
+  "P0329": {
+    "id": "P0329",
+    "given_name": "Bonawentura",
+    "surname": "Myszka",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0330": {
+    "id": "P0330",
+    "given_name": "Marianna",
+    "surname": "Chmielowska",
+    "gender": "F",
+    "death_year_estimate": 1863,
+    "confidence": "medium"
+  },
+  "P0331": {
+    "id": "P0331",
+    "given_name": "Barbara",
+    "surname": "Kruk",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0332": {
+    "id": "P0332",
+    "given_name": "Alojzy",
+    "surname": "Kruk",
+    "gender": "M",
+    "birth_year_estimate": 1858,
+    "confidence": "medium"
+  },
+  "P0333": {
+    "id": "P0333",
+    "given_name": "Leonard",
+    "surname": "Sobczyk",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0334": {
+    "id": "P0334",
+    "given_name": "Rozalia",
+    "surname": "Słyk",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0335": {
+    "id": "P0335",
+    "given_name": "Jakub",
+    "surname": "Lebioda",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0336": {
+    "id": "P0336",
+    "given_name": "Marianna",
+    "surname": "Unknown",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0337": {
+    "id": "P0337",
+    "given_name": "Stanisław",
+    "surname": "Nobis",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0338": {
+    "id": "P0338",
+    "given_name": "Szymon",
+    "surname": "Łęcki",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0339": {
+    "id": "P0339",
+    "given_name": "Julianna",
+    "surname": "Krakowiak",
+    "maiden_name": "Drożdż",
+    "gender": "F",
+    "death_year_estimate": 1859,
+    "confidence": "medium"
+  },
+  "P0340": {
+    "id": "P0340",
+    "given_name": "Teodoryk",
+    "surname": "Krakowiak",
+    "gender": "M",
+    "birth_year_estimate": 1858,
+    "confidence": "medium"
+  },
+  "P0341": {
+    "id": "P0341",
+    "given_name": "Ignacy",
+    "surname": "Dymiński",
+    "gender": "M",
+    "birth_year_estimate": 1858,
+    "confidence": "medium"
+  },
+  "P0342": {
+    "id": "P0342",
+    "given_name": "Stefan",
+    "surname": "Wójcik",
+    "gender": "M",
+    "birth_year_estimate": 1804,
+    "confidence": "medium"
+  },
+  "P0343": {
+    "id": "P0343",
+    "given_name": "Ludwik",
+    "surname": "Myszka",
+    "gender": "M",
+    "birth_year_estimate": 1858,
+    "death_year_estimate": 1858,
+    "confidence": "medium"
+  },
+  "P0344": {
+    "id": "P0344",
+    "given_name": "Tomasz",
+    "surname": "Gralec",
+    "gender": "M",
+    "birth_year_estimate": 1858,
+    "confidence": "medium"
+  },
+  "P0345": {
+    "id": "P0345",
+    "given_name": "Jędrzej",
+    "surname": "Głód",
+    "gender": "M",
+    "birth_year_estimate": 1858,
+    "confidence": "medium"
+  },
+  "P0346": {
+    "id": "P0346",
+    "given_name": "Zdzisław",
+    "surname": "Tadeusz",
+    "gender": "M",
+    "birth_year_estimate": 1858,
+    "confidence": "medium"
+  },
+  "P0347": {
+    "id": "P0347",
+    "given_name": "Franciszek",
+    "surname": "Polakowski",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0348": {
+    "id": "P0348",
+    "given_name": "Łukasz",
+    "surname": "Zawicki",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0349": {
+    "id": "P0349",
+    "given_name": "Ewa",
+    "surname": "Zawicka",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0350": {
+    "id": "P0350",
+    "given_name": "Jan",
+    "surname": "Zatorski",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0351": {
+    "id": "P0351",
+    "given_name": "Franciszka",
+    "surname": "Zatorski",
+    "maiden_name": "Kruk",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0352": {
+    "id": "P0352",
+    "given_name": "Tomas",
+    "surname": "Zatorski",
+    "gender": "M",
+    "birth_year_estimate": 1858,
+    "confidence": "medium"
+  },
+  "P0353": {
+    "id": "P0353",
+    "given_name": "Franciszek",
+    "surname": "Kozik",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0354": {
+    "id": "P0354",
+    "given_name": "Szczepan",
+    "surname": "Rozalski",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0355": {
+    "id": "P0355",
+    "given_name": "Katarzyna",
+    "surname": "Rozalski",
+    "maiden_name": "Szary?",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0356": {
+    "id": "P0356",
+    "given_name": "Ewa",
+    "surname": "Rozalski",
+    "gender": "F",
+    "birth_year_estimate": 1858,
+    "confidence": "medium"
+  },
+  "P0357": {
+    "id": "P0357",
+    "given_name": "Małgorzata",
+    "surname": "Myszka",
+    "maiden_name": "Marlica",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0358": {
+    "id": "P0358",
+    "given_name": "Marcjanna",
+    "surname": "Myszka",
+    "gender": "F",
+    "birth_year_estimate": 1858,
+    "confidence": "medium"
+  },
+  "P0359": {
+    "id": "P0359",
+    "given_name": "Walenty",
+    "surname": "Marlica",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0360": {
+    "id": "P0360",
+    "given_name": "Marianna",
+    "surname": "Kozłowska",
+    "gender": "F",
+    "death_year_estimate": 1858,
+    "confidence": "medium"
+  },
+  "P0361": {
+    "id": "P0361",
+    "given_name": "Wawrzyniec",
+    "surname": "Ziewiec",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0362": {
+    "id": "P0362",
+    "given_name": "Ludwika",
+    "surname": "Molga",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0363": {
+    "id": "P0363",
+    "given_name": "Elżbieta",
+    "surname": "Salwa",
+    "gender": "F",
+    "death_year_estimate": 1858,
+    "confidence": "medium"
+  },
+  "P0364": {
+    "id": "P0364",
+    "given_name": "Wawrzyniec",
+    "surname": "Nobis",
+    "gender": "M",
+    "death_year_estimate": 1858,
+    "confidence": "medium"
+  },
+  "P0365": {
+    "id": "P0365",
+    "given_name": "Szczepan",
+    "surname": "Różalski",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0366": {
+    "id": "P0366",
+    "given_name": "Wawrzyniec",
+    "surname": "Dębiec",
+    "gender": "M",
+    "death_year_estimate": 1858,
+    "confidence": "medium"
+  },
+  "P0367": {
+    "id": "P0367",
+    "given_name": "Wojciech",
+    "surname": "Zatorsk",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0368": {
+    "id": "P0368",
+    "given_name": "Wiktoria",
+    "surname": "Zatorska",
+    "gender": "F",
+    "death_year_estimate": 1858,
+    "confidence": "medium"
+  },
+  "P0369": {
+    "id": "P0369",
+    "given_name": "Joanna",
+    "surname": "Gralec",
+    "gender": "F",
+    "death_year_estimate": 1858,
+    "confidence": "medium"
+  },
+  "P0370": {
+    "id": "P0370",
+    "given_name": "Wiktoria",
+    "surname": "Jaskros",
+    "gender": "F",
+    "birth_year_estimate": 1854,
+    "death_year_estimate": 1858,
+    "confidence": "medium"
+  },
+  "P0371": {
+    "id": "P0371",
+    "given_name": "Joachim",
+    "surname": "Głód",
+    "gender": "M",
+    "birth_year_estimate": 1852,
+    "death_year_estimate": 1858,
+    "confidence": "medium"
+  },
+  "P0372": {
+    "id": "P0372",
+    "given_name": "Katarzyna",
+    "surname": "Łęcka",
+    "gender": "F",
+    "birth_year_estimate": 1857,
+    "death_year_estimate": 1858,
+    "confidence": "medium"
+  },
+  "P0373": {
+    "id": "P0373",
+    "given_name": "Józef",
+    "surname": "Jaros",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0374": {
+    "id": "P0374",
+    "given_name": "Maciej",
+    "surname": "Kiełek",
+    "gender": "M",
+    "birth_year_estimate": 1859,
+    "confidence": "medium"
+  },
+  "P0375": {
+    "id": "P0375",
+    "given_name": "Jędrzej",
+    "surname": "Pietrzyk",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0376": {
+    "id": "P0376",
+    "given_name": "Marianna",
+    "surname": "Łabędzka",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0377": {
+    "id": "P0377",
+    "given_name": "Cecylia",
+    "surname": "Chojnacka",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0378": {
+    "id": "P0378",
+    "given_name": "Antoni",
+    "surname": "Głębowicz",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0379": {
+    "id": "P0379",
+    "given_name": "Rozalia",
+    "surname": "Gumińska",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0380": {
+    "id": "P0380",
+    "given_name": "Jan",
+    "surname": "Surdej",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0381": {
+    "id": "P0381",
+    "given_name": "Tomasza",
+    "surname": "Unknown",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0382": {
+    "id": "P0382",
+    "given_name": "Kamil",
+    "surname": "Unknown",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0383": {
+    "id": "P0383",
+    "given_name": "Marianna",
+    "surname": "Dymińska",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0384": {
+    "id": "P0384",
+    "given_name": "Marianna",
+    "surname": "Łęcka",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0385": {
+    "id": "P0385",
+    "given_name": "Paweł",
+    "surname": "Kolasa",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0386": {
+    "id": "P0386",
+    "given_name": "Martyna",
+    "surname": "Surdey",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0387": {
+    "id": "P0387",
+    "given_name": "Paweł",
+    "surname": "Kozik",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0388": {
+    "id": "P0388",
+    "given_name": "Jędrzej",
+    "surname": "Unknown",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0389": {
+    "id": "P0389",
+    "given_name": "Katarzyna",
+    "surname": "Kozik",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0390": {
+    "id": "P0390",
+    "given_name": "Agnieszka",
+    "surname": "Pogodzińska",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0391": {
+    "id": "P0391",
+    "given_name": "Marianna",
+    "surname": "Kleczaj",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0392": {
+    "id": "P0392",
+    "given_name": "Agata",
+    "surname": "Niewczas",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0393": {
+    "id": "P0393",
+    "given_name": "Feliks",
+    "surname": "Bogucki",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0394": {
+    "id": "P0394",
+    "given_name": "Józefa",
+    "surname": "Wancerz",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0395": {
+    "id": "P0395",
+    "given_name": "Józef",
+    "surname": "Surdey",
+    "gender": "M",
+    "birth_year_estimate": 1854,
+    "confidence": "medium"
+  },
+  "P0396": {
+    "id": "P0396",
+    "given_name": "Gertruda",
+    "surname": "Pajek",
+    "gender": "F",
+    "birth_year_estimate": 1852,
+    "death_year_estimate": 1859,
+    "confidence": "medium"
+  },
+  "P0397": {
+    "id": "P0397",
+    "given_name": "Jakub",
+    "surname": "Jaskros",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0398": {
+    "id": "P0398",
+    "given_name": "Józef",
+    "surname": "Ziewicki",
+    "gender": "M",
+    "birth_year_estimate": 1854,
+    "death_year_estimate": 1859,
+    "confidence": "medium"
+  },
+  "P0399": {
+    "id": "P0399",
+    "given_name": "Leonard",
+    "surname": "Kiełek",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0400": {
+    "id": "P0400",
+    "given_name": "Jędrzej",
+    "surname": "Głód",
+    "gender": "M",
+    "birth_year_estimate": 1846,
+    "death_year_estimate": 1859,
+    "confidence": "medium"
+  },
+  "P0401": {
+    "id": "P0401",
+    "given_name": "Joanna",
+    "surname": "Zatorska",
+    "gender": "F",
+    "birth_year_estimate": 1853,
+    "death_year_estimate": 1859,
+    "confidence": "medium"
+  },
+  "P0402": {
+    "id": "P0402",
+    "given_name": "Franciszka",
+    "surname": "Łęcka",
+    "gender": "F",
+    "birth_year_estimate": 1857,
+    "death_year_estimate": 1859,
+    "confidence": "medium"
+  },
+  "P0403": {
+    "id": "P0403",
+    "given_name": "Ignacy",
+    "surname": "Dymiński",
+    "gender": "M",
+    "birth_year_estimate": 1851,
+    "death_year_estimate": 1859,
+    "confidence": "medium"
+  },
+  "P0404": {
+    "id": "P0404",
+    "given_name": "Teodor",
+    "surname": "Krakowiak",
+    "gender": "M",
+    "birth_year_estimate": 1858,
+    "death_year_estimate": 1859,
+    "confidence": "medium"
+  },
+  "P0405": {
+    "id": "P0405",
+    "given_name": "Gabriel",
+    "surname": "Kozłowski",
+    "gender": "M",
+    "birth_year_estimate": 1856,
+    "death_year_estimate": 1859,
+    "confidence": "medium"
+  },
+  "P0406": {
+    "id": "P0406",
+    "given_name": "Ignacy",
+    "surname": "Zatorski",
+    "gender": "M",
+    "birth_year_estimate": 1854,
+    "death_year_estimate": 1859,
+    "confidence": "medium"
+  },
+  "P0407": {
+    "id": "P0407",
+    "given_name": "Florian",
+    "surname": "Gadys",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0408": {
+    "id": "P0408",
+    "given_name": "Małgorzata",
+    "surname": "Skrzyńska",
+    "gender": "F",
+    "birth_year_estimate": 1857,
+    "death_year_estimate": 1859,
+    "confidence": "medium"
+  },
+  "P0409": {
+    "id": "P0409",
+    "given_name": "Jędrzej",
+    "surname": "Jędrzejowski",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0410": {
+    "id": "P0410",
+    "given_name": "Franciszka",
+    "surname": "Zatorska",
+    "gender": "F",
+    "birth_year_estimate": 1839,
+    "death_year_estimate": 1859,
+    "confidence": "medium"
+  },
+  "P0411": {
+    "id": "P0411",
+    "given_name": "Anastazja",
+    "surname": "Kiełek",
+    "gender": "F",
+    "birth_year_estimate": 1856,
+    "death_year_estimate": 1859,
+    "confidence": "medium"
+  },
+  "P0412": {
+    "id": "P0412",
+    "given_name": "Scholastyka",
+    "surname": "Myszka",
+    "gender": "F",
+    "birth_year_estimate": 1809,
+    "death_year_estimate": 1859,
+    "confidence": "medium"
+  },
+  "P0413": {
+    "id": "P0413",
+    "given_name": "Apolonia",
+    "surname": "Synal",
+    "gender": "F",
+    "birth_year_estimate": 1853,
+    "death_year_estimate": 1859,
+    "confidence": "medium"
+  },
+  "P0414": {
+    "id": "P0414",
+    "given_name": "Maciej",
+    "surname": "Kiełek",
+    "gender": "M",
+    "birth_year_estimate": 1849,
+    "death_year_estimate": 1859,
+    "confidence": "medium"
+  },
+  "P0415": {
+    "id": "P0415",
+    "given_name": "Józef",
+    "surname": "Gumiński",
+    "gender": "M",
+    "birth_year_estimate": 1769,
+    "death_year_estimate": 1859,
+    "confidence": "medium"
+  },
+  "P0416": {
+    "id": "P0416",
+    "given_name": "Jan",
+    "surname": "Gadys",
+    "gender": "M",
+    "birth_year_estimate": 1842,
+    "death_year_estimate": 1859,
+    "confidence": "medium"
+  },
+  "P0417": {
+    "id": "P0417",
+    "given_name": "Katarzyna",
+    "surname": "Molga",
+    "gender": "F",
+    "birth_year_estimate": 1854,
+    "death_year_estimate": 1859,
+    "confidence": "medium"
+  },
+  "P0418": {
+    "id": "P0418",
+    "given_name": "Ignacy",
+    "surname": "Bukowski",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0419": {
+    "id": "P0419",
+    "given_name": "Wincenty",
+    "surname": "Kruk",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0420": {
+    "id": "P0420",
+    "given_name": "Marianna",
+    "surname": "Karczmarska",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0421": {
+    "id": "P0421",
+    "given_name": "Antonina",
+    "surname": "Zarzycka",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0422": {
+    "id": "P0422",
+    "given_name": "Regina",
+    "surname": "Słyk",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0423": {
+    "id": "P0423",
+    "given_name": "Filip",
+    "surname": "Unknown",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0424": {
+    "id": "P0424",
+    "given_name": "Katarzyna",
+    "surname": "Idziak",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0425": {
+    "id": "P0425",
+    "given_name": "Antonina",
+    "surname": "Korzeniewicz",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0426": {
+    "id": "P0426",
+    "given_name": "Jędrzej",
+    "surname": "Jędros",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0427": {
+    "id": "P0427",
+    "given_name": "Franciszek",
+    "surname": "Kruk",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0428": {
+    "id": "P0428",
+    "given_name": "Katarzyna",
+    "surname": "Kruk",
+    "gender": "F",
+    "birth_year_estimate": 1861,
+    "confidence": "medium"
+  },
+  "P0429": {
+    "id": "P0429",
+    "given_name": "Ludwik",
+    "surname": "Prendowski",
+    "gender": "M",
+    "death_year_estimate": 1862,
+    "confidence": "medium"
+  },
+  "P0430": {
+    "id": "P0430",
+    "given_name": "Tomasz",
+    "surname": "Doleck",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0431": {
+    "id": "P0431",
+    "given_name": "Szczepan",
+    "surname": "Maj",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0432": {
+    "id": "P0432",
+    "given_name": "Ludwika",
+    "surname": "Surdey",
+    "gender": "F",
+    "death_year_estimate": 1862,
+    "confidence": "medium"
+  },
+  "P0433": {
+    "id": "P0433",
+    "given_name": "Anastazja",
+    "surname": "Sikora",
+    "gender": "F",
+    "death_year_estimate": 1862,
+    "confidence": "medium"
+  },
+  "P0434": {
+    "id": "P0434",
+    "given_name": "Agata",
+    "surname": "Kiełek",
+    "gender": "F",
+    "death_year_estimate": 1862,
+    "confidence": "medium"
+  },
+  "P0435": {
+    "id": "P0435",
+    "given_name": "Balbina",
+    "surname": "Zielińska",
+    "gender": "F",
+    "death_year_estimate": 1862,
+    "confidence": "medium"
+  },
+  "P0436": {
+    "id": "P0436",
+    "given_name": "Katarzyna",
+    "surname": "Przydatek",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0437": {
+    "id": "P0437",
+    "given_name": "Xi",
+    "surname": "Unknown",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0438": {
+    "id": "P0438",
+    "given_name": "Anna",
+    "surname": "Kozłowska",
+    "gender": "F",
+    "death_year_estimate": 1863,
+    "confidence": "medium"
+  },
+  "P0439": {
+    "id": "P0439",
+    "given_name": "Brygida",
+    "surname": "Wojciechowska",
+    "gender": "F",
+    "death_year_estimate": 1863,
+    "confidence": "medium"
+  },
+  "P0440": {
+    "id": "P0440",
+    "given_name": "Jan",
+    "surname": "Łukawski",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0441": {
+    "id": "P0441",
+    "given_name": "Józef",
+    "surname": "Surdej",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0442": {
+    "id": "P0442",
+    "given_name": "Józef",
+    "surname": "Krasiński",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0443": {
+    "id": "P0443",
+    "given_name": "Antoni",
+    "surname": "Kruk",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0444": {
+    "id": "P0444",
+    "given_name": "Agnieszka",
+    "surname": "Kruk",
+    "gender": "F",
+    "birth_year_estimate": 1864,
+    "confidence": "medium"
+  },
+  "P0445": {
+    "id": "P0445",
+    "given_name": "Karol",
+    "surname": "Kruk",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0446": {
+    "id": "P0446",
+    "given_name": "Marianna",
+    "surname": "Kruk",
+    "gender": "F",
+    "birth_year_estimate": 1865,
+    "confidence": "medium"
+  },
+  "P0447": {
+    "id": "P0447",
+    "given_name": "Jan",
+    "surname": "Kruk",
+    "gender": "M",
+    "birth_year_estimate": 1865,
+    "confidence": "medium"
+  },
+  "P0448": {
+    "id": "P0448",
+    "given_name": "Helena",
+    "surname": "Kruk",
+    "gender": "F",
+    "birth_year_estimate": 1867,
+    "confidence": "medium"
+  },
+  "P0449": {
+    "id": "P0449",
+    "given_name": "Jakub",
+    "surname": "Kruk",
+    "gender": "F",
+    "death_year_estimate": 1876,
+    "confidence": "medium"
+  },
+  "P0450": {
+    "id": "P0450",
+    "given_name": "Antonina",
+    "surname": "Kruk",
+    "gender": "F",
+    "birth_year_estimate": 1867,
+    "confidence": "medium"
+  },
+  "P0451": {
+    "id": "P0451",
+    "given_name": "Maksymilian",
+    "surname": "Głód",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0452": {
+    "id": "P0452",
+    "given_name": "Elżbieta",
+    "surname": "Gralec",
+    "gender": "F",
+    "death_year_estimate": 1872,
+    "confidence": "medium"
+  },
+  "P0453": {
+    "id": "P0453",
+    "given_name": "Błażej",
+    "surname": "Niewczas",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0454": {
+    "id": "P0454",
+    "given_name": "Feliks",
+    "surname": "Pacek",
+    "gender": "M",
+    "birth_year_estimate": 1868,
+    "confidence": "medium"
+  },
+  "P0455": {
+    "id": "P0455",
+    "given_name": "Piotr",
+    "surname": "Surdey",
+    "gender": "M",
+    "birth_year_estimate": 1840,
+    "confidence": "medium"
+  },
+  "P0456": {
+    "id": "P0456",
+    "given_name": "Kazimierz",
+    "surname": "Unknown",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0457": {
+    "id": "P0457",
+    "given_name": "Agnieszka",
+    "surname": "Surdey",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0458": {
+    "id": "P0458",
+    "given_name": "Izydor",
+    "surname": "Unknown",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0459": {
+    "id": "P0459",
+    "given_name": "Wojciech",
+    "surname": "Krasiński",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0460": {
+    "id": "P0460",
+    "given_name": "Katarzyna",
+    "surname": "Karczmarczyk",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0461": {
+    "id": "P0461",
+    "given_name": "Anna",
+    "surname": "Kruk",
+    "gender": "F",
+    "death_year_estimate": 1875,
+    "confidence": "medium"
+  },
+  "P0462": {
+    "id": "P0462",
+    "given_name": "Onufry",
+    "surname": "Głód",
+    "gender": "M",
+    "death_year_estimate": 1885,
+    "confidence": "medium"
+  },
+  "P0463": {
+    "id": "P0463",
+    "given_name": "Walenty",
+    "surname": "Unknown",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0464": {
+    "id": "P0464",
+    "given_name": "Franciszka",
+    "surname": "Kruk",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0465": {
+    "id": "P0465",
+    "given_name": "Elżbieta",
+    "surname": "Kruk",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0466": {
+    "id": "P0466",
+    "given_name": "Paweł",
+    "surname": "Niewczas",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0467": {
+    "id": "P0467",
+    "given_name": "Marianna",
+    "surname": "Niewczas",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0468": {
+    "id": "P0468",
+    "given_name": "Karolina",
+    "surname": "Wancerz",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0469": {
+    "id": "P0469",
+    "given_name": "Paweł",
+    "surname": "Jaśkowicz",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0470": {
+    "id": "P0470",
+    "given_name": "Marianna",
+    "surname": "Siwiec",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0471": {
+    "id": "P0471",
+    "given_name": "Małgorzata",
+    "surname": "Skiba",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0472": {
+    "id": "P0472",
+    "given_name": "Franciszka",
+    "surname": "Krasińska",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0473": {
+    "id": "P0473",
+    "given_name": "Kazimierz",
+    "surname": "Kaczmarczyk",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0474": {
+    "id": "P0474",
+    "given_name": "Andrzej",
+    "surname": "Kwieciński",
+    "gender": "M",
+    "death_year_estimate": 1891,
+    "confidence": "medium"
+  },
+  "P0475": {
+    "id": "P0475",
+    "given_name": "Jan",
+    "surname": "Gralec",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0476": {
+    "id": "P0476",
+    "given_name": "Aleksander",
+    "surname": "Wancerz",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0477": {
+    "id": "P0477",
+    "given_name": "Antoni",
+    "surname": "Matesz",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0478": {
+    "id": "P0478",
+    "given_name": "Kacper",
+    "surname": "Seremak",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0479": {
+    "id": "P0479",
+    "given_name": "Łucja",
+    "surname": "Niewczas",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0480": {
+    "id": "P0480",
+    "given_name": "Tomasz",
+    "surname": "Niewczas",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0481": {
+    "id": "P0481",
+    "given_name": "Paweł",
+    "surname": "Ma",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0482": {
+    "id": "P0482",
+    "given_name": "Katarzyna",
+    "surname": "Derlatka",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0483": {
+    "id": "P0483",
+    "given_name": "Jan",
+    "surname": "Jabłko",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0484": {
+    "id": "P0484",
+    "given_name": "Jadwiga",
+    "surname": "Wancerz",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0485": {
+    "id": "P0485",
+    "given_name": "Elżbieta",
+    "surname": "Niewczas",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0486": {
+    "id": "P0486",
+    "given_name": "Teofil",
+    "surname": "Derlatka",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0487": {
+    "id": "P0487",
+    "given_name": "Jan",
+    "surname": "Szczepanowski",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0488": {
+    "id": "P0488",
+    "given_name": "Katarzyna",
+    "surname": "Lech",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0489": {
+    "id": "P0489",
+    "given_name": "Jan",
+    "surname": "Derlatka",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0490": {
+    "id": "P0490",
+    "given_name": "Marianna",
+    "surname": "Kulik",
+    "gender": "F",
+    "confidence": "medium"
+  },
+  "P0491": {
+    "id": "P0491",
+    "given_name": "Franciszek",
+    "surname": "Wrzesień",
+    "gender": "M",
+    "confidence": "medium"
+  },
+  "P0492": {
+    "id": "P0492",
+    "given_name": "Antoni",
+    "surname": "Derlatka",
+    "gender": "M",
+    "confidence": "medium"
+  }
+}
