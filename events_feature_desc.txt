@@ -1,0 +1,98 @@
+Step 1.
+
+Add support for adding events.
+
+I want you to create a model for:
+
+Person:
+  - id
+  - first_name
+  - middle_name
+  - last_name
+  - maiden_name
+  - previous_last_names
+  - gender
+  - birth_date - can be simply year or dd/mm/yyyy
+  - death_date - can be simply year or dd/mm/yyyy
+  - occupation
+  - tags: []
+  - links: []
+  - notes
+
+Place:
+  - id
+  - name
+  - parish_name
+  - house_number
+
+Event:
+  - id
+  - type: "birth/baptism/marriage/death/burial"
+  - date
+  - place_id
+  - content
+  - tags: []
+  - links: []
+  - notes
+
+EventParticipation:
+  - id
+  - event_id
+  - person_id
+  - role: "child/parent/witness/godparent/spouse/deceased"
+
+
+Step 2.
+Rewrite internal model used by charts/person card to use model described in Step 1.
+
+Step 3.
+
+There are 3 types of events:
+-births:
+    data to be collected:
+    -date
+    -where (settlement name, house number)
+    -father (name, surname, maiden name, age, occupation, gender - M)
+        -child_of_mother (name, surname, maiden name, gender - F)
+        -child_of_father (name, surname, maiden name, gender - M)
+    -mother (name, surname, maiden name, age, occupation, gender - F)
+        -child_of_mother (name, surname, maiden name, gender - F)
+        -child_of_father (name, surname, maiden name, gender - M)
+    -witness_1 (name, surname, age, occupation, gender)
+    -witness_2 (name, surname, age, occupation, gender)
+    -godparent_2 (name, surname, gender)
+    -godparent_2 (name, surname, gender)
+    -child (name, surname, gender)
+    -tags
+    -link
+    -extra notes
+-marriages:
+    data to be collected:
+    -date
+    -where (settlement name, house number)
+    -husband (name, surname, maiden name, age, occupation, gender - M)
+        -child_of_mother (name, surname, maiden name, gender - F)
+        -child_of_father (name, surname, maiden name, gender - M)
+    -wife (name, surname, maiden name, age, occupation, gender - F)
+        -child_of_mother (name, surname, maiden name, gender - F)
+        -child_of_father (name, surname, maiden name, gender - M)
+    -witness_1 (name, surname, age, occupation, gender)
+    -witness_2 (name, surname, age, occupation, gender)
+-deaths
+    data to be collected:
+    -date
+    -deceased (name, surname, maiden name, age, occupation, gender)
+        -child_of_mother (name, surname, maiden name, gender - F)
+        -child_of_father (name, surname, maiden name, gender - M)
+    -witness_1 (name, surname, age, occupation, gender)
+    -witness_2 (name, surname, age, occupation, gender)
+    -witness_3 (name, surname, age, occupation, gender)
+    -tags
+    -link
+    -extra notes
+
+Note that not all data is available for every person participating in an event.
+Thus, when form is created for every event type, it should only ask for info available for given participant type.
+When basic person data (first name and last name) of a person is typed, I want to be able to check if given person already exists in the model. Check can be done using some button.
+As there may be multiple people with same name and last name, more info is needed (birth/death dates, names of parents).
+If no person existing in model is selected, new person should be created with entered data. 

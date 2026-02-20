@@ -14,8 +14,36 @@
       "kept_name": "Brygida Kruk",
       "merged_name": "Brygida Surdey",
       "timestamp": "2026-02-15T07:58:51.498Z"
+    },
+    {
+      "kept_person": "P0146",
+      "merged_person": "P0150",
+      "kept_name": "Antoni Głód",
+      "merged_name": "Antoni Głód",
+      "timestamp": "2026-02-16T11:49:16.684Z"
+    },
+    {
+      "kept_person": "P0005",
+      "merged_person": "P0123",
+      "kept_name": "Jan Głód",
+      "merged_name": "Jan Głód",
+      "timestamp": "2026-02-16T17:32:47.297Z"
+    },
+    {
+      "kept_person": "P0004",
+      "merged_person": "P0231",
+      "kept_name": "Kazimierz Łapacz",
+      "merged_name": "Kazimierz Łapacz",
+      "timestamp": "2026-02-16T17:40:54.199Z"
+    },
+    {
+      "kept_person": "P0007",
+      "merged_person": "P0604",
+      "kept_name": "undefined undefined",
+      "merged_name": "undefined undefined",
+      "timestamp": "2026-02-18T18:35:37.962Z"
     }
   ],
-  "total_merges": 2,
-  "last_updated": "2026-02-15T07:58:51.507Z"
+  "total_merges": 6,
+  "last_updated": "2026-02-18T18:35:37.983Z"
 }

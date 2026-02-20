@@ -1,0 +1,6520 @@
+{
+  "generated": true,
+  "total_matches": 80,
+  "matches": [
+    {
+      "match_id": "MATCH_P0005_@I501633@",
+      "base_person": {
+        "id": "P0005",
+        "name": "Jan Głód",
+        "birth_year": 1793,
+        "death_year": 1855,
+        "gender": "M"
+      },
+      "gedcom_person": {
+        "id": "@I501633@",
+        "name": "Jan Głód",
+        "birth_date": "1793",
+        "birth_year": 1793,
+        "death_date": "5 SEP 1855",
+        "death_year": 1855,
+        "gender": "M"
+      },
+      "confidence": 100,
+      "personal_data_imports": {},
+      "parents": [
+        {
+          "gedcom_id": "@I502011@",
+          "given_name": "Paweł",
+          "surname": "Głód",
+          "maiden_name": null,
+          "birth_year": 1752,
+          "death_year": 1812,
+          "gender": "M",
+          "relationship": "father",
+          "matches": [
+            {
+              "person_id": "P0488",
+              "score": 60,
+              "recommended": false,
+              "evidence": [
+                "Name matches",
+                "Gender matches"
+              ],
+              "would_add": [
+                "birth_year: 1752",
+                "death_year: 1812"
+              ],
+              "conflicts": []
+            }
+          ],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (father)"
+          }
+        },
+        {
+          "gedcom_id": "@I502012@",
+          "given_name": "Anna",
+          "surname": "Drożdż",
+          "maiden_name": null,
+          "birth_year": null,
+          "death_year": null,
+          "gender": "F",
+          "relationship": "mother",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (mother)"
+          }
+        }
+      ],
+      "children": [
+        {
+          "gedcom_id": "@I502015@",
+          "given_name": "Idzi",
+          "surname": "Głód",
+          "birth_year": 1819,
+          "death_year": 1820,
+          "gender": "M",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I501635@",
+          "given_name": "Onufry",
+          "surname": "Głód",
+          "birth_year": 1821,
+          "death_year": 1885,
+          "gender": "M",
+          "matches": [
+            {
+              "person_id": "P0487",
+              "score": 60,
+              "recommended": false,
+              "evidence": [
+                "Name matches",
+                "Gender matches"
+              ],
+              "would_add": [
+                "birth_year: 1821"
+              ],
+              "conflicts": []
+            }
+          ],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I501471@",
+          "given_name": "Antoni",
+          "surname": "Głód",
+          "birth_year": 1824,
+          "death_year": 1894,
+          "gender": "M",
+          "matches": [
+            {
+              "person_id": "P0146",
+              "score": 60,
+              "recommended": false,
+              "evidence": [
+                "Name matches",
+                "Gender matches"
+              ],
+              "would_add": [],
+              "conflicts": []
+            }
+          ],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I502016@",
+          "given_name": "Józef",
+          "surname": "Głód",
+          "birth_year": 1827,
+          "death_year": 1827,
+          "gender": "M",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I502020@",
+          "given_name": "Marianna",
+          "surname": "Głód",
+          "birth_year": 1828,
+          "death_year": null,
+          "gender": "F",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I502017@",
+          "given_name": "Wojciech",
+          "surname": "Głód",
+          "birth_year": 1833,
+          "death_year": 1839,
+          "gender": "M",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I502021@",
+          "given_name": "Jan",
+          "surname": "Głód",
+          "birth_year": 1837,
+          "death_year": null,
+          "gender": "M",
+          "matches": [
+            {
+              "person_id": "P0005",
+              "score": 60,
+              "recommended": false,
+              "evidence": [
+                "Name matches",
+                "Gender matches"
+              ],
+              "would_add": [],
+              "conflicts": []
+            }
+          ],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I502018@",
+          "given_name": "Piotr",
+          "surname": "Głód",
+          "birth_year": 1840,
+          "death_year": 1840,
+          "gender": "M",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I502019@",
+          "given_name": "Franciszka",
+          "surname": "Głód",
+          "birth_year": 1842,
+          "death_year": 1849,
+          "gender": "F",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        }
+      ]
+    },
+    {
+      "match_id": "MATCH_P0076_@I501600@",
+      "base_person": {
+        "id": "P0076",
+        "name": "Jan Myszka",
+        "birth_year": null,
+        "death_year": 1858,
+        "gender": "M"
+      },
+      "gedcom_person": {
+        "id": "@I501600@",
+        "name": "Jan Myszka",
+        "birth_date": "1836",
+        "birth_year": 1836,
+        "death_date": "1848",
+        "death_year": 1848,
+        "gender": "M"
+      },
+      "confidence": 100,
+      "personal_data_imports": {
+        "birth_year": 1836,
+        "birth_date": "1836"
+      },
+      "parents": [
+        {
+          "gedcom_id": "@I501593@",
+          "given_name": "Łukasz",
+          "surname": "Myszka",
+          "maiden_name": null,
+          "birth_year": null,
+          "death_year": null,
+          "gender": "M",
+          "relationship": "father",
+          "matches": [
+            {
+              "person_id": "P0132",
+              "score": 60,
+              "recommended": false,
+              "evidence": [
+                "Name matches",
+                "Gender matches"
+              ],
+              "would_add": [],
+              "conflicts": []
+            }
+          ],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (father)"
+          }
+        },
+        {
+          "gedcom_id": "@I501592@",
+          "given_name": "Jadwiga",
+          "surname": "Kruk",
+          "maiden_name": null,
+          "birth_year": 1799,
+          "death_year": null,
+          "gender": "F",
+          "relationship": "mother",
+          "matches": [
+            {
+              "person_id": "P0464",
+              "score": 60,
+              "recommended": false,
+              "evidence": [
+                "Name matches",
+                "Gender matches"
+              ],
+              "would_add": [],
+              "conflicts": []
+            },
+            {
+              "person_id": "P0474",
+              "score": 60,
+              "recommended": false,
+              "evidence": [
+                "Name matches",
+                "Gender matches"
+              ],
+              "would_add": [],
+              "conflicts": []
+            }
+          ],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (mother)"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "match_id": "MATCH_P0077_@I501845@",
+      "base_person": {
+        "id": "P0077",
+        "name": "Wawrzyniec Łęcki",
+        "birth_year": null,
+        "death_year": 1855,
+        "gender": "M"
+      },
+      "gedcom_person": {
+        "id": "@I501845@",
+        "name": "Wawrzyniec Łęcki",
+        "birth_date": null,
+        "birth_year": null,
+        "death_date": null,
+        "death_year": null,
+        "gender": "M"
+      },
+      "confidence": 100,
+      "personal_data_imports": {},
+      "parents": [],
+      "children": [
+        {
+          "gedcom_id": "@I501647@",
+          "given_name": "Ludwika",
+          "surname": "Łęcka",
+          "birth_year": 1840,
+          "death_year": null,
+          "gender": "F",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        }
+      ]
+    },
+    {
+      "match_id": "MATCH_P0092_@I501628@",
+      "base_person": {
+        "id": "P0092",
+        "name": "Leonard Głód",
+        "birth_year": null,
+        "death_year": 1856,
+        "gender": "M"
+      },
+      "gedcom_person": {
+        "id": "@I501628@",
+        "name": "Leonard Głód",
+        "birth_date": "1857",
+        "birth_year": 1857,
+        "death_date": "1884",
+        "death_year": 1884,
+        "gender": "M"
+      },
+      "confidence": 100,
+      "personal_data_imports": {
+        "birth_year": 1857,
+        "birth_date": "1857"
+      },
+      "parents": [],
+      "children": []
+    },
+    {
+      "match_id": "MATCH_P0104_@I501754@",
+      "base_person": {
+        "id": "P0104",
+        "name": "Andrzej Kozik",
+        "birth_year": null,
+        "death_year": null,
+        "gender": "M"
+      },
+      "gedcom_person": {
+        "id": "@I501754@",
+        "name": "Andrzej Kozik",
+        "birth_date": "1814",
+        "birth_year": 1814,
+        "death_date": null,
+        "death_year": null,
+        "gender": "M"
+      },
+      "confidence": 100,
+      "personal_data_imports": {
+        "birth_year": 1814,
+        "birth_date": "1814"
+      },
+      "parents": [
+        {
+          "gedcom_id": "@I501751@",
+          "given_name": "Mikołaj",
+          "surname": "Kozik",
+          "maiden_name": null,
+          "birth_year": null,
+          "death_year": null,
+          "gender": "M",
+          "relationship": "father",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (father)"
+          }
+        },
+        {
+          "gedcom_id": "@I501752@",
+          "given_name": "Maryanna",
+          "surname": "Bonio",
+          "maiden_name": "Kozik",
+          "birth_year": null,
+          "death_year": null,
+          "gender": "F",
+          "relationship": "mother",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (mother)"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "match_id": "MATCH_P0119_@I502188@",
+      "base_person": {
+        "id": "P0119",
+        "name": "Grzegorz Spadło",
+        "birth_year": null,
+        "death_year": 1891,
+        "gender": "M"
+      },
+      "gedcom_person": {
+        "id": "@I502188@",
+        "name": "Grzegorz Spadło",
+        "birth_date": "1814",
+        "birth_year": 1814,
+        "death_date": "1891",
+        "death_year": 1891,
+        "gender": "M"
+      },
+      "confidence": 100,
+      "personal_data_imports": {
+        "birth_year": 1814,
+        "birth_date": "1814"
+      },
+      "parents": [
+        {
+          "gedcom_id": "@I502186@",
+          "given_name": "Mikołaj",
+          "surname": "Spadło",
+          "maiden_name": null,
+          "birth_year": 1770,
+          "death_year": 1863,
+          "gender": "M",
+          "relationship": "father",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (father)"
+          }
+        },
+        {
+          "gedcom_id": "@I502185@",
+          "given_name": "Barbara",
+          "surname": "Surdy (Surdej)",
+          "maiden_name": null,
+          "birth_year": 1793,
+          "death_year": 1840,
+          "gender": "F",
+          "relationship": "mother",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (mother)"
+          }
+        }
+      ],
+      "children": [
+        {
+          "gedcom_id": "@I502203@",
+          "given_name": "Gabriel",
+          "surname": "Spadło",
+          "birth_year": 1837,
+          "death_year": null,
+          "gender": "M",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I502204@",
+          "given_name": "Marianna",
+          "surname": "Spadło",
+          "birth_year": 1839,
+          "death_year": 1843,
+          "gender": "F",
+          "matches": [
+            {
+              "person_id": "P0126",
+              "score": 60,
+              "recommended": false,
+              "evidence": [
+                "Name matches",
+                "Gender matches"
+              ],
+              "would_add": [
+                "birth_year: 1839"
+              ],
+              "conflicts": []
+            }
+          ],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I502207@",
+          "given_name": "Kasper",
+          "surname": "Spadło",
+          "birth_year": 1846,
+          "death_year": 1848,
+          "gender": "M",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I502241@",
+          "given_name": "Antoni",
+          "surname": "Spadło",
+          "birth_year": 1848,
+          "death_year": 1848,
+          "gender": "M",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I502242@",
+          "given_name": "Aleksander",
+          "surname": "Spadło",
+          "birth_year": 1850,
+          "death_year": null,
+          "gender": "M",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        }
+      ]
+    },
+    {
+      "match_id": "MATCH_P0120_@I500986@",
+      "base_person": {
+        "id": "P0120",
+        "name": "Szczepan Słyk",
+        "birth_year": null,
+        "death_year": 1855,
+        "gender": "M"
+      },
+      "gedcom_person": {
+        "id": "@I500986@",
+        "name": "Szczepan Słyk",
+        "birth_date": "1822",
+        "birth_year": 1822,
+        "death_date": "BEF 5 AUG 1855",
+        "death_year": 1855,
+        "gender": "M"
+      },
+      "confidence": 100,
+      "personal_data_imports": {
+        "birth_year": 1822,
+        "birth_date": "1822"
+      },
+      "parents": [
+        {
+          "gedcom_id": "@I501028@",
+          "given_name": "Adam",
+          "surname": "Słyk",
+          "maiden_name": null,
+          "birth_year": null,
+          "death_year": null,
+          "gender": "M",
+          "relationship": "father",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (father)"
+          }
+        },
+        {
+          "gedcom_id": "@I501029@",
+          "given_name": "Petronela",
+          "surname": "Myszka",
+          "maiden_name": null,
+          "birth_year": null,
+          "death_year": null,
+          "gender": "F",
+          "relationship": "mother",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (mother)"
+          }
+        }
+      ],
+      "children": [
+        {
+          "gedcom_id": "@I501417@",
+          "given_name": "Maryanna",
+          "surname": "Słyk",
+          "birth_year": 1853,
+          "death_year": 1859,
+          "gender": "F",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        }
+      ]
+    },
+    {
+      "match_id": "MATCH_P0122_@I501413@",
+      "base_person": {
+        "id": "P0122",
+        "name": "Jan Słyk",
+        "birth_year": 1843,
+        "death_year": null,
+        "gender": "M"
+      },
+      "gedcom_person": {
+        "id": "@I501413@",
+        "name": "Jan Słyk",
+        "birth_date": "22 OCT 1843",
+        "birth_year": 1843,
+        "death_date": "1843",
+        "death_year": 1843,
+        "gender": "M"
+      },
+      "confidence": 100,
+      "personal_data_imports": {
+        "death_year": 1843,
+        "death_date": "1843"
+      },
+      "parents": [],
+      "children": []
+    },
+    {
+      "match_id": "MATCH_P0125_@I501414@",
+      "base_person": {
+        "id": "P0125",
+        "name": "Franciszek Słyk",
+        "birth_year": 1844,
+        "death_year": null,
+        "gender": "M"
+      },
+      "gedcom_person": {
+        "id": "@I501414@",
+        "name": "Franciszek Słyk",
+        "birth_date": "2 OCT 1844",
+        "birth_year": 1844,
+        "death_date": null,
+        "death_year": null,
+        "gender": "M"
+      },
+      "confidence": 100,
+      "personal_data_imports": {},
+      "parents": [],
+      "children": [
+        {
+          "gedcom_id": "@I501509@",
+          "given_name": "Marianna",
+          "surname": "Slyk",
+          "birth_year": 1873,
+          "death_year": 1911,
+          "gender": "F",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I501946@",
+          "given_name": "Felix",
+          "surname": "Słyk",
+          "birth_year": 1867,
+          "death_year": 1873,
+          "gender": "M",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        }
+      ]
+    },
+    {
+      "match_id": "MATCH_P0126_@I502198@",
+      "base_person": {
+        "id": "P0126",
+        "name": "Marianna Spadło",
+        "birth_year": null,
+        "death_year": 1862,
+        "gender": "F"
+      },
+      "gedcom_person": {
+        "id": "@I502198@",
+        "name": "Marianna Spadło",
+        "birth_date": "ABT 1770",
+        "birth_year": 1770,
+        "death_date": "7 MAR 1855",
+        "death_year": 1855,
+        "gender": "F"
+      },
+      "confidence": 100,
+      "personal_data_imports": {
+        "birth_year": 1770,
+        "birth_date": "ABT 1770"
+      },
+      "parents": [
+        {
+          "gedcom_id": "@I502196@",
+          "given_name": "Jakub",
+          "surname": "Spadło",
+          "maiden_name": null,
+          "birth_year": 1746,
+          "death_year": 1829,
+          "gender": "M",
+          "relationship": "father",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (father)"
+          }
+        },
+        {
+          "gedcom_id": "@I502197@",
+          "given_name": "Gertruda",
+          "surname": "Węgłowska",
+          "maiden_name": "Spadło",
+          "birth_year": 1754,
+          "death_year": 1772,
+          "gender": "F",
+          "relationship": "mother",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (mother)"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "match_id": "MATCH_P0128_@I501499@",
+      "base_person": {
+        "id": "P0128",
+        "name": "Jacek Dymiński",
+        "birth_year": null,
+        "death_year": null,
+        "gender": "M"
+      },
+      "gedcom_person": {
+        "id": "@I501499@",
+        "name": "Jacek Dymiński",
+        "birth_date": "EST 1822",
+        "birth_year": 1822,
+        "death_date": "1860",
+        "death_year": 1860,
+        "gender": "M"
+      },
+      "confidence": 100,
+      "personal_data_imports": {
+        "birth_year": 1822,
+        "birth_date": "EST 1822",
+        "death_year": 1860,
+        "death_date": "1860"
+      },
+      "parents": [
+        {
+          "gedcom_id": "@I501887@",
+          "given_name": "Wawrzyniec",
+          "surname": "Dymiński",
+          "maiden_name": null,
+          "birth_year": null,
+          "death_year": 1840,
+          "gender": "M",
+          "relationship": "father",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (father)"
+          }
+        },
+        {
+          "gedcom_id": "@I501888@",
+          "given_name": "Brygida",
+          "surname": "Jaros",
+          "maiden_name": "Dymińska",
+          "birth_year": 1769,
+          "death_year": 1860,
+          "gender": "F",
+          "relationship": "mother",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (mother)"
+          }
+        }
+      ],
+      "children": [
+        {
+          "gedcom_id": "@I501453@",
+          "given_name": "Agata",
+          "surname": "Dymińska",
+          "birth_year": 1844,
+          "death_year": 1870,
+          "gender": "F",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I501501@",
+          "given_name": "Tomasz",
+          "surname": "Dymińska",
+          "birth_year": 1845,
+          "death_year": 1847,
+          "gender": "M",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I501502@",
+          "given_name": "Jan",
+          "surname": "Dymińska",
+          "birth_year": 1848,
+          "death_year": 1850,
+          "gender": "M",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I501503@",
+          "given_name": "Jan",
+          "surname": "Dymińska",
+          "birth_year": 1851,
+          "death_year": 1929,
+          "gender": "M",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I501504@",
+          "given_name": "Julianna",
+          "surname": "Dymińska",
+          "birth_year": 1856,
+          "death_year": 1861,
+          "gender": "F",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I501505@",
+          "given_name": "Ignacy",
+          "surname": "Dymińska",
+          "birth_year": 1858,
+          "death_year": 1859,
+          "gender": "M",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        }
+      ]
+    },
+    {
+      "match_id": "MATCH_P0130_@I501534@",
+      "base_person": {
+        "id": "P0130",
+        "name": "Tomasz Dymiński",
+        "birth_year": 1845,
+        "death_year": null,
+        "gender": "M"
+      },
+      "gedcom_person": {
+        "id": "@I501534@",
+        "name": "Tomasz Dymiński",
+        "birth_date": "1845",
+        "birth_year": 1845,
+        "death_date": "23 AUG 1847",
+        "death_year": 1847,
+        "gender": "M"
+      },
+      "confidence": 100,
+      "personal_data_imports": {
+        "death_year": 1847,
+        "death_date": "23 AUG 1847"
+      },
+      "parents": [],
+      "children": []
+    },
+    {
+      "match_id": "MATCH_P0131_@I501834@",
+      "base_person": {
+        "id": "P0131",
+        "name": "Wojciech Słyk",
+        "birth_year": null,
+        "death_year": null,
+        "gender": "M"
+      },
+      "gedcom_person": {
+        "id": "@I501834@",
+        "name": "Wojciech Słyk",
+        "birth_date": "1825",
+        "birth_year": 1825,
+        "death_date": "1849",
+        "death_year": 1849,
+        "gender": "M"
+      },
+      "confidence": 100,
+      "personal_data_imports": {
+        "birth_year": 1825,
+        "birth_date": "1825",
+        "death_year": 1849,
+        "death_date": "1849"
+      },
+      "parents": [
+        {
+          "gedcom_id": "@I501028@",
+          "given_name": "Adam",
+          "surname": "Słyk",
+          "maiden_name": null,
+          "birth_year": null,
+          "death_year": null,
+          "gender": "M",
+          "relationship": "father",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (father)"
+          }
+        },
+        {
+          "gedcom_id": "@I501029@",
+          "given_name": "Petronela",
+          "surname": "Myszka",
+          "maiden_name": null,
+          "birth_year": null,
+          "death_year": null,
+          "gender": "F",
+          "relationship": "mother",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (mother)"
+          }
+        }
+      ],
+      "children": [
+        {
+          "gedcom_id": "@I502061@",
+          "given_name": "Marcjanna",
+          "surname": "Słyk",
+          "birth_year": 1847,
+          "death_year": 1852,
+          "gender": "F",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I502062@",
+          "given_name": "Stanisław Kostka",
+          "surname": "Słyk",
+          "birth_year": 1849,
+          "death_year": 1850,
+          "gender": "M",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        }
+      ]
+    },
+    {
+      "match_id": "MATCH_P0132_@I501593@",
+      "base_person": {
+        "id": "P0132",
+        "name": "Łukasz Myszka",
+        "birth_year": null,
+        "death_year": null,
+        "gender": "M"
+      },
+      "gedcom_person": {
+        "id": "@I501593@",
+        "name": "Łukasz Myszka",
+        "birth_date": null,
+        "birth_year": null,
+        "death_date": null,
+        "death_year": null,
+        "gender": "M"
+      },
+      "confidence": 100,
+      "personal_data_imports": {},
+      "parents": [],
+      "children": [
+        {
+          "gedcom_id": "@I501594@",
+          "given_name": "Franciszek",
+          "surname": "Myszka",
+          "birth_year": 1817,
+          "death_year": null,
+          "gender": "M",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I501595@",
+          "given_name": "Józef",
+          "surname": "Myszka",
+          "birth_year": 1822,
+          "death_year": 1825,
+          "gender": "M",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I501597@",
+          "given_name": "Józefa",
+          "surname": "Myszka",
+          "birth_year": 1827,
+          "death_year": null,
+          "gender": "F",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I501598@",
+          "given_name": "Franciszka",
+          "surname": "Myszka",
+          "birth_year": 1829,
+          "death_year": null,
+          "gender": "F",
+          "matches": [
+            {
+              "person_id": "P0249",
+              "score": 60,
+              "recommended": false,
+              "evidence": [
+                "Name matches",
+                "Gender matches"
+              ],
+              "would_add": [
+                "birth_year: 1829"
+              ],
+              "conflicts": []
+            }
+          ],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I501599@",
+          "given_name": "Marianna",
+          "surname": "Myszka",
+          "birth_year": 1832,
+          "death_year": null,
+          "gender": "F",
+          "matches": [
+            {
+              "person_id": "P0268",
+              "score": 60,
+              "recommended": false,
+              "evidence": [
+                "Name matches",
+                "Gender matches"
+              ],
+              "would_add": [
+                "birth_year: 1832"
+              ],
+              "conflicts": []
+            }
+          ],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I501600@",
+          "given_name": "Jan",
+          "surname": "Myszka",
+          "birth_year": 1836,
+          "death_year": 1848,
+          "gender": "M",
+          "matches": [
+            {
+              "person_id": "P0076",
+              "score": 60,
+              "recommended": false,
+              "evidence": [
+                "Name matches",
+                "Gender matches"
+              ],
+              "would_add": [
+                "birth_year: 1836"
+              ],
+              "conflicts": []
+            }
+          ],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I501601@",
+          "given_name": "Wincenty",
+          "surname": "Myszka",
+          "birth_year": 1839,
+          "death_year": null,
+          "gender": "M",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I501604@",
+          "given_name": "Antonina",
+          "surname": "Myszka",
+          "birth_year": null,
+          "death_year": null,
+          "gender": "F",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        }
+      ]
+    },
+    {
+      "match_id": "MATCH_P0135_@I501415@",
+      "base_person": {
+        "id": "P0135",
+        "name": "Anna Słyk",
+        "birth_year": 1848,
+        "death_year": null,
+        "gender": "F"
+      },
+      "gedcom_person": {
+        "id": "@I501415@",
+        "name": "Anna Słyk",
+        "birth_date": "25 JUL 1848",
+        "birth_year": 1848,
+        "death_date": "1848",
+        "death_year": 1848,
+        "gender": "F"
+      },
+      "confidence": 100,
+      "personal_data_imports": {
+        "death_year": 1848,
+        "death_date": "1848"
+      },
+      "parents": [],
+      "children": []
+    },
+    {
+      "match_id": "MATCH_P0143_@I501910@",
+      "base_person": {
+        "id": "P0143",
+        "name": "Jan Minda",
+        "birth_year": null,
+        "death_year": null,
+        "gender": "M"
+      },
+      "gedcom_person": {
+        "id": "@I501910@",
+        "name": "Jan Minda",
+        "birth_date": "1900",
+        "birth_year": 1900,
+        "death_date": "1901",
+        "death_year": 1901,
+        "gender": "M"
+      },
+      "confidence": 100,
+      "personal_data_imports": {
+        "birth_year": 1900,
+        "birth_date": "1900",
+        "death_year": 1901,
+        "death_date": "1901"
+      },
+      "parents": [
+        {
+          "gedcom_id": "@I501908@",
+          "given_name": "Roman",
+          "surname": "Minda",
+          "maiden_name": null,
+          "birth_year": 1868,
+          "death_year": 1946,
+          "gender": "M",
+          "relationship": "father",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (father)"
+          }
+        },
+        {
+          "gedcom_id": "@I501684@",
+          "given_name": "Małgorzata",
+          "surname": "Kruk",
+          "maiden_name": "Minda",
+          "birth_year": 1874,
+          "death_year": 1921,
+          "gender": "F",
+          "relationship": "mother",
+          "matches": [
+            {
+              "person_id": "P0458",
+              "score": 60,
+              "recommended": false,
+              "evidence": [
+                "Name matches",
+                "Gender matches"
+              ],
+              "would_add": [
+                "death_year: 1921"
+              ],
+              "conflicts": []
+            }
+          ],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (mother)"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "match_id": "MATCH_P0144_@I501611@",
+      "base_person": {
+        "id": "P0144",
+        "name": "Jadwiga Głód",
+        "birth_year": null,
+        "death_year": 1891,
+        "gender": "F"
+      },
+      "gedcom_person": {
+        "id": "@I501611@",
+        "name": "Jadwiga Głód",
+        "birth_date": "1880",
+        "birth_year": 1880,
+        "death_date": null,
+        "death_year": null,
+        "gender": "F"
+      },
+      "confidence": 100,
+      "personal_data_imports": {
+        "birth_year": 1880,
+        "birth_date": "1880"
+      },
+      "parents": [
+        {
+          "gedcom_id": "@I501472@",
+          "given_name": "Maksymilian",
+          "surname": "Głód",
+          "maiden_name": null,
+          "birth_year": 1848,
+          "death_year": 1921,
+          "gender": "M",
+          "relationship": "father",
+          "matches": [
+            {
+              "person_id": "P0459",
+              "score": 60,
+              "recommended": false,
+              "evidence": [
+                "Name matches",
+                "Gender matches"
+              ],
+              "would_add": [
+                "birth_year: 1848",
+                "death_year: 1921"
+              ],
+              "conflicts": []
+            }
+          ],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (father)"
+          }
+        },
+        {
+          "gedcom_id": "@I501606@",
+          "given_name": "Franciszka",
+          "surname": "Chojnacka",
+          "maiden_name": "Głód",
+          "birth_year": 1852,
+          "death_year": 1922,
+          "gender": "F",
+          "relationship": "mother",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (mother)"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "match_id": "MATCH_P0164_@I501990@",
+      "base_person": {
+        "id": "P0164",
+        "name": "Franciszek Gralec",
+        "birth_year": 1825,
+        "death_year": null,
+        "gender": "M"
+      },
+      "gedcom_person": {
+        "id": "@I501990@",
+        "name": "Franciszek Gralec",
+        "birth_date": "1824",
+        "birth_year": 1824,
+        "death_date": "1913",
+        "death_year": 1913,
+        "gender": "M"
+      },
+      "confidence": 100,
+      "personal_data_imports": {
+        "death_year": 1913,
+        "death_date": "1913"
+      },
+      "parents": [
+        {
+          "gedcom_id": "@I501994@",
+          "given_name": "Maciej",
+          "surname": "Gralec",
+          "maiden_name": null,
+          "birth_year": 1800,
+          "death_year": 1883,
+          "gender": "M",
+          "relationship": "father",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (father)"
+          }
+        },
+        {
+          "gedcom_id": "@I501995@",
+          "given_name": "Jadwiga",
+          "surname": "Niewczas",
+          "maiden_name": "Gralec",
+          "birth_year": 1802,
+          "death_year": 1859,
+          "gender": "F",
+          "relationship": "mother",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (mother)"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "match_id": "MATCH_P0165_@I503023@",
+      "base_person": {
+        "id": "P0165",
+        "name": "Franciszka Gralec",
+        "birth_year": null,
+        "death_year": null,
+        "gender": "F"
+      },
+      "gedcom_person": {
+        "id": "@I503023@",
+        "name": "Franciszka Gralec",
+        "birth_date": "ABT 1821",
+        "birth_year": 1821,
+        "death_date": "1893",
+        "death_year": 1893,
+        "gender": "F"
+      },
+      "confidence": 100,
+      "personal_data_imports": {
+        "birth_year": 1821,
+        "birth_date": "ABT 1821",
+        "death_year": 1893,
+        "death_date": "1893"
+      },
+      "parents": [
+        {
+          "gedcom_id": "@I503004@",
+          "given_name": "Wojciech",
+          "surname": "Gralec",
+          "maiden_name": "Gralec",
+          "birth_year": null,
+          "death_year": null,
+          "gender": "M",
+          "relationship": "father",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (father)"
+          }
+        },
+        {
+          "gedcom_id": "@I500997@",
+          "given_name": "Elżbieta",
+          "surname": "Minda",
+          "maiden_name": "Gralec",
+          "birth_year": 1794,
+          "death_year": 1872,
+          "gender": "F",
+          "relationship": "mother",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (mother)"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "match_id": "MATCH_P0171_@I501737@",
+      "base_person": {
+        "id": "P0171",
+        "name": "Wincenty Zatorski",
+        "birth_year": 1830,
+        "death_year": null,
+        "gender": "M"
+      },
+      "gedcom_person": {
+        "id": "@I501737@",
+        "name": "Wincenty Zatorski",
+        "birth_date": "1831",
+        "birth_year": 1831,
+        "death_date": "1881",
+        "death_year": 1881,
+        "gender": "M"
+      },
+      "confidence": 100,
+      "personal_data_imports": {
+        "death_year": 1881,
+        "death_date": "1881"
+      },
+      "parents": [
+        {
+          "gedcom_id": "@I501738@",
+          "given_name": "Melchior",
+          "surname": "Zatorski",
+          "maiden_name": null,
+          "birth_year": null,
+          "death_year": null,
+          "gender": "M",
+          "relationship": "father",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (father)"
+          }
+        },
+        {
+          "gedcom_id": "@I501739@",
+          "given_name": "Gertruda",
+          "surname": "Jaskros",
+          "maiden_name": null,
+          "birth_year": null,
+          "death_year": null,
+          "gender": "F",
+          "relationship": "mother",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (mother)"
+          }
+        }
+      ],
+      "children": [
+        {
+          "gedcom_id": "@I502258@",
+          "given_name": "Marjanna",
+          "surname": "Zatorska",
+          "birth_year": 1853,
+          "death_year": 1922,
+          "gender": "F",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I502260@",
+          "given_name": "Wiktoria",
+          "surname": "Zatorska",
+          "birth_year": 1857,
+          "death_year": 1858,
+          "gender": "F",
+          "matches": [
+            {
+              "person_id": "P0342",
+              "score": 60,
+              "recommended": false,
+              "evidence": [
+                "Name matches",
+                "Gender matches"
+              ],
+              "would_add": [
+                "birth_year: 1857"
+              ],
+              "conflicts": []
+            }
+          ],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I502261@",
+          "given_name": "Djonizy",
+          "surname": "Zatorski",
+          "birth_year": 1859,
+          "death_year": 1901,
+          "gender": "M",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I502262@",
+          "given_name": "Justyna",
+          "surname": "Zatorska",
+          "birth_year": 1861,
+          "death_year": 1864,
+          "gender": "F",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I502263@",
+          "given_name": "Małgorzata",
+          "surname": "Zatorska",
+          "birth_year": 1863,
+          "death_year": 1867,
+          "gender": "F",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I502264@",
+          "given_name": "Franciszka",
+          "surname": "Zatorska",
+          "birth_year": 1865,
+          "death_year": 1921,
+          "gender": "F",
+          "matches": [
+            {
+              "person_id": "P0403",
+              "score": 60,
+              "recommended": false,
+              "evidence": [
+                "Name matches",
+                "Gender matches"
+              ],
+              "would_add": [],
+              "conflicts": []
+            }
+          ],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I502265@",
+          "given_name": "Marcjanna",
+          "surname": "Zatorska",
+          "birth_year": 1869,
+          "death_year": 1893,
+          "gender": "F",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I502266@",
+          "given_name": "Antonina",
+          "surname": "Zatorska",
+          "birth_year": 1872,
+          "death_year": null,
+          "gender": "F",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        }
+      ]
+    },
+    {
+      "match_id": "MATCH_P0173_@I502259@",
+      "base_person": {
+        "id": "P0173",
+        "name": "Czesław Zatorski",
+        "birth_year": 1855,
+        "death_year": null,
+        "gender": "M"
+      },
+      "gedcom_person": {
+        "id": "@I502259@",
+        "name": "Czesław Zatorski",
+        "birth_date": "1855",
+        "birth_year": 1855,
+        "death_date": "1933",
+        "death_year": 1933,
+        "gender": "M"
+      },
+      "confidence": 100,
+      "personal_data_imports": {
+        "death_year": 1933,
+        "death_date": "1933"
+      },
+      "parents": [],
+      "children": []
+    },
+    {
+      "match_id": "MATCH_P0183_@I501575@",
+      "base_person": {
+        "id": "P0183",
+        "name": "Marianna Kiełek",
+        "birth_year": null,
+        "death_year": 1855,
+        "gender": "F"
+      },
+      "gedcom_person": {
+        "id": "@I501575@",
+        "name": "Marianna Kiełek",
+        "birth_date": "1885",
+        "birth_year": 1885,
+        "death_date": null,
+        "death_year": null,
+        "gender": "F"
+      },
+      "confidence": 100,
+      "personal_data_imports": {
+        "birth_year": 1885,
+        "birth_date": "1885"
+      },
+      "parents": [],
+      "children": [
+        {
+          "gedcom_id": "@I501578@",
+          "given_name": "Władysław",
+          "surname": "Niewczas",
+          "birth_year": 1904,
+          "death_year": 1905,
+          "gender": "M",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I501579@",
+          "given_name": "Helena",
+          "surname": "Niewczas",
+          "birth_year": 1906,
+          "death_year": null,
+          "gender": "F",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I501580@",
+          "given_name": "Piotr",
+          "surname": "Niewczas",
+          "birth_year": 1909,
+          "death_year": 1915,
+          "gender": "M",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I501581@",
+          "given_name": "Jan",
+          "surname": "Niewczas",
+          "birth_year": 1912,
+          "death_year": 1915,
+          "gender": "M",
+          "matches": [
+            {
+              "person_id": "P0225",
+              "score": 60,
+              "recommended": false,
+              "evidence": [
+                "Name matches",
+                "Gender matches"
+              ],
+              "would_add": [
+                "death_year: 1915"
+              ],
+              "conflicts": []
+            }
+          ],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I501582@",
+          "given_name": "Stanisław",
+          "surname": "Niewczas",
+          "birth_year": 1916,
+          "death_year": null,
+          "gender": "M",
+          "matches": [
+            {
+              "person_id": "P0067",
+              "score": 60,
+              "recommended": false,
+              "evidence": [
+                "Name matches",
+                "Gender matches"
+              ],
+              "would_add": [
+                "birth_year: 1916"
+              ],
+              "conflicts": []
+            }
+          ],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        }
+      ]
+    },
+    {
+      "match_id": "MATCH_P0189_@I501537@",
+      "base_person": {
+        "id": "P0189",
+        "name": "Julianna Dymiński",
+        "birth_year": 1856,
+        "death_year": null,
+        "gender": "F"
+      },
+      "gedcom_person": {
+        "id": "@I501537@",
+        "name": "Julianna Dymiński",
+        "birth_date": "1856",
+        "birth_year": 1856,
+        "death_date": "16 AUG 1861",
+        "death_year": 1861,
+        "gender": "F"
+      },
+      "confidence": 100,
+      "personal_data_imports": {
+        "death_year": 1861,
+        "death_date": "16 AUG 1861"
+      },
+      "parents": [],
+      "children": []
+    },
+    {
+      "match_id": "MATCH_P0201_@I501637@",
+      "base_person": {
+        "id": "P0201",
+        "name": "Józef Kiełek",
+        "birth_year": 1824,
+        "death_year": null,
+        "gender": "M"
+      },
+      "gedcom_person": {
+        "id": "@I501637@",
+        "name": "Józef Kiełek",
+        "birth_date": "1827",
+        "birth_year": 1827,
+        "death_date": null,
+        "death_year": null,
+        "gender": "M"
+      },
+      "confidence": 100,
+      "personal_data_imports": {},
+      "parents": [
+        {
+          "gedcom_id": "@I501639@",
+          "given_name": "Marcin",
+          "surname": "Kiełek",
+          "maiden_name": null,
+          "birth_year": 1778,
+          "death_year": 1838,
+          "gender": "M",
+          "relationship": "father",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (father)"
+          }
+        },
+        {
+          "gedcom_id": "@I501640@",
+          "given_name": "Tekla",
+          "surname": "Głód",
+          "maiden_name": null,
+          "birth_year": 1778,
+          "death_year": 1848,
+          "gender": "F",
+          "relationship": "mother",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (mother)"
+          }
+        }
+      ],
+      "children": [
+        {
+          "gedcom_id": "@I501645@",
+          "given_name": "Gertruda",
+          "surname": "Kiełek",
+          "birth_year": 1850,
+          "death_year": null,
+          "gender": "F",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I501574@",
+          "given_name": "Erazm",
+          "surname": "Kiełek",
+          "birth_year": 1856,
+          "death_year": 1929,
+          "gender": "M",
+          "matches": [
+            {
+              "person_id": "P0303",
+              "score": 80,
+              "recommended": false,
+              "evidence": [
+                "Name matches",
+                "Birth year close (2 years)",
+                "Gender matches"
+              ],
+              "would_add": [
+                "death_year: 1929"
+              ],
+              "conflicts": []
+            }
+          ],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I501646@",
+          "given_name": "Marianna",
+          "surname": "Kiełek",
+          "birth_year": null,
+          "death_year": 1930,
+          "gender": "F",
+          "matches": [
+            {
+              "person_id": "P0183",
+              "score": 60,
+              "recommended": false,
+              "evidence": [
+                "Name matches",
+                "Gender matches"
+              ],
+              "would_add": [],
+              "conflicts": []
+            }
+          ],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        }
+      ]
+    },
+    {
+      "match_id": "MATCH_P0202_@I501576@",
+      "base_person": {
+        "id": "P0202",
+        "name": "Wiktoria Kiełek",
+        "birth_year": null,
+        "death_year": null,
+        "gender": "F"
+      },
+      "gedcom_person": {
+        "id": "@I501576@",
+        "name": "Wiktoria Kiełek",
+        "birth_date": "1890",
+        "birth_year": 1890,
+        "death_date": null,
+        "death_year": null,
+        "gender": "F"
+      },
+      "confidence": 100,
+      "personal_data_imports": {
+        "birth_year": 1890,
+        "birth_date": "1890"
+      },
+      "parents": [
+        {
+          "gedcom_id": "@I501574@",
+          "given_name": "Erazm",
+          "surname": "Kiełek",
+          "maiden_name": null,
+          "birth_year": 1856,
+          "death_year": 1929,
+          "gender": "M",
+          "relationship": "father",
+          "matches": [
+            {
+              "person_id": "P0303",
+              "score": 60,
+              "recommended": false,
+              "evidence": [
+                "Name matches",
+                "Gender matches"
+              ],
+              "would_add": [
+                "death_year: 1929"
+              ],
+              "conflicts": []
+            }
+          ],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (father)"
+          }
+        },
+        {
+          "gedcom_id": "@I501422@",
+          "given_name": "Franciszka",
+          "surname": "Kruk",
+          "maiden_name": "Kiełek",
+          "birth_year": 1863,
+          "death_year": 1942,
+          "gender": "F",
+          "relationship": "mother",
+          "matches": [
+            {
+              "person_id": "P0444",
+              "score": 60,
+              "recommended": false,
+              "evidence": [
+                "Name matches",
+                "Gender matches"
+              ],
+              "would_add": [
+                "death_year: 1942"
+              ],
+              "conflicts": []
+            }
+          ],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (mother)"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "match_id": "MATCH_P0213_@I501826@",
+      "base_person": {
+        "id": "P0213",
+        "name": "Wincenty Słyk",
+        "birth_year": 1822,
+        "death_year": null,
+        "gender": "M"
+      },
+      "gedcom_person": {
+        "id": "@I501826@",
+        "name": "Wincenty Słyk",
+        "birth_date": null,
+        "birth_year": null,
+        "death_date": null,
+        "death_year": null,
+        "gender": "M"
+      },
+      "confidence": 100,
+      "personal_data_imports": {},
+      "parents": [],
+      "children": [
+        {
+          "gedcom_id": "@I501539@",
+          "given_name": "Grzegorz",
+          "surname": "Słyk",
+          "birth_year": 1841,
+          "death_year": 1910,
+          "gender": "M",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        }
+      ]
+    },
+    {
+      "match_id": "MATCH_P0232_@I502205@",
+      "base_person": {
+        "id": "P0232",
+        "name": "Jan Spadło",
+        "birth_year": 1844,
+        "death_year": 1856,
+        "gender": "M"
+      },
+      "gedcom_person": {
+        "id": "@I502205@",
+        "name": "Jan Spadło",
+        "birth_date": "1841",
+        "birth_year": 1841,
+        "death_date": "1856",
+        "death_year": 1856,
+        "gender": "M"
+      },
+      "confidence": 100,
+      "personal_data_imports": {},
+      "parents": [
+        {
+          "gedcom_id": "@I502188@",
+          "given_name": "Grzegorz",
+          "surname": "Spadło",
+          "maiden_name": null,
+          "birth_year": 1814,
+          "death_year": 1891,
+          "gender": "M",
+          "relationship": "father",
+          "matches": [
+            {
+              "person_id": "P0119",
+              "score": 70,
+              "recommended": false,
+              "evidence": [
+                "Name matches",
+                "Gender matches",
+                "Death year matches"
+              ],
+              "would_add": [
+                "birth_year: 1814"
+              ],
+              "conflicts": []
+            }
+          ],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (father)"
+          }
+        },
+        {
+          "gedcom_id": "@I502200@",
+          "given_name": "Marianna",
+          "surname": "Jaroszek (Jaros)",
+          "maiden_name": null,
+          "birth_year": null,
+          "death_year": null,
+          "gender": "F",
+          "relationship": "mother",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (mother)"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "match_id": "MATCH_P0249_@I501598@",
+      "base_person": {
+        "id": "P0249",
+        "name": "Franciszka Myszka",
+        "birth_year": null,
+        "death_year": null,
+        "gender": "F"
+      },
+      "gedcom_person": {
+        "id": "@I501598@",
+        "name": "Franciszka Myszka",
+        "birth_date": "1829",
+        "birth_year": 1829,
+        "death_date": null,
+        "death_year": null,
+        "gender": "F"
+      },
+      "confidence": 100,
+      "personal_data_imports": {
+        "birth_year": 1829,
+        "birth_date": "1829"
+      },
+      "parents": [],
+      "children": []
+    },
+    {
+      "match_id": "MATCH_P0252_@I502063@",
+      "base_person": {
+        "id": "P0252",
+        "name": "Walenty Nobis",
+        "birth_year": null,
+        "death_year": null,
+        "gender": "M"
+      },
+      "gedcom_person": {
+        "id": "@I502063@",
+        "name": "Walenty Nobis",
+        "birth_date": "1831",
+        "birth_year": 1831,
+        "death_date": null,
+        "death_year": null,
+        "gender": "M"
+      },
+      "confidence": 100,
+      "personal_data_imports": {
+        "birth_year": 1831,
+        "birth_date": "1831"
+      },
+      "parents": [
+        {
+          "gedcom_id": "@I502064@",
+          "given_name": "Kajetan",
+          "surname": "Nobis",
+          "maiden_name": null,
+          "birth_year": null,
+          "death_year": null,
+          "gender": "M",
+          "relationship": "father",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (father)"
+          }
+        },
+        {
+          "gedcom_id": "@I502065@",
+          "given_name": "Franciszka",
+          "surname": "Gut",
+          "maiden_name": "Nobis",
+          "birth_year": null,
+          "death_year": null,
+          "gender": "F",
+          "relationship": "mother",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (mother)"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "match_id": "MATCH_P0265_@I501419@",
+      "base_person": {
+        "id": "P0265",
+        "name": "Wawrzyniec Kruk",
+        "birth_year": 1857,
+        "death_year": null,
+        "gender": "M"
+      },
+      "gedcom_person": {
+        "id": "@I501419@",
+        "name": "Wawrzyniec Kruk",
+        "birth_date": "1857",
+        "birth_year": 1857,
+        "death_date": "1923",
+        "death_year": 1923,
+        "gender": "M"
+      },
+      "confidence": 100,
+      "personal_data_imports": {
+        "death_year": 1923,
+        "death_date": "1923"
+      },
+      "parents": [],
+      "children": [
+        {
+          "gedcom_id": "@I501516@",
+          "given_name": "Jan",
+          "surname": "Kruk",
+          "birth_year": 1882,
+          "death_year": 1938,
+          "gender": "M",
+          "matches": [
+            {
+              "person_id": "P0452",
+              "score": 60,
+              "recommended": false,
+              "evidence": [
+                "Name matches",
+                "Gender matches"
+              ],
+              "would_add": [
+                "death_year: 1938"
+              ],
+              "conflicts": []
+            }
+          ],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I501517@",
+          "given_name": "Kazimierz",
+          "surname": "Kruk",
+          "birth_year": 1886,
+          "death_year": null,
+          "gender": "M",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I501523@",
+          "given_name": "Agnieszka",
+          "surname": "Kruk",
+          "birth_year": 1895,
+          "death_year": null,
+          "gender": "F",
+          "matches": [
+            {
+              "person_id": "P0448",
+              "score": 60,
+              "recommended": false,
+              "evidence": [
+                "Name matches",
+                "Gender matches"
+              ],
+              "would_add": [],
+              "conflicts": []
+            },
+            {
+              "person_id": "P0479",
+              "score": 60,
+              "recommended": false,
+              "evidence": [
+                "Name matches",
+                "Gender matches"
+              ],
+              "would_add": [],
+              "conflicts": []
+            }
+          ],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I501526@",
+          "given_name": "Franciszek",
+          "surname": "Kruk",
+          "birth_year": 1897,
+          "death_year": 1898,
+          "gender": "M",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I501527@",
+          "given_name": "Stanisław",
+          "surname": "Kruk",
+          "birth_year": 1899,
+          "death_year": null,
+          "gender": "M",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I501528@",
+          "given_name": "Wincenty",
+          "surname": "Kruk",
+          "birth_year": 1901,
+          "death_year": 1965,
+          "gender": "M",
+          "matches": [
+            {
+              "person_id": "P0419",
+              "score": 60,
+              "recommended": false,
+              "evidence": [
+                "Name matches",
+                "Gender matches"
+              ],
+              "would_add": [
+                "birth_year: 1901",
+                "death_year: 1965"
+              ],
+              "conflicts": []
+            }
+          ],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I501529@",
+          "given_name": "Piotr",
+          "surname": "Kruk",
+          "birth_year": 1904,
+          "death_year": null,
+          "gender": "M",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        }
+      ]
+    },
+    {
+      "match_id": "MATCH_P0268_@I501599@",
+      "base_person": {
+        "id": "P0268",
+        "name": "Marianna Myszka",
+        "birth_year": null,
+        "death_year": 1859,
+        "gender": "F"
+      },
+      "gedcom_person": {
+        "id": "@I501599@",
+        "name": "Marianna Myszka",
+        "birth_date": "1832",
+        "birth_year": 1832,
+        "death_date": null,
+        "death_year": null,
+        "gender": "F"
+      },
+      "confidence": 100,
+      "personal_data_imports": {
+        "birth_year": 1832,
+        "birth_date": "1832"
+      },
+      "parents": [
+        {
+          "gedcom_id": "@I501593@",
+          "given_name": "Łukasz",
+          "surname": "Myszka",
+          "maiden_name": null,
+          "birth_year": null,
+          "death_year": null,
+          "gender": "M",
+          "relationship": "father",
+          "matches": [
+            {
+              "person_id": "P0132",
+              "score": 60,
+              "recommended": false,
+              "evidence": [
+                "Name matches",
+                "Gender matches"
+              ],
+              "would_add": [],
+              "conflicts": []
+            }
+          ],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (father)"
+          }
+        },
+        {
+          "gedcom_id": "@I501592@",
+          "given_name": "Jadwiga",
+          "surname": "Kruk",
+          "maiden_name": null,
+          "birth_year": 1799,
+          "death_year": null,
+          "gender": "F",
+          "relationship": "mother",
+          "matches": [
+            {
+              "person_id": "P0464",
+              "score": 60,
+              "recommended": false,
+              "evidence": [
+                "Name matches",
+                "Gender matches"
+              ],
+              "would_add": [],
+              "conflicts": []
+            },
+            {
+              "person_id": "P0474",
+              "score": 60,
+              "recommended": false,
+              "evidence": [
+                "Name matches",
+                "Gender matches"
+              ],
+              "would_add": [],
+              "conflicts": []
+            }
+          ],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (mother)"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "match_id": "MATCH_P0279_@I500905@",
+      "base_person": {
+        "id": "P0279",
+        "name": "Apolonia Bąk",
+        "birth_year": null,
+        "death_year": null,
+        "gender": "F"
+      },
+      "gedcom_person": {
+        "id": "@I500905@",
+        "name": "Apolonia Bąk",
+        "birth_date": "1799",
+        "birth_year": 1799,
+        "death_date": "1855",
+        "death_year": 1855,
+        "gender": "F"
+      },
+      "confidence": 100,
+      "personal_data_imports": {
+        "birth_year": 1799,
+        "birth_date": "1799",
+        "death_year": 1855,
+        "death_date": "1855"
+      },
+      "parents": [
+        {
+          "gedcom_id": "@I501167@",
+          "given_name": "Józef",
+          "surname": "Bąk",
+          "maiden_name": null,
+          "birth_year": 1762,
+          "death_year": 1837,
+          "gender": "M",
+          "relationship": "father",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (father)"
+          }
+        },
+        {
+          "gedcom_id": "@I501168@",
+          "given_name": "Tekla",
+          "surname": "Sambor",
+          "maiden_name": "Bąk",
+          "birth_year": 1767,
+          "death_year": 1831,
+          "gender": "F",
+          "relationship": "mother",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (mother)"
+          }
+        }
+      ],
+      "children": [
+        {
+          "gedcom_id": "@I501166@",
+          "given_name": "Jadwiga",
+          "surname": "Świderska",
+          "birth_year": 1821,
+          "death_year": 1821,
+          "gender": "F",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I501158@",
+          "given_name": "Sylwester",
+          "surname": "Świderski",
+          "birth_year": 1822,
+          "death_year": 1864,
+          "gender": "M",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I500898@",
+          "given_name": "Jan",
+          "surname": "Świderski",
+          "birth_year": 1825,
+          "death_year": null,
+          "gender": "M",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I501159@",
+          "given_name": "Katarzyna",
+          "surname": "Świderska",
+          "birth_year": 1830,
+          "death_year": 1886,
+          "gender": "F",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I501160@",
+          "given_name": "Marianna",
+          "surname": "Świderska",
+          "birth_year": 1840,
+          "death_year": null,
+          "gender": "F",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        }
+      ]
+    },
+    {
+      "match_id": "MATCH_P0303_@I501574@",
+      "base_person": {
+        "id": "P0303",
+        "name": "Erazm Kiełek",
+        "birth_year": 1858,
+        "death_year": null,
+        "gender": "M"
+      },
+      "gedcom_person": {
+        "id": "@I501574@",
+        "name": "Erazm Kiełek",
+        "birth_date": "1856",
+        "birth_year": 1856,
+        "death_date": "1929",
+        "death_year": 1929,
+        "gender": "M"
+      },
+      "confidence": 100,
+      "personal_data_imports": {
+        "death_year": 1929,
+        "death_date": "1929"
+      },
+      "parents": [],
+      "children": [
+        {
+          "gedcom_id": "@I501575@",
+          "given_name": "Marianna",
+          "surname": "Kiełek",
+          "birth_year": 1885,
+          "death_year": null,
+          "gender": "F",
+          "matches": [
+            {
+              "person_id": "P0183",
+              "score": 60,
+              "recommended": false,
+              "evidence": [
+                "Name matches",
+                "Gender matches"
+              ],
+              "would_add": [
+                "birth_year: 1885"
+              ],
+              "conflicts": []
+            }
+          ],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I501576@",
+          "given_name": "Wiktoria",
+          "surname": "Kiełek",
+          "birth_year": 1890,
+          "death_year": null,
+          "gender": "F",
+          "matches": [
+            {
+              "person_id": "P0202",
+              "score": 60,
+              "recommended": false,
+              "evidence": [
+                "Name matches",
+                "Gender matches"
+              ],
+              "would_add": [
+                "birth_year: 1890"
+              ],
+              "conflicts": []
+            }
+          ],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I501583@",
+          "given_name": "Wincenty",
+          "surname": "Kiełek",
+          "birth_year": 1893,
+          "death_year": null,
+          "gender": "M",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I501584@",
+          "given_name": "Agnieszka",
+          "surname": "Kiełek",
+          "birth_year": 1896,
+          "death_year": 1918,
+          "gender": "F",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I501585@",
+          "given_name": "Jan",
+          "surname": "Kiełek",
+          "birth_year": 1898,
+          "death_year": null,
+          "gender": "M",
+          "matches": [
+            {
+              "person_id": "P0199",
+              "score": 60,
+              "recommended": false,
+              "evidence": [
+                "Name matches",
+                "Gender matches"
+              ],
+              "would_add": [],
+              "conflicts": []
+            },
+            {
+              "person_id": "P0203",
+              "score": 60,
+              "recommended": false,
+              "evidence": [
+                "Name matches",
+                "Gender matches"
+              ],
+              "would_add": [],
+              "conflicts": []
+            }
+          ],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I501586@",
+          "given_name": "Antonina",
+          "surname": "Kiełek",
+          "birth_year": 1901,
+          "death_year": null,
+          "gender": "F",
+          "matches": [
+            {
+              "person_id": "P0200",
+              "score": 60,
+              "recommended": false,
+              "evidence": [
+                "Name matches",
+                "Gender matches"
+              ],
+              "would_add": [],
+              "conflicts": []
+            }
+          ],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I501587@",
+          "given_name": "Władysław",
+          "surname": "Kiełek",
+          "birth_year": 1905,
+          "death_year": null,
+          "gender": "M",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        }
+      ]
+    },
+    {
+      "match_id": "MATCH_P0306_@I501476@",
+      "base_person": {
+        "id": "P0306",
+        "name": "Wojciech Kruk",
+        "birth_year": null,
+        "death_year": null,
+        "gender": "M"
+      },
+      "gedcom_person": {
+        "id": "@I501476@",
+        "name": "Wojciech Kruk",
+        "birth_date": "EST 1831",
+        "birth_year": 1831,
+        "death_date": "1903",
+        "death_year": 1903,
+        "gender": "M"
+      },
+      "confidence": 100,
+      "personal_data_imports": {
+        "birth_year": 1831,
+        "birth_date": "EST 1831",
+        "death_year": 1903,
+        "death_date": "1903"
+      },
+      "parents": [
+        {
+          "gedcom_id": "@I500963@",
+          "given_name": "Gabriel",
+          "surname": "Kruk",
+          "maiden_name": null,
+          "birth_year": 1803,
+          "death_year": 1862,
+          "gender": "M",
+          "relationship": "father",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (father)"
+          }
+        },
+        {
+          "gedcom_id": "@I500964@",
+          "given_name": "Franciszka",
+          "surname": "Marcula",
+          "maiden_name": "Kruk",
+          "birth_year": 1809,
+          "death_year": 1862,
+          "gender": "F",
+          "relationship": "mother",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (mother)"
+          }
+        }
+      ],
+      "children": [
+        {
+          "gedcom_id": "@I501677@",
+          "given_name": "Joanna",
+          "surname": "Kruk",
+          "birth_year": 1856,
+          "death_year": null,
+          "gender": "F",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I501678@",
+          "given_name": "Aloyzy",
+          "surname": "Kruk",
+          "birth_year": 1858,
+          "death_year": null,
+          "gender": "M",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I501679@",
+          "given_name": "Helena",
+          "surname": "Kruk",
+          "birth_year": 1860,
+          "death_year": null,
+          "gender": "F",
+          "matches": [
+            {
+              "person_id": "P0453",
+              "score": 60,
+              "recommended": false,
+              "evidence": [
+                "Name matches",
+                "Gender matches"
+              ],
+              "would_add": [],
+              "conflicts": []
+            }
+          ],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I501680@",
+          "given_name": "Piotr",
+          "surname": "Kruk",
+          "birth_year": 1864,
+          "death_year": null,
+          "gender": "M",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I501681@",
+          "given_name": "Marianna",
+          "surname": "Kruk",
+          "birth_year": 1867,
+          "death_year": 1928,
+          "gender": "F",
+          "matches": [
+            {
+              "person_id": "P0449",
+              "score": 80,
+              "recommended": false,
+              "evidence": [
+                "Name matches",
+                "Birth year close (2 years)",
+                "Gender matches"
+              ],
+              "would_add": [
+                "death_year: 1928"
+              ],
+              "conflicts": []
+            },
+            {
+              "person_id": "P0374",
+              "score": 60,
+              "recommended": false,
+              "evidence": [
+                "Name matches",
+                "Gender matches"
+              ],
+              "would_add": [
+                "death_year: 1928"
+              ],
+              "conflicts": []
+            },
+            {
+              "person_id": "P0462",
+              "score": 60,
+              "recommended": false,
+              "evidence": [
+                "Name matches",
+                "Gender matches"
+              ],
+              "would_add": [
+                "death_year: 1928"
+              ],
+              "conflicts": []
+            }
+          ],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I501682@",
+          "given_name": "Jan",
+          "surname": "Kruk",
+          "birth_year": 1870,
+          "death_year": 1935,
+          "gender": "M",
+          "matches": [
+            {
+              "person_id": "P0452",
+              "score": 70,
+              "recommended": false,
+              "evidence": [
+                "Name matches",
+                "Birth year similar (5 years)",
+                "Gender matches"
+              ],
+              "would_add": [
+                "death_year: 1935"
+              ],
+              "conflicts": []
+            }
+          ],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I501683@",
+          "given_name": "Tomasz",
+          "surname": "Kruk",
+          "birth_year": 1871,
+          "death_year": null,
+          "gender": "M",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I501684@",
+          "given_name": "Małgorzata",
+          "surname": "Kruk",
+          "birth_year": 1874,
+          "death_year": 1921,
+          "gender": "F",
+          "matches": [
+            {
+              "person_id": "P0458",
+              "score": 70,
+              "recommended": false,
+              "evidence": [
+                "Name matches",
+                "Birth year similar (4 years)",
+                "Gender matches"
+              ],
+              "would_add": [
+                "death_year: 1921"
+              ],
+              "conflicts": []
+            }
+          ],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I501685@",
+          "given_name": "Weronika",
+          "surname": "Kruk",
+          "birth_year": 1876,
+          "death_year": null,
+          "gender": "F",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I501686@",
+          "given_name": "Franciszka",
+          "surname": "Kruk",
+          "birth_year": 1879,
+          "death_year": null,
+          "gender": "F",
+          "matches": [
+            {
+              "person_id": "P0444",
+              "score": 60,
+              "recommended": false,
+              "evidence": [
+                "Name matches",
+                "Gender matches"
+              ],
+              "would_add": [],
+              "conflicts": []
+            }
+          ],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        }
+      ]
+    },
+    {
+      "match_id": "MATCH_P0308_@I502281@",
+      "base_person": {
+        "id": "P0308",
+        "name": "Alojzy Kruk",
+        "birth_year": 1858,
+        "death_year": null,
+        "gender": "M"
+      },
+      "gedcom_person": {
+        "id": "@I502281@",
+        "name": "Alojzy Kruk",
+        "birth_date": "1858",
+        "birth_year": 1858,
+        "death_date": "1859",
+        "death_year": 1859,
+        "gender": "M"
+      },
+      "confidence": 100,
+      "personal_data_imports": {
+        "death_year": 1859,
+        "death_date": "1859"
+      },
+      "parents": [],
+      "children": []
+    },
+    {
+      "match_id": "MATCH_P0317_@I501538@",
+      "base_person": {
+        "id": "P0317",
+        "name": "Ignacy Dymiński",
+        "birth_year": 1858,
+        "death_year": null,
+        "gender": "M"
+      },
+      "gedcom_person": {
+        "id": "@I501538@",
+        "name": "Ignacy Dymiński",
+        "birth_date": "1858",
+        "birth_year": 1858,
+        "death_date": "8 MAR 1859",
+        "death_year": 1859,
+        "gender": "M"
+      },
+      "confidence": 100,
+      "personal_data_imports": {
+        "death_year": 1859,
+        "death_date": "8 MAR 1859"
+      },
+      "parents": [],
+      "children": []
+    },
+    {
+      "match_id": "MATCH_P0318_@I500841@",
+      "base_person": {
+        "id": "P0318",
+        "name": "Marianna Zatorska",
+        "birth_year": null,
+        "death_year": null,
+        "gender": "F"
+      },
+      "gedcom_person": {
+        "id": "@I500841@",
+        "name": "Marianna Zatorska",
+        "birth_date": "23 JAN 1917",
+        "birth_year": 1917,
+        "death_date": "18 NOV 1957",
+        "death_year": 1957,
+        "gender": "F"
+      },
+      "confidence": 100,
+      "personal_data_imports": {
+        "birth_year": 1917,
+        "birth_date": "23 JAN 1917",
+        "death_year": 1957,
+        "death_date": "18 NOV 1957"
+      },
+      "parents": [
+        {
+          "gedcom_id": "@I501759@",
+          "given_name": "Jan",
+          "surname": "Zatorski",
+          "maiden_name": null,
+          "birth_year": null,
+          "death_year": 1960,
+          "gender": "M",
+          "relationship": "father",
+          "matches": [
+            {
+              "person_id": "P0328",
+              "score": 60,
+              "recommended": false,
+              "evidence": [
+                "Name matches",
+                "Gender matches"
+              ],
+              "would_add": [
+                "death_year: 1960"
+              ],
+              "conflicts": []
+            }
+          ],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (father)"
+          }
+        },
+        {
+          "gedcom_id": "@I501760@",
+          "given_name": "Józefa",
+          "surname": "Luba",
+          "maiden_name": "Zatorska",
+          "birth_year": null,
+          "death_year": 1944,
+          "gender": "F",
+          "relationship": "mother",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (mother)"
+          }
+        }
+      ],
+      "children": [
+        {
+          "gedcom_id": "@I502208@",
+          "given_name": "Jan",
+          "surname": "Michalik",
+          "birth_year": null,
+          "death_year": 1953,
+          "gender": "M",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I501762@",
+          "given_name": "Zofia",
+          "surname": "Zatorska",
+          "birth_year": null,
+          "death_year": 1945,
+          "gender": "F",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        }
+      ]
+    },
+    {
+      "match_id": "MATCH_P0323_@I501629@",
+      "base_person": {
+        "id": "P0323",
+        "name": "Jędrzej Głód",
+        "birth_year": 1858,
+        "death_year": null,
+        "gender": "M"
+      },
+      "gedcom_person": {
+        "id": "@I501629@",
+        "name": "Jędrzej Głód",
+        "birth_date": "1858",
+        "birth_year": 1858,
+        "death_date": "1859",
+        "death_year": 1859,
+        "gender": "M"
+      },
+      "confidence": 100,
+      "personal_data_imports": {
+        "death_year": 1859,
+        "death_date": "1859"
+      },
+      "parents": [],
+      "children": []
+    },
+    {
+      "match_id": "MATCH_P0328_@I500072@",
+      "base_person": {
+        "id": "P0328",
+        "name": "Jan Zatorski",
+        "birth_year": null,
+        "death_year": null,
+        "gender": "M"
+      },
+      "gedcom_person": {
+        "id": "@I500072@",
+        "name": "Jan Zatorski",
+        "birth_date": "1830",
+        "birth_year": 1830,
+        "death_date": null,
+        "death_year": null,
+        "gender": "M"
+      },
+      "confidence": 100,
+      "personal_data_imports": {
+        "birth_year": 1830,
+        "birth_date": "1830"
+      },
+      "parents": [
+        {
+          "gedcom_id": "@I500732@",
+          "given_name": "Walenty",
+          "surname": "Zatorski (młynarz)",
+          "maiden_name": null,
+          "birth_year": 1800,
+          "death_year": 1865,
+          "gender": "M",
+          "relationship": "father",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (father)"
+          }
+        },
+        {
+          "gedcom_id": "@I500733@",
+          "given_name": "Franciszka",
+          "surname": "Duda",
+          "maiden_name": "Zatorska",
+          "birth_year": 1806,
+          "death_year": 1892,
+          "gender": "F",
+          "relationship": "mother",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (mother)"
+          }
+        }
+      ],
+      "children": [
+        {
+          "gedcom_id": "@I500270@",
+          "given_name": "Jozef",
+          "surname": "Zatorski",
+          "birth_year": 1851,
+          "death_year": 1852,
+          "gender": "M",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I500271@",
+          "given_name": "Feliks",
+          "surname": "Zatorski",
+          "birth_year": 1853,
+          "death_year": 1857,
+          "gender": "M",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I500272@",
+          "given_name": "Jozef",
+          "surname": "Zatorski",
+          "birth_year": 1856,
+          "death_year": null,
+          "gender": "M",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I500273@",
+          "given_name": "Marianna",
+          "surname": "Zatorski",
+          "birth_year": 1859,
+          "death_year": 1862,
+          "gender": "F",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        }
+      ]
+    },
+    {
+      "match_id": "MATCH_P0342_@I502260@",
+      "base_person": {
+        "id": "P0342",
+        "name": "Wiktoria Zatorska",
+        "birth_year": null,
+        "death_year": 1858,
+        "gender": "F"
+      },
+      "gedcom_person": {
+        "id": "@I502260@",
+        "name": "Wiktoria Zatorska",
+        "birth_date": "1857",
+        "birth_year": 1857,
+        "death_date": "1858",
+        "death_year": 1858,
+        "gender": "F"
+      },
+      "confidence": 100,
+      "personal_data_imports": {
+        "birth_year": 1857,
+        "birth_date": "1857"
+      },
+      "parents": [
+        {
+          "gedcom_id": "@I501737@",
+          "given_name": "Wincenty",
+          "surname": "Zatorski",
+          "maiden_name": null,
+          "birth_year": 1831,
+          "death_year": 1881,
+          "gender": "M",
+          "relationship": "father",
+          "matches": [
+            {
+              "person_id": "P0010",
+              "score": 70,
+              "recommended": false,
+              "evidence": [
+                "Name matches",
+                "Gender matches",
+                "Death year matches"
+              ],
+              "would_add": [],
+              "conflicts": []
+            },
+            {
+              "person_id": "P0171",
+              "score": 60,
+              "recommended": false,
+              "evidence": [
+                "Name matches",
+                "Gender matches"
+              ],
+              "would_add": [
+                "death_year: 1881"
+              ],
+              "conflicts": []
+            },
+            {
+              "person_id": "P0216",
+              "score": 60,
+              "recommended": false,
+              "evidence": [
+                "Name matches",
+                "Gender matches"
+              ],
+              "would_add": [
+                "death_year: 1881"
+              ],
+              "conflicts": []
+            }
+          ],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (father)"
+          }
+        },
+        {
+          "gedcom_id": "@I501727@",
+          "given_name": "Gertruda",
+          "surname": "Marcula",
+          "maiden_name": "Zatorska",
+          "birth_year": 1833,
+          "death_year": 1900,
+          "gender": "F",
+          "relationship": "mother",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (mother)"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "match_id": "MATCH_P0345_@I501619@",
+      "base_person": {
+        "id": "P0345",
+        "name": "Joachim Głód",
+        "birth_year": 1852,
+        "death_year": 1858,
+        "gender": "M"
+      },
+      "gedcom_person": {
+        "id": "@I501619@",
+        "name": "Joachim Głód",
+        "birth_date": "1852",
+        "birth_year": 1852,
+        "death_date": "1858",
+        "death_year": 1858,
+        "gender": "M"
+      },
+      "confidence": 100,
+      "personal_data_imports": {},
+      "parents": [
+        {
+          "gedcom_id": "@I501471@",
+          "given_name": "Antoni",
+          "surname": "Głód",
+          "maiden_name": null,
+          "birth_year": 1824,
+          "death_year": 1894,
+          "gender": "M",
+          "relationship": "father",
+          "matches": [
+            {
+              "person_id": "P0146",
+              "score": 70,
+              "recommended": false,
+              "evidence": [
+                "Name matches",
+                "Gender matches",
+                "Death year matches"
+              ],
+              "would_add": [],
+              "conflicts": []
+            }
+          ],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (father)"
+          }
+        },
+        {
+          "gedcom_id": "@I500966@",
+          "given_name": "Jadwiga",
+          "surname": "Kruk",
+          "maiden_name": "Głód",
+          "birth_year": 1828,
+          "death_year": 1891,
+          "gender": "F",
+          "relationship": "mother",
+          "matches": [
+            {
+              "person_id": "P0464",
+              "score": 60,
+              "recommended": false,
+              "evidence": [
+                "Name matches",
+                "Gender matches"
+              ],
+              "would_add": [
+                "death_year: 1891"
+              ],
+              "conflicts": []
+            },
+            {
+              "person_id": "P0474",
+              "score": 60,
+              "recommended": false,
+              "evidence": [
+                "Name matches",
+                "Gender matches"
+              ],
+              "would_add": [
+                "death_year: 1891"
+              ],
+              "conflicts": []
+            }
+          ],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (mother)"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "match_id": "MATCH_P0362_@I501743@",
+      "base_person": {
+        "id": "P0362",
+        "name": "Jan Surdej",
+        "birth_year": null,
+        "death_year": null,
+        "gender": "M"
+      },
+      "gedcom_person": {
+        "id": "@I501743@",
+        "name": "Jan Surdej",
+        "birth_date": null,
+        "birth_year": null,
+        "death_date": null,
+        "death_year": null,
+        "gender": "M"
+      },
+      "confidence": 100,
+      "personal_data_imports": {},
+      "parents": [
+        {
+          "gedcom_id": "@I501744@",
+          "given_name": "Józef",
+          "surname": "Surdej",
+          "maiden_name": null,
+          "birth_year": null,
+          "death_year": null,
+          "gender": "M",
+          "relationship": "father",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (father)"
+          }
+        },
+        {
+          "gedcom_id": "@I501745@",
+          "given_name": "Elżbieta",
+          "surname": null,
+          "maiden_name": null,
+          "birth_year": null,
+          "death_year": null,
+          "gender": "F",
+          "relationship": "mother",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (mother)"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "match_id": "MATCH_P0371_@I501373@",
+      "base_person": {
+        "id": "P0371",
+        "name": "Józef Jaros",
+        "birth_year": null,
+        "death_year": null,
+        "gender": "M"
+      },
+      "gedcom_person": {
+        "id": "@I501373@",
+        "name": "Józef Jaros",
+        "birth_date": null,
+        "birth_year": null,
+        "death_date": null,
+        "death_year": null,
+        "gender": "M"
+      },
+      "confidence": 100,
+      "personal_data_imports": {},
+      "parents": [],
+      "children": [
+        {
+          "gedcom_id": "@I501374@",
+          "given_name": "Krzysztof",
+          "surname": "Jaros",
+          "birth_year": null,
+          "death_year": null,
+          "gender": "M",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I501375@",
+          "given_name": "Anna",
+          "surname": "Jaros",
+          "birth_year": null,
+          "death_year": null,
+          "gender": "F",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I501376@",
+          "given_name": "Małgorzata",
+          "surname": "Jaros",
+          "birth_year": null,
+          "death_year": null,
+          "gender": "F",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        }
+      ]
+    },
+    {
+      "match_id": "MATCH_P0374_@I500974@",
+      "base_person": {
+        "id": "P0374",
+        "name": "Marianna Kruk",
+        "birth_year": 1859,
+        "death_year": null,
+        "gender": "F"
+      },
+      "gedcom_person": {
+        "id": "@I500974@",
+        "name": "Marianna Kruk",
+        "birth_date": null,
+        "birth_year": null,
+        "death_date": null,
+        "death_year": null,
+        "gender": "F"
+      },
+      "confidence": 100,
+      "personal_data_imports": {},
+      "parents": [
+        {
+          "gedcom_id": "@I500970@",
+          "given_name": "Teresa",
+          "surname": "Kabat / Kabatka",
+          "maiden_name": "Kruk",
+          "birth_year": 1783,
+          "death_year": 1846,
+          "gender": "F",
+          "relationship": "mother",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (mother)"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "match_id": "MATCH_P0383_@I501551@",
+      "base_person": {
+        "id": "P0383",
+        "name": "Józef Kruk",
+        "birth_year": 1824,
+        "death_year": null,
+        "gender": "M"
+      },
+      "gedcom_person": {
+        "id": "@I501551@",
+        "name": "Józef Kruk",
+        "birth_date": null,
+        "birth_year": null,
+        "death_date": null,
+        "death_year": null,
+        "gender": "M"
+      },
+      "confidence": 100,
+      "personal_data_imports": {},
+      "parents": [
+        {
+          "gedcom_id": "@I500968@",
+          "given_name": "Antoni",
+          "surname": "Kruk",
+          "maiden_name": null,
+          "birth_year": 1842,
+          "death_year": null,
+          "gender": "M",
+          "relationship": "father",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (father)"
+          }
+        },
+        {
+          "gedcom_id": "@I501479@",
+          "given_name": "Martyna Marianna",
+          "surname": "Surdej",
+          "maiden_name": null,
+          "birth_year": 1841,
+          "death_year": null,
+          "gender": "F",
+          "relationship": "mother",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (mother)"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "match_id": "MATCH_P0387_@I501451@",
+      "base_person": {
+        "id": "P0387",
+        "name": "Elżbieta Gralec",
+        "birth_year": 1859,
+        "death_year": 1872,
+        "gender": "F"
+      },
+      "gedcom_person": {
+        "id": "@I501451@",
+        "name": "Elżbieta Gralec",
+        "birth_date": "1859",
+        "birth_year": 1859,
+        "death_date": "1889",
+        "death_year": 1889,
+        "gender": "F"
+      },
+      "confidence": 100,
+      "personal_data_imports": {},
+      "parents": [],
+      "children": [
+        {
+          "gedcom_id": "@I501516@",
+          "given_name": "Jan",
+          "surname": "Kruk",
+          "birth_year": 1882,
+          "death_year": 1938,
+          "gender": "M",
+          "matches": [
+            {
+              "person_id": "P0452",
+              "score": 60,
+              "recommended": false,
+              "evidence": [
+                "Name matches",
+                "Gender matches"
+              ],
+              "would_add": [
+                "death_year: 1938"
+              ],
+              "conflicts": []
+            }
+          ],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I501517@",
+          "given_name": "Kazimierz",
+          "surname": "Kruk",
+          "birth_year": 1886,
+          "death_year": null,
+          "gender": "M",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        }
+      ]
+    },
+    {
+      "match_id": "MATCH_P0418_@I501630@",
+      "base_person": {
+        "id": "P0418",
+        "name": "Florentyna Głód",
+        "birth_year": 1860,
+        "death_year": null,
+        "gender": "F"
+      },
+      "gedcom_person": {
+        "id": "@I501630@",
+        "name": "Florentyna Głód",
+        "birth_date": "1860",
+        "birth_year": 1860,
+        "death_date": "1860",
+        "death_year": 1860,
+        "gender": "F"
+      },
+      "confidence": 100,
+      "personal_data_imports": {
+        "death_year": 1860,
+        "death_date": "1860"
+      },
+      "parents": [],
+      "children": []
+    },
+    {
+      "match_id": "MATCH_P0419_@I500967@",
+      "base_person": {
+        "id": "P0419",
+        "name": "Wincenty Kruk",
+        "birth_year": null,
+        "death_year": null,
+        "gender": "M"
+      },
+      "gedcom_person": {
+        "id": "@I500967@",
+        "name": "Wincenty Kruk",
+        "birth_date": "BET ABT 1838 AND ABT 1839",
+        "birth_year": 1838,
+        "death_date": null,
+        "death_year": null,
+        "gender": "M"
+      },
+      "confidence": 100,
+      "personal_data_imports": {
+        "birth_year": 1838,
+        "birth_date": "BET ABT 1838 AND ABT 1839"
+      },
+      "parents": [
+        {
+          "gedcom_id": "@I500963@",
+          "given_name": "Gabriel",
+          "surname": "Kruk",
+          "maiden_name": null,
+          "birth_year": 1803,
+          "death_year": 1862,
+          "gender": "M",
+          "relationship": "father",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (father)"
+          }
+        },
+        {
+          "gedcom_id": "@I500964@",
+          "given_name": "Franciszka",
+          "surname": "Marcula",
+          "maiden_name": "Kruk",
+          "birth_year": 1809,
+          "death_year": 1862,
+          "gender": "F",
+          "relationship": "mother",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (mother)"
+          }
+        }
+      ],
+      "children": [
+        {
+          "gedcom_id": "@I501496@",
+          "given_name": "Maryanna",
+          "surname": "Kruk",
+          "birth_year": 1865,
+          "death_year": null,
+          "gender": "F",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I501498@",
+          "given_name": "Salomea",
+          "surname": "Kruk",
+          "birth_year": 1868,
+          "death_year": 1927,
+          "gender": "F",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I501461@",
+          "given_name": "Antonina",
+          "surname": "Kruk",
+          "birth_year": 1883,
+          "death_year": 1886,
+          "gender": "F",
+          "matches": [
+            {
+              "person_id": "P0455",
+              "score": 60,
+              "recommended": false,
+              "evidence": [
+                "Name matches",
+                "Gender matches"
+              ],
+              "would_add": [
+                "death_year: 1886"
+              ],
+              "conflicts": []
+            }
+          ],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        }
+      ]
+    },
+    {
+      "match_id": "MATCH_P0438_@I501420@",
+      "base_person": {
+        "id": "P0438",
+        "name": "Katarzyna Kruk",
+        "birth_year": 1861,
+        "death_year": null,
+        "gender": "F"
+      },
+      "gedcom_person": {
+        "id": "@I501420@",
+        "name": "Katarzyna Kruk",
+        "birth_date": "1861",
+        "birth_year": 1861,
+        "death_date": "1924",
+        "death_year": 1924,
+        "gender": "F"
+      },
+      "confidence": 100,
+      "personal_data_imports": {
+        "death_year": 1924,
+        "death_date": "1924"
+      },
+      "parents": [],
+      "children": []
+    },
+    {
+      "match_id": "MATCH_P0444_@I501422@",
+      "base_person": {
+        "id": "P0444",
+        "name": "Franciszka Kruk",
+        "birth_year": 1863,
+        "death_year": null,
+        "gender": "F"
+      },
+      "gedcom_person": {
+        "id": "@I501422@",
+        "name": "Franciszka Kruk",
+        "birth_date": "1863",
+        "birth_year": 1863,
+        "death_date": "1942",
+        "death_year": 1942,
+        "gender": "F"
+      },
+      "confidence": 100,
+      "personal_data_imports": {
+        "death_year": 1942,
+        "death_date": "1942"
+      },
+      "parents": [
+        {
+          "gedcom_id": "@I500881@",
+          "given_name": "Brygida",
+          "surname": "Surdej (Słyk)",
+          "maiden_name": "Kruk",
+          "birth_year": 1826,
+          "death_year": 1891,
+          "gender": "F",
+          "relationship": "mother",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (mother)"
+          }
+        }
+      ],
+      "children": [
+        {
+          "gedcom_id": "@I501575@",
+          "given_name": "Marianna",
+          "surname": "Kiełek",
+          "birth_year": 1885,
+          "death_year": null,
+          "gender": "F",
+          "matches": [
+            {
+              "person_id": "P0183",
+              "score": 60,
+              "recommended": false,
+              "evidence": [
+                "Name matches",
+                "Gender matches"
+              ],
+              "would_add": [
+                "birth_year: 1885"
+              ],
+              "conflicts": []
+            }
+          ],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I501576@",
+          "given_name": "Wiktoria",
+          "surname": "Kiełek",
+          "birth_year": 1890,
+          "death_year": null,
+          "gender": "F",
+          "matches": [
+            {
+              "person_id": "P0202",
+              "score": 60,
+              "recommended": false,
+              "evidence": [
+                "Name matches",
+                "Gender matches"
+              ],
+              "would_add": [
+                "birth_year: 1890"
+              ],
+              "conflicts": []
+            }
+          ],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I501583@",
+          "given_name": "Wincenty",
+          "surname": "Kiełek",
+          "birth_year": 1893,
+          "death_year": null,
+          "gender": "M",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I501584@",
+          "given_name": "Agnieszka",
+          "surname": "Kiełek",
+          "birth_year": 1896,
+          "death_year": 1918,
+          "gender": "F",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I501585@",
+          "given_name": "Jan",
+          "surname": "Kiełek",
+          "birth_year": 1898,
+          "death_year": null,
+          "gender": "M",
+          "matches": [
+            {
+              "person_id": "P0199",
+              "score": 60,
+              "recommended": false,
+              "evidence": [
+                "Name matches",
+                "Gender matches"
+              ],
+              "would_add": [],
+              "conflicts": []
+            },
+            {
+              "person_id": "P0203",
+              "score": 60,
+              "recommended": false,
+              "evidence": [
+                "Name matches",
+                "Gender matches"
+              ],
+              "would_add": [],
+              "conflicts": []
+            }
+          ],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I501586@",
+          "given_name": "Antonina",
+          "surname": "Kiełek",
+          "birth_year": 1901,
+          "death_year": null,
+          "gender": "F",
+          "matches": [
+            {
+              "person_id": "P0200",
+              "score": 60,
+              "recommended": false,
+              "evidence": [
+                "Name matches",
+                "Gender matches"
+              ],
+              "would_add": [],
+              "conflicts": []
+            }
+          ],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I501587@",
+          "given_name": "Władysław",
+          "surname": "Kiełek",
+          "birth_year": 1905,
+          "death_year": null,
+          "gender": "M",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        }
+      ]
+    },
+    {
+      "match_id": "MATCH_P0448_@I501495@",
+      "base_person": {
+        "id": "P0448",
+        "name": "Agnieszka Kruk",
+        "birth_year": 1864,
+        "death_year": null,
+        "gender": "F"
+      },
+      "gedcom_person": {
+        "id": "@I501495@",
+        "name": "Agnieszka Kruk",
+        "birth_date": "1864",
+        "birth_year": 1864,
+        "death_date": "4 MAR 1948",
+        "death_year": 1948,
+        "gender": "F"
+      },
+      "confidence": 100,
+      "personal_data_imports": {
+        "death_year": 1948,
+        "death_date": "4 MAR 1948"
+      },
+      "parents": [],
+      "children": []
+    },
+    {
+      "match_id": "MATCH_P0449_@I501681@",
+      "base_person": {
+        "id": "P0449",
+        "name": "Marianna Kruk",
+        "birth_year": 1865,
+        "death_year": null,
+        "gender": "F"
+      },
+      "gedcom_person": {
+        "id": "@I501681@",
+        "name": "Marianna Kruk",
+        "birth_date": "1867",
+        "birth_year": 1867,
+        "death_date": "1928",
+        "death_year": 1928,
+        "gender": "F"
+      },
+      "confidence": 100,
+      "personal_data_imports": {
+        "death_year": 1928,
+        "death_date": "1928"
+      },
+      "parents": [],
+      "children": [
+        {
+          "gedcom_id": "@I501896@",
+          "given_name": "Marianna",
+          "surname": "Pastuszka",
+          "birth_year": 1891,
+          "death_year": null,
+          "gender": "F",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I501897@",
+          "given_name": "Józefa",
+          "surname": "Pastuszka",
+          "birth_year": 1891,
+          "death_year": null,
+          "gender": "F",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I501898@",
+          "given_name": "Franciszka",
+          "surname": "Pastuszka",
+          "birth_year": 1899,
+          "death_year": null,
+          "gender": "F",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I501899@",
+          "given_name": "Barbara",
+          "surname": "Pastuszka",
+          "birth_year": 1900,
+          "death_year": null,
+          "gender": "F",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I501900@",
+          "given_name": "Dionizy",
+          "surname": "Pastuszka",
+          "birth_year": 1902,
+          "death_year": 1902,
+          "gender": "M",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I501901@",
+          "given_name": "Franciszek",
+          "surname": "Pastuszka",
+          "birth_year": 1908,
+          "death_year": 1947,
+          "gender": "M",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        }
+      ]
+    },
+    {
+      "match_id": "MATCH_P0452_@I500948@",
+      "base_person": {
+        "id": "P0452",
+        "name": "Jan Kruk",
+        "birth_year": 1865,
+        "death_year": null,
+        "gender": "M"
+      },
+      "gedcom_person": {
+        "id": "@I500948@",
+        "name": "Jan Kruk",
+        "birth_date": "18 FEB 1865",
+        "birth_year": 1865,
+        "death_date": "1 APR 1919",
+        "death_year": 1919,
+        "gender": "M"
+      },
+      "confidence": 100,
+      "personal_data_imports": {
+        "death_year": 1919,
+        "death_date": "1 APR 1919"
+      },
+      "parents": [],
+      "children": [
+        {
+          "gedcom_id": "@I501512@",
+          "given_name": "Józef",
+          "surname": "Kruk",
+          "birth_year": 1902,
+          "death_year": 1982,
+          "gender": "M",
+          "matches": [
+            {
+              "person_id": "P0383",
+              "score": 60,
+              "recommended": false,
+              "evidence": [
+                "Name matches",
+                "Gender matches"
+              ],
+              "would_add": [
+                "death_year: 1982"
+              ],
+              "conflicts": []
+            },
+            {
+              "person_id": "P0484",
+              "score": 60,
+              "recommended": false,
+              "evidence": [
+                "Name matches",
+                "Gender matches"
+              ],
+              "would_add": [
+                "death_year: 1982"
+              ],
+              "conflicts": []
+            }
+          ],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I501591@",
+          "given_name": "Aniela",
+          "surname": "Kruk",
+          "birth_year": 1916,
+          "death_year": 1982,
+          "gender": "F",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        }
+      ]
+    },
+    {
+      "match_id": "MATCH_P0453_@I501497@",
+      "base_person": {
+        "id": "P0453",
+        "name": "Helena Kruk",
+        "birth_year": 1867,
+        "death_year": null,
+        "gender": "F"
+      },
+      "gedcom_person": {
+        "id": "@I501497@",
+        "name": "Helena Kruk",
+        "birth_date": "1867",
+        "birth_year": 1867,
+        "death_date": "22 NOV 1867",
+        "death_year": 1867,
+        "gender": "F"
+      },
+      "confidence": 100,
+      "personal_data_imports": {
+        "death_year": 1867,
+        "death_date": "22 NOV 1867"
+      },
+      "parents": [],
+      "children": []
+    },
+    {
+      "match_id": "MATCH_P0455_@I501423@",
+      "base_person": {
+        "id": "P0455",
+        "name": "Antonina Kruk",
+        "birth_year": 1867,
+        "death_year": null,
+        "gender": "F"
+      },
+      "gedcom_person": {
+        "id": "@I501423@",
+        "name": "Antonina Kruk",
+        "birth_date": "1867",
+        "birth_year": 1867,
+        "death_date": null,
+        "death_year": null,
+        "gender": "F"
+      },
+      "confidence": 100,
+      "personal_data_imports": {},
+      "parents": [],
+      "children": [
+        {
+          "gedcom_id": "@I501553@",
+          "given_name": "Magdalena",
+          "surname": "Jagieła",
+          "birth_year": 1889,
+          "death_year": null,
+          "gender": "F",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I501555@",
+          "given_name": "Agnieszka",
+          "surname": "Jagieło",
+          "birth_year": 1891,
+          "death_year": null,
+          "gender": "F",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I501557@",
+          "given_name": "Jan",
+          "surname": "Jagieło",
+          "birth_year": 1893,
+          "death_year": 1895,
+          "gender": "M",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I501558@",
+          "given_name": "Katarzyna",
+          "surname": "Jagieło",
+          "birth_year": 1895,
+          "death_year": null,
+          "gender": "F",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I501559@",
+          "given_name": "Marianna",
+          "surname": "Jagieło",
+          "birth_year": 1898,
+          "death_year": null,
+          "gender": "F",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I501560@",
+          "given_name": "Józefa",
+          "surname": "Jagieło",
+          "birth_year": 1900,
+          "death_year": 1927,
+          "gender": "F",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I501561@",
+          "given_name": "Antonina",
+          "surname": "Jagieło",
+          "birth_year": 1903,
+          "death_year": null,
+          "gender": "F",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I501562@",
+          "given_name": "Helena",
+          "surname": "Jagieło",
+          "birth_year": 1906,
+          "death_year": 1942,
+          "gender": "F",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I501563@",
+          "given_name": "Franciszka",
+          "surname": "Jagieło",
+          "birth_year": 1908,
+          "death_year": null,
+          "gender": "F",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I501568@",
+          "given_name": "Antoni",
+          "surname": "Jagieło",
+          "birth_year": null,
+          "death_year": null,
+          "gender": "M",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I501564@",
+          "given_name": "Piotr",
+          "surname": "Jagieła",
+          "birth_year": null,
+          "death_year": 1914,
+          "gender": "M",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        }
+      ]
+    },
+    {
+      "match_id": "MATCH_P0458_@I501935@",
+      "base_person": {
+        "id": "P0458",
+        "name": "Małgorzata Kruk",
+        "birth_year": 1870,
+        "death_year": null,
+        "gender": "F"
+      },
+      "gedcom_person": {
+        "id": "@I501935@",
+        "name": "Małgorzata Kruk",
+        "birth_date": "1870",
+        "birth_year": 1870,
+        "death_date": "1871",
+        "death_year": 1871,
+        "gender": "F"
+      },
+      "confidence": 100,
+      "personal_data_imports": {
+        "death_year": 1871,
+        "death_date": "1871"
+      },
+      "parents": [],
+      "children": []
+    },
+    {
+      "match_id": "MATCH_P0459_@I501472@",
+      "base_person": {
+        "id": "P0459",
+        "name": "Maksymilian Głód",
+        "birth_year": null,
+        "death_year": null,
+        "gender": "M"
+      },
+      "gedcom_person": {
+        "id": "@I501472@",
+        "name": "Maksymilian Głód",
+        "birth_date": "1848",
+        "birth_year": 1848,
+        "death_date": "2 JAN 1921",
+        "death_year": 1921,
+        "gender": "M"
+      },
+      "confidence": 100,
+      "personal_data_imports": {
+        "birth_year": 1848,
+        "birth_date": "1848",
+        "death_year": 1921,
+        "death_date": "2 JAN 1921"
+      },
+      "parents": [
+        {
+          "gedcom_id": "@I501471@",
+          "given_name": "Antoni",
+          "surname": "Głód",
+          "maiden_name": null,
+          "birth_year": 1824,
+          "death_year": 1894,
+          "gender": "M",
+          "relationship": "father",
+          "matches": [
+            {
+              "person_id": "P0146",
+              "score": 70,
+              "recommended": false,
+              "evidence": [
+                "Name matches",
+                "Gender matches",
+                "Death year matches"
+              ],
+              "would_add": [],
+              "conflicts": []
+            }
+          ],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (father)"
+          }
+        },
+        {
+          "gedcom_id": "@I500966@",
+          "given_name": "Jadwiga",
+          "surname": "Kruk",
+          "maiden_name": "Głód",
+          "birth_year": 1828,
+          "death_year": 1891,
+          "gender": "F",
+          "relationship": "mother",
+          "matches": [
+            {
+              "person_id": "P0464",
+              "score": 60,
+              "recommended": false,
+              "evidence": [
+                "Name matches",
+                "Gender matches"
+              ],
+              "would_add": [
+                "death_year: 1891"
+              ],
+              "conflicts": []
+            },
+            {
+              "person_id": "P0474",
+              "score": 60,
+              "recommended": false,
+              "evidence": [
+                "Name matches",
+                "Gender matches"
+              ],
+              "would_add": [
+                "death_year: 1891"
+              ],
+              "conflicts": []
+            }
+          ],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (mother)"
+          }
+        }
+      ],
+      "children": [
+        {
+          "gedcom_id": "@I501607@",
+          "given_name": "Jan",
+          "surname": "Głód",
+          "birth_year": 1872,
+          "death_year": 1873,
+          "gender": "M",
+          "matches": [
+            {
+              "person_id": "P0005",
+              "score": 60,
+              "recommended": false,
+              "evidence": [
+                "Name matches",
+                "Gender matches"
+              ],
+              "would_add": [],
+              "conflicts": []
+            }
+          ],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I501608@",
+          "given_name": "Baltazar",
+          "surname": "Głód",
+          "birth_year": 1873,
+          "death_year": 1878,
+          "gender": "M",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I501609@",
+          "given_name": "Ewa",
+          "surname": "Głód",
+          "birth_year": 1875,
+          "death_year": 1943,
+          "gender": "F",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I501610@",
+          "given_name": "Marianna",
+          "surname": "Głód",
+          "birth_year": 1878,
+          "death_year": null,
+          "gender": "F",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I501611@",
+          "given_name": "Jadwiga",
+          "surname": "Głód",
+          "birth_year": 1880,
+          "death_year": null,
+          "gender": "F",
+          "matches": [
+            {
+              "person_id": "P0144",
+              "score": 60,
+              "recommended": false,
+              "evidence": [
+                "Name matches",
+                "Gender matches"
+              ],
+              "would_add": [
+                "birth_year: 1880"
+              ],
+              "conflicts": []
+            }
+          ],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I501612@",
+          "given_name": "Anna",
+          "surname": "Głód",
+          "birth_year": 1882,
+          "death_year": 1894,
+          "gender": "F",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I501613@",
+          "given_name": "Łucja",
+          "surname": "Głód",
+          "birth_year": 1884,
+          "death_year": null,
+          "gender": "F",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I501614@",
+          "given_name": "Agnieszka",
+          "surname": "Głód",
+          "birth_year": 1887,
+          "death_year": 1888,
+          "gender": "F",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I501615@",
+          "given_name": "Józefa",
+          "surname": "Głód",
+          "birth_year": 1889,
+          "death_year": null,
+          "gender": "F",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I501616@",
+          "given_name": "Antonina",
+          "surname": "Głód",
+          "birth_year": 1891,
+          "death_year": null,
+          "gender": "F",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I501617@",
+          "given_name": "Franciszek",
+          "surname": "Głód",
+          "birth_year": 1898,
+          "death_year": null,
+          "gender": "M",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        }
+      ]
+    },
+    {
+      "match_id": "MATCH_P0461_@I501670@",
+      "base_person": {
+        "id": "P0461",
+        "name": "Marianna Łapacz",
+        "birth_year": null,
+        "death_year": null,
+        "gender": "F"
+      },
+      "gedcom_person": {
+        "id": "@I501670@",
+        "name": "Marianna Łapacz",
+        "birth_date": "1901",
+        "birth_year": 1901,
+        "death_date": "12 JUN 1944",
+        "death_year": 1944,
+        "gender": "F"
+      },
+      "confidence": 100,
+      "personal_data_imports": {
+        "birth_year": 1901,
+        "birth_date": "1901",
+        "death_year": 1944,
+        "death_date": "12 JUN 1944"
+      },
+      "parents": [
+        {
+          "gedcom_id": "@I501658@",
+          "given_name": "Antonina",
+          "surname": "Głód",
+          "maiden_name": null,
+          "birth_year": 1877,
+          "death_year": 1963,
+          "gender": "F",
+          "relationship": "mother",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (mother)"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "match_id": "MATCH_P0462_@I500860@",
+      "base_person": {
+        "id": "P0462",
+        "name": "Marianna Kruk",
+        "birth_year": 1873,
+        "death_year": null,
+        "gender": "F"
+      },
+      "gedcom_person": {
+        "id": "@I500860@",
+        "name": "Marianna Kruk",
+        "birth_date": "ABT 1873",
+        "birth_year": 1873,
+        "death_date": "1946",
+        "death_year": 1946,
+        "gender": "F"
+      },
+      "confidence": 100,
+      "personal_data_imports": {
+        "death_year": 1946,
+        "death_date": "1946"
+      },
+      "parents": [],
+      "children": [
+        {
+          "gedcom_id": "@I500876@",
+          "given_name": "Jan",
+          "surname": "Kulik",
+          "birth_year": 1893,
+          "death_year": 1969,
+          "gender": "M",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I500862@",
+          "given_name": "Stanisław",
+          "surname": "Kulik",
+          "birth_year": 1897,
+          "death_year": null,
+          "gender": "M",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I500863@",
+          "given_name": "Andrzej (Jędrzej)",
+          "surname": "Kulik",
+          "birth_year": 1898,
+          "death_year": 1966,
+          "gender": "M",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I500866@",
+          "given_name": "Katarzyna",
+          "surname": "Kulik",
+          "birth_year": 1900,
+          "death_year": 1935,
+          "gender": "F",
+          "matches": [
+            {
+              "person_id": "P0500",
+              "score": 90,
+              "recommended": true,
+              "evidence": [
+                "Name matches",
+                "Birth year exact match",
+                "Gender matches"
+              ],
+              "would_add": [
+                "death_year: 1935"
+              ],
+              "conflicts": []
+            }
+          ],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I500865@",
+          "given_name": "Józefa",
+          "surname": "Kulik",
+          "birth_year": 1902,
+          "death_year": null,
+          "gender": "F",
+          "matches": [
+            {
+              "person_id": "P0505",
+              "score": 90,
+              "recommended": true,
+              "evidence": [
+                "Name matches",
+                "Birth year exact match",
+                "Gender matches"
+              ],
+              "would_add": [],
+              "conflicts": []
+            }
+          ],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I500877@",
+          "given_name": "Stefan",
+          "surname": "Kulik",
+          "birth_year": 1905,
+          "death_year": 1917,
+          "gender": "M",
+          "matches": [
+            {
+              "person_id": "P0512",
+              "score": 90,
+              "recommended": true,
+              "evidence": [
+                "Name matches",
+                "Birth year exact match",
+                "Gender matches"
+              ],
+              "would_add": [
+                "death_year: 1917"
+              ],
+              "conflicts": []
+            }
+          ],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I500855@",
+          "given_name": "Antoni",
+          "surname": "Kulik",
+          "birth_year": 1907,
+          "death_year": 1978,
+          "gender": "M",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I500861@",
+          "given_name": "Wojciech",
+          "surname": "Kulik",
+          "birth_year": 1909,
+          "death_year": null,
+          "gender": "M",
+          "matches": [
+            {
+              "person_id": "P0517",
+              "score": 90,
+              "recommended": true,
+              "evidence": [
+                "Name matches",
+                "Birth year exact match",
+                "Gender matches"
+              ],
+              "would_add": [],
+              "conflicts": []
+            }
+          ],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I500878@",
+          "given_name": "Anna",
+          "surname": "Kulik",
+          "birth_year": 1912,
+          "death_year": 1912,
+          "gender": "F",
+          "matches": [
+            {
+              "person_id": "P0522",
+              "score": 80,
+              "recommended": false,
+              "evidence": [
+                "Name matches",
+                "Birth year close (2 years)",
+                "Gender matches"
+              ],
+              "would_add": [
+                "death_year: 1912"
+              ],
+              "conflicts": []
+            }
+          ],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I500879@",
+          "given_name": "Władysław",
+          "surname": "Kulik",
+          "birth_year": 1912,
+          "death_year": 1983,
+          "gender": "M",
+          "matches": [
+            {
+              "person_id": "P0520",
+              "score": 90,
+              "recommended": true,
+              "evidence": [
+                "Name matches",
+                "Birth year exact match",
+                "Gender matches"
+              ],
+              "would_add": [
+                "death_year: 1983"
+              ],
+              "conflicts": []
+            }
+          ],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I500864@",
+          "given_name": "Anna",
+          "surname": "Kulik",
+          "birth_year": 1914,
+          "death_year": null,
+          "gender": "F",
+          "matches": [
+            {
+              "person_id": "P0522",
+              "score": 90,
+              "recommended": true,
+              "evidence": [
+                "Name matches",
+                "Birth year exact match",
+                "Gender matches"
+              ],
+              "would_add": [],
+              "conflicts": []
+            }
+          ],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        }
+      ]
+    },
+    {
+      "match_id": "MATCH_P0464_@I501457@",
+      "base_person": {
+        "id": "P0464",
+        "name": "Jadwiga Kruk",
+        "birth_year": 1873,
+        "death_year": null,
+        "gender": "F"
+      },
+      "gedcom_person": {
+        "id": "@I501457@",
+        "name": "Jadwiga Kruk",
+        "birth_date": "1873",
+        "birth_year": 1873,
+        "death_date": "1876",
+        "death_year": 1876,
+        "gender": "F"
+      },
+      "confidence": 100,
+      "personal_data_imports": {
+        "death_year": 1876,
+        "death_date": "1876"
+      },
+      "parents": [],
+      "children": []
+    },
+    {
+      "match_id": "MATCH_P0467_@I502432@",
+      "base_person": {
+        "id": "P0467",
+        "name": "Katarzyna Sikora",
+        "birth_year": null,
+        "death_year": null,
+        "gender": "F"
+      },
+      "gedcom_person": {
+        "id": "@I502432@",
+        "name": "Katarzyna Sikora",
+        "birth_date": "ABT 1802",
+        "birth_year": 1802,
+        "death_date": "ABT 1863",
+        "death_year": 1863,
+        "gender": "F"
+      },
+      "confidence": 100,
+      "personal_data_imports": {
+        "birth_year": 1802,
+        "birth_date": "ABT 1802",
+        "death_year": 1863,
+        "death_date": "ABT 1863"
+      },
+      "parents": [
+        {
+          "gedcom_id": "@I502437@",
+          "given_name": "Jakub",
+          "surname": "Sikora",
+          "maiden_name": null,
+          "birth_year": null,
+          "death_year": null,
+          "gender": "M",
+          "relationship": "father",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (father)"
+          }
+        },
+        {
+          "gedcom_id": "@I502438@",
+          "given_name": "Marianna",
+          "surname": "Ceregra",
+          "maiden_name": "Sikora",
+          "birth_year": null,
+          "death_year": null,
+          "gender": "F",
+          "relationship": "mother",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (mother)"
+          }
+        }
+      ],
+      "children": [
+        {
+          "gedcom_id": "@I502429@",
+          "given_name": "Kazimierz",
+          "surname": "Chlebicki",
+          "birth_year": 1824,
+          "death_year": null,
+          "gender": "M",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        }
+      ]
+    },
+    {
+      "match_id": "MATCH_P0471_@I501458@",
+      "base_person": {
+        "id": "P0471",
+        "name": "Jakub Kruk",
+        "birth_year": 1875,
+        "death_year": 1876,
+        "gender": "M"
+      },
+      "gedcom_person": {
+        "id": "@I501458@",
+        "name": "Jakub Kruk",
+        "birth_date": "1875",
+        "birth_year": 1875,
+        "death_date": "1876",
+        "death_year": 1876,
+        "gender": "M"
+      },
+      "confidence": 100,
+      "personal_data_imports": {},
+      "parents": [
+        {
+          "gedcom_id": "@I501454@",
+          "given_name": "Katarzyna",
+          "surname": "Niewczas",
+          "maiden_name": "Kruk",
+          "birth_year": 1849,
+          "death_year": null,
+          "gender": "F",
+          "relationship": "mother",
+          "matches": [
+            {
+              "person_id": "P0227",
+              "score": 80,
+              "recommended": false,
+              "evidence": [
+                "Name matches",
+                "Age difference consistent (19 years)",
+                "Gender matches"
+              ],
+              "would_add": [],
+              "conflicts": []
+            }
+          ],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (mother)"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "match_id": "MATCH_P0473_@I501459@",
+      "base_person": {
+        "id": "P0473",
+        "name": "Anna Kruk",
+        "birth_year": null,
+        "death_year": 1875,
+        "gender": "F"
+      },
+      "gedcom_person": {
+        "id": "@I501459@",
+        "name": "Anna Kruk",
+        "birth_date": "1879",
+        "birth_year": 1879,
+        "death_date": "1879",
+        "death_year": 1879,
+        "gender": "F"
+      },
+      "confidence": 100,
+      "personal_data_imports": {
+        "birth_year": 1879,
+        "birth_date": "1879"
+      },
+      "parents": [
+        {
+          "gedcom_id": "@I501454@",
+          "given_name": "Katarzyna",
+          "surname": "Niewczas",
+          "maiden_name": "Kruk",
+          "birth_year": 1849,
+          "death_year": null,
+          "gender": "F",
+          "relationship": "mother",
+          "matches": [
+            {
+              "person_id": "P0227",
+              "score": 60,
+              "recommended": false,
+              "evidence": [
+                "Name matches",
+                "Gender matches"
+              ],
+              "would_add": [],
+              "conflicts": []
+            }
+          ],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (mother)"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "match_id": "MATCH_P0474_@I501460@",
+      "base_person": {
+        "id": "P0474",
+        "name": "Jadwiga Kruk",
+        "birth_year": 1880,
+        "death_year": null,
+        "gender": "F"
+      },
+      "gedcom_person": {
+        "id": "@I501460@",
+        "name": "Jadwiga Kruk",
+        "birth_date": "1880",
+        "birth_year": 1880,
+        "death_date": "1888",
+        "death_year": 1888,
+        "gender": "F"
+      },
+      "confidence": 100,
+      "personal_data_imports": {
+        "death_year": 1888,
+        "death_date": "1888"
+      },
+      "parents": [
+        {
+          "gedcom_id": "@I501454@",
+          "given_name": "Katarzyna",
+          "surname": "Niewczas",
+          "maiden_name": "Kruk",
+          "birth_year": 1849,
+          "death_year": null,
+          "gender": "F",
+          "relationship": "mother",
+          "matches": [
+            {
+              "person_id": "P0227",
+              "score": 80,
+              "recommended": false,
+              "evidence": [
+                "Name matches",
+                "Age difference consistent (24 years)",
+                "Gender matches"
+              ],
+              "would_add": [],
+              "conflicts": []
+            }
+          ],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (mother)"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "match_id": "MATCH_P0477_@I501922@",
+      "base_person": {
+        "id": "P0477",
+        "name": "Paweł Niewczas",
+        "birth_year": null,
+        "death_year": null,
+        "gender": "M"
+      },
+      "gedcom_person": {
+        "id": "@I501922@",
+        "name": "Paweł Niewczas",
+        "birth_date": "ABT 1862",
+        "birth_year": 1862,
+        "death_date": null,
+        "death_year": null,
+        "gender": "M"
+      },
+      "confidence": 100,
+      "personal_data_imports": {
+        "birth_year": 1862,
+        "birth_date": "ABT 1862"
+      },
+      "parents": [
+        {
+          "gedcom_id": "@I502980@",
+          "given_name": "Leonard",
+          "surname": "Niewczas",
+          "maiden_name": null,
+          "birth_year": null,
+          "death_year": null,
+          "gender": "M",
+          "relationship": "father",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (father)"
+          }
+        },
+        {
+          "gedcom_id": "@I502981@",
+          "given_name": "Agata",
+          "surname": "Gralec",
+          "maiden_name": "Niewczas",
+          "birth_year": null,
+          "death_year": null,
+          "gender": "F",
+          "relationship": "mother",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (mother)"
+          }
+        }
+      ],
+      "children": [
+        {
+          "gedcom_id": "@I502978@",
+          "given_name": "Wiktoria",
+          "surname": "Niewczas",
+          "birth_year": 1895,
+          "death_year": 1961,
+          "gender": "F",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I502979@",
+          "given_name": "Zofia",
+          "surname": "Niewczas",
+          "birth_year": null,
+          "death_year": null,
+          "gender": "F",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        }
+      ]
+    },
+    {
+      "match_id": "MATCH_P0479_@I501455@",
+      "base_person": {
+        "id": "P0479",
+        "name": "Agnieszka Kruk",
+        "birth_year": 1883,
+        "death_year": null,
+        "gender": "F"
+      },
+      "gedcom_person": {
+        "id": "@I501455@",
+        "name": "Agnieszka Kruk",
+        "birth_date": "2 OCT 1887",
+        "birth_year": 1887,
+        "death_date": null,
+        "death_year": null,
+        "gender": "F"
+      },
+      "confidence": 100,
+      "personal_data_imports": {},
+      "parents": [
+        {
+          "gedcom_id": "@I501454@",
+          "given_name": "Katarzyna",
+          "surname": "Niewczas",
+          "maiden_name": "Kruk",
+          "birth_year": 1849,
+          "death_year": null,
+          "gender": "F",
+          "relationship": "mother",
+          "matches": [
+            {
+              "person_id": "P0227",
+              "score": 80,
+              "recommended": false,
+              "evidence": [
+                "Name matches",
+                "Age difference consistent (27 years)",
+                "Gender matches"
+              ],
+              "would_add": [],
+              "conflicts": []
+            }
+          ],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (mother)"
+          }
+        }
+      ],
+      "children": [
+        {
+          "gedcom_id": "@I501493@",
+          "given_name": "Marianna",
+          "surname": "Kruk",
+          "birth_year": 1911,
+          "death_year": 1993,
+          "gender": "F",
+          "matches": [
+            {
+              "person_id": "P0374",
+              "score": 60,
+              "recommended": false,
+              "evidence": [
+                "Name matches",
+                "Gender matches"
+              ],
+              "would_add": [
+                "death_year: 1993"
+              ],
+              "conflicts": []
+            },
+            {
+              "person_id": "P0449",
+              "score": 60,
+              "recommended": false,
+              "evidence": [
+                "Name matches",
+                "Gender matches"
+              ],
+              "would_add": [
+                "death_year: 1993"
+              ],
+              "conflicts": []
+            },
+            {
+              "person_id": "P0462",
+              "score": 60,
+              "recommended": false,
+              "evidence": [
+                "Name matches",
+                "Gender matches"
+              ],
+              "would_add": [
+                "death_year: 1993"
+              ],
+              "conflicts": []
+            }
+          ],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        }
+      ]
+    },
+    {
+      "match_id": "MATCH_P0480_@I503016@",
+      "base_person": {
+        "id": "P0480",
+        "name": "Jan Gralec",
+        "birth_year": null,
+        "death_year": null,
+        "gender": "M"
+      },
+      "gedcom_person": {
+        "id": "@I503016@",
+        "name": "Jan Gralec",
+        "birth_date": null,
+        "birth_year": null,
+        "death_date": null,
+        "death_year": null,
+        "gender": "M"
+      },
+      "confidence": 100,
+      "personal_data_imports": {},
+      "parents": [],
+      "children": [
+        {
+          "gedcom_id": "@I503004@",
+          "given_name": "Wojciech",
+          "surname": "Gralec",
+          "birth_year": null,
+          "death_year": null,
+          "gender": "M",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        }
+      ]
+    },
+    {
+      "match_id": "MATCH_P0484_@I501462@",
+      "base_person": {
+        "id": "P0484",
+        "name": "Józef Kruk",
+        "birth_year": 1885,
+        "death_year": null,
+        "gender": "M"
+      },
+      "gedcom_person": {
+        "id": "@I501462@",
+        "name": "Józef Kruk",
+        "birth_date": "1885",
+        "birth_year": 1885,
+        "death_date": null,
+        "death_year": null,
+        "gender": "M"
+      },
+      "confidence": 100,
+      "personal_data_imports": {},
+      "parents": [
+        {
+          "gedcom_id": "@I501454@",
+          "given_name": "Katarzyna",
+          "surname": "Niewczas",
+          "maiden_name": "Kruk",
+          "birth_year": 1849,
+          "death_year": null,
+          "gender": "F",
+          "relationship": "mother",
+          "matches": [
+            {
+              "person_id": "P0227",
+              "score": 80,
+              "recommended": false,
+              "evidence": [
+                "Name matches",
+                "Age difference consistent (29 years)",
+                "Gender matches"
+              ],
+              "would_add": [],
+              "conflicts": []
+            }
+          ],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (mother)"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "match_id": "MATCH_P0487_@I501635@",
+      "base_person": {
+        "id": "P0487",
+        "name": "Onufry Głód",
+        "birth_year": null,
+        "death_year": 1885,
+        "gender": "M"
+      },
+      "gedcom_person": {
+        "id": "@I501635@",
+        "name": "Onufry Głód",
+        "birth_date": "7 JUN 1821",
+        "birth_year": 1821,
+        "death_date": "20 MAY 1885",
+        "death_year": 1885,
+        "gender": "M"
+      },
+      "confidence": 100,
+      "personal_data_imports": {
+        "birth_year": 1821,
+        "birth_date": "7 JUN 1821"
+      },
+      "parents": [
+        {
+          "gedcom_id": "@I501633@",
+          "given_name": "Jan",
+          "surname": "Głód",
+          "maiden_name": null,
+          "birth_year": 1793,
+          "death_year": 1855,
+          "gender": "M",
+          "relationship": "father",
+          "matches": [
+            {
+              "person_id": "P0005",
+              "score": 70,
+              "recommended": false,
+              "evidence": [
+                "Name matches",
+                "Gender matches",
+                "Death year matches"
+              ],
+              "would_add": [],
+              "conflicts": []
+            }
+          ],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (father)"
+          }
+        },
+        {
+          "gedcom_id": "@I501634@",
+          "given_name": "Klara",
+          "surname": "Jaskros",
+          "maiden_name": null,
+          "birth_year": 1791,
+          "death_year": 1871,
+          "gender": "F",
+          "relationship": "mother",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (mother)"
+          }
+        }
+      ],
+      "children": [
+        {
+          "gedcom_id": "@I501654@",
+          "given_name": "Izydor",
+          "surname": "Głód",
+          "birth_year": 1868,
+          "death_year": 1868,
+          "gender": "M",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I501655@",
+          "given_name": "Zofia",
+          "surname": "Głód",
+          "birth_year": 1870,
+          "death_year": null,
+          "gender": "F",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I501656@",
+          "given_name": "Agnieszka",
+          "surname": "Głód",
+          "birth_year": 1872,
+          "death_year": 1924,
+          "gender": "F",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I501657@",
+          "given_name": "Marianna",
+          "surname": "Głód",
+          "birth_year": 1873,
+          "death_year": 1876,
+          "gender": "F",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I501658@",
+          "given_name": "Antonina",
+          "surname": "Głód",
+          "birth_year": 1877,
+          "death_year": 1963,
+          "gender": "F",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I501650@",
+          "given_name": "Zofia",
+          "surname": "Głód",
+          "birth_year": 1860,
+          "death_year": null,
+          "gender": "F",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        }
+      ]
+    },
+    {
+      "match_id": "MATCH_P0488_@I501631@",
+      "base_person": {
+        "id": "P0488",
+        "name": "Paweł Głód",
+        "birth_year": null,
+        "death_year": null,
+        "gender": "M"
+      },
+      "gedcom_person": {
+        "id": "@I501631@",
+        "name": "Paweł Głód",
+        "birth_date": "1861",
+        "birth_year": 1861,
+        "death_date": null,
+        "death_year": null,
+        "gender": "M"
+      },
+      "confidence": 100,
+      "personal_data_imports": {
+        "birth_year": 1861,
+        "birth_date": "1861"
+      },
+      "parents": [
+        {
+          "gedcom_id": "@I501471@",
+          "given_name": "Antoni",
+          "surname": "Głód",
+          "maiden_name": null,
+          "birth_year": 1824,
+          "death_year": 1894,
+          "gender": "M",
+          "relationship": "father",
+          "matches": [
+            {
+              "person_id": "P0146",
+              "score": 70,
+              "recommended": false,
+              "evidence": [
+                "Name matches",
+                "Gender matches",
+                "Death year matches"
+              ],
+              "would_add": [],
+              "conflicts": []
+            }
+          ],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (father)"
+          }
+        },
+        {
+          "gedcom_id": "@I500966@",
+          "given_name": "Jadwiga",
+          "surname": "Kruk",
+          "maiden_name": "Głód",
+          "birth_year": 1828,
+          "death_year": 1891,
+          "gender": "F",
+          "relationship": "mother",
+          "matches": [
+            {
+              "person_id": "P0464",
+              "score": 60,
+              "recommended": false,
+              "evidence": [
+                "Name matches",
+                "Gender matches"
+              ],
+              "would_add": [
+                "death_year: 1891"
+              ],
+              "conflicts": []
+            },
+            {
+              "person_id": "P0474",
+              "score": 60,
+              "recommended": false,
+              "evidence": [
+                "Name matches",
+                "Gender matches"
+              ],
+              "would_add": [
+                "death_year: 1891"
+              ],
+              "conflicts": []
+            }
+          ],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (mother)"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "match_id": "MATCH_P0490_@I501463@",
+      "base_person": {
+        "id": "P0490",
+        "name": "Karolina Kruk",
+        "birth_year": 1889,
+        "death_year": null,
+        "gender": "F"
+      },
+      "gedcom_person": {
+        "id": "@I501463@",
+        "name": "Karolina Kruk",
+        "birth_date": "1889",
+        "birth_year": 1889,
+        "death_date": "1889",
+        "death_year": 1889,
+        "gender": "F"
+      },
+      "confidence": 100,
+      "personal_data_imports": {
+        "death_year": 1889,
+        "death_date": "1889"
+      },
+      "parents": [
+        {
+          "gedcom_id": "@I501454@",
+          "given_name": "Katarzyna",
+          "surname": "Niewczas",
+          "maiden_name": "Kruk",
+          "birth_year": 1849,
+          "death_year": null,
+          "gender": "F",
+          "relationship": "mother",
+          "matches": [
+            {
+              "person_id": "P0227",
+              "score": 80,
+              "recommended": false,
+              "evidence": [
+                "Name matches",
+                "Age difference consistent (33 years)",
+                "Gender matches"
+              ],
+              "would_add": [],
+              "conflicts": []
+            }
+          ],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (mother)"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "match_id": "MATCH_P0493_@I501464@",
+      "base_person": {
+        "id": "P0493",
+        "name": "Józefa Kruk",
+        "birth_year": 1891,
+        "death_year": null,
+        "gender": "F"
+      },
+      "gedcom_person": {
+        "id": "@I501464@",
+        "name": "Józefa Kruk",
+        "birth_date": "1891",
+        "birth_year": 1891,
+        "death_date": null,
+        "death_year": null,
+        "gender": "F"
+      },
+      "confidence": 100,
+      "personal_data_imports": {},
+      "parents": [
+        {
+          "gedcom_id": "@I501454@",
+          "given_name": "Katarzyna",
+          "surname": "Niewczas",
+          "maiden_name": "Kruk",
+          "birth_year": 1849,
+          "death_year": null,
+          "gender": "F",
+          "relationship": "mother",
+          "matches": [
+            {
+              "person_id": "P0227",
+              "score": 80,
+              "recommended": false,
+              "evidence": [
+                "Name matches",
+                "Age difference consistent (35 years)",
+                "Gender matches"
+              ],
+              "would_add": [],
+              "conflicts": []
+            }
+          ],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (mother)"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "match_id": "MATCH_P0495_@I500859@",
+      "base_person": {
+        "id": "P0495",
+        "name": "Paweł Kulik",
+        "birth_year": null,
+        "death_year": null,
+        "gender": "M"
+      },
+      "gedcom_person": {
+        "id": "@I500859@",
+        "name": "Paweł Kulik",
+        "birth_date": "ABT 1867",
+        "birth_year": 1867,
+        "death_date": "24 FEB 1940",
+        "death_year": 1940,
+        "gender": "M"
+      },
+      "confidence": 100,
+      "personal_data_imports": {
+        "birth_year": 1867,
+        "birth_date": "ABT 1867",
+        "death_year": 1940,
+        "death_date": "24 FEB 1940"
+      },
+      "parents": [
+        {
+          "gedcom_id": "@I500882@",
+          "given_name": "Franciszek",
+          "surname": "Kulik (Kulig)",
+          "maiden_name": null,
+          "birth_year": 1842,
+          "death_year": 1905,
+          "gender": "M",
+          "relationship": "father",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (father)"
+          }
+        },
+        {
+          "gedcom_id": "@I500883@",
+          "given_name": "Franciszka",
+          "surname": "Surus",
+          "maiden_name": "Kulik (Kulig)",
+          "birth_year": 1843,
+          "death_year": 1906,
+          "gender": "F",
+          "relationship": "mother",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (mother)"
+          }
+        }
+      ],
+      "children": [
+        {
+          "gedcom_id": "@I500876@",
+          "given_name": "Jan",
+          "surname": "Kulik",
+          "birth_year": 1893,
+          "death_year": 1969,
+          "gender": "M",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I500862@",
+          "given_name": "Stanisław",
+          "surname": "Kulik",
+          "birth_year": 1897,
+          "death_year": null,
+          "gender": "M",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I500863@",
+          "given_name": "Andrzej (Jędrzej)",
+          "surname": "Kulik",
+          "birth_year": 1898,
+          "death_year": 1966,
+          "gender": "M",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I500855@",
+          "given_name": "Antoni",
+          "surname": "Kulik",
+          "birth_year": 1907,
+          "death_year": 1978,
+          "gender": "M",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        }
+      ]
+    },
+    {
+      "match_id": "MATCH_P0496_@I501962@",
+      "base_person": {
+        "id": "P0496",
+        "name": "Marianna Kulik",
+        "birth_year": null,
+        "death_year": null,
+        "gender": "F"
+      },
+      "gedcom_person": {
+        "id": "@I501962@",
+        "name": "Marianna Kulik",
+        "birth_date": "1911",
+        "birth_year": 1911,
+        "death_date": null,
+        "death_year": null,
+        "gender": "F"
+      },
+      "confidence": 100,
+      "personal_data_imports": {
+        "birth_year": 1911,
+        "birth_date": "1911"
+      },
+      "parents": [
+        {
+          "gedcom_id": "@I500954@",
+          "given_name": "Jan",
+          "surname": "Kulik (Kulig)",
+          "maiden_name": null,
+          "birth_year": 1885,
+          "death_year": 1935,
+          "gender": "M",
+          "relationship": "father",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (father)"
+          }
+        },
+        {
+          "gedcom_id": "@I501961@",
+          "given_name": "Franciszka",
+          "surname": "Głowacka",
+          "maiden_name": "Kulik",
+          "birth_year": null,
+          "death_year": null,
+          "gender": "F",
+          "relationship": "mother",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (mother)"
+          }
+        }
+      ],
+      "children": []
+    },
+    {
+      "match_id": "MATCH_P0500_@I500866@",
+      "base_person": {
+        "id": "P0500",
+        "name": "Katarzyna Kulik",
+        "birth_year": 1900,
+        "death_year": null,
+        "gender": "F"
+      },
+      "gedcom_person": {
+        "id": "@I500866@",
+        "name": "Katarzyna Kulik",
+        "birth_date": "10 NOV 1900",
+        "birth_year": 1900,
+        "death_date": "14 JUN 1935",
+        "death_year": 1935,
+        "gender": "F"
+      },
+      "confidence": 100,
+      "personal_data_imports": {
+        "death_year": 1935,
+        "death_date": "14 JUN 1935"
+      },
+      "parents": [],
+      "children": []
+    },
+    {
+      "match_id": "MATCH_P0505_@I500865@",
+      "base_person": {
+        "id": "P0505",
+        "name": "Józefa Kulik",
+        "birth_year": 1902,
+        "death_year": null,
+        "gender": "F"
+      },
+      "gedcom_person": {
+        "id": "@I500865@",
+        "name": "Józefa Kulik",
+        "birth_date": "14 DEC 1902",
+        "birth_year": 1902,
+        "death_date": null,
+        "death_year": null,
+        "gender": "F"
+      },
+      "confidence": 100,
+      "personal_data_imports": {},
+      "parents": [],
+      "children": [
+        {
+          "gedcom_id": "@I502080@",
+          "given_name": "Stanislaw",
+          "surname": "Mikos",
+          "birth_year": null,
+          "death_year": null,
+          "gender": "M",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I502081@",
+          "given_name": "Jan",
+          "surname": "Mikos",
+          "birth_year": null,
+          "death_year": null,
+          "gender": "M",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I502082@",
+          "given_name": "Marianna",
+          "surname": "Mikos",
+          "birth_year": null,
+          "death_year": null,
+          "gender": "F",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I502083@",
+          "given_name": "Anna",
+          "surname": "Mikos",
+          "birth_year": null,
+          "death_year": null,
+          "gender": "F",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        },
+        {
+          "gedcom_id": "@I502084@",
+          "given_name": "Władysława",
+          "surname": "Mikos",
+          "birth_year": null,
+          "death_year": null,
+          "gender": "F",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        }
+      ]
+    },
+    {
+      "match_id": "MATCH_P0509_@I501948@",
+      "base_person": {
+        "id": "P0509",
+        "name": "Zofia Kulik",
+        "birth_year": 1903,
+        "death_year": null,
+        "gender": "F"
+      },
+      "gedcom_person": {
+        "id": "@I501948@",
+        "name": "Zofia Kulik",
+        "birth_date": "1903",
+        "birth_year": 1903,
+        "death_date": "1922",
+        "death_year": 1922,
+        "gender": "F"
+      },
+      "confidence": 100,
+      "personal_data_imports": {
+        "death_year": 1922,
+        "death_date": "1922"
+      },
+      "parents": [],
+      "children": []
+    },
+    {
+      "match_id": "MATCH_P0512_@I500877@",
+      "base_person": {
+        "id": "P0512",
+        "name": "Stefan Kulik",
+        "birth_year": 1905,
+        "death_year": null,
+        "gender": "M"
+      },
+      "gedcom_person": {
+        "id": "@I500877@",
+        "name": "Stefan Kulik",
+        "birth_date": "15 FEB 1905",
+        "birth_year": 1905,
+        "death_date": "1917",
+        "death_year": 1917,
+        "gender": "M"
+      },
+      "confidence": 100,
+      "personal_data_imports": {
+        "death_year": 1917,
+        "death_date": "1917"
+      },
+      "parents": [],
+      "children": []
+    },
+    {
+      "match_id": "MATCH_P0517_@I500861@",
+      "base_person": {
+        "id": "P0517",
+        "name": "Wojciech Kulik",
+        "birth_year": 1909,
+        "death_year": null,
+        "gender": "M"
+      },
+      "gedcom_person": {
+        "id": "@I500861@",
+        "name": "Wojciech Kulik",
+        "birth_date": "24 APR 1909",
+        "birth_year": 1909,
+        "death_date": null,
+        "death_year": null,
+        "gender": "M"
+      },
+      "confidence": 100,
+      "personal_data_imports": {},
+      "parents": [],
+      "children": [
+        {
+          "gedcom_id": "@I500912@",
+          "given_name": "Wiesława",
+          "surname": "Kulik",
+          "birth_year": null,
+          "death_year": null,
+          "gender": "F",
+          "matches": [],
+          "create_new_option": {
+            "would_create_id": "P0525",
+            "would_add_relationship": "biological_parent (child)"
+          }
+        }
+      ]
+    },
+    {
+      "match_id": "MATCH_P0520_@I500879@",
+      "base_person": {
+        "id": "P0520",
+        "name": "Władysław Kulik",
+        "birth_year": 1912,
+        "death_year": null,
+        "gender": "M"
+      },
+      "gedcom_person": {
+        "id": "@I500879@",
+        "name": "Władysław Kulik",
+        "birth_date": "14 DEC 1912",
+        "birth_year": 1912,
+        "death_date": "1983",
+        "death_year": 1983,
+        "gender": "M"
+      },
+      "confidence": 100,
+      "personal_data_imports": {
+        "death_year": 1983,
+        "death_date": "1983"
+      },
+      "parents": [],
+      "children": []
+    }
+  ],
+  "stats": {
+    "base_persons": 519,
+    "gedcom_persons": 3075,
+    "matched_persons": 97,
+    "enrichment_candidates": 80
+  }
+}

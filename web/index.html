@@ -15,45 +15,30 @@
             <p class="subtitle">Parish of Grzybowa Góra (1826-1914)</p>
         </header>
 
-        <!-- Stats Bar -->
-        <div class="stats-bar">
-            <div class="stat-card">
-                <div class="stat-number" id="total-persons">0</div>
-                <div class="stat-label">Persons</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number" id="total-events">0</div>
-                <div class="stat-label">Events</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number" id="total-relationships">0</div>
-                <div class="stat-label">Relationships</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number" id="total-families">0</div>
-                <div class="stat-label">Families</div>
-            </div>
-        </div>
-
         <!-- Editor Toolbar -->
         <div class="toolbar">
+            <button class="btn-success" onclick="editor && editor.openAddPersonModal()">➕ Add Person</button>
             <button class="btn-success" onclick="editor && editor.openMergeModal()">🔗 Merge Persons</button>
+            <button class="btn-warning" onclick="app && app.openEnrichmentReview()" id="enrichment-btn">
+                📦 Review GEDCOM Matches <span id="enrichment-count">(0)</span>
+            </button>
+            <div class="search-bar-inline">
+                <input
+                    type="text"
+                    id="search-input"
+                    placeholder="🔍 Search by name, surname, or ID..."
+                    autocomplete="off"
+                    onfocus="app && app.expandSearchFilters()"
+                />
+                <button id="search-btn" style="display: none;">Search</button>
+                <button id="reset-btn">↻ Reset</button>
+            </div>
             <button class="btn-secondary" onclick="editor && editor.showChangesModal()">📋 View Changes</button>
             <button class="btn-primary" onclick="editor && editor.exportChanges()">💾 Export Data</button>
         </div>
 
-        <!-- Search Bar -->
-        <div class="search-section">
-            <div class="search-bar">
-                <input
-                    type="text"
-                    id="search-input"
-                    placeholder="Search by name, surname, or person ID (e.g., 'Jan Surdey' or 'P0001')..."
-                    autocomplete="off"
-                />
-                <button id="search-btn">🔍 Search</button>
-                <button id="reset-btn">↻ Reset View</button>
-            </div>
+        <!-- Collapsible Search Filters -->
+        <div id="search-filters-section" class="search-filters-section" style="display: none;">
             <div class="filter-options">
                 <label>
                     <input type="checkbox" id="filter-surname" />
@@ -70,12 +55,27 @@
                 <span>-</span>
                 <input type="number" id="year-to" placeholder="To" min="1826" max="1914" style="width: 80px;" />
                 <button id="apply-filters-btn">Apply Filters</button>
+                <button id="collapse-filters-btn" class="btn-secondary" style="margin-left: 10px;" onclick="app && app.collapseSearchFilters()">✕ Close Filters</button>
             </div>
             <div id="search-results" class="search-results"></div>
         </div>
 
         <!-- Main Content -->
         <div class="main-content">
+            <!-- Person Details Panel -->
+            <div class="details-panel">
+                <div class="panel-header">
+                    <h2>Person Details</h2>
+                    <button id="close-details-btn" style="display: none;">✕</button>
+                </div>
+                <div id="person-details" class="person-details">
+                    <div class="empty-state">
+                        <div class="empty-icon">👤</div>
+                        <p>Click on a person in the network to view details</p>
+                    </div>
+                </div>
+            </div>
+
             <!-- Network Visualization -->
             <div class="visualization-panel">
                 <div class="panel-header">
@@ -120,17 +120,372 @@
                     </div>
                 </div>
             </div>
+        </div>
 
-            <!-- Person Details Panel -->
-            <div class="details-panel">
-                <div class="panel-header">
-                    <h2>Person Details</h2>
-                    <button id="close-details-btn" style="display: none;">✕</button>
+        <!-- Enrichment Review Modal -->
+        <div id="enrichment-modal" class="modal" style="display: none;">
+            <div class="modal-content enrichment-modal">
+                <div class="modal-header">
+                    <h2>📦 GEDCOM Enrichment Review</h2>
+                    <span class="close" onclick="app && app.closeEnrichmentReview()">&times;</span>
                 </div>
-                <div id="person-details" class="person-details">
-                    <div class="empty-state">
-                        <div class="empty-icon">👤</div>
-                        <p>Click on a person in the network to view details</p>
+                <div class="modal-body">
+                    <div id="enrichment-content"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Add Person Modal -->
+        <div id="add-person-modal" class="modal" style="display: none;">
+            <div class="modal-content modal-large">
+                <div class="modal-header">
+                    <h2>➕ Add New Person</h2>
+                    <span class="close" onclick="editor && editor.closeAddPersonModal()">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <!-- Lookup Section -->
+                    <div class="gedcom-lookup-section">
+                        <div style="display: flex; gap: 10px; align-items: flex-end; margin-bottom: 20px;">
+                            <div class="form-group" style="flex: 1;">
+                                <label for="lookup-name">Search in GEDCOM</label>
+                                <input type="text" id="lookup-name" placeholder="Enter given name and surname...">
+                            </div>
+                            <button type="button" class="btn-primary" onclick="editor && editor.lookupInGedcom()">
+                                🔍 Lookup in GEDCOM
+                            </button>
+                        </div>
+                        <div id="gedcom-lookup-results"></div>
+                    </div>
+
+                    <!-- Form Section -->
+                    <form id="add-person-form" onsubmit="editor && editor.submitAddPerson(event)">
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="add-given-name">Given Name *</label>
+                                <input type="text" id="add-given-name" name="given_name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="add-surname">Surname *</label>
+                                <input type="text" id="add-surname" name="surname" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="add-maiden-name">Maiden Name</label>
+                                <input type="text" id="add-maiden-name" name="maiden_name">
+                            </div>
+                            <div class="form-group">
+                                <label for="add-gender">Gender *</label>
+                                <select id="add-gender" name="gender" required>
+                                    <option value="M">Male</option>
+                                    <option value="F">Female</option>
+                                    <option value="U">Unknown</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="add-birth-year">Birth Year</label>
+                                <input type="number" id="add-birth-year" name="birth_year_estimate" min="1700" max="2100">
+                            </div>
+                            <div class="form-group">
+                                <label for="add-death-year">Death Year</label>
+                                <input type="number" id="add-death-year" name="death_year_estimate" min="1700" max="2100">
+                            </div>
+                            <div class="form-group">
+                                <label for="add-place-birth">Place of Birth</label>
+                                <input type="text" id="add-place-birth" name="place_of_birth" placeholder="e.g., Grzybowa Góra" list="add-place-suggestions">
+                            </div>
+                            <div class="form-group">
+                                <label for="add-place-death">Place of Death</label>
+                                <input type="text" id="add-place-death" name="place_of_death" placeholder="e.g., Grzybowa Góra" list="add-place-suggestions">
+                            </div>
+                            <datalist id="add-place-suggestions">
+                                <option value="Małyszyn">
+                                <option value="Tychów">
+                                <option value="Bór Iłżecki">
+                                <option value="Gaworzyna">
+                                <option value="Starosiedlice">
+                                <option value="Mirzec">
+                            </datalist>
+                            <div class="form-group">
+                                <label for="add-marriage-year">Marriage Year</label>
+                                <input type="number" id="add-marriage-year" name="marriage_year" min="1700" max="2100">
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <button type="button" class="btn-secondary" onclick="editor && editor.closeAddPersonModal()">Cancel</button>
+                            <button type="submit" class="btn-success">Add Person</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Edit Person Modal -->
+        <div id="edit-modal" class="modal" style="display: none;">
+            <div class="modal-content modal-large">
+                <div class="modal-header">
+                    <h2>✏️ Edit Person</h2>
+                    <span class="close" onclick="editor && editor.closeEditModal()">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <!-- GEDCOM Lookup Section -->
+                    <div class="gedcom-lookup-section">
+                        <div style="display: flex; gap: 10px; align-items: flex-end; margin-bottom: 20px;">
+                            <div class="form-group" style="flex: 1;">
+                                <label for="edit-lookup-name">Search in GEDCOM for additional data</label>
+                                <input type="text" id="edit-lookup-name" placeholder="Enter given name and surname...">
+                            </div>
+                            <button type="button" class="btn-primary" onclick="editor && editor.lookupInGedcomForEdit()">
+                                🔍 Lookup in GEDCOM
+                            </button>
+                        </div>
+                        <div id="edit-gedcom-lookup-results"></div>
+                    </div>
+
+                    <!-- Form Section -->
+                    <form id="edit-person-form" onsubmit="editor && editor.savePersonEdit(event)">
+                        <input type="hidden" id="edit-id">
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="edit-given-name">Given Name *</label>
+                                <input type="text" id="edit-given-name" name="given_name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="edit-surname">Surname *</label>
+                                <input type="text" id="edit-surname" name="surname" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="edit-maiden-name">Maiden Name</label>
+                                <input type="text" id="edit-maiden-name" name="maiden_name">
+                            </div>
+                            <div class="form-group">
+                                <label for="edit-gender">Gender *</label>
+                                <select id="edit-gender" name="gender" required>
+                                    <option value="M">Male</option>
+                                    <option value="F">Female</option>
+                                    <option value="U">Unknown</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="edit-birth-year">Birth Year</label>
+                                <input type="number" id="edit-birth-year" name="birth_year_estimate" min="1700" max="2100">
+                            </div>
+                            <div class="form-group">
+                                <label for="edit-death-year">Death Year</label>
+                                <input type="number" id="edit-death-year" name="death_year_estimate" min="1700" max="2100">
+                            </div>
+                            <div class="form-group">
+                                <label for="edit-place-birth">Place of Birth</label>
+                                <input type="text" id="edit-place-birth" name="place_of_birth" placeholder="Settlement name" list="place-suggestions">
+                            </div>
+                            <div class="form-group">
+                                <label for="edit-place-death">Place of Death</label>
+                                <input type="text" id="edit-place-death" name="place_of_death" placeholder="Settlement name" list="place-suggestions">
+                            </div>
+                            <datalist id="place-suggestions">
+                                <option value="Małyszyn">
+                                <option value="Tychów">
+                                <option value="Bór Iłżecki">
+                                <option value="Gaworzyna">
+                                <option value="Starosiedlice">
+                                <option value="Mirzec">
+                            </datalist>
+                            <div class="form-group">
+                                <label for="edit-occupations">Occupations (comma-separated)</label>
+                                <input type="text" id="edit-occupations" name="occupations" placeholder="e.g., farmer, miller">
+                            </div>
+                        </div>
+
+                        <!-- Add Relationship Section -->
+                        <div style="margin: 20px 0; padding: 15px; background: #f0f8ff; border-radius: 8px; border: 2px dashed #667eea;">
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <div>
+                                    <strong style="color: #333;">🔗 Relationships</strong>
+                                    <div style="font-size: 0.9rem; color: #666; margin-top: 4px;">Add parent, child, spouse, or other relationships</div>
+                                </div>
+                                <button type="button" class="btn-primary" onclick="editor && editor.openAddRelationshipModal()">
+                                    ➕ Add Relationship
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="button" class="btn-secondary" onclick="editor && editor.closeEditModal()">Cancel</button>
+                            <button type="submit" class="btn-success">Save Changes</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Add Relationship Modal -->
+        <div id="add-relationship-modal" class="modal" style="display: none;">
+            <div class="modal-content modal-large">
+                <div class="modal-header">
+                    <h2>🔗 Add Relationship</h2>
+                    <span class="close" onclick="editor && editor.closeAddRelationshipModal()">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <!-- Step 1: Select Relationship Type -->
+                    <div id="relationship-step-1">
+                        <div style="margin-bottom: 20px;">
+                            <label style="font-weight: 600; color: #333; display: block; margin-bottom: 10px;">
+                                Select Relationship Type:
+                            </label>
+                            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px;">
+                                <button type="button" class="relationship-type-btn" onclick="editor && editor.selectRelationshipType('parent', 'father')">
+                                    👨 Add Parent (Father)
+                                </button>
+                                <button type="button" class="relationship-type-btn" onclick="editor && editor.selectRelationshipType('parent', 'mother')">
+                                    👩 Add Parent (Mother)
+                                </button>
+                                <button type="button" class="relationship-type-btn" onclick="editor && editor.selectRelationshipType('child', 'son')">
+                                    👦 Add Child (Son)
+                                </button>
+                                <button type="button" class="relationship-type-btn" onclick="editor && editor.selectRelationshipType('child', 'daughter')">
+                                    👧 Add Child (Daughter)
+                                </button>
+                                <button type="button" class="relationship-type-btn" onclick="editor && editor.selectRelationshipType('spouse', 'spouse')">
+                                    💑 Add Spouse
+                                </button>
+                                <button type="button" class="relationship-type-btn" onclick="editor && editor.selectRelationshipType('godparent', 'godparent')">
+                                    🙏 Add Godparent
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Select or Create Person -->
+                    <div id="relationship-step-2" style="display: none;">
+                        <div style="margin-bottom: 20px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                                <div>
+                                    <strong id="relationship-type-label" style="color: #333; font-size: 1.1rem;"></strong>
+                                    <div style="font-size: 0.9rem; color: #666; margin-top: 4px;">Search for existing person or create new</div>
+                                </div>
+                                <button type="button" class="btn-secondary" onclick="editor && editor.backToRelationshipStep1()">
+                                    ← Back
+                                </button>
+                            </div>
+
+                            <!-- Search Existing Person -->
+                            <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+                                <div style="display: flex; gap: 10px; margin-bottom: 10px;">
+                                    <input type="text" id="relationship-person-search" placeholder="Search for existing person by name..." style="flex: 1; padding: 10px; border: 1px solid #ddd; border-radius: 6px;">
+                                    <button type="button" class="btn-primary" onclick="editor && editor.searchPersonsForRelationship()">
+                                        🔍 Search
+                                    </button>
+                                </div>
+                                <div id="relationship-search-results"></div>
+                            </div>
+
+                            <!-- Or Create New -->
+                            <div style="text-align: center; margin: 20px 0; color: #999; font-weight: 600;">
+                                — OR —
+                            </div>
+
+                            <button type="button" class="btn-success" style="width: 100%;" onclick="editor && editor.createNewPersonForRelationship()">
+                                ➕ Create New Person
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Create New Person Form -->
+                    <div id="relationship-step-3" style="display: none;">
+                        <div style="margin-bottom: 20px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                                <strong style="color: #333; font-size: 1.1rem;">Create New Person</strong>
+                                <button type="button" class="btn-secondary" onclick="editor && editor.backToRelationshipStep2()">
+                                    ← Back
+                                </button>
+                            </div>
+
+                            <form id="relationship-new-person-form">
+                                <div class="form-grid">
+                                    <div class="form-group">
+                                        <label>Given Name *</label>
+                                        <input type="text" id="rel-given-name" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Surname *</label>
+                                        <input type="text" id="rel-surname" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Gender *</label>
+                                        <select id="rel-gender" required>
+                                            <option value="M">Male</option>
+                                            <option value="F">Female</option>
+                                            <option value="U">Unknown</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Birth Year</label>
+                                        <input type="number" id="rel-birth-year" min="1700" max="2100">
+                                    </div>
+                                </div>
+                                <button type="button" class="btn-success" style="width: 100%; margin-top: 15px;" onclick="editor && editor.saveNewPersonAndRelationship()">
+                                    Create Person & Add Relationship
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- GEDCOM Relationship Add/Merge Modal -->
+        <div id="gedcom-relation-modal" class="modal" style="display: none;">
+            <div class="modal-content" style="max-width: 700px;">
+                <div class="modal-header">
+                    <h2>➕ Add Relationship from GEDCOM</h2>
+                    <span class="close" onclick="editor && editor.closeGedcomRelationModal()">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <!-- Person Info -->
+                    <div id="gedcom-relation-person-info" style="background: #667eea; color: white; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+                    </div>
+
+                    <!-- Relationship Info -->
+                    <div id="gedcom-relation-type-info" style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+                    </div>
+
+                    <!-- Action Selection -->
+                    <div id="gedcom-relation-action-selection" style="margin-bottom: 20px;">
+                        <div style="font-weight: 600; margin-bottom: 15px; color: #333;">Choose an action:</div>
+                        <div style="display: grid; gap: 15px;">
+                            <button type="button" class="btn-primary" onclick="editor && editor.addGedcomRelationAsNew()" style="padding: 15px; font-size: 1rem;">
+                                ➕ Add as New Person
+                            </button>
+                            <button type="button" class="btn-secondary" onclick="editor && editor.showMergeWithExisting()" style="padding: 15px; font-size: 1rem;">
+                                🔀 Merge with Existing Person
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Merge Section (hidden initially) -->
+                    <div id="gedcom-relation-merge-section" style="display: none;">
+                        <div style="margin-bottom: 15px;">
+                            <label style="font-weight: 600; display: block; margin-bottom: 8px;">Search for person to merge with:</label>
+                            <input type="text" id="gedcom-merge-search" placeholder="Type name to search..."
+                                   style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px;">
+                        </div>
+                        <div id="gedcom-merge-results" style="max-height: 300px; overflow-y: auto; border: 1px solid #ddd; border-radius: 4px; padding: 10px;">
+                        </div>
+
+                        <!-- Field Selection (shown after person selected) -->
+                        <div id="gedcom-merge-fields" style="display: none; margin-top: 20px; background: #f8f9fa; padding: 15px; border-radius: 8px;">
+                            <div style="font-weight: 600; margin-bottom: 10px;">Select fields to import from GEDCOM:</div>
+                            <div id="gedcom-merge-field-list" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 15px;">
+                            </div>
+                            <button type="button" class="btn-primary" onclick="editor && editor.confirmMergeGedcomRelation()" style="width: 100%; padding: 10px;">
+                                Confirm Merge and Add Relationship
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Cancel Button -->
+                    <div style="margin-top: 20px; text-align: right;">
+                        <button type="button" class="btn-secondary" onclick="editor && editor.closeGedcomRelationModal()">
+                            Cancel
+                        </button>
                     </div>
                 </div>
             </div>
@@ -143,7 +498,17 @@
         </div>
     </div>
 
-    <script src="app.js?v=5"></script>
-    <script src="editor.js?v=5"></script>
+    <script src="app.js?v=7"></script>
+    <script src="editor.js?v=7"></script>
+    <script src="enrichment.js?v=2"></script>
+    <script src="event-editor.js?v=2"></script>
+    <script>
+        // Initialize enrichment reviewer after app is ready
+        window.addEventListener('load', () => {
+            if (window.app) {
+                initEnrichmentReviewer(window.app);
+            }
+        });
+    </script>
 </body>
 </html>

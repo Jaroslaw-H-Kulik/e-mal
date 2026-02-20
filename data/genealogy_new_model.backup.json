@@ -368,8 +368,18 @@
       "gender": "M",
       "death_date": {
         "year": 1881,
+        "month": null,
+        "day": null,
         "circa": true
-      }
+      },
+      "maiden_name": null,
+      "birth_date": {
+        "year": 1813,
+        "month": null,
+        "day": null,
+        "circa": true
+      },
+      "occupation": null
     },
     "P0048": {
       "id": "P0048",
@@ -5358,13 +5368,6 @@
       "birth_date": null,
       "death_date": null,
       "occupation": null
-    },
-    "P0604": {
-      "id": "P0604",
-      "given_name": "Wawrzyniec",
-      "surname": "Surdey",
-      "gender": "M",
-      "confidence": "medium"
     }
   },
   "places": {
@@ -18747,6 +18750,6 @@
     "total_persons": 598,
     "total_events": 326,
     "total_relationships": 502,
-    "last_updated": "2026-02-18T13:05:10.188Z"
+    "last_updated": "2026-02-18T13:16:24.842Z"
   }
 }

@@ -1,6 +1,6 @@
 {
   "instructions": "Please review the gender classifications below. If you disagree with any classification, add a 'corrected_gender' field with value 'M' or 'F'. Save the file and rerun the parser.",
-  "total_uncertain": 171,
+  "total_uncertain": 145,
   "classifications": [
     {
       "given_name": "Augustyn",
@@ -203,16 +203,6 @@
       "maiden_name": null
     },
     {
-      "given_name": "Ludwik",
-      "surname": "Zaborowski",
-      "inferred_gender": "M",
-      "confidence": "medium",
-      "reason": "Polish name ending in consonant: Ludwik",
-      "birth_year": 1824,
-      "year_context": 1855,
-      "maiden_name": null
-    },
-    {
       "given_name": "Olimpia",
       "surname": "Odolska",
       "inferred_gender": "F",
@@ -253,52 +243,12 @@
       "maiden_name": null
     },
     {
-      "given_name": "Ambroży",
-      "surname": "Dymiński",
-      "inferred_gender": "M",
-      "confidence": "low",
-      "reason": "Name ending in vowel \"y\": Ambroży",
-      "birth_year": 1784,
-      "year_context": 1855,
-      "maiden_name": null
-    },
-    {
       "given_name": "Czesław",
       "surname": "Zatorski",
       "inferred_gender": "M",
       "confidence": "medium",
       "reason": "Polish name ending in consonant: Czesław",
       "birth_year": 1855,
-      "year_context": 1855,
-      "maiden_name": null
-    },
-    {
-      "given_name": "Walenty",
-      "surname": "Łęcki",
-      "inferred_gender": "M",
-      "confidence": "low",
-      "reason": "Name ending in vowel \"y\": Walenty",
-      "birth_year": null,
-      "year_context": 1855,
-      "maiden_name": null
-    },
-    {
-      "given_name": "Walenty",
-      "surname": "Nobis",
-      "inferred_gender": "M",
-      "confidence": "low",
-      "reason": "Name ending in vowel \"y\": Walenty",
-      "birth_year": 1831,
-      "year_context": 1855,
-      "maiden_name": null
-    },
-    {
-      "given_name": "Ambroży",
-      "surname": "Dymiński",
-      "inferred_gender": "M",
-      "confidence": "low",
-      "reason": "Name ending in vowel \"y\": Ambroży",
-      "birth_year": null,
       "year_context": 1855,
       "maiden_name": null
     },
@@ -319,16 +269,6 @@
       "confidence": "medium",
       "reason": "Polish name ending in \"a\": Teofila",
       "birth_year": 1853,
-      "year_context": 1855,
-      "maiden_name": null
-    },
-    {
-      "given_name": "Ambroży",
-      "surname": "Dymiński",
-      "inferred_gender": "M",
-      "confidence": "low",
-      "reason": "Name ending in vowel \"y\": Ambroży",
-      "birth_year": null,
       "year_context": 1855,
       "maiden_name": null
     },
@@ -413,62 +353,12 @@
       "maiden_name": null
     },
     {
-      "given_name": "Leon",
-      "surname": "Zatorska",
-      "inferred_gender": "M",
-      "confidence": "medium",
-      "reason": "Polish name ending in consonant: Leon",
-      "birth_year": 1856,
-      "year_context": 1856,
-      "maiden_name": null
-    },
-    {
       "given_name": "Marek",
       "surname": "Drożdż",
       "inferred_gender": "M",
       "confidence": "medium",
       "reason": "Polish name ending in consonant: Marek",
       "birth_year": 1856,
-      "year_context": 1856,
-      "maiden_name": null
-    },
-    {
-      "given_name": "Ambroży",
-      "surname": "Dymiński",
-      "inferred_gender": "M",
-      "confidence": "low",
-      "reason": "Name ending in vowel \"y\": Ambroży",
-      "birth_year": 1784,
-      "year_context": 1856,
-      "maiden_name": null
-    },
-    {
-      "given_name": "Ambroży",
-      "surname": "Dymiński",
-      "inferred_gender": "M",
-      "confidence": "low",
-      "reason": "Name ending in vowel \"y\": Ambroży",
-      "birth_year": 1784,
-      "year_context": 1856,
-      "maiden_name": null
-    },
-    {
-      "given_name": "Ambroży",
-      "surname": "Dymiński",
-      "inferred_gender": "M",
-      "confidence": "low",
-      "reason": "Name ending in vowel \"y\": Ambroży",
-      "birth_year": 1784,
-      "year_context": 1856,
-      "maiden_name": null
-    },
-    {
-      "given_name": "Ludwik",
-      "surname": "Nosowicz",
-      "inferred_gender": "M",
-      "confidence": "medium",
-      "reason": "Polish name ending in consonant: Ludwik",
-      "birth_year": 1822,
       "year_context": 1856,
       "maiden_name": null
     },
@@ -513,62 +403,12 @@
       "maiden_name": null
     },
     {
-      "given_name": "Leon",
-      "surname": "Buchowski",
-      "inferred_gender": "M",
-      "confidence": "medium",
-      "reason": "Polish name ending in consonant: Leon",
-      "birth_year": 1816,
-      "year_context": 1856,
-      "maiden_name": null
-    },
-    {
-      "given_name": "Florian",
-      "surname": "Chojnacki",
-      "inferred_gender": "M",
-      "confidence": "medium",
-      "reason": "Polish name ending in consonant: Florian",
-      "birth_year": 1806,
-      "year_context": 1856,
-      "maiden_name": null
-    },
-    {
       "given_name": "Jacek",
       "surname": "Dymiński",
       "inferred_gender": "M",
       "confidence": "medium",
       "reason": "Polish name ending in consonant: Jacek",
       "birth_year": 1816,
-      "year_context": 1856,
-      "maiden_name": null
-    },
-    {
-      "given_name": "Ambroży",
-      "surname": "Dymiński",
-      "inferred_gender": "M",
-      "confidence": "low",
-      "reason": "Name ending in vowel \"y\": Ambroży",
-      "birth_year": null,
-      "year_context": 1856,
-      "maiden_name": null
-    },
-    {
-      "given_name": "Ambroży",
-      "surname": "Dymiński",
-      "inferred_gender": "M",
-      "confidence": "low",
-      "reason": "Name ending in vowel \"y\": Ambroży",
-      "birth_year": null,
-      "year_context": 1856,
-      "maiden_name": null
-    },
-    {
-      "given_name": "Ambroży",
-      "surname": "Dymiński",
-      "inferred_gender": "M",
-      "confidence": "low",
-      "reason": "Name ending in vowel \"y\": Ambroży",
-      "birth_year": null,
       "year_context": 1856,
       "maiden_name": null
     },
@@ -580,16 +420,6 @@
       "reason": "Polish name ending in consonant: Ludwik",
       "birth_year": 1850,
       "year_context": 1856,
-      "maiden_name": null
-    },
-    {
-      "given_name": "Wiktoria",
-      "surname": "Chojnacka",
-      "inferred_gender": "F",
-      "confidence": "medium",
-      "reason": "Polish name ending in \"a\": Wiktoria",
-      "birth_year": null,
-      "year_context": 1857,
       "maiden_name": null
     },
     {
@@ -743,46 +573,6 @@
       "maiden_name": null
     },
     {
-      "given_name": "Ambroży",
-      "surname": "Dymiński",
-      "inferred_gender": "M",
-      "confidence": "low",
-      "reason": "Name ending in vowel \"y\": Ambroży",
-      "birth_year": null,
-      "year_context": 1857,
-      "maiden_name": null
-    },
-    {
-      "given_name": "Ambroży",
-      "surname": "Dymiński",
-      "inferred_gender": "M",
-      "confidence": "low",
-      "reason": "Name ending in vowel \"y\": Ambroży",
-      "birth_year": null,
-      "year_context": 1857,
-      "maiden_name": null
-    },
-    {
-      "given_name": "Ambroży",
-      "surname": "Dymiński",
-      "inferred_gender": "M",
-      "confidence": "low",
-      "reason": "Name ending in vowel \"y\": Ambroży",
-      "birth_year": null,
-      "year_context": 1857,
-      "maiden_name": null
-    },
-    {
-      "given_name": "Ambroży",
-      "surname": "Dymiński",
-      "inferred_gender": "M",
-      "confidence": "low",
-      "reason": "Name ending in vowel \"y\": Ambroży",
-      "birth_year": null,
-      "year_context": 1857,
-      "maiden_name": null
-    },
-    {
       "given_name": "Ludwik",
       "surname": "Kiełek",
       "inferred_gender": "M",
@@ -893,16 +683,6 @@
       "maiden_name": null
     },
     {
-      "given_name": "Karol",
-      "surname": "Łęcki",
-      "inferred_gender": "M",
-      "confidence": "medium",
-      "reason": "Polish name ending in consonant: Karol",
-      "birth_year": null,
-      "year_context": 1858,
-      "maiden_name": null
-    },
-    {
       "given_name": "Teodoryk",
       "surname": "Krakowiak",
       "inferred_gender": "M",
@@ -963,36 +743,6 @@
       "maiden_name": null
     },
     {
-      "given_name": "Ludwika",
-      "surname": "Molga",
-      "inferred_gender": "F",
-      "confidence": "medium",
-      "reason": "Polish name ending in \"a\": Ludwika",
-      "birth_year": null,
-      "year_context": 1858,
-      "maiden_name": null
-    },
-    {
-      "given_name": "Karol",
-      "surname": "Łęcki",
-      "inferred_gender": "M",
-      "confidence": "medium",
-      "reason": "Polish name ending in consonant: Karol",
-      "birth_year": null,
-      "year_context": 1858,
-      "maiden_name": null
-    },
-    {
-      "given_name": "Karol",
-      "surname": "Łęcki",
-      "inferred_gender": "M",
-      "confidence": "medium",
-      "reason": "Polish name ending in consonant: Karol",
-      "birth_year": null,
-      "year_context": 1858,
-      "maiden_name": null
-    },
-    {
       "given_name": "Władysław",
       "surname": "Drożdż",
       "inferred_gender": "M",
@@ -1003,31 +753,11 @@
       "maiden_name": null
     },
     {
-      "given_name": "Walenty",
-      "surname": "Pietrzyk",
-      "inferred_gender": "M",
-      "confidence": "low",
-      "reason": "Name ending in vowel \"y\": Walenty",
-      "birth_year": null,
-      "year_context": 1858,
-      "maiden_name": null
-    },
-    {
       "given_name": "Wiktoria",
       "surname": "Zatorska",
       "inferred_gender": "F",
       "confidence": "medium",
       "reason": "Polish name ending in \"a\": Wiktoria",
-      "birth_year": null,
-      "year_context": 1858,
-      "maiden_name": null
-    },
-    {
-      "given_name": "Walenty",
-      "surname": "Pietrzyk",
-      "inferred_gender": "M",
-      "confidence": "low",
-      "reason": "Name ending in vowel \"y\": Walenty",
       "birth_year": null,
       "year_context": 1858,
       "maiden_name": null
@@ -1063,6 +793,16 @@
       "maiden_name": null
     },
     {
+      "given_name": "Gabryel",
+      "surname": "Kozłowski",
+      "inferred_gender": "M",
+      "confidence": "medium",
+      "reason": "Polish name ending in consonant: Gabryel",
+      "birth_year": 1859,
+      "year_context": 1859,
+      "maiden_name": null
+    },
+    {
       "given_name": "Cecylia",
       "surname": "Chojnacka",
       "inferred_gender": "F",
@@ -1073,12 +813,32 @@
       "maiden_name": null
     },
     {
+      "given_name": "Matylda",
+      "surname": "Janowski",
+      "inferred_gender": "F",
+      "confidence": "medium",
+      "reason": "Polish name ending in \"a\": Matylda",
+      "birth_year": 1859,
+      "year_context": 1859,
+      "maiden_name": null
+    },
+    {
       "given_name": "Konstanty",
       "surname": "Gumiński",
       "inferred_gender": "M",
       "confidence": "low",
       "reason": "Name ending in vowel \"y\": Konstanty",
       "birth_year": null,
+      "year_context": 1859,
+      "maiden_name": null
+    },
+    {
+      "given_name": "Dionizy",
+      "surname": "Zatorski",
+      "inferred_gender": "M",
+      "confidence": "low",
+      "reason": "Name ending in vowel \"y\": Dionizy",
+      "birth_year": 1859,
       "year_context": 1859,
       "maiden_name": null
     },
@@ -1103,16 +863,6 @@
       "maiden_name": null
     },
     {
-      "given_name": "Kamil",
-      "surname": "Unknown",
-      "inferred_gender": "M",
-      "confidence": "medium",
-      "reason": "Polish name ending in consonant: Kamil",
-      "birth_year": null,
-      "year_context": 1859,
-      "maiden_name": null
-    },
-    {
       "given_name": "Jacek",
       "surname": "Chmolowski",
       "inferred_gender": "M",
@@ -1133,12 +883,12 @@
       "maiden_name": null
     },
     {
-      "given_name": "Jacek",
-      "surname": "Chmolowski",
-      "inferred_gender": "M",
+      "given_name": "Domicella",
+      "surname": "Molga",
+      "inferred_gender": "F",
       "confidence": "medium",
-      "reason": "Polish name ending in consonant: Jacek",
-      "birth_year": null,
+      "reason": "Polish name ending in \"a\": Domicella",
+      "birth_year": 1859,
       "year_context": 1859,
       "maiden_name": null
     },
@@ -1149,6 +899,46 @@
       "confidence": "medium",
       "reason": "Polish name ending in consonant: Jacek",
       "birth_year": null,
+      "year_context": 1859,
+      "maiden_name": null
+    },
+    {
+      "given_name": "Julianna",
+      "surname": "Jaros",
+      "inferred_gender": "F",
+      "confidence": "medium",
+      "reason": "Polish name ending in \"a\": Julianna",
+      "birth_year": 1859,
+      "year_context": 1859,
+      "maiden_name": null
+    },
+    {
+      "given_name": "Jacek",
+      "surname": "Chmolowski",
+      "inferred_gender": "M",
+      "confidence": "medium",
+      "reason": "Polish name ending in consonant: Jacek",
+      "birth_year": null,
+      "year_context": 1859,
+      "maiden_name": null
+    },
+    {
+      "given_name": "Petronella",
+      "surname": "Pacek",
+      "inferred_gender": "F",
+      "confidence": "medium",
+      "reason": "Polish name ending in \"a\": Petronella",
+      "birth_year": null,
+      "year_context": 1859,
+      "maiden_name": null
+    },
+    {
+      "given_name": "Wiktoria",
+      "surname": "Spadło",
+      "inferred_gender": "F",
+      "confidence": "medium",
+      "reason": "Polish name ending in \"a\": Wiktoria",
+      "birth_year": 1859,
       "year_context": 1859,
       "maiden_name": null
     },
@@ -1173,12 +963,32 @@
       "maiden_name": null
     },
     {
+      "given_name": "Sabina",
+      "surname": "Chmolowski",
+      "inferred_gender": "F",
+      "confidence": "medium",
+      "reason": "Polish name ending in \"a\": Sabina",
+      "birth_year": 1859,
+      "year_context": 1859,
+      "maiden_name": null
+    },
+    {
       "given_name": "Agata",
       "surname": "Niewczas",
       "inferred_gender": "F",
       "confidence": "medium",
       "reason": "Polish name ending in \"a\": Agata",
       "birth_year": null,
+      "year_context": 1859,
+      "maiden_name": null
+    },
+    {
+      "given_name": "Łucja",
+      "surname": "Łapacz",
+      "inferred_gender": "F",
+      "confidence": "medium",
+      "reason": "Polish name ending in \"a\": Łucja",
+      "birth_year": 1859,
       "year_context": 1859,
       "maiden_name": null
     },
@@ -1203,12 +1013,12 @@
       "maiden_name": null
     },
     {
-      "given_name": "Józefa",
-      "surname": "Wancerz",
-      "inferred_gender": "F",
+      "given_name": "Aleksander",
+      "surname": "Zarzycki",
+      "inferred_gender": "M",
       "confidence": "medium",
-      "reason": "Polish name ending in \"a\": Józefa",
-      "birth_year": null,
+      "reason": "Polish name ending in consonant: Aleksander",
+      "birth_year": 1859,
       "year_context": 1859,
       "maiden_name": null
     },
@@ -1233,26 +1043,6 @@
       "maiden_name": null
     },
     {
-      "given_name": "Walenty",
-      "surname": "Pietrzyk",
-      "inferred_gender": "M",
-      "confidence": "low",
-      "reason": "Name ending in vowel \"y\": Walenty",
-      "birth_year": null,
-      "year_context": 1859,
-      "maiden_name": null
-    },
-    {
-      "given_name": "Karol",
-      "surname": "Łęcki",
-      "inferred_gender": "M",
-      "confidence": "medium",
-      "reason": "Polish name ending in consonant: Karol",
-      "birth_year": null,
-      "year_context": 1859,
-      "maiden_name": null
-    },
-    {
       "given_name": "Teodor",
       "surname": "Krakowiak",
       "inferred_gender": "M",
@@ -1273,32 +1063,12 @@
       "maiden_name": null
     },
     {
-      "given_name": "Florian",
-      "surname": "Gadys",
-      "inferred_gender": "M",
-      "confidence": "medium",
-      "reason": "Polish name ending in consonant: Florian",
-      "birth_year": null,
-      "year_context": 1859,
-      "maiden_name": null
-    },
-    {
       "given_name": "Julianna",
       "surname": "Krakowiak",
       "inferred_gender": "F",
       "confidence": "medium",
       "reason": "Polish name ending in \"a\": Julianna",
       "birth_year": 1847,
-      "year_context": 1859,
-      "maiden_name": null
-    },
-    {
-      "given_name": "Jacek",
-      "surname": "Dymiński",
-      "inferred_gender": "M",
-      "confidence": "medium",
-      "reason": "Polish name ending in consonant: Jacek",
-      "birth_year": null,
       "year_context": 1859,
       "maiden_name": null
     },
@@ -1313,16 +1083,6 @@
       "maiden_name": null
     },
     {
-      "given_name": "Jacek",
-      "surname": "Dymiński",
-      "inferred_gender": "M",
-      "confidence": "medium",
-      "reason": "Polish name ending in consonant: Jacek",
-      "birth_year": null,
-      "year_context": 1859,
-      "maiden_name": null
-    },
-    {
       "given_name": "Apolonia",
       "surname": "Synal",
       "inferred_gender": "F",
@@ -1333,13 +1093,23 @@
       "maiden_name": null
     },
     {
-      "given_name": "Jacek",
-      "surname": "Dymiński",
-      "inferred_gender": "M",
+      "given_name": "Agata",
+      "surname": "Kiełek",
+      "inferred_gender": "F",
       "confidence": "medium",
-      "reason": "Polish name ending in consonant: Jacek",
-      "birth_year": null,
-      "year_context": 1859,
+      "reason": "Polish name ending in \"a\": Agata",
+      "birth_year": 1860,
+      "year_context": 1860,
+      "maiden_name": null
+    },
+    {
+      "given_name": "Julianna",
+      "surname": "Orłowska",
+      "inferred_gender": "F",
+      "confidence": "medium",
+      "reason": "Polish name ending in \"a\": Julianna",
+      "birth_year": 1860,
+      "year_context": 1860,
       "maiden_name": null
     },
     {
@@ -1349,6 +1119,16 @@
       "confidence": "medium",
       "reason": "Polish name ending in \"a\": Gertruda",
       "birth_year": null,
+      "year_context": 1860,
+      "maiden_name": null
+    },
+    {
+      "given_name": "Eleonora",
+      "surname": "Zatorska",
+      "inferred_gender": "F",
+      "confidence": "medium",
+      "reason": "Polish name ending in \"a\": Eleonora",
+      "birth_year": 1860,
       "year_context": 1860,
       "maiden_name": null
     },
@@ -1363,12 +1143,12 @@
       "maiden_name": null
     },
     {
-      "given_name": "Konstanty",
-      "surname": "Gumiński",
+      "given_name": "Walenty",
+      "surname": "Nobis",
       "inferred_gender": "M",
       "confidence": "low",
-      "reason": "Name ending in vowel \"y\": Konstanty",
-      "birth_year": 1826,
+      "reason": "Name ending in vowel \"y\": Walenty",
+      "birth_year": null,
       "year_context": 1860,
       "maiden_name": null
     },
@@ -1383,6 +1163,16 @@
       "maiden_name": null
     },
     {
+      "given_name": "Florentyna",
+      "surname": "Głód",
+      "inferred_gender": "F",
+      "confidence": "medium",
+      "reason": "Polish name ending in \"a\": Florentyna",
+      "birth_year": 1860,
+      "year_context": 1860,
+      "maiden_name": null
+    },
+    {
       "given_name": "Regina",
       "surname": "Słyk",
       "inferred_gender": "F",
@@ -1393,23 +1183,13 @@
       "maiden_name": null
     },
     {
-      "given_name": "Karol",
+      "given_name": "Gracjan",
       "surname": "Łęcki",
       "inferred_gender": "M",
       "confidence": "medium",
-      "reason": "Polish name ending in consonant: Karol",
-      "birth_year": 1830,
+      "reason": "Polish name ending in consonant: Gracjan",
+      "birth_year": 1860,
       "year_context": 1860,
-      "maiden_name": null
-    },
-    {
-      "given_name": "Ludwik",
-      "surname": "Molga",
-      "inferred_gender": "M",
-      "confidence": "medium",
-      "reason": "Polish name ending in consonant: Ludwik",
-      "birth_year": null,
-      "year_context": 1862,
       "maiden_name": null
     },
     {
@@ -1443,16 +1223,6 @@
       "maiden_name": null
     },
     {
-      "given_name": "Karol",
-      "surname": "Łęcki",
-      "inferred_gender": "M",
-      "confidence": "medium",
-      "reason": "Polish name ending in consonant: Karol",
-      "birth_year": null,
-      "year_context": 1862,
-      "maiden_name": null
-    },
-    {
       "given_name": "Balbina",
       "surname": "Zielińska",
       "inferred_gender": "F",
@@ -1460,36 +1230,6 @@
       "reason": "Polish name ending in \"a\": Balbina",
       "birth_year": null,
       "year_context": 1862,
-      "maiden_name": null
-    },
-    {
-      "given_name": "Ludwik",
-      "surname": "Molga",
-      "inferred_gender": "M",
-      "confidence": "medium",
-      "reason": "Polish name ending in consonant: Ludwik",
-      "birth_year": null,
-      "year_context": 1862,
-      "maiden_name": null
-    },
-    {
-      "given_name": "Xi",
-      "surname": "Unknown",
-      "inferred_gender": "M",
-      "confidence": "low",
-      "reason": "Name ending in vowel \"i\": Xi",
-      "birth_year": null,
-      "year_context": 1863,
-      "maiden_name": null
-    },
-    {
-      "given_name": "Teofil",
-      "surname": "Salwa",
-      "inferred_gender": "M",
-      "confidence": "medium",
-      "reason": "Polish name ending in consonant: Teofil",
-      "birth_year": null,
-      "year_context": 1863,
       "maiden_name": null
     },
     {
@@ -1503,13 +1243,13 @@
       "maiden_name": null
     },
     {
-      "given_name": "Xi",
-      "surname": "Unknown",
+      "given_name": "Karol",
+      "surname": "Łęcki",
       "inferred_gender": "M",
-      "confidence": "low",
-      "reason": "Name ending in vowel \"i\": Xi",
-      "birth_year": null,
-      "year_context": 1863,
+      "confidence": "medium",
+      "reason": "Polish name ending in consonant: Karol",
+      "birth_year": 1831,
+      "year_context": 1865,
       "maiden_name": null
     },
     {
@@ -1533,13 +1273,13 @@
       "maiden_name": null
     },
     {
-      "given_name": "Feliks",
-      "surname": "Pacek",
+      "given_name": "Izydor",
+      "surname": "Unknown",
       "inferred_gender": "M",
       "confidence": "medium",
-      "reason": "Polish name ending in consonant: Feliks",
-      "birth_year": 1868,
-      "year_context": 1872,
+      "reason": "Polish name ending in consonant: Izydor",
+      "birth_year": null,
+      "year_context": 1874,
       "maiden_name": null
     },
     {
@@ -1553,13 +1293,13 @@
       "maiden_name": null
     },
     {
-      "given_name": "Walenty",
-      "surname": "Unknown",
+      "given_name": "Maksymilian",
+      "surname": "Głód",
       "inferred_gender": "M",
-      "confidence": "low",
-      "reason": "Name ending in vowel \"y\": Walenty",
+      "confidence": "medium",
+      "reason": "Polish name ending in consonant: Maksymilian",
       "birth_year": null,
-      "year_context": 1876,
+      "year_context": 1875,
       "maiden_name": null
     },
     {
@@ -1573,53 +1313,43 @@
       "maiden_name": null
     },
     {
-      "given_name": "Erazm",
-      "surname": "Kiełek",
+      "given_name": "Czesław",
+      "surname": "Kulik",
       "inferred_gender": "M",
       "confidence": "medium",
-      "reason": "Polish name ending in consonant: Erazm",
+      "reason": "Polish name ending in consonant: Czesław",
       "birth_year": null,
-      "year_context": 1887,
+      "year_context": 1884,
       "maiden_name": null
     },
     {
-      "given_name": "Aleksander",
-      "surname": "Wancerz",
+      "given_name": "Wincent",
+      "surname": "Surdey",
       "inferred_gender": "M",
       "confidence": "medium",
-      "reason": "Polish name ending in consonant: Aleksander",
+      "reason": "Polish name ending in consonant: Wincent",
       "birth_year": null,
+      "year_context": 1885,
+      "maiden_name": null
+    },
+    {
+      "given_name": "Karolina",
+      "surname": "Kruk",
+      "inferred_gender": "F",
+      "confidence": "medium",
+      "reason": "Polish name ending in \"a\": Karolina",
+      "birth_year": 1889,
+      "year_context": 1889,
+      "maiden_name": null
+    },
+    {
+      "given_name": "Józefa",
+      "surname": "Kruk",
+      "inferred_gender": "F",
+      "confidence": "medium",
+      "reason": "Polish name ending in \"a\": Józefa",
+      "birth_year": 1891,
       "year_context": 1891,
-      "maiden_name": null
-    },
-    {
-      "given_name": "Jacek",
-      "surname": "Chmolowski",
-      "inferred_gender": "M",
-      "confidence": "medium",
-      "reason": "Polish name ending in consonant: Jacek",
-      "birth_year": null,
-      "year_context": 1891,
-      "maiden_name": null
-    },
-    {
-      "given_name": "Erazm",
-      "surname": "Kiełek",
-      "inferred_gender": "M",
-      "confidence": "medium",
-      "reason": "Polish name ending in consonant: Erazm",
-      "birth_year": null,
-      "year_context": 1892,
-      "maiden_name": null
-    },
-    {
-      "given_name": "Aleksander",
-      "surname": "Wancerz",
-      "inferred_gender": "M",
-      "confidence": "medium",
-      "reason": "Polish name ending in consonant: Aleksander",
-      "birth_year": null,
-      "year_context": 1894,
       "maiden_name": null
     },
     {
@@ -1633,13 +1363,13 @@
       "maiden_name": null
     },
     {
-      "given_name": "Łucja",
-      "surname": "Niewczas",
+      "given_name": "Józefa",
+      "surname": "Kulik",
       "inferred_gender": "F",
       "confidence": "medium",
-      "reason": "Polish name ending in \"a\": Łucja",
-      "birth_year": null,
-      "year_context": 1898,
+      "reason": "Polish name ending in \"a\": Józefa",
+      "birth_year": 1902,
+      "year_context": 1902,
       "maiden_name": null
     },
     {
@@ -1680,6 +1410,16 @@
       "reason": "Polish name ending in consonant: Kacper",
       "birth_year": null,
       "year_context": 1909,
+      "maiden_name": null
+    },
+    {
+      "given_name": "Władysław",
+      "surname": "Kulik",
+      "inferred_gender": "M",
+      "confidence": "medium",
+      "reason": "Polish name ending in consonant: Władysław",
+      "birth_year": 1912,
+      "year_context": 1912,
       "maiden_name": null
     },
     {

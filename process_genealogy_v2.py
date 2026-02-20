@@ -26,6 +26,9 @@ class Person:
     gender: str = "U"
     birth_year_estimate: Optional[int] = None
     death_year_estimate: Optional[int] = None
+    place_of_birth: Optional[str] = None
+    place_of_death: Optional[str] = None
+    marriage_year: Optional[int] = None
     occupations: List[str] = field(default_factory=list)
     confidence: str = "medium"
 
@@ -247,46 +250,131 @@ class GenealogyParserV2:
         date_day = int(date_match.group(1)) if date_match else None
         date_month = int(date_match.group(2)) if date_match else None
 
-        # Parse: Father i Mother z d. [maiden name]
-        parents_pattern = r'^([^:]+?)\s+i\s+([^:,]+?)(?:\s+z\s+d\.?\s+([^:,]+?))?(?::|,)'
-        parents_match = re.search(parents_pattern, line)
+        # Parse parents - try two formats:
+        # Format 1: Father i Mother z d. [maiden]: ...
+        # Format 2: Father, św: witnesses, z Mother z d. [maiden], ...
 
         father_name = None
         father_age = None
         mother_given_name = None
         mother_maiden_name = None
 
-        if parents_match:
-            father_text = parents_match.group(1).strip()
-            mother_text = parents_match.group(2).strip()
-            mother_maiden_name = parents_match.group(3).strip() if parents_match.group(3) else None
+        # Determine format by checking position of witnesses relative to mother
+        # Format 2: Father, świadkowie. witnesses, z Mother (witnesses BETWEEN parents)
+        # Format 1: Father i Mother, świadkowie: witnesses (witnesses AFTER parents)
 
-            # Parse father: "Name Surname (age)" or "Name Surname"
-            father_match = re.match(r'([A-ZŹŻĄĘĆŁŃÓŚ][a-zźżąęćłńóś]+)\s+([A-ZŹŻĄĘĆŁŃÓŚ][a-zźżąęćłńóś]+)(?:\s+\((\d+)[^\)]*\))?', father_text)
-            if father_match:
-                father_given = father_match.group(1)
-                father_surname = father_match.group(2)
-                father_age = int(father_match.group(3)) if father_match.group(3) else None
-                father_name = (father_given, father_surname)
+        # Check if "świadkowie" or "św" appears BEFORE mother indicator
+        # Mother can be indicated by: ", z Mother" or " z d. Maiden"
+        mother_indicators = [', z ', ' z d.']
+        mother_pos = 9999
+        for indicator in mother_indicators:
+            pos = line.find(indicator)
+            if pos != -1:
+                mother_pos = min(mother_pos, pos)
 
-            # Parse mother: "Name Surname" or "Name"
-            mother_match = re.match(r'([A-ZŹŻĄĘĆŁŃÓŚ][a-zźżąęćłńóś]+)(?:\s+([A-ZŹŻĄĘĆŁŃÓŚ][a-zźżąęćłńóś]+))?', mother_text)
-            if mother_match:
-                mother_given_name = mother_match.group(1)
+        # Find position of witnesses marker
+        sw_match = re.search(r',\s*[śs]w[ieadkow.:\s]*', line, re.IGNORECASE)
+        sw_pos = sw_match.start() if sw_match else 9999
 
-        # Extract witnesses (św:)
+        # Format 2 if witnesses appear BEFORE mother indicator
+        has_witnesses_between = (sw_pos < mother_pos) and sw_pos < 100
+
+        if has_witnesses_between:
+            # Format 2: "Father, św: witnesses, z Mother z d. [maiden]"
+            # Extract father (before first comma or św:)
+            # Skip if person is marked as midwife (akuszerka/akuszeka)
+            father_match2 = re.match(r'^([A-ZŹŻĄĘĆŁŃÓŚ][a-zźżąęćłńóś]+)\s+([A-ZŹŻĄĘĆŁŃÓŚ][a-zźżąęćłńóś]+)(?:\s+\(([^\)]*)\))?,', line)
+            if father_match2:
+                father_given = father_match2.group(1)
+                father_surname = father_match2.group(2)
+                father_info = father_match2.group(3) if father_match2.group(3) else ""
+
+                # Check if this person is a midwife (not a parent)
+                if 'akuszer' in father_info.lower() or 'akuszek' in father_info.lower():
+                    # This is the midwife, not the father - skip
+                    father_name = None
+                else:
+                    # Try to extract age
+                    age_match = re.search(r'(\d+)', father_info)
+                    father_age = int(age_match.group(1)) if age_match else None
+                    father_name = (father_given, father_surname)
+
+            # Extract mother (after "z" but before "chrz" or end)
+            # Pattern: ", z Name z d. Maiden" or ", z Name d. Maiden" (space may be missing)
+            mother_match2 = re.search(r',\s*z\s+([A-ZŹŻĄĘĆŁŃÓŚ][a-zźżąęćłńóś]+?)(?:\s+z\s+d\.?|z\s+d\.?|\s+d\.?)\s+([A-ZŹŻĄĘĆŁŃÓŚ][a-zźżąęćłńóś]+)(?:[,:)\s]|$)', line)
+            if mother_match2:
+                mother_given_name = mother_match2.group(1)
+                mother_maiden_name = mother_match2.group(2)
+            else:
+                # Try without maiden name: ", z Name"
+                mother_match2_alt = re.search(r',\s*z\s+([A-ZŹŻĄĘĆŁŃÓŚ][a-zźżąęćłńóś]+)(?:[,:)\s]|$)', line)
+                if mother_match2_alt:
+                    mother_given_name = mother_match2_alt.group(1)
+
+        else:
+            # Format 1: "Father i Mother z d. [maiden]"
+            # Special case: "NN i Mother" means unknown father
+            # Check for NN (nomen nescio = unknown) pattern
+            if re.match(r'^.*,\s*NN\s+i\s+', line, re.IGNORECASE):
+                # Father is unknown, extract mother after "NN i"
+                mother_match_nn = re.search(r'NN\s+i\s+([A-ZŹŻĄĘĆŁŃÓŚ][a-zźżąęćłńóś]+)(?:\s+z\s+d\.?\s+([A-ZŹŻĄĘĆŁŃÓŚ][a-zźżąęćłńóś]+))?', line, re.IGNORECASE)
+                if mother_match_nn:
+                    mother_given_name = mother_match_nn.group(1)
+                    mother_maiden_name = mother_match_nn.group(2) if mother_match_nn.group(2) else None
+                    father_name = None  # Unknown father
+            else:
+                # Regular Format 1: "Father (age) i Mother z d. Maiden"
+                # More specific pattern: Father name must be at start, followed by " i "
+                # Pattern: FirstName Surname (age) i MotherFirstName ...
+                parents_pattern1 = r'^([A-ZŹŻĄĘĆŁŃÓŚ][a-zźżąęćłńóś]+)\s+([A-ZŹŻĄĘĆŁŃÓŚ][a-zźżąęćłńóś]+)(?:\s+\(([^\)]+)\))?\s+i\s+([A-ZŹŻĄĘĆŁŃÓŚ][a-zźżąęćłńóś]+)(?:\s+([A-ZŹŻĄĘĆŁŃÓŚ][a-zźżąęćłńóś]+))?(?:\s+z\s+d\.?\s+([A-ZŹŻĄĘĆŁŃÓŚ][a-zźżąęćłńóś]+))?'
+                parents_match = re.match(parents_pattern1, line)
+
+                if parents_match:
+                    # Format 1 matched
+                    father_given = parents_match.group(1)
+                    father_surname = parents_match.group(2)
+                    father_age_info = parents_match.group(3)
+                    mother_given_name = parents_match.group(4)
+                    mother_surname_explicit = parents_match.group(5)  # If mother has explicit surname
+                    mother_maiden_name = parents_match.group(6)
+
+                    # Parse father age
+                    if father_age_info:
+                        age_match = re.search(r'(\d+)', father_age_info)
+                        father_age = int(age_match.group(1)) if age_match else None
+                    else:
+                        father_age = None
+
+                    father_name = (father_given, father_surname)
+
+        # Extract witnesses (świadkowie:, świadkowie., św:)
         witnesses = []
-        witness_match = re.search(r'św:\s*([^-]+?)(?:\s*-\s*chrz|$)', line, re.IGNORECASE)
-        if witness_match:
-            witness_text = witness_match.group(1).strip()
-            witnesses = self.parse_person_list(witness_text)
+        # Try multiple witness patterns
+        witness_patterns = [
+            r'[śs]wiadkowie[:.]\s*([^,-]+?)(?:\s*[,-]\s*(?:chrz|z\s+[A-Z])|$)',  # świadkowie: or świadkowie.
+            r'św[:.]\s*([^-]+?)(?:\s*-\s*chrz|$)',  # św: or św.
+        ]
+        for pattern in witness_patterns:
+            witness_match = re.search(pattern, line, re.IGNORECASE)
+            if witness_match:
+                witness_text = witness_match.group(1).strip()
+                # Remove trailing comma if present
+                witness_text = witness_text.rstrip(',')
+                witnesses = self.parse_person_list(witness_text)
+                break
 
-        # Extract godparents (chrz.)
+        # Extract godparents (chrzestni:, chrz:, chrz.)
         godparents = []
-        godparent_match = re.search(r'chrz\.?\s+([^.]+?)(?:\.\s*[Uu]r[:.\s]|$)', line, re.IGNORECASE)
-        if godparent_match:
-            godparent_text = godparent_match.group(1).strip()
-            godparents = self.parse_person_list_with_initials(godparent_text)
+        godparent_patterns = [
+            r'chrzestni[:.]\s*([^.]+?)(?:\.\s*[Uu]r[:.\s]|,\s*ur[:.:]|$)',  # chrzestni: or chrzestni.
+            r'chrz[:.]\s*([^.]+?)(?:\.\s*[Uu]r[:.\s]|,\s*ur[:.:]|$)',  # chrz: or chrz.
+        ]
+        for pattern in godparent_patterns:
+            godparent_match = re.search(pattern, line, re.IGNORECASE)
+            if godparent_match:
+                godparent_text = godparent_match.group(1).strip()
+                godparents = self.parse_person_list_with_initials(godparent_text)
+                break
 
         # Extract child (Ur: or ur.)
         child_name = None
@@ -651,6 +739,9 @@ class GenealogyParserV2:
                               maiden_name: Optional[str] = None,
                               birth_year: Optional[int] = None,
                               death_year: Optional[int] = None,
+                              place_of_birth: Optional[str] = None,
+                              place_of_death: Optional[str] = None,
+                              marriage_year: Optional[int] = None,
                               year_context: Optional[int] = None) -> str:
         """Find existing or create new person"""
 
@@ -693,6 +784,12 @@ class GenealogyParserV2:
                             person.maiden_name = maiden_name
                         if death_year and not person.death_year_estimate:
                             person.death_year_estimate = death_year
+                        if place_of_birth and not person.place_of_birth:
+                            person.place_of_birth = place_of_birth
+                        if place_of_death and not person.place_of_death:
+                            person.place_of_death = place_of_death
+                        if marriage_year and not person.marriage_year:
+                            person.marriage_year = marriage_year
                         if gender != "U" and person.gender == "U":
                             person.gender = gender
                         return pid
@@ -702,6 +799,12 @@ class GenealogyParserV2:
                         person.maiden_name = maiden_name
                     if death_year and not person.death_year_estimate:
                         person.death_year_estimate = death_year
+                    if place_of_birth and not person.place_of_birth:
+                        person.place_of_birth = place_of_birth
+                    if place_of_death and not person.place_of_death:
+                        person.place_of_death = place_of_death
+                    if marriage_year and not person.marriage_year:
+                        person.marriage_year = marriage_year
                     if gender != "U" and person.gender == "U":
                         person.gender = gender
                     return pid
@@ -715,7 +818,10 @@ class GenealogyParserV2:
             maiden_name=maiden_name,
             gender=gender,
             birth_year_estimate=birth_year,
-            death_year_estimate=death_year
+            death_year_estimate=death_year,
+            place_of_birth=place_of_birth,
+            place_of_death=place_of_death,
+            marriage_year=marriage_year
         )
 
         self.persons[person_id] = person

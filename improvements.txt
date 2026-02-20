@@ -1,0 +1,114 @@
+Step 1. 
+
+When you do gedcom lookup, I don't want you to check exact matches. Great example is "Jędrzej Kruk". You have it in your model.
+
+In gedcom he's called "Andrzej (Jędrzej) Kruk". You need to make check take check if first name contains name typed. Same applies to last name.
+
+Step 2.
+
+When I edit personal info, there's place of birth and death. Apply location suggestions also there.
+
+Step 3.
+
+When I edit personal info and use gedcom lookup, you list found relationships. There's however no way to add them to the model.
+
+I want to have "add" option. This could open yet another modal window. There i want to have option to add new person or merge it with existing one. 
+
+Again, if merging i want to be able to select info imported from gedcom lookup.
+
+Step 4.
+When I open edit personal window again, I don't want to see results of previous gedcom lookup again.
+
+Even though i entered place of birth and death for different person. Those fields have same input for different person, when opened. It's wrong.
+
+Step 5. 
+When I edit an marriage event. There is info on parents of groom and bride. If those parents are already in the model, populate those fields with their data.
+
+Step 6. 
+When marriage event is updated i want to immediately see result without refresh page. Same applies to other event type.
+
+Step 7. 
+When you show relationship on person card, i want you to also show maiden name, if any, apart from first name and last name
+
+Step 8. 
+When a person is selected (person card), I want to have its id in url. So that, when i refresh, it opens same person card.
+When page is opened, I want to start with P0264 being selected.
+
+Step 9.
+When person is created. Generate birth/death events and populate them with data available (place of birth/death).
+If i edit birth/death date/place of a person in person card, i want you to also update them in related events.
+When I add birth/death date/place of a person, I want you to generate event for it under the hood (if it is not there). This person should be by default participant of either child or deceased type/role.
+
+When birth event is created for a person and there's a date, it should automatically added as birth date in person model (and reflected on person card).
+
+Step 10.
+
+When relationship is added to a person, locate and update respective event (or create one if its missing) with relation type. If a father is added, add him to birth event. If wive is added, add here to marriage event. etc.
+
+Step 11.
+Don't need summary:
+
+600
+Persons
+499
+Events
+507
+Relationships
+154
+Families
+
+Remove it from ui.
+
+Step 12.
+I perefer to have person card on left side, not on right.
+
+Step 13.
+When birth event is created and there is no marriage event created with them being participants, create one automatically. It should not be created, if there is already such event.
+
+Step 14. 
+When event is created from person card. It should automatically use info of selected person as:
+mother/father (depending on their gender) - for births
+deceased - for deaths
+bride/groom (depending on their gender) - for marriages
+
+Step 15.
+When relations are showed on person card, i want to see button that would open event establishing such relation between this person and other person.
+
+------------
+
+Step 16.
+When I try to add new relationship (spouse) to P0251 through gedcom lookup G1348, it fails. I want it to work and add marriage event.
+
+Step 17.
+Remove marriage year from person card edit modal. It's useless as there can be multiple marriages.
+
+Step 18. 
+P0542 (father) and P0543 (mother) participated in birth event of P0120 (child). I want you to parse all existing birth events and add synthetic marriage events between mothers and fathers if they do not exist already. 
+
+Step 19.
+When I add new person through add person button. Location dropdown does not appear. Fix it.
+
+Step 20.
+Show content of event on the bottom of edit event modal.
+
+Step 21.
+If I provide age of a person in any event (for example in witness data in death event), I want you to update birth event of that person by setting year calculated as year of event where age is provided - age provided.
+
+Step 22. 
+When you show participants of an event in person card, I want you to show if given person in participant list is related to person whose card it is (write how closely they are related if they are (aunt/uncle/cousin/etc.)).
+
+Step 23. 
+There may be some data issues, for example: 
+
+Person can have more than one birth event (where it participates as child).
+Person can have more than one death event (where it participates as deceased).
+Person cannot participate in events in roles such as groom/bride/witness/godparent/parent while being too young (let's assume 14 years old as starting point).
+Person can have birth event as mother while being too old (let's assume 50 years old as latest point - this applies only to female parents).
+Person can be too old participate in an event (let's assume that age 100 years - usually people don't live that long)
+Person cannot participate in the same event with two roles.
+
+If you detect such issues (assuming that you have age of given person). I want you to add "!" next to event on person card.
+
+Step 24.
+Importing relationship through gedcom lookup should open event creation view with prepopulated data of all participants if they are known.
+For example: In gedcom there are relationships between P0251, G0884 and G0885 (his parents). When I click on add G0885 I want to see both of them added to P0251's birth event in edit view.
