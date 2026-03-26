@@ -762,10 +762,16 @@ button {
 /* Edit Buttons in Person Details */
 .person-actions {
     display: flex;
-    gap: 10px;
+    flex-wrap: wrap;
+    gap: 6px;
     margin-top: 15px;
     padding-top: 15px;
     border-top: 2px solid #e0e0e0;
+}
+
+.person-actions button {
+    padding: 5px 10px;
+    font-size: 0.78rem;
 }
 
 /* Merge Modal */
@@ -1482,4 +1488,35 @@ button {
     border-color: #667eea;
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Model Switcher Tabs */
+.model-tab {
+    padding: 10px 20px;
+    background: white;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all 0.2s;
+    color: #555;
+}
+
+.model-tab:hover {
+    background: #f0f4ff;
+    border-color: #667eea;
+    transform: translateY(-1px);
+}
+
+.model-tab.active {
+    background: #667eea;
+    color: white;
+    border-color: #667eea;
+    box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+}
+
+.model-tab.active:hover {
+    background: #5568d3;
+    transform: translateY(0);
 }

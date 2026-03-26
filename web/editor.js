@@ -145,6 +145,21 @@ class GenealogyEditor {
             e.preventDefault();
             this.savePersonEdit();
         });
+
+        // Step 46: Auto-set gender from Polish given name on blur
+        const MALE_NAMES_ENDING_A = ['barnaba', 'bonawentura', 'kuba', 'sasza', 'jarema', 'seba'];
+        document.getElementById('edit-given-name').addEventListener('blur', () => {
+            const name = document.getElementById('edit-given-name').value.trim().toLowerCase();
+            if (!name) return;
+            const genderField = document.getElementById('edit-gender');
+            if (MALE_NAMES_ENDING_A.includes(name)) {
+                genderField.value = 'M';
+            } else if (name.endsWith('a')) {
+                genderField.value = 'F';
+            } else {
+                genderField.value = 'M';
+            }
+        });
     }
 
     openEditModal(personId) {
@@ -254,6 +269,13 @@ class GenealogyEditor {
                         <div style="font-size: 0.9rem; margin-top: 5px;">
                             ${match.gender} • ${match.birth_year || '?'} - ${match.death_year || '?'}
                         </div>
+                        ${match.father_name || match.mother_name ? `
+                            <div style="font-size: 0.85rem; color: #e0e7ff; margin-top: 4px;">
+                                ${match.father_name ? `👨 Father: ${match.father_name}` : ''}
+                                ${match.father_name && match.mother_name ? ' • ' : ''}
+                                ${match.mother_name ? `👩 Mother: ${match.mother_name}` : ''}
+                            </div>
+                        ` : ''}
                     </div>
 
                     <!-- Importable Fields -->
@@ -312,14 +334,13 @@ class GenealogyEditor {
                     ${match.events && match.events.length > 0 ? `
                         <div style="background: #fff3cd; padding: 15px; border-radius: 6px; margin-bottom: 10px;">
                             <div style="font-weight: 600; margin-bottom: 10px; color: #333;">📅 Events (${match.events.length}):</div>
-                            ${match.events.slice(0, 5).map(evt => `
+                            ${match.events.map(evt => `
                                 <div style="padding: 5px 0; border-bottom: 1px solid #e0e0e0; font-size: 0.9rem;">
                                     <strong>${evt.type}</strong>
                                     ${evt.date && evt.date.year ? `- ${evt.date.year}` : ''}
                                     ${evt.place ? `- ${evt.place}` : ''}
                                 </div>
                             `).join('')}
-                            ${match.events.length > 5 ? `<div style="margin-top: 5px; font-size: 0.85rem; font-style: italic;">...and ${match.events.length - 5} more</div>` : ''}
                         </div>
                     ` : ''}
 
@@ -366,7 +387,7 @@ class GenealogyEditor {
                         ${match.children && match.children.length > 0 ? `
                             <div>
                                 <strong>Children (${match.children.length}):</strong>
-                                ${match.children.slice(0, 5).map((c, cIndex) => `
+                                ${match.children.map((c, cIndex) => `
                                     <div style="margin-left: 15px; display: flex; align-items: center; justify-content: space-between; margin-top: 5px;">
                                         <span>• ${c.name}</span>
                                         <button type="button" class="btn-small" onclick="editor.openGedcomRelationModal(${index}, 'child', ${cIndex})" style="padding: 4px 12px; font-size: 0.85rem;">
@@ -374,7 +395,6 @@ class GenealogyEditor {
                                         </button>
                                     </div>
                                 `).join('')}
-                                ${match.children.length > 5 ? `<div style="margin-left: 15px; font-size: 0.85rem; font-style: italic; margin-top: 5px;">...and ${match.children.length - 5} more</div>` : ''}
                             </div>
                         ` : ''}
                     </div>
@@ -448,6 +468,8 @@ class GenealogyEditor {
             place_of_death: placeDeath
         };
 
+        console.log('Saving person with data:', updateData);
+
         try {
             // Step 9: Use new update endpoint that syncs to events
             const response = await fetch('/api/update-person', {
@@ -457,6 +479,7 @@ class GenealogyEditor {
             });
 
             const result = await response.json();
+            console.log('Server response:', result);
 
             if (result.success) {
                 // Update local person data

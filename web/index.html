@@ -15,6 +15,17 @@
             <p class="subtitle">Parish of Grzybowa Góra (1826-1914)</p>
         </header>
 
+        <!-- Model Switcher -->
+        <div style="background: #f8f9fa; border-bottom: 2px solid #e0e0e0; padding: 10px 20px; display: flex; gap: 10px; align-items: center;">
+            <span style="font-weight: 600; color: #555; margin-right: 10px;">Data Source:</span>
+            <button id="model-tab-internal" class="model-tab active" onclick="app && app.switchModel('internal')">
+                📊 Internal Model <span id="internal-count" style="font-size: 0.85em; color: #666;"></span>
+            </button>
+            <button id="model-tab-gedcom" class="model-tab" onclick="app && app.switchModel('gedcom')">
+                📁 GEDCOM Model <span id="gedcom-count" style="font-size: 0.85em; color: #666;"></span>
+            </button>
+        </div>
+
         <!-- Editor Toolbar -->
         <div class="toolbar">
             <button class="btn-success" onclick="editor && editor.openAddPersonModal()">➕ Add Person</button>
@@ -491,6 +502,41 @@
             </div>
         </div>
 
+        <!-- Geneteka Import Options Modal -->
+        <div id="geneteka-import-options-modal" class="modal" style="display: none;">
+            <div class="modal-content" style="max-width: 480px;">
+                <div class="modal-header">
+                    <h2>📥 Geneteka Import</h2>
+                    <span class="close" onclick="document.getElementById('geneteka-import-options-modal').style.display='none'">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <p style="color: #666; margin-bottom: 20px;">Choose what to look up on Geneteka:</p>
+                    <div style="display: grid; gap: 12px;">
+                        <button class="btn-secondary" style="padding: 14px; font-size: 1rem; text-align: left;"
+                                onclick="app.startGenetikaChildrenImport()">
+                            👶 Children Import
+                            <div style="font-size: 0.82rem; color: #888; margin-top: 4px;">Find birth records where this person appears as a parent</div>
+                        </button>
+                        <button class="btn-secondary" style="padding: 14px; font-size: 1rem; text-align: left;"
+                                onclick="app.startGenetikaBirthLookup()">
+                            🎂 Birth Lookup
+                            <div style="font-size: 0.82rem; color: #888; margin-top: 4px;">Find this person's own birth record</div>
+                        </button>
+                        <button class="btn-secondary" style="padding: 14px; font-size: 1rem; text-align: left;"
+                                onclick="app.startGenetikaMarriageLookup()">
+                            💍 Marriage Lookup
+                            <div style="font-size: 0.82rem; color: #888; margin-top: 4px;">Find this person's marriage record(s)</div>
+                        </button>
+                        <button class="btn-secondary" style="padding: 14px; font-size: 1rem; text-align: left;"
+                                onclick="app.startGenetikaDeathLookup()">
+                            ✝ Death Lookup
+                            <div style="font-size: 0.82rem; color: #888; margin-top: 4px;">Find this person's death record</div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- Loading Overlay -->
         <div id="loading-overlay" class="loading-overlay">
             <div class="loader"></div>
@@ -498,10 +544,10 @@
         </div>
     </div>
 
-    <script src="app.js?v=7"></script>
+    <script src="app.js?v=10"></script>
     <script src="editor.js?v=7"></script>
     <script src="enrichment.js?v=2"></script>
-    <script src="event-editor.js?v=2"></script>
+    <script src="event-editor.js?v=5"></script>
     <script>
         // Initialize enrichment reviewer after app is ready
         window.addEventListener('load', () => {

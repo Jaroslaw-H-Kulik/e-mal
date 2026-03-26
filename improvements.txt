@@ -112,3 +112,109 @@ If you detect such issues (assuming that you have age of given person). I want y
 Step 24.
 Importing relationship through gedcom lookup should open event creation view with prepopulated data of all participants if they are known.
 For example: In gedcom there are relationships between P0251, G0884 and G0885 (his parents). When I click on add G0885 I want to see both of them added to P0251's birth event in edit view.
+
+-----------
+Step 25
+When death date is imported in person edit gedcome lookup (P0122), it is not populated into death event. Fix it.
+
+Step 26.
+When you list matches found from internal model or gedcom (Found 2 matching person(s):), provide parents info (name/surname) in summary as well and maiden name
+
+Step 27.
+On person card when relationships are show, i want you to mention link to edit event, from which relationship is taken.
+
+Step 28.
+Why is P0119 mentioned as spouse of P0120 and P0264? It is bug.
+
+Step 29. 
+When age of a father (or any other participant) is provided through birth event (or different event) of his child is provided, birth date is not updated. You must create birth event if not present and calculate birth date from age provided based on event where its provided.
+
+Step 30.
+When parent is created through child bith event, you must also create marriage relationship between parents.
+
+Step 31. 
+In birth events if name/surname of witness exactly matches god parent's, do not create new entity for god parent. Use reference for entity created as witness.
+
+-----
+
+Step 32.
+If a person gets married, dies, gives birth to child (either as mother or father) I want you to assume that grandparents/parents/siblings (2 steps of blood relationship) of this person are also witnesses of this event. 
+
+They do not need to be listed explicitly as witnesses. I want those events to be listed in their events lists. Basically, i want to see all family events listed for every person. 
+
+Step 33. 
+Events from step 32 should be only visible during lifetime of person from person card. If you don't know death year, but you have birth year for this person, assume that events should be shown only 20 years from last event that given person explicitly participated in.
+
+Step 34.
+When an event is shown (family witness) - i want you to show relationship between primary participant of this event (child/deceased/groom/bride) and person shown as blood witness.
+
+Step 35.
+On a person card I want to "Geneteka Lookup" button. When clicked I want you to open new tab in browser. Link should go to:
+https://geneteka.genealodzy.pl/index.php?op=gt&lang=pol&bdm=B&w=13sk&rid=3382&search_lastname=Kruk&search_name=Brygida&search_lastname2=&search_name2=&from_date=&to_date=
+
+Link has search_lastname and search_name query params. Populate them with data of a person from person card. Remember link should be open in new tab. 
+
+Step 36.
+Add one more button to person card, geneteka import. It should use url from step 35 (populated with right data). From this page you need to extract info about children of a person selected. This link leads to page where birth records are listed. Person selected would be either farther (ojciec) or mother (matka). Use gender as a hint as well. If there are records on the page with person in question mentioned as parent, you need to extract this info. Each row on this page represents birth record that needs to be mapped to birth event. I don't want you to create those event automatically. If you find a match, you need view with create birth event and populate it with data found in a matched row - namely, year (rok), name of a child (Imię), last name (nazwisko - take father's last name), father's name (Imię ojca), Mothers name (Imię matki), Mothers maiden name (Nazwisko matki), mothers last name (take father's last name), place (miejscowość), Put all info from matched birth record into event Content/Summary (icluding info exctracted from uwagi coulmn). I need to review this data first, so i'll save it. 
+
+ If there are more birth records for given person, immediately after event edit window is closed (either saved or cancelled), you need to open window with next birth event - next row mapped accordingly.
+
+ Before you start coding, i want you to analyse the page from example link. Think of potential issues, come up with suggestions. Make sure you understand structure of geneteka page.
+
+ Step 37. 
+ Do not show "Family events" which do not have date set in event list on person card.
+
+ Step 38.
+ Change "Geneteka Import" button. Once clicked it should give options to select. Similar to "Add event" button. Options:
+    - "Children Import" - this is what "Geneteka Import" does at the moment.
+    - "Birth lookup" - this should use lookup logic from 36, but instead of looking for birth records of children of person in question, it should look for birth record of this particular person. So it should check for name of a child (Imię), last name (nazwisko - important caviard: when person in question is female, you need to use maiden name!). If there is any record matched, create a birth event a prepopulate it with data in similar way as it is described in step 35. Note that here, person is a child, and parents data needs to be extracted.
+    - "Marriage lookup" - similar task to step 35, but this time you need to use different page:
+    https://geneteka.genealodzy.pl/index.php?op=gt&lang=pol&bdm=S&w=13sk&rid=3560&search_lastname=Myszka&search_name=Jan&search_lastname2=&search_name2=&from_date=&to_date=&rpp1=&ordertable= it is similar, use name and surname, query page, create prepopilated marriage event, let me review it. Remember to extract "Uwagi". When looking for females, remember to use maiden names. Take time to analyse page and marriage event form. Prepolute parents of groom and bride.
+    - "Death lookup"  similar task to step 35, but this time you need to use different page:
+    https://geneteka.genealodzy.pl/index.php?op=gt&lang=pol&bdm=D&w=13sk&rid=3384&search_lastname=Myszka&search_name=Jan&search_lastname2=&search_name2=&from_date=&to_date=&rpp1=&ordertable= - you are looking for match in Imię and Nazwisko, not other columns. Once match is located, create prepoluted death event for me to review.
+
+
+ Step 39.
+ On person card, make buttons smaller, avoid scrolling sidewards at all cost.
+
+ Step 40.
+ When children are listed on person card, they need to be sorted by birth year starting from oldest. 
+
+ Siblings on person card should also have birth year and be sorted in the same way.
+
+ Step 41. 
+ When a person has its own birth event and there's a place provided use this place when new event of marriage and death type is created. Prepolute said place. After all, most people were born and died in the same palce.
+
+ Step 42.
+On person card "Family events" are listed. I don't want you to list events where blood relative was a witness. Example: P0092 has event listed where his father is a witness. This is not a family event. Family event should be listed on person card only if blood relative is a participant as child, parent, deceased, bride, groom. Witness/godparent should not quafily.
+
+Step 43. 
+Show event id next to event on person card.
+
+Step 44.
+When birth event is added from person card, you already prepolute given person as father/mother depending on their sex. You need to prepopulate spouse's name as second parent if there's a marriage link established between them.
+
+Step 45.
+When there's no marriage link between 2 people, but there are listed as parents of a child in event. Create marriage event for them after birth event is persisted. If there is already such marriage event for them do nothing.
+
+Step 46.
+In person card, when personal data is edited, I want you to select right sex depending on person given name. In Polish when given name ends with "a", it's a female name. So when I type given name ending with "a", you need to change sex to female. Otherwise it should be male. Do the change given name form is unclicked.
+
+Step 47.
+Create new type of event - generic event. I should be able to create it with "Add event" button and select "Generic" option. This event type should support event date, place, house number, participants (3), tags, links, notes, event content. Relationship type established by this event should be called "participant".
+
+Generic event should have title. This title should be later shown as label on the list of event (just like "birth", "marriage", "death").
+
+Step 48.
+When event E0993is displayed on person card of P0487 - it has "generic" label. I want generic events to use title value for label.
+
+Step 49.
+In events list I want to also have spouse death (as well as sposuses of blood relatives that quafily to be shown in this events) listed.  
+
+Step 50. 
+On person card there are relatives/sposuses listed. I want to have specified their birth and death dates by their names. Everywhere consistently (at the momemnt children have birth dates and others don't).
+
+Step 51.
+When birth event are added, i want to have option to provide 3 witnesses in UI.
+
+Sort spouses by marriage year if known.

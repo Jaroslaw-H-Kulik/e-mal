@@ -8,6 +8,13 @@ class GenealogyApp {
         this.network = null;
         this.currentView = 'all';
         this.selectedPerson = null;
+        this.currentModel = 'internal'; // 'internal' or 'gedcom'
+
+        // Step 36/38: Geneteka import queue state
+        this.genetikaImportQueue = [];
+        this.genetikaImportIndex = 0;
+        this.genetikaImportPersonId = null;
+        this.genetikaImportType = null; // 'children', 'birth', 'marriage', 'death'
 
         // Performance: caches and indices
         this.relationshipCache = new Map();
@@ -41,6 +48,13 @@ class GenealogyApp {
         return `${person.first_name || ''} ${person.last_name || ''}`.trim();
     }
 
+    // Step 50: Compact lifespan label, e.g. "1820–1875" or "?–1875"
+    lifespan(person) {
+        const b = this.extractYear(person?.birth_date) ?? '?';
+        const d = this.extractYear(person?.death_date) ?? '?';
+        return `${b}–${d}`;
+    }
+
     // Person name with maiden name helper
     getFullNameWithMaiden(person) {
         const fullName = this.getFullName(person);
@@ -56,6 +70,8 @@ class GenealogyApp {
         this.setupEventListeners();
         this.createNetwork();
         this.updateStats();
+        this.updateModelCounts();
+        this.updateEditorButtons();
         this.hideLoading();
 
         // Handle URL-based person selection or default to P0264
@@ -64,8 +80,12 @@ class GenealogyApp {
 
     async loadData() {
         try {
-            // Load NEW model with cache-busting to ensure fresh data
-            const response = await fetch(`../data/genealogy_new_model.json?t=${Date.now()}`);
+            // Load selected model with cache-busting to ensure fresh data
+            const modelFile = this.currentModel === 'gedcom'
+                ? 'gedcom_model.json'
+                : 'genealogy_new_model.json';
+
+            const response = await fetch(`../data/${modelFile}?t=${Date.now()}`);
             const data = await response.json();
 
             // Update data structure references
@@ -109,6 +129,73 @@ class GenealogyApp {
         });
 
         console.log('Indices built');
+    }
+
+    async switchModel(modelType) {
+        if (this.currentModel === modelType) return;
+
+        // Show loading indicator
+        document.getElementById('network-container').innerHTML = '<div style="display: flex; align-items: center; justify-content: center; height: 100%; font-size: 1.2rem; color: #666;">Loading model...</div>';
+
+        // Update model type
+        this.currentModel = modelType;
+
+        // Update tab UI
+        document.getElementById('model-tab-internal').classList.toggle('active', modelType === 'internal');
+        document.getElementById('model-tab-gedcom').classList.toggle('active', modelType === 'gedcom');
+
+        // Clear selected person
+        this.selectedPerson = null;
+        document.getElementById('person-details').innerHTML = `
+            <div class="empty-state">
+                <div class="empty-icon">👤</div>
+                <p>Click on a person in the network to view details</p>
+            </div>`;
+
+        // Reload data
+        await this.loadData();
+
+        // Rebuild UI
+        this.setupUI();
+        this.createNetwork();
+        this.updateModelCounts();
+
+        // Disable/enable editor buttons based on model
+        this.updateEditorButtons();
+
+        console.log(`Switched to ${modelType} model`);
+    }
+
+    updateModelCounts() {
+        const internalCount = document.getElementById('internal-count');
+        const gedcomCount = document.getElementById('gedcom-count');
+
+        if (this.currentModel === 'internal') {
+            internalCount.textContent = `(${Object.keys(this.persons).length} persons)`;
+            gedcomCount.textContent = '';
+        } else {
+            gedcomCount.textContent = `(${Object.keys(this.persons).length} persons)`;
+            internalCount.textContent = '';
+        }
+    }
+
+    updateEditorButtons() {
+        // Disable editor buttons when viewing GEDCOM model (read-only)
+        const isReadOnly = this.currentModel === 'gedcom';
+        const editorButtons = document.querySelectorAll('.toolbar button');
+
+        editorButtons.forEach(button => {
+            if (button.id !== 'reset-btn' && button.id !== 'search-btn') {
+                button.disabled = isReadOnly;
+                button.style.opacity = isReadOnly ? '0.5' : '1';
+                button.style.cursor = isReadOnly ? 'not-allowed' : 'pointer';
+                if (isReadOnly) {
+                    button.title = 'Editing disabled in GEDCOM view';
+                } else {
+                    button.title = '';
+                }
+            }
+        });
     }
 
     setupUI() {
@@ -471,11 +558,23 @@ class GenealogyApp {
             const death = this.extractYear(person.death_date) || '?';
             const gender = person.gender === 'M' ? '♂' : person.gender === 'F' ? '♀' : '?';
 
+            // Get parent information
+            const family = this.getFamily(id);
+            let parentInfo = '';
+            if (family.parents.length > 0) {
+                const parentNames = family.parents.map(p => {
+                    const parent = this.persons[p.id];
+                    return `${parent.first_name} ${parent.last_name} (${p.role})`;
+                }).join(', ');
+                parentInfo = ` • Parents: ${parentNames}`;
+            }
+
             item.innerHTML = `
                 <div class="result-name">${this.getFullName(person)} ${gender}</div>
                 <div class="result-info">
                     ${id} • ${birth}-${death}
                     ${person.maiden_name ? `• maiden: ${person.maiden_name}` : ''}
+                    ${parentInfo}
                 </div>
             `;
 
@@ -541,8 +640,10 @@ class GenealogyApp {
                 </div>
                 <div class="person-actions">
                     <button class="btn-primary" onclick="editor.openEditModal('${personId}')">✏️ Edit</button>
-                    <button class="btn-success" onclick="editor.selectPersonForMerge('${personId}')">🔗 Select for Merge</button>
+                    <button class="btn-success" onclick="editor.selectPersonForMerge('${personId}')">🔗 Merge</button>
                     <button class="btn-danger" onclick="genealogyApp.deletePerson('${personId}')">🗑️ Delete</button>
+                    <button class="btn-secondary" onclick="app.openGeneteka('${personId}')">🔍 Geneteka</button>
+                    <button class="btn-secondary" onclick="app.openGenetikaImportOptions('${personId}')">📥 Import</button>
                 </div>
             </div>
         `;
@@ -557,9 +658,17 @@ class GenealogyApp {
                 html += '<div class="detail-label">Parents</div>';
                 family.parents.forEach(p => {
                     const parent = this.persons[p.id];
-                    html += `<div><a href="#" class="person-link" data-person-id="${p.id}">
-                        ${this.getFullNameWithMaiden(parent)} (${p.role})
-                    </a></div>`;
+                    html += `
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin: 4px 0;">
+                            <a href="#" class="person-link" data-person-id="${p.id}">
+                                ${this.getFullNameWithMaiden(parent)} (${p.role}, ${this.lifespan(parent)})
+                            </a>
+                            <button class="btn-secondary"
+                                    style="padding: 2px 8px; font-size: 0.7rem; margin-left: 8px;"
+                                    onclick="event.stopPropagation(); eventEditor.openEditEventModal('${p.eventId}')">
+                                📝 Event
+                            </button>
+                        </div>`;
                 });
                 html += '</div>';
             }
@@ -567,11 +676,27 @@ class GenealogyApp {
             if (family.spouses.length > 0) {
                 html += '<div class="detail-item">';
                 html += '<div class="detail-label">Spouse(s)</div>';
-                family.spouses.forEach(spouseId => {
-                    const spouse = this.persons[spouseId];
-                    html += `<div><a href="#" class="person-link" data-person-id="${spouseId}">
-                        ${this.getFullNameWithMaiden(spouse)}
-                    </a></div>`;
+                const sortedSpouses = [...family.spouses].sort((a, b) => {
+                    const ya = this.events[a.eventId]?.date?.year ?? null;
+                    const yb = this.events[b.eventId]?.date?.year ?? null;
+                    if (ya === null && yb === null) return 0;
+                    if (ya === null) return -1;
+                    if (yb === null) return 1;
+                    return ya - yb;
+                });
+                sortedSpouses.forEach(s => {
+                    const spouse = this.persons[s.id];
+                    html += `
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin: 4px 0;">
+                            <a href="#" class="person-link" data-person-id="${s.id}">
+                                ${this.getFullNameWithMaiden(spouse)} (${this.lifespan(spouse)})
+                            </a>
+                            <button class="btn-secondary"
+                                    style="padding: 2px 8px; font-size: 0.7rem; margin-left: 8px;"
+                                    onclick="event.stopPropagation(); eventEditor.openEditEventModal('${s.eventId}')">
+                                📝 Event
+                            </button>
+                        </div>`;
                 });
                 html += '</div>';
             }
@@ -579,12 +704,24 @@ class GenealogyApp {
             if (family.children.length > 0) {
                 html += '<div class="detail-item">';
                 html += `<div class="detail-label">Children (${family.children.length})</div>`;
-                family.children.forEach(childId => {
-                    const child = this.persons[childId];
-                    const birthYear = this.extractYear(child.birth_date) || '?';
-                    html += `<div><a href="#" class="person-link" data-person-id="${childId}">
-                        ${this.getFullNameWithMaiden(child)} (b. ${birthYear})
-                    </a></div>`;
+                const sortedChildren = [...family.children].sort((a, b) => {
+                    const ya = this.extractYear(this.persons[a.id]?.birth_date) || Infinity;
+                    const yb = this.extractYear(this.persons[b.id]?.birth_date) || Infinity;
+                    return ya - yb;
+                });
+                sortedChildren.forEach(c => {
+                    const child = this.persons[c.id];
+                    html += `
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin: 4px 0;">
+                            <a href="#" class="person-link" data-person-id="${c.id}">
+                                ${this.getFullNameWithMaiden(child)} (${this.lifespan(child)})
+                            </a>
+                            <button class="btn-secondary"
+                                    style="padding: 2px 8px; font-size: 0.7rem; margin-left: 8px;"
+                                    onclick="event.stopPropagation(); eventEditor.openEditEventModal('${c.eventId}')">
+                                📝 Event
+                            </button>
+                        </div>`;
                 });
                 html += '</div>';
             }
@@ -592,10 +729,15 @@ class GenealogyApp {
             if (family.siblings.length > 0) {
                 html += '<div class="detail-item">';
                 html += `<div class="detail-label">Siblings (${family.siblings.length})</div>`;
-                family.siblings.forEach(siblingId => {
+                const sortedSiblings = [...family.siblings].sort((a, b) => {
+                    const ya = this.extractYear(this.persons[a]?.birth_date) || Infinity;
+                    const yb = this.extractYear(this.persons[b]?.birth_date) || Infinity;
+                    return ya - yb;
+                });
+                sortedSiblings.forEach(siblingId => {
                     const sibling = this.persons[siblingId];
                     html += `<div><a href="#" class="person-link" data-person-id="${siblingId}">
-                        ${this.getFullNameWithMaiden(sibling)}
+                        ${this.getFullNameWithMaiden(sibling)} (${this.lifespan(sibling)})
                     </a></div>`;
                 });
                 html += '</div>';
@@ -672,10 +814,32 @@ class GenealogyApp {
                     personRoleHTML = `<div style="margin-top: 8px; padding: 6px 8px; background: #e8f4f8; border-left: 3px solid #667eea; border-radius: 3px; font-size: 0.9rem;">
                         ${roleInfo}
                     </div>`;
+                } else if (event.isFamilyEvent) {
+                    // Step 34: Show relationship between primary participant(s) and the blood witness
+                    const primaryParticipants = this.getEventPrimaryParticipants(eventId);
+                    const relParts = [];
+                    primaryParticipants.forEach(({ personId: primId }) => {
+                        if (primId && this.selectedPerson && primId !== this.selectedPerson) {
+                            const rel = this.getRelationship(this.selectedPerson, primId);
+                            const primPerson = this.persons[primId];
+                            if (rel && primPerson) {
+                                relParts.push(`${this.getFullName(primPerson)} (your <strong>${rel}</strong>)`);
+                            } else if (primPerson) {
+                                relParts.push(this.getFullName(primPerson));
+                            }
+                        }
+                    });
+                    const relText = relParts.length > 0 ? ' - ' + relParts.join(' &amp; ') : '';
+                    personRoleHTML = `<div style="margin-top: 8px; padding: 6px 8px; background: #e3f2fd; border-left: 3px solid #1976d2; border-radius: 3px; font-size: 0.9rem;">
+                        <strong>👨‍👩‍👧‍👦 Family Event</strong>${relText}
+                    </div>`;
                 }
 
                 // Step 23: Check for validation issues
                 const validationWarning = this.hasEventValidationIssue(eventId, personId) ? ' <span style="color: red; font-weight: bold;" title="Data issue detected">!</span>' : '';
+
+                // Step 32: Add "assumed" indicator for family events
+                const familyEventIndicator = event.isFamilyEvent ? ' <span style="color: #667eea; font-size: 0.8rem; font-style: italic;">(assumed)</span>' : '';
 
                 html += `
                     <div class="event-item expandable-event" data-event-id="${eventId}">
@@ -684,7 +848,8 @@ class GenealogyApp {
                                 <div style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
                                     <span class="event-expand-icon" id="expand-icon-${eventId}">▶</span>
                                     <div class="event-year">${year}${validationWarning}</div>
-                                    <span class="event-type">${event.type}</span>
+                                    <span class="event-type">${event.type === 'generic' ? (event.title || 'generic') : event.type}${familyEventIndicator}</span>
+                                    <span style="font-size: 0.75rem; color: #999; font-family: monospace;">${eventId}</span>
                                 </div>
                             </div>
                             <button class="btn-secondary" style="padding: 4px 8px; font-size: 0.75rem; margin-right: 4px;" onclick="event.stopPropagation(); eventEditor.openEditEventModal('${eventId}')">Edit</button>
@@ -695,7 +860,7 @@ class GenealogyApp {
                         </div>
                         ${personRoleHTML}
                         <div class="event-participants" id="participants-${eventId}" style="display: none; margin-top: 10px; padding: 10px; background: #f8f9fa; border-radius: 4px;">
-                            ${this.getEventParticipantsHTML(eventId)}
+                            ${this.getEventParticipantsHTML(eventId, event.isFamilyEvent)}
                         </div>
                     </div>
                 `;
@@ -763,7 +928,8 @@ class GenealogyApp {
                         if (!family.parents.find(p => p.id === f.person_id)) {
                             family.parents.push({
                                 id: f.person_id,
-                                role: 'father'
+                                role: 'father',
+                                eventId: ep.event_id
                             });
                         }
                     });
@@ -771,27 +937,35 @@ class GenealogyApp {
                         if (!family.parents.find(p => p.id === m.person_id)) {
                             family.parents.push({
                                 id: m.person_id,
-                                role: 'mother'
+                                role: 'mother',
+                                eventId: ep.event_id
                             });
                         }
                     });
                 } else if (ep.person_id === personId && (ep.role === 'father' || ep.role === 'mother')) {
                     // This person is a parent - collect children
-                    if (child && !family.children.includes(child.person_id)) {
-                        family.children.push(child.person_id);
+                    if (child && !family.children.find(c => c.id === child.person_id)) {
+                        family.children.push({
+                            id: child.person_id,
+                            eventId: ep.event_id
+                        });
                     }
                 }
             }
 
             // Marriage events contain spouse relationships
-            if (event.type === 'marriage' && ep.person_id === personId) {
+            // Only consider if person is bride/groom, not witness or other role
+            if (event.type === 'marriage' && ep.person_id === personId && (ep.role === 'groom' || ep.role === 'bride')) {
                 // Performance: Use participationsByEvent index
                 const participants = (this.participationsByEvent[ep.event_id] || [])
                     .filter(e => e.role === 'groom' || e.role === 'bride');
 
                 participants.forEach(p => {
-                    if (p.person_id !== personId && !family.spouses.includes(p.person_id)) {
-                        family.spouses.push(p.person_id);
+                    if (p.person_id !== personId && !family.spouses.find(s => s.id === p.person_id)) {
+                        family.spouses.push({
+                            id: p.person_id,
+                            eventId: ep.event_id
+                        });
                     }
                 });
             }
@@ -869,19 +1043,110 @@ class GenealogyApp {
     getPersonEvents(personId) {
         const events = [];
         const eventIds = new Set();
+        const familyEventIds = new Set(); // Track which events are family events (Step 32)
 
-        // Find all events where this person participated
+        // Find all events where this person participated directly
         Object.values(this.event_participations).forEach(ep => {
             if (ep.person_id === personId) {
                 eventIds.add(ep.event_id);
             }
         });
 
+        // Step 32: Find family events (blood relatives up to 2 steps)
+        const bloodRelatives = this.getBloodRelativesUpTo2Steps(personId);
+
+        // Step 42: Only qualify family events where blood relative has a primary role
+        const primaryRoles = new Set(['child', 'father', 'mother', 'deceased', 'groom', 'bride', 'participant']);
+        const familyEventTypes = new Set(['birth', 'baptism', 'marriage', 'death', 'burial', 'generic']);
+
+        // For each blood relative, find their birth/baptism/marriage/death/burial events (primary roles only)
+        bloodRelatives.forEach(relativeId => {
+            Object.values(this.event_participations).forEach(ep => {
+                if (ep.person_id === relativeId && primaryRoles.has(ep.role)) {
+                    const event = this.events[ep.event_id];
+                    if (event && familyEventTypes.has(event.type)) {
+                        // Don't add if person is already a direct participant
+                        if (!eventIds.has(ep.event_id)) {
+                            eventIds.add(ep.event_id);
+                            familyEventIds.add(ep.event_id); // Mark as family event
+                        }
+                    }
+                }
+            });
+        });
+
+        // Step 49: Also include events from spouses of person and spouses of blood relatives
+        const spouseIds = new Set();
+        // Person's own spouses
+        const ownFamily = this.getFamily(personId);
+        ownFamily.spouses.forEach(s => spouseIds.add(s.id));
+        // Spouses of blood relatives
+        bloodRelatives.forEach(relId => {
+            const relFamily = this.getFamily(relId);
+            relFamily.spouses.forEach(s => {
+                if (s.id !== personId) spouseIds.add(s.id);
+            });
+        });
+        // Add events from spouses using same rules (primaryRoles + familyEventTypes)
+        spouseIds.forEach(spouseId => {
+            (this.participationsByPerson[spouseId] || []).forEach(ep => {
+                if (primaryRoles.has(ep.role)) {
+                    const event = this.events[ep.event_id];
+                    if (event && familyEventTypes.has(event.type)) {
+                        if (!eventIds.has(ep.event_id)) {
+                            eventIds.add(ep.event_id);
+                            familyEventIds.add(ep.event_id);
+                        }
+                    }
+                }
+            });
+        });
+
+        // Step 33: Filter family events by person's lifetime
+        const person = this.persons[personId];
+        const birthYear = person?.birth_date?.year ?? null;
+        const deathYear = person?.death_date?.year ?? null;
+
+        let upperBound;
+        if (deathYear !== null) {
+            upperBound = deathYear;
+        } else {
+            // Compute last explicit event year (direct participation only)
+            let lastExplicitYear = null;
+            eventIds.forEach(id => {
+                if (!familyEventIds.has(id)) {
+                    const yr = this.events[id]?.date?.year;
+                    if (yr != null && (lastExplicitYear === null || yr > lastExplicitYear)) {
+                        lastExplicitYear = yr;
+                    }
+                }
+            });
+            if (lastExplicitYear !== null) {
+                upperBound = lastExplicitYear + 20;
+            } else if (birthYear !== null) {
+                upperBound = birthYear + 100;
+            } else {
+                upperBound = null;
+            }
+        }
+
+        familyEventIds.forEach(id => {
+            const eventYear = this.events[id]?.date?.year ?? null;
+            if (eventYear === null) { eventIds.delete(id); return; } // Step 37: hide family events with no date
+            if (birthYear !== null && eventYear < birthYear) { eventIds.delete(id); return; }
+            if (upperBound !== null && eventYear > upperBound) { eventIds.delete(id); }
+        });
+
         // Collect the actual event objects
         eventIds.forEach(eventId => {
             const event = this.events[eventId];
             if (event) {
-                events.push(event);
+                // Mark event as family event if it's in familyEventIds
+                const eventCopy = { ...event };
+                if (familyEventIds.has(eventId)) {
+                    eventCopy.isFamilyEvent = true;
+                }
+                events.push(eventCopy);
             }
         });
 
@@ -894,6 +1159,35 @@ class GenealogyApp {
         return events;
     }
 
+    getBloodRelativesUpTo2Steps(personId) {
+        // Step 32: Get all blood relatives up to 2 steps (both ascendants and descendants)
+        const relatives = new Set();
+        const family = this.getFamily(personId);
+
+        // 1 step: Parents
+        family.parents.forEach(p => relatives.add(p.id));
+
+        // 1 step: Children
+        family.children.forEach(c => relatives.add(c.id));
+
+        // 2 steps: Siblings (through parents)
+        family.siblings.forEach(s => relatives.add(s));
+
+        // 2 steps: Grandparents (parents of parents)
+        family.parents.forEach(parent => {
+            const parentFamily = this.getFamily(parent.id);
+            parentFamily.parents.forEach(gp => relatives.add(gp.id));
+        });
+
+        // 2 steps: Grandchildren (children of children)
+        family.children.forEach(child => {
+            const childFamily = this.getFamily(child.id);
+            childFamily.children.forEach(gc => relatives.add(gc.id));
+        });
+
+        return relatives;
+    }
+
     getEventGodparents(eventId) {
         // Get all godparents for this event
         const godparents = Object.values(this.event_participations)
@@ -902,7 +1196,7 @@ class GenealogyApp {
         return godparents;
     }
 
-    getEventParticipantsHTML(eventId) {
+    getEventParticipantsHTML(eventId, isFamilyEvent = false) {
         // Performance: Use index instead of filtering all participations
         const participants = this.participationsByEvent[eventId] || [];
 
@@ -913,6 +1207,12 @@ class GenealogyApp {
         // Get event date for age calculation
         const event = this.events[eventId];
         const eventYear = event?.date?.year;
+
+        // Step 32: Add family witness indication at the top if this is a family event
+        let familyWitnessHeader = '';
+        if (isFamilyEvent && this.selectedPerson) {
+            familyWitnessHeader = '<div style="background: #e3f2fd; padding: 8px; border-radius: 4px; margin-bottom: 10px; font-size: 0.9rem; color: #1976d2;"><strong>👨‍👩‍👧‍👦 Family Event</strong> - You are viewing this as an implicit family witness (blood relative within 2 steps)</div>';
+        }
 
         // Group participants by role
         const roleGroups = {};
@@ -937,7 +1237,7 @@ class GenealogyApp {
             'unknown': 'Unknown'
         };
 
-        let html = '<div style="font-weight: 600; margin-bottom: 8px;">Participants:</div>';
+        let html = familyWitnessHeader + '<div style="font-weight: 600; margin-bottom: 8px;">Participants:</div>';
 
         // Display each role group
         Object.entries(roleGroups).forEach(([role, personIds]) => {
@@ -1440,7 +1740,7 @@ class GenealogyApp {
         }
 
         // Check children
-        if (family.children.includes(toPersonId)) {
+        if (family.children.some(c => c.id === toPersonId)) {
             const child = this.persons[toPersonId];
             if (child.gender === 'M') result = 'son';
             else if (child.gender === 'F') result = 'daughter';
@@ -1450,7 +1750,7 @@ class GenealogyApp {
         }
 
         // Check spouses
-        if (family.spouses.includes(toPersonId)) {
+        if (family.spouses.some(s => s.id === toPersonId)) {
             const spouse = this.persons[toPersonId];
             if (spouse.gender === 'M') result = 'husband';
             else if (spouse.gender === 'F') result = 'wife';
@@ -1483,9 +1783,9 @@ class GenealogyApp {
         }
 
         // Check grandchildren (children of children)
-        for (const childId of family.children) {
-            const childFamily = this.getFamily(childId);
-            if (childFamily.children.includes(toPersonId)) {
+        for (const child of family.children) {
+            const childFamily = this.getFamily(child.id);
+            if (childFamily.children.some(c => c.id === toPersonId)) {
                 const grandchild = this.persons[toPersonId];
                 if (grandchild.gender === 'M') result = 'grandson';
                 else if (grandchild.gender === 'F') result = 'granddaughter';
@@ -1526,11 +1826,50 @@ class GenealogyApp {
             const parentFamily = this.getFamily(parent.id);
             for (const auntUncleId of parentFamily.siblings) {
                 const auntUncleFamily = this.getFamily(auntUncleId);
-                if (auntUncleFamily.children.includes(toPersonId)) {
+                if (auntUncleFamily.children.some(c => c.id === toPersonId)) {
                     result = 'cousin';
                     this.relationshipCache.set(cacheKey, result);
                     return result;
                 }
+            }
+        }
+
+        // Step 49: Check in-laws - spouses of children (son/daughter-in-law)
+        for (const child of family.children) {
+            const childFamily = this.getFamily(child.id);
+            if (childFamily.spouses.some(s => s.id === toPersonId)) {
+                const inLaw = this.persons[toPersonId];
+                if (inLaw.gender === 'M') result = 'son-in-law';
+                else if (inLaw.gender === 'F') result = 'daughter-in-law';
+                else result = 'child-in-law';
+                this.relationshipCache.set(cacheKey, result);
+                return result;
+            }
+        }
+
+        // Step 49: Check in-laws - spouses of siblings (brother/sister-in-law)
+        for (const siblingId of family.siblings) {
+            const siblingFamily = this.getFamily(siblingId);
+            if (siblingFamily.spouses.some(s => s.id === toPersonId)) {
+                const inLaw = this.persons[toPersonId];
+                if (inLaw.gender === 'M') result = 'brother-in-law';
+                else if (inLaw.gender === 'F') result = 'sister-in-law';
+                else result = 'sibling-in-law';
+                this.relationshipCache.set(cacheKey, result);
+                return result;
+            }
+        }
+
+        // Step 49: Check in-laws - spouses of parents (step-parent)
+        for (const parent of family.parents) {
+            const parentFamily = this.getFamily(parent.id);
+            if (parentFamily.spouses.some(s => s.id === toPersonId)) {
+                const stepParent = this.persons[toPersonId];
+                if (stepParent.gender === 'M') result = 'step-father';
+                else if (stepParent.gender === 'F') result = 'step-mother';
+                else result = 'step-parent';
+                this.relationshipCache.set(cacheKey, result);
+                return result;
             }
         }
 
@@ -1611,6 +1950,416 @@ class GenealogyApp {
         } catch (error) {
             console.error('Error deleting person:', error);
             alert('Error deleting person: ' + error.message);
+        }
+    }
+
+    getEventPrimaryParticipants(eventId) {
+        // Step 34: Return primary participants based on event type
+        const participants = this.participationsByEvent[eventId] || [];
+        const event = this.events[eventId];
+        if (!event) return [];
+
+        if (event.type === 'birth') {
+            const child = participants.find(ep => ep.role === 'child');
+            return child ? [{ personId: child.person_id, role: 'child' }] : [];
+        } else if (event.type === 'death') {
+            const deceased = participants.find(ep => ep.role === 'deceased');
+            return deceased ? [{ personId: deceased.person_id, role: 'deceased' }] : [];
+        } else if (event.type === 'marriage') {
+            const results = [];
+            const groom = participants.find(ep => ep.role === 'groom');
+            const bride = participants.find(ep => ep.role === 'bride');
+            if (groom) results.push({ personId: groom.person_id, role: 'groom' });
+            if (bride) results.push({ personId: bride.person_id, role: 'bride' });
+            return results;
+        } else if (event.type === 'generic') {
+            return participants
+                .filter(ep => ep.role === 'participant')
+                .map(ep => ({ personId: ep.person_id, role: 'participant' }));
+        }
+        // Fallback to first participant
+        if (participants.length > 0) {
+            return [{ personId: participants[0].person_id, role: participants[0].role }];
+        }
+        return [];
+    }
+
+    openGeneteka(personId) {
+        // Step 35: Open Geneteka search in new tab
+        const person = this.persons[personId];
+        if (!person) return;
+        const lastName = encodeURIComponent(person.last_name || '');
+        const firstName = encodeURIComponent(person.first_name || '');
+        const url = `https://geneteka.genealodzy.pl/index.php?op=gt&lang=pol&bdm=B&w=13sk&rid=3382&search_lastname=${lastName}&search_name=${firstName}&search_lastname2=&search_name2=&from_date=&to_date=`;
+        window.open(url, '_blank');
+    }
+
+    // Step 38: Open type-selection modal
+    openGenetikaImportOptions(personId) {
+        this.genetikaImportPersonId = personId;
+        document.getElementById('geneteka-import-options-modal').style.display = 'block';
+    }
+
+    _closeGenetikaOptionsModal() {
+        document.getElementById('geneteka-import-options-modal').style.display = 'none';
+    }
+
+    // ── shared helper: fetch records and queue them ──────────────────────────
+    async _fetchAndQueueGenetikaRecords(lastName, firstName, type, filterFn, emptyMsg) {
+        const ln = encodeURIComponent(lastName);
+        const fn = encodeURIComponent(firstName);
+        try {
+            const response = await fetch(`/api/geneteka-import?first_name=${fn}&last_name=${ln}&type=${type}`);
+            const data = await response.json();
+            if (!data.success) {
+                alert(`Geneteka lookup failed: ${data.error || 'Unknown error'}`);
+                return null;
+            }
+            const all = data.records || [];
+            const filtered = filterFn ? all.filter(filterFn) : all;
+            if (filtered.length === 0) {
+                alert(emptyMsg || `No matching records found on Geneteka.`);
+                return null;
+            }
+            return filtered;
+        } catch (e) {
+            console.error('Geneteka lookup error:', e);
+            alert('Failed to fetch data from Geneteka. Check the server console for details.');
+            return null;
+        }
+    }
+
+    // ── 1. Children Import (Step 36 — unchanged logic) ───────────────────────
+    async startGenetikaChildrenImport() {
+        this._closeGenetikaOptionsModal();
+        const personId = this.genetikaImportPersonId;
+        const person = this.persons[personId];
+        if (!person) return;
+
+        const fn = (person.first_name || '').toLowerCase();
+        const gender = person.gender;
+
+        const firstName = person.first_name || '';
+        let filterFn = null;
+        if (gender === 'M') filterFn = r => this._namesMatch(r.imie_ojca, firstName);
+        else if (gender === 'F') filterFn = r => this._namesMatch(r.imie_matki, firstName);
+
+        let records = await this._fetchAndQueueGenetikaRecords(
+            person.last_name || '', person.first_name || '', 'birth', filterFn,
+            `No birth records found where ${person.first_name} appears as a parent.`
+        );
+        if (!records) {
+            // fall back to unfiltered
+            records = await this._fetchAndQueueGenetikaRecords(
+                person.last_name || '', person.first_name || '', 'birth', null,
+                'No birth records found on Geneteka for this person.'
+            );
+        }
+        if (!records) return;
+
+        this.genetikaImportQueue = records;
+        this.genetikaImportIndex = 0;
+        this.genetikaImportType = 'children';
+        this.openNextGenetikaRecord();
+    }
+
+    // ── 2. Birth Lookup — person is the child ───────────────────────────────
+    async startGenetikaBirthLookup() {
+        this._closeGenetikaOptionsModal();
+        const personId = this.genetikaImportPersonId;
+        const person = this.persons[personId];
+        if (!person) return;
+
+        const firstName = person.first_name || '';
+        const fnLower = firstName.toLowerCase();
+
+        // For females use maiden name; fall back to last name
+        const isFemale = person.gender === 'F';
+        const primaryLastName = (isFemale && person.maiden_name) ? person.maiden_name : (person.last_name || '');
+
+        const makeFilter = (lastName) => r =>
+            this._namesMatch(r.imie_dziecka, firstName) &&
+            this._namesMatch(r.nazwisko, lastName);
+
+        let records = await this._fetchAndQueueGenetikaRecords(
+            primaryLastName, firstName, 'birth', makeFilter(primaryLastName), null
+        );
+
+        // If female with maiden name and no results, retry with last name
+        if (!records && isFemale && person.maiden_name && person.last_name &&
+                person.maiden_name !== person.last_name) {
+            records = await this._fetchAndQueueGenetikaRecords(
+                person.last_name, firstName, 'birth', makeFilter(person.last_name), null
+            );
+        }
+
+        if (!records) {
+            alert(`No birth records found for ${firstName} ${primaryLastName} on Geneteka.`);
+            return;
+        }
+
+        this.genetikaImportQueue = records;
+        this.genetikaImportIndex = 0;
+        this.genetikaImportType = 'birth';
+        this.openNextGenetikaRecord();
+    }
+
+    // ── 3. Marriage Lookup ────────────────────────────────────────────────────
+    async startGenetikaMarriageLookup() {
+        this._closeGenetikaOptionsModal();
+        const personId = this.genetikaImportPersonId;
+        const person = this.persons[personId];
+        if (!person) return;
+
+        const firstName = person.first_name || '';
+        const fnLower = firstName.toLowerCase();
+        const isFemale = person.gender === 'F';
+        const primaryLastName = (isFemale && person.maiden_name) ? person.maiden_name : (person.last_name || '');
+
+        // Match person as groom (M) or bride (F)
+        const makeFilter = (lastName) => r => {
+            if (isFemale) {
+                return this._namesMatch(r.imie_pani, firstName) &&
+                       this._namesMatch(r.nazwisko_pani, lastName);
+            } else {
+                return this._namesMatch(r.imie_pana, firstName) &&
+                       this._namesMatch(r.nazwisko_pana, lastName);
+            }
+        };
+
+        let records = await this._fetchAndQueueGenetikaRecords(
+            primaryLastName, firstName, 'marriage', makeFilter(primaryLastName), null
+        );
+
+        // Female fallback: retry with last name
+        if (!records && isFemale && person.maiden_name && person.last_name &&
+                person.maiden_name !== person.last_name) {
+            records = await this._fetchAndQueueGenetikaRecords(
+                person.last_name, firstName, 'marriage', makeFilter(person.last_name), null
+            );
+        }
+
+        if (!records) {
+            alert(`No marriage records found for ${firstName} ${primaryLastName} on Geneteka.`);
+            return;
+        }
+
+        this.genetikaImportQueue = records;
+        this.genetikaImportIndex = 0;
+        this.genetikaImportType = 'marriage';
+        this.openNextGenetikaRecord();
+    }
+
+    // ── 4. Death Lookup ───────────────────────────────────────────────────────
+    async startGenetikaDeathLookup() {
+        this._closeGenetikaOptionsModal();
+        const personId = this.genetikaImportPersonId;
+        const person = this.persons[personId];
+        if (!person) return;
+
+        const firstName = person.first_name || '';
+        const fnLower = firstName.toLowerCase();
+        const isFemale = person.gender === 'F';
+        const lastName = person.last_name || '';
+
+        // Fetch raw results once per search term, then apply filters in sequence.
+        const fetchAll = async (ln, fn) => {
+            const encLn = encodeURIComponent(ln);
+            const encFn = encodeURIComponent(fn);
+            try {
+                const resp = await fetch(`/api/geneteka-import?first_name=${encFn}&last_name=${encLn}&type=death`);
+                const data = await resp.json();
+                return data.success ? (data.records || []) : [];
+            } catch (e) {
+                console.error('Geneteka death fetch error:', e);
+                return [];
+            }
+        };
+
+        // Search 1: by last name
+        let all = await fetchAll(lastName, firstName);
+
+        // Filter 1a: fuzzy first name + surname
+        let filtered = all.filter(r =>
+            this._namesMatch(r.imie, firstName) &&
+            this._namesMatch(r.nazwisko, lastName)
+        );
+
+        // Filter 1b: first name + "Inne nazwiska" tooltip contains surname
+        if (!filtered.length) {
+            filtered = all.filter(r =>
+                this._namesMatch(r.imie, firstName) &&
+                (r.uwagi || '').toLowerCase().includes(lastName.toLowerCase())
+            );
+        }
+
+        // Filter 1c: first name + parent data (surname match)
+        if (!filtered.length) {
+            const parents = this._getPersonParents(personId);
+            if (parents.fatherFirstName || parents.motherMaiden) {
+                filtered = all.filter(r => {
+                    const fnMatch = this._namesMatch(r.imie, firstName);
+                    const fatherMatch = parents.fatherFirstName &&
+                        this._namesMatch(r.imie_ojca, parents.fatherFirstName);
+                    const motherMatch = parents.motherMaiden &&
+                        this._namesMatch(r.nazwisko_matki, parents.motherMaiden);
+                    return fnMatch && (fatherMatch || motherMatch);
+                });
+            }
+        }
+
+        // Search 2: by maiden name (female only) — same three-tier sequence
+        if (!filtered.length && isFemale && person.maiden_name && person.maiden_name !== lastName) {
+            const maidenName = person.maiden_name;
+            all = await fetchAll(maidenName, firstName);
+
+            filtered = all.filter(r =>
+                this._namesMatch(r.imie, firstName) &&
+                this._namesMatch(r.nazwisko, maidenName)
+            );
+
+            if (!filtered.length) {
+                filtered = all.filter(r =>
+                    this._namesMatch(r.imie, firstName) &&
+                    (r.uwagi || '').toLowerCase().includes(maidenName.toLowerCase())
+                );
+            }
+
+            if (!filtered.length) {
+                const parents = this._getPersonParents(personId);
+                if (parents.fatherFirstName || parents.motherMaiden) {
+                    filtered = all.filter(r => {
+                        const fnMatch = this._namesMatch(r.imie, firstName);
+                        const fatherMatch = parents.fatherFirstName &&
+                            this._namesMatch(r.imie_ojca, parents.fatherFirstName);
+                        const motherMatch = parents.motherMaiden &&
+                            this._namesMatch(r.nazwisko_matki, parents.motherMaiden);
+                        return fnMatch && (fatherMatch || motherMatch);
+                    });
+                }
+            }
+        }
+
+        // Final fallback: both parent first names only (no surname), year-bounded
+        if (!filtered.length) {
+            const parents = this._getPersonParents(personId);
+            const birthYear = person.birth_date?.year ?? null;
+            if (parents.fatherFirstName && parents.motherFirstName) {
+                filtered = all.filter(r => {
+                    if (birthYear !== null) {
+                        const rok = parseInt(r.rok);
+                        if (isNaN(rok) || rok < birthYear || rok > birthYear + 100) return false;
+                    }
+                    return this._namesMatch(r.imie, firstName) &&
+                           this._namesMatch(r.imie_ojca, parents.fatherFirstName) &&
+                           this._namesMatch(r.imie_matki, parents.motherFirstName);
+                });
+            }
+        }
+
+        if (!filtered.length) {
+            alert(`No death records found for ${firstName} ${lastName} on Geneteka.`);
+            return;
+        }
+
+        this.genetikaImportQueue = filtered;
+        this.genetikaImportIndex = 0;
+        this.genetikaImportType = 'death';
+        this.openNextGenetikaRecord();
+    }
+
+    // ── Fuzzy name matching for historical Polish records ─────────────────────
+
+    _normalizePolishName(name) {
+        if (!name) return '';
+        return name.toLowerCase()
+            .replace(/ą/g, 'a').replace(/ę/g, 'e').replace(/ó/g, 'o')
+            .replace(/ś/g, 's').replace(/ź/g, 'z').replace(/ż/g, 'z')
+            .replace(/ć/g, 'c').replace(/ń/g, 'n').replace(/ł/g, 'l')
+            .replace(/y/g, 'i'); // y ↔ i: Wiktorya/Wiktoria, Surdey/Surdej, etc.
+    }
+
+    _levenshtein(a, b) {
+        if (Math.abs(a.length - b.length) > 3) return 99;
+        let row = Array.from({length: b.length + 1}, (_, i) => i);
+        for (let i = 1; i <= a.length; i++) {
+            const next = [i];
+            for (let j = 1; j <= b.length; j++) {
+                next[j] = a[i-1] === b[j-1] ? row[j-1]
+                    : 1 + Math.min(row[j], next[j-1], row[j-1]);
+            }
+            row = next;
+        }
+        return row[b.length];
+    }
+
+    // Returns true if recordName and searchName are considered the same name,
+    // accounting for historical Polish spelling variants.
+    _namesMatch(recordName, searchName) {
+        if (!recordName || !searchName) return false;
+        const a = this._normalizePolishName(recordName);
+        const b = this._normalizePolishName(searchName);
+        if (a === b) return true;
+        // Substring: catches "Jarosz" inside "Jaroszek", short forms, etc.
+        if (a.includes(b) || b.includes(a)) return true;
+        // Levenshtein: threshold 1 for short names, 2 for longer ones
+        const threshold = Math.max(a.length, b.length) <= 5 ? 1 : 2;
+        return this._levenshtein(a, b) <= threshold;
+    }
+
+    // Returns parent names from model birth event
+    _getPersonParents(personId) {
+        let fatherFirstName = null;
+        let motherFirstName = null;
+        let motherMaiden = null;
+
+        for (const ep of Object.values(this.event_participations)) {
+            if (ep.person_id !== personId || ep.role !== 'child') continue;
+            const eventId = ep.event_id;
+            for (const ep2 of Object.values(this.event_participations)) {
+                if (ep2.event_id !== eventId) continue;
+                const parent = this.persons[ep2.person_id];
+                if (!parent) continue;
+                if (ep2.role === 'father') fatherFirstName = parent.first_name || null;
+                if (ep2.role === 'mother') {
+                    motherFirstName = parent.first_name || null;
+                    motherMaiden = parent.maiden_name || null;
+                }
+            }
+            break; // use first birth event found
+        }
+
+        return { fatherFirstName, motherFirstName, motherMaiden };
+    }
+
+    // ── Queue runner ──────────────────────────────────────────────────────────
+    openNextGenetikaRecord() {
+        if (this.genetikaImportIndex >= this.genetikaImportQueue.length) {
+            if (eventEditor) eventEditor.onCloseCallback = null;
+            const total = this.genetikaImportQueue.length;
+            if (eventEditor) eventEditor.showNotification(`Geneteka import complete. Reviewed ${total} record(s).`, 'success');
+            this.genetikaImportQueue = [];
+            this.genetikaImportIndex = 0;
+            this.genetikaImportPersonId = null;
+            this.genetikaImportType = null;
+            return;
+        }
+
+        const record = this.genetikaImportQueue[this.genetikaImportIndex];
+        const current = this.genetikaImportIndex + 1;
+        const total = this.genetikaImportQueue.length;
+        this.genetikaImportIndex++;
+
+        if (!eventEditor) return;
+        eventEditor.onCloseCallback = () => this.openNextGenetikaRecord();
+
+        if (this.genetikaImportType === 'marriage') {
+            eventEditor.openMarriageFromGeneteka(record, this.genetikaImportPersonId, current, total);
+        } else if (this.genetikaImportType === 'death') {
+            eventEditor.openDeathFromGeneteka(record, this.genetikaImportPersonId, current, total);
+        } else {
+            // 'children' or 'birth' — both use birth event form
+            eventEditor.openBirthFromGeneteka(record, this.genetikaImportPersonId, current, total);
         }
     }
 

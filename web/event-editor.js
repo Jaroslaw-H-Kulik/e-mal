@@ -6,6 +6,7 @@ class EventEditor {
         this.currentEventType = null;
         this.currentPersonId = null;
         this.editingEventId = null;
+        this.onCloseCallback = null;
         this.setupEditor();
     }
 
@@ -27,6 +28,7 @@ class EventEditor {
                                 <button class="btn-primary" onclick="eventEditor.selectEventType('birth')">Birth/Baptism</button>
                                 <button class="btn-primary" onclick="eventEditor.selectEventType('marriage')">Marriage</button>
                                 <button class="btn-primary" onclick="eventEditor.selectEventType('death')">Death</button>
+                                <button class="btn-primary" onclick="eventEditor.selectEventType('generic')">Generic</button>
                             </div>
                         </div>
 
@@ -151,6 +153,12 @@ class EventEditor {
         document.getElementById('event-links').value = event.links ? event.links.join(', ') : '';
         document.getElementById('event-notes').value = event.notes || '';
 
+        // Step 47: Populate title field for generic events
+        if (event.type === 'generic') {
+            const titleField = document.getElementById('event-generic-title');
+            if (titleField) titleField.value = event.title || '';
+        }
+
         // Show modal first to ensure DOM is ready
         document.getElementById('event-editor-modal').style.display = 'block';
 
@@ -210,12 +218,51 @@ class EventEditor {
         } else if (eventType === 'marriage') {
             // For marriage, person is bride/groom based on gender
             targetRole = person.gender === 'M' ? 'groom' : person.gender === 'F' ? 'bride' : null;
+        } else if (eventType === 'generic') {
+            targetRole = 'participant_1';
         }
 
         if (targetRole) {
             // Use the existing selectExistingPerson method to populate
             this.selectExistingPerson(targetRole, this.currentPersonId);
             console.log(`Step 14: Auto-populated ${this.currentPersonId} as ${targetRole}`);
+        }
+
+        // Step 44: For birth events, also prepopulate the spouse as the other parent
+        if ((eventType === 'birth' || eventType === 'baptism') && targetRole) {
+            const spouseRole = targetRole === 'father' ? 'mother' : 'father';
+            const family = this.app.getFamily(this.currentPersonId);
+            if (family.spouses.length > 0) {
+                // Pick the most recently married spouse
+                const mostRecentSpouse = family.spouses.reduce((best, s) => {
+                    const year = this.app.events[s.eventId]?.date?.year || 0;
+                    const bestYear = this.app.events[best.eventId]?.date?.year || 0;
+                    return year > bestYear ? s : best;
+                });
+                this.selectExistingPerson(spouseRole, mostRecentSpouse.id);
+            }
+        }
+
+        // Step 41: Pre-populate place from person's birth event for marriage/death events
+        if (eventType === 'marriage' || eventType === 'death' || eventType === 'burial') {
+            const placeField = document.getElementById('event-place');
+            if (placeField && !placeField.value) {
+                // Find birth event where this person is the child
+                const birthEp = Object.values(this.app.event_participations).find(ep =>
+                    ep.person_id === this.currentPersonId && ep.role === 'child'
+                );
+                if (birthEp) {
+                    const birthEvent = this.app.events[birthEp.event_id];
+                    if (birthEvent?.place_id) {
+                        const place = this.app.places[birthEvent.place_id];
+                        if (place?.name) {
+                            placeField.value = place.name;
+                            const houseField = document.getElementById('event-house-number');
+                            if (houseField) houseField.value = place.house_number || '';
+                        }
+                    }
+                }
+            }
         }
     }
 
@@ -248,6 +295,17 @@ class EventEditor {
             html += this.buildPersonFields('witness_1', 'Witness 1', ['first_name', 'last_name', 'age', 'occupation', 'gender']);
             html += this.buildPersonFields('witness_2', 'Witness 2', ['first_name', 'last_name', 'age', 'occupation', 'gender']);
             html += this.buildPersonFields('witness_3', 'Witness 3', ['first_name', 'last_name', 'age', 'occupation', 'gender']);
+        } else if (type === 'generic') {
+            html = `<div style="margin-bottom: 15px;">
+                <div class="form-group">
+                    <label style="font-weight: 600;">Event Title *</label>
+                    <input type="text" id="event-generic-title" placeholder="e.g., Land sale, Court record..." style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box;">
+                </div>
+            </div>
+            <div style="margin-top: 20px; margin-bottom: 20px;"><h3>Participants</h3></div>`;
+            html += this.buildPersonFields('participant_1', 'Participant 1', ['first_name', 'last_name', 'gender', 'age', 'occupation']);
+            html += this.buildPersonFields('participant_2', 'Participant 2', ['first_name', 'last_name', 'gender', 'age', 'occupation']);
+            html += this.buildPersonFields('participant_3', 'Participant 3', ['first_name', 'last_name', 'gender', 'age', 'occupation']);
         }
 
         container.innerHTML = html;
@@ -472,6 +530,16 @@ class EventEditor {
             });
         }
 
+        // Load generic event participants (participant_1, participant_2, participant_3)
+        if (roleGroups['participant']) {
+            roleGroups['participant'].forEach((personId, index) => {
+                const slotRole = `participant_${index + 1}`;
+                if (document.getElementById(`${slotRole}_person_id`)) {
+                    this.selectExistingPerson(slotRole, personId);
+                }
+            });
+        }
+
         // Step 5: Pre-populate parent fields for groom/bride/deceased if they exist
         const event = this.app.events[eventId];
         if (event && (event.type === 'marriage' || event.type === 'birth' || event.type === 'death')) {
@@ -542,6 +610,7 @@ class EventEditor {
             links: document.getElementById('event-links').value.split(',').map(l => l.trim()).filter(Boolean),
             notes: document.getElementById('event-notes').value.trim(),
             content: document.getElementById('event-content')?.value.trim() || null,
+            title: this.currentEventType === 'generic' ? (document.getElementById('event-generic-title')?.value.trim() || null) : null,
             participants: []
         };
 
@@ -603,6 +672,19 @@ class EventEditor {
             }
         });
 
+        // Step 45: Capture parent IDs/names before save for marriage event check
+        const isBirthEvent = (this.currentEventType === 'birth' || this.currentEventType === 'baptism');
+        const preSaveFatherId = document.getElementById('father_person_id')?.value || null;
+        const preSaveMotherId = document.getElementById('mother_person_id')?.value || null;
+        const preSaveFatherName = {
+            first: document.getElementById('father_first_name')?.value.trim() || '',
+            last: document.getElementById('father_last_name')?.value.trim() || ''
+        };
+        const preSaveMotherName = {
+            first: document.getElementById('mother_first_name')?.value.trim() || '',
+            last: document.getElementById('mother_last_name')?.value.trim() || ''
+        };
+
         try {
             const endpoint = this.editingEventId ? '/api/update-event' : '/api/add-event';
             const payload = this.editingEventId ?
@@ -620,51 +702,64 @@ class EventEditor {
             if (result.success) {
                 this.showNotification('Event saved successfully!', 'success');
 
-                // Small delay to ensure server has written the file
-                await new Promise(resolve => setTimeout(resolve, 100));
+                const hasNewPersons = result.new_persons && result.new_persons.length > 0;
 
-                // Reload data
-                await this.app.loadData();
+                if (this.editingEventId && !hasNewPersons) {
+                    // Fast path for updates: patch in-memory state, no network round-trip
+                    this.app.events[this.editingEventId] = result.event;
 
-                // Recreate network to show new persons
-                this.app.createNetwork();
-
-                // Update statistics
-                this.app.updateStats();
-
-                // Refresh person details if viewing
-                if (this.currentPersonId) {
-                    this.app.showPersonDetails(this.currentPersonId);
-                }
-
-                // If new persons were created, show notification about them
-                if (result.new_persons && result.new_persons.length > 0) {
-                    const names = result.new_persons.map(p => `${p.first_name} ${p.last_name}`).join(', ');
-                    this.showNotification(`Created ${result.new_persons.length} new person(s): ${names}`, 'success');
-
-                    // Focus on the first new person in the network
-                    const firstNewPersonId = result.new_persons[0].id;
-                    setTimeout(() => {
-                        this.app.network.selectNodes([firstNewPersonId]);
-                        this.app.network.focus(firstNewPersonId, {
-                            scale: 1.5,
-                            animation: {
-                                duration: 1000,
-                                easingFunction: 'easeInOutQuad'
-                            }
-                        });
-                    }, 500);
-                }
-
-                // Fit network to show everything
-                setTimeout(() => {
-                    this.app.network.fit({
-                        animation: {
-                            duration: 1000,
-                            easingFunction: 'easeInOutQuad'
+                    // Remove old participations for this event and add new ones
+                    Object.keys(this.app.event_participations).forEach(epId => {
+                        if (this.app.event_participations[epId].event_id === this.editingEventId) {
+                            delete this.app.event_participations[epId];
                         }
                     });
-                }, 100);
+                    if (result.event_participations) {
+                        Object.assign(this.app.event_participations, result.event_participations);
+                    }
+
+                    // Rebuild indices and caches
+                    this.app.buildIndices();
+                    if (this.app.familyCache) this.app.familyCache.clear();
+
+                    // Immediately refresh person card
+                    if (this.currentPersonId) {
+                        this.app.showPersonDetails(this.currentPersonId);
+                    }
+                } else {
+                    // Slow path for new events or when new persons were created
+                    await new Promise(resolve => setTimeout(resolve, 100));
+                    await this.app.loadData();
+                    this.app.createNetwork();
+                    this.app.updateStats();
+
+                    if (this.currentPersonId) {
+                        this.app.showPersonDetails(this.currentPersonId);
+                    }
+
+                    // Step 45: Auto-create marriage event for parents if missing
+                    if (isBirthEvent) {
+                        await this.maybeCreateMarriageForParents(
+                            preSaveFatherId, preSaveFatherName,
+                            preSaveMotherId, preSaveMotherName,
+                            result.new_persons || []
+                        );
+                    }
+
+                    if (hasNewPersons) {
+                        const names = result.new_persons.map(p => `${p.first_name} ${p.last_name}`).join(', ');
+                        this.showNotification(`Created ${result.new_persons.length} new person(s): ${names}`, 'success');
+
+                        const firstNewPersonId = result.new_persons[0].id;
+                        setTimeout(() => {
+                            this.app.network.selectNodes([firstNewPersonId]);
+                            this.app.network.focus(firstNewPersonId, {
+                                scale: 1.5,
+                                animation: { duration: 1000, easingFunction: 'easeInOutQuad' }
+                            });
+                        }, 500);
+                    }
+                }
 
                 this.closeModal();
             } else {
@@ -688,7 +783,10 @@ class EventEditor {
             'witness_2': 'witness',
             'witness_3': 'witness',
             'godparent_1': 'godparent',
-            'godparent_2': 'godparent'
+            'godparent_2': 'godparent',
+            'participant_1': 'participant',
+            'participant_2': 'participant',
+            'participant_3': 'participant'
         };
         return roleMap[role] || role;
     }
@@ -698,6 +796,227 @@ class EventEditor {
         this.currentEventType = null;
         this.currentPersonId = null;
         this.editingEventId = null;
+
+        // Step 36: Fire sequential import callback if set
+        if (this.onCloseCallback) {
+            const cb = this.onCloseCallback;
+            this.onCloseCallback = null;
+            cb();
+        }
+    }
+
+    openBirthFromGeneteka(record, personId, current, total) {
+        // Step 36: Open birth event creation modal pre-populated with Geneteka record
+        this.currentPersonId = personId;
+        this.editingEventId = null;
+        this.currentEventType = 'birth';
+
+        document.getElementById('event-editor-title').textContent =
+            `Geneteka Import (${current}/${total}) — Birth ${record.rok || '?'}: ${record.imie_dziecka} ${record.nazwisko}`;
+        document.getElementById('event-type-selection').style.display = 'none';
+        document.getElementById('event-form-container').style.display = 'block';
+        document.getElementById('event-form').reset();
+
+        this.buildParticipantsForm('birth');
+
+        document.getElementById('event-editor-modal').style.display = 'block';
+
+        setTimeout(() => this.populateFromGenetikaRecord(record, personId), 50);
+    }
+
+    populateFromGenetikaRecord(record, personId) {
+        // Year / place
+        if (record.rok) document.getElementById('event-year').value = record.rok;
+        if (record.miejscowosc) document.getElementById('event-place').value = record.miejscowosc;
+
+        // Child
+        if (record.imie_dziecka) document.getElementById('child_first_name').value = record.imie_dziecka;
+        if (record.nazwisko) document.getElementById('child_last_name').value = record.nazwisko;
+
+        // Father (last name = child's surname)
+        if (record.imie_ojca) document.getElementById('father_first_name').value = record.imie_ojca;
+        if (record.nazwisko) document.getElementById('father_last_name').value = record.nazwisko;
+
+        // Mother (last name = child's surname, maiden name from nazwisko_matki)
+        if (record.imie_matki) document.getElementById('mother_first_name').value = record.imie_matki;
+        if (record.nazwisko) document.getElementById('mother_last_name').value = record.nazwisko;
+        if (record.nazwisko_matki) {
+            const maidenEl = document.getElementById('mother_maiden_name');
+            if (maidenEl) maidenEl.value = record.nazwisko_matki;
+        }
+
+        // Pre-select the importing person in their role first, then overwrite with Geneteka data
+        const person = this.app.persons[personId];
+        if (person) {
+            const isBirthLookup = this.app.genetikaImportType === 'birth';
+            const role = isBirthLookup ? 'child'
+                : (person.gender === 'M' ? 'father' : 'mother');
+            this.selectExistingPerson(role, personId);
+        }
+
+        // Re-apply Geneteka data so it takes precedence over model (e.g. mother maiden name)
+        if (record.imie_dziecka) document.getElementById('child_first_name').value = record.imie_dziecka;
+        if (record.nazwisko) document.getElementById('child_last_name').value = record.nazwisko;
+        if (record.imie_ojca) document.getElementById('father_first_name').value = record.imie_ojca;
+        if (record.nazwisko) document.getElementById('father_last_name').value = record.nazwisko;
+        if (record.imie_matki) document.getElementById('mother_first_name').value = record.imie_matki;
+        if (record.nazwisko) document.getElementById('mother_last_name').value = record.nazwisko;
+        if (record.nazwisko_matki) {
+            const maidenEl = document.getElementById('mother_maiden_name');
+            if (maidenEl) maidenEl.value = record.nazwisko_matki;
+        }
+
+        // Build content / summary
+        const parts = [
+            `Rok: ${record.rok}  Akt: ${record.akt}`,
+            `Dziecko: ${record.imie_dziecka} ${record.nazwisko}`,
+            `Ojciec: ${record.imie_ojca} ${record.nazwisko}`,
+            `Matka: ${record.imie_matki} ${record.nazwisko_matki ? record.nazwisko_matki + ' /' : ''} ${record.nazwisko}`,
+            `Parafia: ${record.parafia}  Miejscowość: ${record.miejscowosc}`,
+        ];
+        if (record.uwagi) parts.push(`Uwagi: ${record.uwagi}`);
+        if (record.links && record.links.length > 0) parts.push(`Linki: ${record.links.join(', ')}`);
+
+        const contentDisplay = document.getElementById('event-content-display');
+        const contentTextarea = document.getElementById('event-content');
+        if (contentDisplay && contentTextarea) {
+            contentTextarea.value = parts.join('\n');
+            contentDisplay.style.display = 'block';
+        }
+    }
+
+    // Step 38: Marriage from Geneteka ─────────────────────────────────────────
+    openMarriageFromGeneteka(record, personId, current, total) {
+        this.currentPersonId = personId;
+        this.editingEventId = null;
+        this.currentEventType = 'marriage';
+
+        document.getElementById('event-editor-title').textContent =
+            `Geneteka Import (${current}/${total}) — Marriage ${record.rok || '?'}: ${record.imie_pana} ${record.nazwisko_pana} & ${record.imie_pani} ${record.nazwisko_pani}`;
+        document.getElementById('event-type-selection').style.display = 'none';
+        document.getElementById('event-form-container').style.display = 'block';
+        document.getElementById('event-form').reset();
+
+        this.buildParticipantsForm('marriage');
+        document.getElementById('event-editor-modal').style.display = 'block';
+
+        setTimeout(() => this.populateFromGenetikaMarriageRecord(record, personId), 50);
+    }
+
+    populateFromGenetikaMarriageRecord(record, personId) {
+        if (record.rok) document.getElementById('event-year').value = record.rok;
+        if (record.miejscowosc) document.getElementById('event-place').value = record.miejscowosc;
+
+        const setField = (id, val) => { const el = document.getElementById(id); if (el && val) el.value = val; };
+
+        // Link the importing person first (sets person_id + model name fields)
+        const person = this.app.persons[personId];
+        if (person) {
+            const role = person.gender === 'M' ? 'groom' : 'bride';
+            this.selectExistingPerson(role, personId);
+        }
+
+        // Now overwrite all fields from Geneteka (takes precedence, e.g. bride maiden_name)
+        // Groom
+        setField('groom_first_name', record.imie_pana);
+        setField('groom_last_name', record.nazwisko_pana);
+
+        // Groom's parents
+        const rp = record.rodzice_pana_parsed || {};
+        setField('groom_parent_father_first_name', rp.father_name);
+        setField('groom_parent_father_last_name', record.nazwisko_pana);
+        setField('groom_parent_mother_first_name', rp.mother_name);
+        setField('groom_parent_mother_maiden_name', rp.mother_maiden);
+        setField('groom_parent_mother_last_name', record.nazwisko_pana);
+
+        // Bride
+        setField('bride_first_name', record.imie_pani);
+        setField('bride_last_name', record.nazwisko_pani);
+        setField('bride_maiden_name', record.nazwisko_pani); // bride's surname IS her maiden name
+
+        // Bride's parents
+        const bp = record.rodzice_pani_parsed || {};
+        setField('bride_parent_father_first_name', bp.father_name);
+        setField('bride_parent_father_last_name', record.nazwisko_pani);
+        setField('bride_parent_mother_first_name', bp.mother_name);
+        setField('bride_parent_mother_maiden_name', bp.mother_maiden);
+        setField('bride_parent_mother_last_name', record.nazwisko_pani);
+
+        // Content / summary
+        const parts = [
+            `Rok: ${record.rok}  Akt: ${record.akt}`,
+            `Pan: ${record.imie_pana} ${record.nazwisko_pana}  Rodzice: ${record.rodzice_pana || '—'}`,
+            `Pani: ${record.imie_pani} ${record.nazwisko_pani}  Rodzice: ${record.rodzice_pani || '—'}`,
+            `Miejscowość: ${record.miejscowosc}`,
+        ];
+        if (record.uwagi) parts.push(`Uwagi: ${record.uwagi}`);
+        if (record.links && record.links.length > 0) parts.push(`Linki: ${record.links.join(', ')}`);
+
+        const contentDisplay = document.getElementById('event-content-display');
+        const contentTextarea = document.getElementById('event-content');
+        if (contentDisplay && contentTextarea) {
+            contentTextarea.value = parts.join('\n');
+            contentDisplay.style.display = 'block';
+        }
+    }
+
+    // Step 38: Death from Geneteka ────────────────────────────────────────────
+    openDeathFromGeneteka(record, personId, current, total) {
+        this.currentPersonId = personId;
+        this.editingEventId = null;
+        this.currentEventType = 'death';
+
+        document.getElementById('event-editor-title').textContent =
+            `Geneteka Import (${current}/${total}) — Death ${record.rok || '?'}: ${record.imie} ${record.nazwisko}`;
+        document.getElementById('event-type-selection').style.display = 'none';
+        document.getElementById('event-form-container').style.display = 'block';
+        document.getElementById('event-form').reset();
+
+        this.buildParticipantsForm('death');
+        document.getElementById('event-editor-modal').style.display = 'block';
+
+        setTimeout(() => this.populateFromGenetikaDeathRecord(record, personId), 50);
+    }
+
+    populateFromGenetikaDeathRecord(record, personId) {
+        const setField = (id, val) => { const el = document.getElementById(id); if (el && val) el.value = val; };
+
+        if (record.rok) document.getElementById('event-year').value = record.rok;
+        if (record.miejscowosc) document.getElementById('event-place').value = record.miejscowosc;
+
+        // Deceased
+        setField('deceased_first_name', record.imie);
+        setField('deceased_last_name', record.nazwisko);
+
+        // Deceased's parents
+        setField('deceased_parent_father_first_name', record.imie_ojca);
+        setField('deceased_parent_father_last_name', record.nazwisko);
+        setField('deceased_parent_mother_first_name', record.imie_matki);
+        setField('deceased_parent_mother_maiden_name', record.nazwisko_matki);
+        setField('deceased_parent_mother_last_name', record.nazwisko);
+
+        // Pre-select the importing person as deceased
+        const person = this.app.persons[personId];
+        if (person) {
+            this.selectExistingPerson('deceased', personId);
+        }
+
+        // Content / summary
+        const parts = [
+            `Rok: ${record.rok}  Akt: ${record.akt}`,
+            `Zmarły/a: ${record.imie} ${record.nazwisko}`,
+            `Ojciec: ${record.imie_ojca || '—'}  Matka: ${record.imie_matki || '—'} ${record.nazwisko_matki ? '/ ' + record.nazwisko_matki : ''}`,
+            `Miejscowość: ${record.miejscowosc}`,
+        ];
+        if (record.uwagi) parts.push(`Uwagi: ${record.uwagi}`);
+        if (record.links && record.links.length > 0) parts.push(`Linki: ${record.links.join(', ')}`);
+
+        const contentDisplay = document.getElementById('event-content-display');
+        const contentTextarea = document.getElementById('event-content');
+        if (contentDisplay && contentTextarea) {
+            contentTextarea.value = parts.join('\n');
+            contentDisplay.style.display = 'block';
+        }
     }
 
     showNotification(message, type = 'info') {
@@ -711,6 +1030,58 @@ class EventEditor {
             notification.classList.remove('show');
             setTimeout(() => notification.remove(), 300);
         }, 3000);
+    }
+
+    // Step 45: Create marriage event for birth event parents if one doesn't exist yet
+    async maybeCreateMarriageForParents(preFatherId, fatherName, preMotherId, motherName, newPersons) {
+        const resolveId = (existingId, name) => {
+            if (existingId) return existingId;
+            if (!name.first || !name.last) return null;
+            const found = newPersons.find(p =>
+                p.first_name.toLowerCase() === name.first.toLowerCase() &&
+                p.last_name.toLowerCase() === name.last.toLowerCase()
+            );
+            return found ? found.id : null;
+        };
+
+        const fatherId = resolveId(preFatherId, fatherName);
+        const motherId = resolveId(preMotherId, motherName);
+        if (!fatherId || !motherId) return;
+
+        // Check if marriage already exists between them
+        const fatherMarriageEvents = new Set();
+        for (const ep of Object.values(this.app.event_participations)) {
+            if (ep.person_id === fatherId && this.app.events[ep.event_id]?.type === 'marriage') {
+                fatherMarriageEvents.add(ep.event_id);
+            }
+        }
+        for (const ep of Object.values(this.app.event_participations)) {
+            if (ep.person_id === motherId && fatherMarriageEvents.has(ep.event_id)) {
+                return; // Already married
+            }
+        }
+
+        // Create minimal marriage event
+        const father = this.app.persons[fatherId];
+        const mother = this.app.persons[motherId];
+        const response = await fetch('/api/add-event', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                type: 'marriage',
+                date: { year: null, month: null, day: null },
+                participants: [
+                    { role: 'groom', existing_person_id: fatherId, first_name: father?.first_name || '', last_name: father?.last_name || '' },
+                    { role: 'bride', existing_person_id: motherId, first_name: mother?.first_name || '', last_name: mother?.last_name || '' }
+                ]
+            })
+        });
+
+        const marriageResult = await response.json();
+        if (marriageResult.success) {
+            await this.app.loadData();
+            this.showNotification('Created marriage event for parents', 'info');
+        }
     }
 }
 

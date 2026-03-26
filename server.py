@@ -15,6 +15,21 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
     def do_GET(self):
         """Handle GET requests (serve files and API endpoints)"""
         # Handle API endpoints
+        if self.path.startswith('/api/geneteka-import'):
+            parsed = urlparse(self.path)
+            params = parse_qs(parsed.query)
+            first_name = params.get('first_name', [''])[0]
+            last_name = params.get('last_name', [''])[0]
+            record_type = params.get('type', ['birth'])[0]
+            response_data = self.geneteka_import(first_name, last_name, record_type)
+
+            self.send_response(200)
+            self.send_header('Content-type', 'application/json')
+            self.send_header('Access-Control-Allow-Origin', '*')
+            self.end_headers()
+            self.wfile.write(json.dumps(response_data, ensure_ascii=False).encode('utf-8'))
+            return
+
         if self.path.startswith('/api/gedcom-person/'):
             # Extract person ID from path
             person_id = self.path.split('/')[-1]
@@ -74,6 +89,8 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
                 response_data = self.sync_all_event_dates_to_persons()
             elif self.path == '/api/sync-all-ages-to-birth-years':
                 response_data = self.sync_all_ages_to_birth_years_migration()
+            elif self.path == '/api/deduplicate-witnesses-godparents':
+                response_data = self.deduplicate_witnesses_godparents()
             else:
                 self.send_error(404, "Endpoint not found")
                 return
@@ -449,7 +466,8 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
             if 'birth_date' in person_data or 'place_of_birth' in person_data:
                 birth_event_id = self.find_birth_event_for_person(events, event_participations, person_id)
 
-                if 'birth_date' in person_data:
+                # Only update person birth_date if new value is provided (not None)
+                if 'birth_date' in person_data and person_data['birth_date']:
                     person['birth_date'] = person_data['birth_date']
 
                 if birth_event_id:
@@ -498,10 +516,14 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
 
             # Handle death date/place update - sync to death event
             if 'death_date' in person_data or 'place_of_death' in person_data:
+                print(f"  → Processing death data: date={person_data.get('death_date')}, place={person_data.get('place_of_death')}")
                 death_event_id = self.find_death_event_for_person(events, event_participations, person_id)
+                print(f"  → Existing death event: {death_event_id}")
 
-                if 'death_date' in person_data:
+                # Only update person death_date if new value is provided (not None)
+                if 'death_date' in person_data and person_data['death_date']:
                     person['death_date'] = person_data['death_date']
+                    print(f"  ✓ Updated person death_date field")
 
                 if death_event_id:
                     # Update existing death event
@@ -518,6 +540,7 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
                 else:
                     # Create death event if data provided
                     if person_data.get('death_date') or person_data.get('place_of_death'):
+                        print(f"  → Creating new death event...")
                         death_event_id = self.get_next_event_id(events)
 
                         place_id = None
@@ -545,7 +568,7 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
                         }
 
                         updated_events.append(death_event_id)
-                        print(f"  ✓ Created death event: {death_event_id}")
+                        print(f"  ✓ Created death event: {death_event_id} with participation {ep_id}")
 
             # Update data structure
             data['places'] = places
@@ -1015,7 +1038,7 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
                     'description': f"Marriage of {father['first_name']} {father['last_name']} and {mother['first_name']} {mother['last_name']}",
                     'tags': [],
                     'links': [],
-                    'notes': 'Auto-generated from birth event with both parents (Step 13)'
+                    'notes': f'Auto-generated from birth event {birth_event_id} (Step 30)'
                 }
 
                 # Add both parents as participants
@@ -1320,6 +1343,7 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
             new_event = {
                 'id': event_id,
                 'type': event_data['type'],
+                'title': event_data.get('title', None),
                 'date': event_data['date'],
                 'place_id': place_id,
                 'content': '',  # Will be generated from participants
@@ -1521,6 +1545,10 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
             self.sync_ages_to_birth_years(event_id, event_data, persons, events, event_participations)
 
             # Save data
+            # Step 30: Auto-create marriage between parents if this is a birth event
+            if new_event['type'] == 'birth':
+                self.create_parent_marriage_if_needed(events, event_participations, event_id, persons)
+
             data['places'] = places
             data['events'] = events
             data['event_participations'] = event_participations
@@ -1569,6 +1597,7 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
             # Update event basic info
             event = events[event_id]
             event['type'] = event_data['type']
+            event['title'] = event_data.get('title', None)
             event['date'] = event_data['date']
             event['tags'] = event_data.get('tags', [])
             event['links'] = event_data.get('links', [])
@@ -1788,6 +1817,10 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
             # Step 21: Sync ages to birth years
             self.sync_ages_to_birth_years(event_id, event_data, persons, events, event_participations)
 
+            # Step 30: Auto-create marriage between parents if this is a birth event
+            if event_data['type'] == 'birth':
+                self.create_parent_marriage_if_needed(events, event_participations, event_id, persons)
+
             # Save data
             with open(data_path, 'w', encoding='utf-8') as f:
                 json.dump(data, f, ensure_ascii=False, indent=2)
@@ -1796,9 +1829,16 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
             if new_persons:
                 print(f"  Created {len(new_persons)} new person(s)")
 
+            # Return current participations for this event so client can patch in-memory
+            updated_participations = {
+                ep_id: ep for ep_id, ep in event_participations.items()
+                if ep['event_id'] == event_id
+            }
+
             return {
                 'success': True,
                 'event': event,
+                'event_participations': updated_participations,
                 'new_persons': new_persons,
                 'message': f'Successfully updated event {event_id}'
             }
@@ -2001,6 +2041,39 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
                             # Also update person's birth_date
                             persons[person_id]['birth_date'] = birth_event['date']
                             print(f"  ✓ Step 21: Calculated birth year {calculated_birth_year} for {person_id} from age {age}")
+                    else:
+                        # Step 29: Create birth event if it doesn't exist
+                        birth_event_id = self.get_next_event_id(events)
+                        person = persons[person_id]
+
+                        events[birth_event_id] = {
+                            'id': birth_event_id,
+                            'type': 'birth',
+                            'date': {
+                                'year': calculated_birth_year,
+                                'month': None,
+                                'day': None,
+                                'circa': True
+                            },
+                            'place_id': None,
+                            'content': f"Birth of {person.get('first_name', '')} {person.get('last_name', '')}",
+                            'tags': [],
+                            'links': [],
+                            'notes': f'Auto-generated from age {age} in event {event_id}'
+                        }
+
+                        # Add person as child
+                        ep_id = self.get_next_event_participation_id(event_participations)
+                        event_participations[ep_id] = {
+                            'id': ep_id,
+                            'event_id': birth_event_id,
+                            'person_id': person_id,
+                            'role': 'child'
+                        }
+
+                        # Update person's birth_date
+                        persons[person_id]['birth_date'] = events[birth_event_id]['date']
+                        print(f"  ✓ Step 29: Created birth event {birth_event_id} with year {calculated_birth_year} for {person_id} from age {age}")
 
         except Exception as e:
             print(f"⚠ Warning: Error syncing ages to birth years: {str(e)}")
@@ -2082,7 +2155,7 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
                     'description': f"Marriage of {father.get('first_name', '')} {father.get('last_name', '')} and {mother.get('first_name', '')} {mother.get('last_name', '')}",
                     'tags': [],
                     'links': [],
-                    'notes': 'Synthetic event generated from birth records',
+                    'notes': 'Auto-generated from birth records (Step 30)',
                     'content': ''
                 }
                 events[marriage_event_id] = marriage_event
@@ -2290,6 +2363,320 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
                 'success': False,
                 'error': str(e)
             }
+
+    def score_person_completeness(self, person_id, persons, event_participations):
+        """Score how complete a person's data is (Step 31 helper)"""
+        if person_id not in persons:
+            return 0
+
+        person = persons[person_id]
+        score = 0
+
+        # Data completeness
+        if person.get('birth_date'):
+            score += 10
+        if person.get('death_date'):
+            score += 10
+        if person.get('gender') and person['gender'] != 'U':
+            score += 5
+        if person.get('occupation'):
+            score += 5
+        if person.get('maiden_name'):
+            score += 3
+
+        # Count events participated in
+        num_events = sum(1 for ep in event_participations.values() if ep['person_id'] == person_id)
+        score += num_events * 2
+
+        return score
+
+    def merge_persons(self, keep_id, delete_id, persons, event_participations, merge_log):
+        """Merge two person entities, keeping the one with more complete data (Step 31)"""
+        if keep_id not in persons or delete_id not in persons:
+            return False
+
+        keep_person = persons[keep_id]
+        delete_person = persons[delete_id]
+
+        # Merge data (keep most complete)
+        keep_person['birth_date'] = keep_person.get('birth_date') or delete_person.get('birth_date')
+        keep_person['death_date'] = keep_person.get('death_date') or delete_person.get('death_date')
+        keep_person['gender'] = keep_person.get('gender') if keep_person.get('gender') != 'U' else delete_person.get('gender')
+        keep_person['occupation'] = keep_person.get('occupation') or delete_person.get('occupation')
+        keep_person['maiden_name'] = keep_person.get('maiden_name') or delete_person.get('maiden_name')
+
+        # Update all event participations
+        for ep in event_participations.values():
+            if ep['person_id'] == delete_id:
+                ep['person_id'] = keep_id
+
+        # Remove duplicate participations (same person, same event, same role)
+        seen = {}
+        to_delete = []
+        for ep_id, ep in event_participations.items():
+            key = (ep['event_id'], ep['person_id'], ep['role'])
+            if key in seen:
+                # Duplicate found, mark for deletion
+                to_delete.append(ep_id)
+            else:
+                seen[key] = ep_id
+
+        for ep_id in to_delete:
+            del event_participations[ep_id]
+
+        # Delete the duplicate person
+        del persons[delete_id]
+
+        # Log the merge
+        merge_log.append({
+            'kept_id': keep_id,
+            'kept_name': f"{keep_person['first_name']} {keep_person['last_name']}",
+            'deleted_id': delete_id,
+            'deleted_name': f"{delete_person['first_name']} {delete_person['last_name']}",
+            'removed_duplicate_participations': len(to_delete)
+        })
+
+        return True
+
+    def deduplicate_witnesses_godparents(self):
+        """
+        Step 31: Find and merge witnesses and godparents with matching names
+        within the same birth event.
+        """
+        try:
+            # Load current data
+            data_path = 'data/genealogy_new_model.json'
+            with open(data_path, 'r', encoding='utf-8') as f:
+                data = json.load(f)
+
+            persons = data['persons']
+            events = data['events']
+            event_participations = data.get('event_participations', {})
+
+            merge_log = []
+            merges_performed = 0
+
+            # Scan all birth events
+            for event_id, event in events.items():
+                if event['type'] != 'birth':
+                    continue
+
+                # Get all participants in this event
+                participants = [ep for ep in event_participations.values() if ep['event_id'] == event_id]
+
+                # Separate witnesses and godparents
+                witnesses = [ep for ep in participants if ep['role'] == 'witness']
+                godparents = [ep for ep in participants if 'god' in ep['role'].lower()]
+
+                # Check for name matches
+                for witness_ep in witnesses:
+                    witness_id = witness_ep['person_id']
+                    if witness_id not in persons:
+                        continue
+                    witness = persons[witness_id]
+                    witness_name = (witness['first_name'].lower(), witness['last_name'].lower())
+
+                    for godparent_ep in godparents:
+                        godparent_id = godparent_ep['person_id']
+                        if godparent_id not in persons or godparent_id == witness_id:
+                            continue
+                        godparent = persons[godparent_id]
+                        godparent_name = (godparent['first_name'].lower(), godparent['last_name'].lower())
+
+                        # Case-insensitive name match
+                        if witness_name == godparent_name:
+                            # Score each person
+                            witness_score = self.score_person_completeness(witness_id, persons, event_participations)
+                            godparent_score = self.score_person_completeness(godparent_id, persons, event_participations)
+
+                            # Keep the one with higher score
+                            keep_id, delete_id = (witness_id, godparent_id) if witness_score >= godparent_score else (godparent_id, witness_id)
+
+                            print(f"  Merging {delete_id} into {keep_id} in event {event_id}: {witness['first_name']} {witness['last_name']}")
+
+                            # Perform merge
+                            if self.merge_persons(keep_id, delete_id, persons, event_participations, merge_log):
+                                merges_performed += 1
+                                break  # Move to next witness (avoid modifying list while iterating)
+
+            # Save data
+            if merges_performed > 0:
+                with open(data_path, 'w', encoding='utf-8') as f:
+                    json.dump(data, f, ensure_ascii=False, indent=2)
+
+            print(f"✓ Deduplicated {merges_performed} witness/godparent pairs")
+
+            return {
+                'success': True,
+                'merges_performed': merges_performed,
+                'merge_log': merge_log,
+                'message': f'Successfully merged {merges_performed} duplicate witness/godparent persons'
+            }
+
+        except Exception as e:
+            print(f"✗ Error deduplicating witnesses/godparents: {str(e)}")
+            import traceback
+            traceback.print_exc()
+            return {
+                'success': False,
+                'error': str(e)
+            }
+
+
+    def geneteka_import(self, first_name, last_name, record_type='birth'):
+        """Proxy request to Geneteka API and return parsed records (birth/marriage/death)"""
+        import urllib.request
+        import urllib.parse
+        import re
+
+        type_config = {
+            'birth':    ('B', '3382'),
+            'marriage': ('S', '3560'),
+            'death':    ('D', '3384'),
+        }
+        bdm, rid = type_config.get(record_type, ('B', '3382'))
+
+        def extract_uwagi(html):
+            notes_parts = re.findall(r'<img[^>]+title="([^"]*)"', html)
+            return ' | '.join(t.strip() for t in notes_parts if t.strip())
+
+        def extract_links(html):
+            return re.findall(r'href="(https?://[^"]+)"', html)
+
+        def strip_html(text):
+            return re.sub(r'<[^>]+>', '', text).strip()
+
+        def parse_rodzice(rodzice):
+            """Parse 'FatherName, MotherName MotherMaiden' into components"""
+            if not rodzice or not rodzice.strip():
+                return {'father_name': '', 'mother_name': '', 'mother_maiden': ''}
+            parts = rodzice.split(',', 1)
+            father_name = parts[0].strip()
+            mother_part = parts[1].strip() if len(parts) > 1 else ''
+            mother_parts = mother_part.split()
+            mother_name = mother_parts[0] if mother_parts else ''
+            mother_maiden = mother_parts[1] if len(mother_parts) > 1 else ''
+            return {'father_name': father_name, 'mother_name': mother_name, 'mother_maiden': mother_maiden}
+
+        try:
+            import http.cookiejar
+            encoded_last = urllib.parse.quote(last_name)
+            encoded_first = urllib.parse.quote(first_name)
+
+            # Build session using a cookie jar so the index page sets cookies
+            # before we hit the API (Geneteka returns empty data without a session)
+            cj = http.cookiejar.CookieJar()
+            opener = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(cj))
+            common_headers = [
+                ('User-Agent', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'),
+                ('Accept-Language', 'pl,en;q=0.9'),
+            ]
+            # Step 1: visit the HTML search page to establish the session
+            index_url = (
+                f"https://geneteka.genealodzy.pl/index.php"
+                f"?op=gt&lang=pol&bdm={bdm}&w=13sk&rid={rid}"
+                f"&search_lastname={encoded_last}&search_name={encoded_first}"
+                f"&search_lastname2=&search_name2=&from_date=&to_date="
+            )
+            index_req = urllib.request.Request(index_url, headers={
+                'User-Agent': common_headers[0][1],
+                'Accept': 'text/html',
+                'Accept-Language': common_headers[1][1],
+            })
+            with opener.open(index_req, timeout=15) as _:
+                pass  # just need the cookies
+
+            # Step 2: call the JSON API with the session cookies
+            url = (
+                f"https://geneteka.genealodzy.pl/api/getAct.php"
+                f"?op=gt&lang=pol&bdm={bdm}&w=13sk&rid={rid}"
+                f"&search_lastname={encoded_last}&search_name={encoded_first}"
+                f"&search_lastname2=&search_name2=&from_date=&to_date="
+                f"&draw=1&start=0&length=100"
+            )
+            req = urllib.request.Request(url, headers={
+                'User-Agent': common_headers[0][1],
+                'Referer': index_url,
+                'Accept': 'application/json',
+                'Accept-Language': common_headers[1][1],
+                'X-Requested-With': 'XMLHttpRequest',
+            })
+
+            with opener.open(req, timeout=15) as response:
+                raw = response.read().decode('utf-8')
+
+            data = json.loads(raw)
+            records = []
+
+            for row in data.get('data', []):
+                if record_type == 'marriage':
+                    # 10 columns: rok, akt, groom_name, groom_surname, groom_parents,
+                    #              bride_name, bride_surname, bride_parents, place, uwagi
+                    if len(row) < 9:
+                        continue
+                    uwagi_html = row[9] if len(row) > 9 else ''
+                    records.append({
+                        'rok': strip_html(row[0]).strip(),
+                        'akt': strip_html(row[1]).strip(),
+                        'imie_pana': strip_html(row[2]).strip(),
+                        'nazwisko_pana': strip_html(row[3]).strip(),
+                        'rodzice_pana': strip_html(row[4]).strip(),
+                        'imie_pani': strip_html(row[5]).strip(),
+                        'nazwisko_pani': strip_html(row[6]).strip(),
+                        'rodzice_pani': strip_html(row[7]).strip(),
+                        'miejscowosc': strip_html(row[8]).strip(),
+                        'uwagi': extract_uwagi(uwagi_html),
+                        'links': extract_links(uwagi_html),
+                        'rodzice_pana_parsed': parse_rodzice(strip_html(row[4]).strip()),
+                        'rodzice_pani_parsed': parse_rodzice(strip_html(row[7]).strip()),
+                    })
+                elif record_type == 'death':
+                    # 9 columns: rok, akt, name, surname (may have HTML), father, mother, mother_maiden, place, uwagi
+                    if len(row) < 8:
+                        continue
+                    uwagi_html = row[8] if len(row) > 8 else ''
+                    records.append({
+                        'rok': strip_html(row[0]).strip(),
+                        'akt': strip_html(row[1]).strip(),
+                        'imie': strip_html(row[2]).strip(),
+                        'nazwisko': strip_html(row[3]).strip(),
+                        'imie_ojca': strip_html(row[4]).strip(),
+                        'imie_matki': strip_html(row[5]).strip(),
+                        'nazwisko_matki': strip_html(row[6]).strip(),
+                        'miejscowosc': strip_html(row[7]).strip(),
+                        'uwagi': extract_uwagi(uwagi_html),
+                        'links': extract_links(uwagi_html),
+                    })
+                else:
+                    # birth: 10 columns: rok, akt, child_name, surname, father, mother, mother_maiden, parish, place, uwagi
+                    # Some older/incomplete records have fewer columns; use empty string for missing fields.
+                    if len(row) < 2:
+                        continue
+                    def col(i): return strip_html(row[i]).strip() if len(row) > i else ''
+                    uwagi_html = row[9] if len(row) > 9 else ''
+                    records.append({
+                        'rok': col(0),
+                        'akt': col(1),
+                        'imie_dziecka': col(2),
+                        'nazwisko': col(3),
+                        'imie_ojca': col(4),
+                        'imie_matki': col(5),
+                        'nazwisko_matki': col(6),
+                        'parafia': col(7),
+                        'miejscowosc': col(8),
+                        'uwagi': extract_uwagi(uwagi_html),
+                        'links': extract_links(uwagi_html),
+                    })
+
+            return {
+                'success': True,
+                'records': records,
+                'total': data.get('recordsTotal', len(records)),
+            }
+
+        except Exception as e:
+            print(f"✗ Geneteka import error: {e}")
+            return {'success': False, 'error': str(e), 'records': []}
 
 
 def run_server(port=8001):

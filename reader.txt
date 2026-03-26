@@ -1,0 +1,21 @@
+This app relies on info gathered from church records (births/marriages/deaths). All records follow same patterns:
+
+Działo się w Wsi Mircu Dnia dziesiątego Lutego Tysiąc ośm set dwudziestego dziewiątego roku o godzinie dwunastej w południe stawił się Antoni Derlatka rolnik w Jagodnym zamieszkały lat trzydzieści siedm mający w obecności Jakoba Gryza lat dwadzieścia pięć i Jakoba Tarabasa lat dwadzieścia siedm mających obydwóch rolników z Jagodnego i okazał nam dziecię płci żeńskiej urodzone w Jagodnym dnia dziewiątego Lutego roku bieżącego o godzinie dwunastej w południe w domu pod numerem trzynastym z jego małżonki Rozalii z Śierków lat trzydzieści mającej. Dziecięciu temu na chrzcie świętym odbytym w dniu dzisiejszym zawarte zostało religijne nadane zostało imię Franciszka a rodzicami jego chrzestnymi byli Jan Szpądło z Gatki i Zofia Jasińska z Mirca. Akt ten Stawiającemu i świadkom przeczytany przez nas tylko podpisany został gdyż świadkowie oświadczyli iż pisać nie umieją.
+X. Maciej Gorecki administrator parafii Mireckiej
+
+I want this app to support the following scenario:
+
+Step 1.
+In /transcribe/set/in directory there are jpg files with church records (usually 3 per page/file) that need to be read and transformed to text (image to text). 
+Extracted text needs to saved in /transcribe/set/out directory in txt file having same name as original jpg file being source of data.
+Example 939V-T69Z-9C.jpg and 939V-T69Z-9C.txt
+
+There's a data that can be used for training. Pairs of jpg/txt files that already have been transcribed. You can pair them together by looking at their names - they will match (ignore "not-" prefix and look at part following it: not-939V-T69H-68.txt is 939V-T69H-68.txt)
+
+Step 2. 
+Extract data from each record text and normalized:
+- where is record written
+- when is record written
+etc.
+
+Step 3.

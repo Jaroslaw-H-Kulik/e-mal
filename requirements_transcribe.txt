@@ -1,0 +1,7 @@
+# Requirements for local OCR transcription
+# Install with: pip3 install -r requirements_transcribe.txt
+
+torch>=2.0.0
+transformers>=4.30.0
+Pillow>=10.0.0
+sentencepiece>=0.1.99

@@ -1,0 +1,118 @@
+[
+  {
+    "image": "transcribe/ground_truth/939V-T696-4Y.jpg",
+    "text": "transcribe/ground_truth/939V-T696-4Y.gt.txt"
+  },
+  {
+    "image": "transcribe/ground_truth/939V-T698-31.jpg",
+    "text": "transcribe/ground_truth/939V-T698-31.gt.txt"
+  },
+  {
+    "image": "transcribe/ground_truth/939V-T698-PT.jpg",
+    "text": "transcribe/ground_truth/939V-T698-PT.gt.txt"
+  },
+  {
+    "image": "transcribe/ground_truth/939V-T698-RB.jpg",
+    "text": "transcribe/ground_truth/939V-T698-RB.gt.txt"
+  },
+  {
+    "image": "transcribe/ground_truth/939V-T698-TV.jpg",
+    "text": "transcribe/ground_truth/939V-T698-TV.gt.txt"
+  },
+  {
+    "image": "transcribe/ground_truth/939V-T698-VD.jpg",
+    "text": "transcribe/ground_truth/939V-T698-VD.gt.txt"
+  },
+  {
+    "image": "transcribe/ground_truth/939V-T69C-8T.jpg",
+    "text": "transcribe/ground_truth/939V-T69C-8T.gt.txt"
+  },
+  {
+    "image": "transcribe/ground_truth/939V-T69C-HD.jpg",
+    "text": "transcribe/ground_truth/939V-T69C-HD.gt.txt"
+  },
+  {
+    "image": "transcribe/ground_truth/939V-T69C-JX.jpg",
+    "text": "transcribe/ground_truth/939V-T69C-JX.gt.txt"
+  },
+  {
+    "image": "transcribe/ground_truth/939V-T69C-KH.jpg",
+    "text": "transcribe/ground_truth/939V-T69C-KH.gt.txt"
+  },
+  {
+    "image": "transcribe/ground_truth/939V-T69C-P7.jpg",
+    "text": "transcribe/ground_truth/939V-T69C-P7.gt.txt"
+  },
+  {
+    "image": "transcribe/ground_truth/939V-T69C-VK.jpg",
+    "text": "transcribe/ground_truth/939V-T69C-VK.gt.txt"
+  },
+  {
+    "image": "transcribe/ground_truth/939V-T69D-72.jpg",
+    "text": "transcribe/ground_truth/939V-T69D-72.gt.txt"
+  },
+  {
+    "image": "transcribe/ground_truth/939V-T69H-56.jpg",
+    "text": "transcribe/ground_truth/939V-T69H-56.gt.txt"
+  },
+  {
+    "image": "transcribe/ground_truth/939V-T69H-68.jpg",
+    "text": "transcribe/ground_truth/939V-T69H-68.gt.txt"
+  },
+  {
+    "image": "transcribe/ground_truth/939V-T69H-B1.jpg",
+    "text": "transcribe/ground_truth/939V-T69H-B1.gt.txt"
+  },
+  {
+    "image": "transcribe/ground_truth/939V-T69H-NH.jpg",
+    "text": "transcribe/ground_truth/939V-T69H-NH.gt.txt"
+  },
+  {
+    "image": "transcribe/ground_truth/939V-T69Z-9C.jpg",
+    "text": "transcribe/ground_truth/939V-T69Z-9C.gt.txt"
+  },
+  {
+    "image": "transcribe/ground_truth/939V-T69Z-9Q.jpg",
+    "text": "transcribe/ground_truth/939V-T69Z-9Q.gt.txt"
+  },
+  {
+    "image": "transcribe/ground_truth/939V-T69Z-9X.jpg",
+    "text": "transcribe/ground_truth/939V-T69Z-9X.gt.txt"
+  },
+  {
+    "image": "transcribe/ground_truth/939V-T69Z-HS.jpg",
+    "text": "transcribe/ground_truth/939V-T69Z-HS.gt.txt"
+  },
+  {
+    "image": "transcribe/ground_truth/939V-T69Z-LF.jpg",
+    "text": "transcribe/ground_truth/939V-T69Z-LF.gt.txt"
+  },
+  {
+    "image": "transcribe/ground_truth/939V-T69Z-NZ.jpg",
+    "text": "transcribe/ground_truth/939V-T69Z-NZ.gt.txt"
+  },
+  {
+    "image": "transcribe/ground_truth/939V-T69Z-PW.jpg",
+    "text": "transcribe/ground_truth/939V-T69Z-PW.gt.txt"
+  },
+  {
+    "image": "transcribe/ground_truth/939V-T69Z-T2.jpg",
+    "text": "transcribe/ground_truth/939V-T69Z-T2.gt.txt"
+  },
+  {
+    "image": "transcribe/ground_truth/939V-T69Z-TM.jpg",
+    "text": "transcribe/ground_truth/939V-T69Z-TM.gt.txt"
+  },
+  {
+    "image": "transcribe/ground_truth/939V-T69Z-X3.jpg",
+    "text": "transcribe/ground_truth/939V-T69Z-X3.gt.txt"
+  },
+  {
+    "image": "transcribe/ground_truth/939V-T69Z-X4.jpg",
+    "text": "transcribe/ground_truth/939V-T69Z-X4.gt.txt"
+  },
+  {
+    "image": "transcribe/ground_truth/939V-T69Z-Y6.jpg",
+    "text": "transcribe/ground_truth/939V-T69Z-Y6.gt.txt"
+  }
+]
