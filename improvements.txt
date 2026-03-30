@@ -218,3 +218,51 @@ Step 51.
 When birth event are added, i want to have option to provide 3 witnesses in UI.
 
 Sort spouses by marriage year if known.
+
+----
+
+Step 52.
+When person (bride/groom) is added through marriage event, no sex is specified. You must assume sex from role. Person created as bride is female. Groom is male.
+
+Step 53.
+Step 46 still does not work. When first name ends with "a" and text window is unclicked, you need change sex to female. Otherwise it should stay as male.
+This should work both in "Add person" and "add birth event".
+
+Step 54.
+When someone is added through birth event, you prepopulate father and mother, that's good. I want you to also prepopulate last name of child. It should be taken from father.
+
+Step 55.
+In "Community network" tab never load all people from model. You must load only those that are related to person shown in person tab. If there's no person selected, show empty network.
+
+Step 56.
+Add new sections to person model:
+- tags
+- notes
+
+Tags (if any) should be displayed under sex on person card.
+
+Notes (if any) should be displayed under family section and before events section.
+
+When I create/edit person I want to have respective input sections as well.
+
+Step 57.
+
+I want to be able to upload documents/pictures (jpg/jpegs) - let's call them documents. You need to create new button, next to "add person" - "add document".
+When document is added you need to open form where i can give name to this document.
+When document is added, it should end up in ./data/documents directory. 
+
+Add new model for documents:
+   - path
+   - name
+   - notes
+   - transcription
+   - tags
+   - date
+   - participants
+   - link
+
+Document can have unlimited number of participants - so form should support adding new partipacts over oand over again in UI. Participants are people from model.
+So when selecting participants i want to have model lookup option, similar to one used in events view.
+
+Step 58.
+In person card I want to see documents linked to given person.
