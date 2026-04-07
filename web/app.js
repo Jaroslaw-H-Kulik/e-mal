@@ -273,156 +273,19 @@ class GenealogyApp {
     createNetwork() {
         const container = document.getElementById('network-container');
 
-        // Prepare nodes (persons)
-        const nodes = [];
-        Object.entries(this.persons).forEach(([id, person]) => {
-            const birthYear = this.extractYear(person.birth_date);
-            const deathYear = this.extractYear(person.death_date);
-            const yearsLabel = birthYear || deathYear ? `\n(${birthYear || '?'}-${deathYear || '?'})` : '';
-
-            nodes.push({
-                id: id,
-                label: `${this.getFullName(person)}${yearsLabel}`,
-                title: this.getPersonTooltip(id, person),
-                color: this.getPersonColor(person.gender),
-                font: {
-                    size: 14,
-                    color: '#333'
-                },
-                borderWidth: 2,
-                borderWidthSelected: 4
-            });
-        });
-
-        // Prepare edges from events
-        const edges = [];
-        const edgeSet = new Set(); // Track unique edges to avoid duplicates
-
-        // Process all events to extract relationships
-        Object.values(this.events).forEach(event => {
-            const participants = Object.values(this.event_participations)
-                .filter(ep => ep.event_id === event.id);
-
-            if (event.type === 'birth') {
-                // Extract parent-child relationships
-                const child = participants.find(p => p.role === 'child');
-                const parents = participants.filter(p => p.role === 'father' || p.role === 'mother');
-
-                if (child) {
-                    parents.forEach(parent => {
-                        const edgeKey = `parent-${parent.person_id}-${child.person_id}`;
-                        if (!edgeSet.has(edgeKey)) {
-                            edgeSet.add(edgeKey);
-                            edges.push({
-                                from: parent.person_id,
-                                to: child.person_id,
-                                arrows: this.getEdgeArrows('biological_parent'),
-                                color: this.getEdgeColor('biological_parent'),
-                                width: 2,
-                                smooth: {
-                                    type: 'curvedCW',
-                                    roundness: 0.2
-                                },
-                                relType: 'biological_parent',
-                                title: `Parent of`
-                            });
-                        }
-                    });
-                }
-            } else if (event.type === 'marriage') {
-                // Extract spouse relationships
-                const spouses = participants.filter(p => p.role === 'groom' || p.role === 'bride');
-                if (spouses.length === 2) {
-                    const edgeKey = `spouse-${spouses[0].person_id}-${spouses[1].person_id}`;
-                    const reverseKey = `spouse-${spouses[1].person_id}-${spouses[0].person_id}`;
-                    if (!edgeSet.has(edgeKey) && !edgeSet.has(reverseKey)) {
-                        edgeSet.add(edgeKey);
-                        edges.push({
-                            from: spouses[0].person_id,
-                            to: spouses[1].person_id,
-                            arrows: this.getEdgeArrows('marriage'),
-                            color: this.getEdgeColor('marriage'),
-                            width: 2,
-                            smooth: {
-                                type: 'curvedCW',
-                                roundness: 0.2
-                            },
-                            relType: 'marriage',
-                            title: `Married to`
-                        });
-                    }
-                }
-            }
-        });
-
-        // Build map of event participations for quick lookup
-        const eventParticipationsByEvent = {};
-        Object.values(this.event_participations).forEach(ep => {
-            if (!eventParticipationsByEvent[ep.event_id]) {
-                eventParticipationsByEvent[ep.event_id] = [];
-            }
-            eventParticipationsByEvent[ep.event_id].push(ep);
-        });
-
-        // Add witness relationships from events using participations
-        const witnessConnections = new Set(); // Avoid duplicates
-        Object.entries(this.events).forEach(([eventId, event]) => {
-            const participants = eventParticipationsByEvent[eventId] || [];
-
-            // Find witnesses and main participants
-            const witnesses = participants.filter(ep => ep.role === 'witness');
-            const mainParticipants = participants.filter(ep =>
-                ['child', 'deceased', 'groom', 'bride'].includes(ep.role)
-            );
-
-            // Connect witnesses to main participants
-            witnesses.forEach(witness => {
-                mainParticipants.forEach(mainPart => {
-                    if (witness.person_id !== mainPart.person_id) {
-                        // Create unique key to avoid duplicates
-                        const key = `${witness.person_id}-${mainPart.person_id}`;
-                        if (!witnessConnections.has(key)) {
-                            witnessConnections.add(key);
-                            edges.push({
-                                from: witness.person_id,
-                                to: mainPart.person_id,
-                                arrows: '',
-                                color: { color: '#95a5a6', opacity: 0.5 },
-                                width: 1,
-                                dashes: [5, 5],
-                                smooth: {
-                                    type: 'curvedCW',
-                                    roundness: 0.3
-                                },
-                                relType: 'witness',
-                                title: 'Witnessed event together'
-                            });
-                        }
-                    }
-                });
-            });
-        });
-
         // Network options
         const options = {
             nodes: {
                 shape: 'dot',
                 size: 16,
-                font: {
-                    size: 12
-                }
+                font: { size: 12 }
             },
             edges: {
-                smooth: {
-                    enabled: true,
-                    type: 'dynamic'
-                }
+                smooth: { enabled: true, type: 'dynamic' }
             },
             physics: {
                 enabled: true,
-                stabilization: {
-                    iterations: 200
-                },
+                stabilization: { iterations: 200 },
                 barnesHut: {
                     gravitationalConstant: -8000,
                     centralGravity: 0.3,
@@ -439,35 +302,184 @@ class GenealogyApp {
             }
         };
 
-        // Create network
-        const data = { nodes: new vis.DataSet(nodes), edges: new vis.DataSet(edges) };
+        // Step 55: Start with empty network — only load related persons when one is selected
+        const data = { nodes: new vis.DataSet([]), edges: new vis.DataSet([]) };
         this.network = new vis.Network(container, data, options);
 
         // Handle click events
         this.network.on('click', (params) => {
-            console.log('Network clicked:', params);
             if (params.nodes.length > 0) {
                 const personId = params.nodes[0];
-                console.log('Person clicked:', personId);
                 try {
                     this.showPersonDetails(personId);
-                    this.focusOnPersonNetwork(personId);
                 } catch (error) {
                     console.error('Error showing person details:', error);
                     alert(`Error displaying person ${personId}: ${error.message}`);
                 }
-            } else {
-                console.log('Clicked on empty space - showing full network');
-                this.showFullNetwork();
             }
+            // Clicking empty space does nothing (Step 55: no full-network fallback)
         });
 
-        // Handle double click to focus
+        // Handle double click to zoom in on person
         this.network.on('doubleClick', (params) => {
             if (params.nodes.length > 0) {
                 const personId = params.nodes[0];
-                this.focusOnPerson(personId);
+                this.network.focus(personId, {
+                    scale: 2,
+                    animation: { duration: 800, easingFunction: 'easeInOutQuad' }
+                });
             }
+        });
+
+        // Step 55: View filter buttons are disabled — network is always person-scoped
+        this.setViewControlsEnabled(false);
+    }
+
+    // Step 55: Compute set of person IDs reachable within `hops` from personId via shared events
+    getRelatedPersonIds(personId, hops = 2) {
+        const visited = new Set([personId]);
+        let frontier = [personId];
+
+        for (let h = 0; h < hops; h++) {
+            const nextFrontier = [];
+            frontier.forEach(id => {
+                const eps = this.participationsByPerson[id] || [];
+                eps.forEach(ep => {
+                    const coParticipants = this.participationsByEvent[ep.event_id] || [];
+                    coParticipants.forEach(coEp => {
+                        if (!visited.has(coEp.person_id) && this.persons[coEp.person_id]) {
+                            visited.add(coEp.person_id);
+                            nextFrontier.push(coEp.person_id);
+                        }
+                    });
+                });
+            });
+            frontier = nextFrontier;
+            if (frontier.length === 0) break;
+        }
+
+        return visited;
+    }
+
+    // Step 55: Build and load a 2-hop subgraph for personId into the vis.js network
+    buildPersonSubgraph(personId) {
+        const visibleIds = this.getRelatedPersonIds(personId, 2);
+
+        // Build nodes
+        const nodes = [];
+        visibleIds.forEach(id => {
+            const person = this.persons[id];
+            if (!person) return;
+            const birthYear = this.extractYear(person.birth_date);
+            const deathYear = this.extractYear(person.death_date);
+            const yearsLabel = birthYear || deathYear ? `\n(${birthYear || '?'}-${deathYear || '?'})` : '';
+            nodes.push({
+                id,
+                label: `${this.getFullName(person)}${yearsLabel}`,
+                title: this.getPersonTooltip(id, person),
+                color: this.getPersonColor(person.gender),
+                font: { size: 14, color: '#333' },
+                borderWidth: 2,
+                borderWidthSelected: 4
+            });
+        });
+
+        // Build edges
+        const edges = [];
+        const edgeSet = new Set();
+
+        Object.values(this.events).forEach(event => {
+            const participants = this.participationsByEvent[event.id] || [];
+
+            if (event.type === 'birth') {
+                const child = participants.find(p => p.role === 'child');
+                const parents = participants.filter(p => p.role === 'father' || p.role === 'mother');
+                if (child && visibleIds.has(child.person_id)) {
+                    parents.forEach(parent => {
+                        if (!visibleIds.has(parent.person_id)) return;
+                        const key = `parent-${parent.person_id}-${child.person_id}`;
+                        if (!edgeSet.has(key)) {
+                            edgeSet.add(key);
+                            edges.push({
+                                from: parent.person_id, to: child.person_id,
+                                arrows: this.getEdgeArrows('biological_parent'),
+                                color: this.getEdgeColor('biological_parent'),
+                                width: 2, smooth: { type: 'curvedCW', roundness: 0.2 },
+                                relType: 'biological_parent', title: 'Parent of'
+                            });
+                        }
+                    });
+                }
+            } else if (event.type === 'marriage') {
+                const spouses = participants.filter(p => p.role === 'groom' || p.role === 'bride');
+                if (spouses.length === 2 && visibleIds.has(spouses[0].person_id) && visibleIds.has(spouses[1].person_id)) {
+                    const key = `spouse-${spouses[0].person_id}-${spouses[1].person_id}`;
+                    const revKey = `spouse-${spouses[1].person_id}-${spouses[0].person_id}`;
+                    if (!edgeSet.has(key) && !edgeSet.has(revKey)) {
+                        edgeSet.add(key);
+                        edges.push({
+                            from: spouses[0].person_id, to: spouses[1].person_id,
+                            arrows: this.getEdgeArrows('marriage'),
+                            color: this.getEdgeColor('marriage'),
+                            width: 2, smooth: { type: 'curvedCW', roundness: 0.2 },
+                            relType: 'marriage', title: 'Married to'
+                        });
+                    }
+                }
+            }
+        });
+
+        // Witness edges
+        const witnessSet = new Set();
+        Object.entries(this.events).forEach(([eventId]) => {
+            const participants = this.participationsByEvent[eventId] || [];
+            const witnesses = participants.filter(ep => ep.role === 'witness' && visibleIds.has(ep.person_id));
+            const mainParts = participants.filter(ep =>
+                ['child', 'deceased', 'groom', 'bride'].includes(ep.role) && visibleIds.has(ep.person_id)
+            );
+            witnesses.forEach(w => {
+                mainParts.forEach(m => {
+                    if (w.person_id !== m.person_id) {
+                        const key = `${w.person_id}-${m.person_id}`;
+                        if (!witnessSet.has(key)) {
+                            witnessSet.add(key);
+                            edges.push({
+                                from: w.person_id, to: m.person_id,
+                                arrows: '', color: { color: '#95a5a6', opacity: 0.5 },
+                                width: 1, dashes: [5, 5],
+                                smooth: { type: 'curvedCW', roundness: 0.3 },
+                                relType: 'witness', title: 'Witnessed event together'
+                            });
+                        }
+                    }
+                });
+            });
+        });
+
+        // Replace network data
+        const allNodes = this.network.body.data.nodes;
+        const allEdges = this.network.body.data.edges;
+        allNodes.clear();
+        allEdges.clear();
+        allNodes.add(nodes);
+        allEdges.add(edges);
+
+        // Select and focus on person
+        this.network.selectNodes([personId]);
+        setTimeout(() => {
+            this.network.focus(personId, {
+                scale: 1.5,
+                animation: { duration: 800, easingFunction: 'easeInOutQuad' }
+            });
+        }, 300);
+    }
+
+    // Step 55: Enable/disable view filter buttons
+    setViewControlsEnabled(enabled) {
+        document.querySelectorAll('.view-controls button').forEach(btn => {
+            btn.disabled = !enabled;
+            btn.style.opacity = enabled ? '' : '0.4';
+            btn.style.cursor = enabled ? '' : 'not-allowed';
         });
     }
 
@@ -637,6 +649,7 @@ class GenealogyApp {
                 <div style="margin-top: 10px;">
                     ${this.getGenderBadge(person.gender)}
                     ${person.occupation ? `<span class="badge">${person.occupation}</span>` : ''}
+                    ${person.tags && person.tags.length > 0 ? person.tags.map(t => `<span class="badge tag-badge">${t}</span>`).join('') : ''}
                 </div>
                 <div class="person-actions">
                     <button class="btn-primary" onclick="editor.openEditModal('${personId}')">✏️ Edit</button>
@@ -779,6 +792,14 @@ class GenealogyApp {
             html += '</div>';
         }
 
+        // Step 56: Notes section (before events)
+        if (person.notes) {
+            html += `<div class="detail-section">
+                <div class="section-title">📝 Notes</div>
+                <div style="white-space: pre-wrap; color: #555; font-size: 0.9rem; line-height: 1.5;">${person.notes}</div>
+            </div>`;
+        }
+
         // Events section
         const events = this.getPersonEvents(personId);
         html += '<div class="detail-section">';
@@ -870,6 +891,9 @@ class GenealogyApp {
 
         detailsContainer.innerHTML = html;
 
+        // Step 55: Build and display the person's 2-hop network subgraph
+        this.buildPersonSubgraph(personId);
+
         // Add click handlers for person links (family and participants)
         detailsContainer.querySelectorAll('.person-link').forEach(link => {
             link.addEventListener('click', (e) => {
@@ -877,8 +901,6 @@ class GenealogyApp {
                 const targetId = link.getAttribute('data-person-id');
                 if (targetId) {
                     this.showPersonDetails(targetId);
-                    this.network.selectNodes([targetId]);
-                    this.network.focus(targetId, { scale: 1.5, animation: true });
                 }
             });
         });
@@ -1309,8 +1331,10 @@ class GenealogyApp {
             </div>
         `;
         document.getElementById('close-details-btn').style.display = 'none';
-        this.network.unselectAll();
-        this.showFullNetwork();
+        this.selectedPerson = null;
+        // Step 55: Clear network when no person is selected
+        this.network.body.data.nodes.clear();
+        this.network.body.data.edges.clear();
     }
 
     changeView(viewType) {

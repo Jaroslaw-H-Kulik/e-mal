@@ -219,6 +219,14 @@
                                 <label for="add-marriage-year">Marriage Year</label>
                                 <input type="number" id="add-marriage-year" name="marriage_year" min="1700" max="2100">
                             </div>
+                            <div class="form-group" style="grid-column: 1 / -1;">
+                                <label for="add-tags">Tags (comma-separated)</label>
+                                <input type="text" id="add-tags" name="tags" placeholder="e.g. noble, immigrant, notable">
+                            </div>
+                        </div>
+                        <div class="form-group" style="margin-top: 10px;">
+                            <label for="add-notes">Notes</label>
+                            <textarea id="add-notes" name="notes" rows="3" placeholder="Additional notes about this person..." style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px; resize: vertical;"></textarea>
                         </div>
                         <div class="form-actions">
                             <button type="button" class="btn-secondary" onclick="editor && editor.closeAddPersonModal()">Cancel</button>
@@ -303,6 +311,14 @@
                                 <label for="edit-occupations">Occupations (comma-separated)</label>
                                 <input type="text" id="edit-occupations" name="occupations" placeholder="e.g., farmer, miller">
                             </div>
+                            <div class="form-group" style="grid-column: 1 / -1;">
+                                <label for="edit-tags">Tags (comma-separated)</label>
+                                <input type="text" id="edit-tags" name="tags" placeholder="e.g. noble, immigrant, notable">
+                            </div>
+                        </div>
+                        <div class="form-group" style="margin-top: 10px;">
+                            <label for="edit-notes">Notes</label>
+                            <textarea id="edit-notes" name="notes" rows="3" placeholder="Additional notes about this person..." style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px; resize: vertical;"></textarea>
                         </div>
 
                         <!-- Add Relationship Section -->
@@ -544,8 +560,8 @@
         </div>
     </div>
 
-    <script src="app.js?v=10"></script>
-    <script src="editor.js?v=7"></script>
+    <script src="app.js?v=11"></script>
+    <script src="editor.js?v=8"></script>
     <script src="enrichment.js?v=2"></script>
     <script src="event-editor.js?v=5"></script>
     <script>

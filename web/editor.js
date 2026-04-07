@@ -146,19 +146,27 @@ class GenealogyEditor {
             this.savePersonEdit();
         });
 
-        // Step 46: Auto-set gender from Polish given name on blur
+        // Step 46/53: Auto-set gender from Polish given name on blur
         const MALE_NAMES_ENDING_A = ['barnaba', 'bonawentura', 'kuba', 'sasza', 'jarema', 'seba'];
+        const inferGenderFromPolishName = (name) => {
+            if (!name) return null;
+            const lower = name.trim().toLowerCase();
+            if (MALE_NAMES_ENDING_A.includes(lower)) return 'M';
+            if (lower.endsWith('a')) return 'F';
+            return 'M';
+        };
+
         document.getElementById('edit-given-name').addEventListener('blur', () => {
-            const name = document.getElementById('edit-given-name').value.trim().toLowerCase();
+            const name = document.getElementById('edit-given-name').value.trim();
             if (!name) return;
-            const genderField = document.getElementById('edit-gender');
-            if (MALE_NAMES_ENDING_A.includes(name)) {
-                genderField.value = 'M';
-            } else if (name.endsWith('a')) {
-                genderField.value = 'F';
-            } else {
-                genderField.value = 'M';
-            }
+            document.getElementById('edit-gender').value = inferGenderFromPolishName(name);
+        });
+
+        // Step 53: Same logic for Add Person modal
+        document.getElementById('add-given-name').addEventListener('blur', () => {
+            const name = document.getElementById('add-given-name').value.trim();
+            if (!name) return;
+            document.getElementById('add-gender').value = inferGenderFromPolishName(name);
         });
     }
 
@@ -194,6 +202,9 @@ class GenealogyEditor {
         if (placeDeathEl) placeDeathEl.value = '';
 
         document.getElementById('edit-occupations').value = person.occupation || '';
+        // Step 56: Populate tags and notes
+        document.getElementById('edit-tags').value = person.tags && person.tags.length > 0 ? person.tags.join(', ') : '';
+        document.getElementById('edit-notes').value = person.notes || '';
 
         // Show modal
         document.getElementById('edit-modal').style.display = 'block';
@@ -455,6 +466,10 @@ class GenealogyEditor {
         const placeBirth = document.getElementById('edit-place-birth')?.value.trim() || null;
         const placeDeath = document.getElementById('edit-place-death')?.value.trim() || null;
 
+        // Step 56: Parse tags from comma-separated input
+        const tagsRaw = document.getElementById('edit-tags')?.value || '';
+        const tags = tagsRaw.split(',').map(t => t.trim()).filter(t => t.length > 0);
+
         const updateData = {
             person_id: personId,
             first_name: document.getElementById('edit-given-name').value,
@@ -465,7 +480,9 @@ class GenealogyEditor {
             death_date: deathYearInput ? { year: deathYearInput, month: null, day: null, circa: true } : null,
             occupation: document.getElementById('edit-occupations').value || null,
             place_of_birth: placeBirth,
-            place_of_death: placeDeath
+            place_of_death: placeDeath,
+            tags: tags,
+            notes: document.getElementById('edit-notes')?.value || null
         };
 
         console.log('Saving person with data:', updateData);
@@ -1047,6 +1064,9 @@ class GenealogyEditor {
                 // Convert numeric fields
                 if (key === 'birth_year_estimate' || key === 'death_year_estimate' || key === 'marriage_year') {
                     personData[key] = parseInt(value);
+                } else if (key === 'tags') {
+                    // Step 56: Parse comma-separated tags into array
+                    personData[key] = value.split(',').map(t => t.trim()).filter(t => t.length > 0);
                 } else {
                     personData[key] = value;
                 }

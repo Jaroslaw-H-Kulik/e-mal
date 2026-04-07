@@ -488,6 +488,11 @@ button {
     color: white;
 }
 
+.badge.tag-badge {
+    background: #6c5ce7;
+    color: white;
+}
+
 /* Loading Overlay */
 .loading-overlay {
     position: fixed;

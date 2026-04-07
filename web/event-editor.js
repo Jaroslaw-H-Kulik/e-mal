@@ -257,11 +257,19 @@ class EventEditor {
                         const place = this.app.places[birthEvent.place_id];
                         if (place?.name) {
                             placeField.value = place.name;
-                            const houseField = document.getElementById('event-house-number');
-                            if (houseField) houseField.value = place.house_number || '';
+                            // Step 54.1: Do not prepopulate house number
                         }
                     }
                 }
+            }
+        }
+
+        // Step 54: Prepopulate child's last name from father's last name in birth events
+        if (eventType === 'birth' || eventType === 'baptism') {
+            const fatherLastNameEl = document.getElementById('father_last_name');
+            const childLastNameEl = document.getElementById('child_last_name');
+            if (fatherLastNameEl && childLastNameEl && fatherLastNameEl.value && !childLastNameEl.value) {
+                childLastNameEl.value = fatherLastNameEl.value;
             }
         }
     }
@@ -309,6 +317,26 @@ class EventEditor {
         }
 
         container.innerHTML = html;
+
+        // Step 53: Auto-set gender from Polish name on blur for child in birth events
+        if (type === 'birth' || type === 'baptism') {
+            const childNameInput = document.getElementById('child_first_name');
+            const childGenderField = document.getElementById('child_gender');
+            if (childNameInput && childGenderField) {
+                childNameInput.addEventListener('blur', () => {
+                    const name = childNameInput.value.trim().toLowerCase();
+                    if (!name) return;
+                    const MALE_NAMES_ENDING_A = ['barnaba', 'bonawentura', 'kuba', 'sasza', 'jarema', 'seba'];
+                    if (MALE_NAMES_ENDING_A.includes(name)) {
+                        childGenderField.value = 'M';
+                    } else if (name.endsWith('a')) {
+                        childGenderField.value = 'F';
+                    } else {
+                        childGenderField.value = 'M';
+                    }
+                });
+            }
+        }
     }
 
     buildPersonFields(role, label, fields, defaultGender = null) {

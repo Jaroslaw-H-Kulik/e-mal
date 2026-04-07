@@ -231,6 +231,10 @@ This should work both in "Add person" and "add birth event".
 Step 54.
 When someone is added through birth event, you prepopulate father and mother, that's good. I want you to also prepopulate last name of child. It should be taken from father.
 
+Step 54.1
+
+You must not reusue house number for future events for same person. Do not prepopulate it in any event.
+
 Step 55.
 In "Community network" tab never load all people from model. You must load only those that are related to person shown in person tab. If there's no person selected, show empty network.
 
@@ -245,6 +249,12 @@ Notes (if any) should be displayed under family section and before events sectio
 
 When I create/edit person I want to have respective input sections as well.
 
+Step 56.1
+
+Remove birth/death dates/place from person model (from json file and backend code). Values diplayed on person card and used for backend calculations should come from respective events.
+
+Before you remove them, check source code to avoid breaking app.
+
 Step 57.
 
 I want to be able to upload documents/pictures (jpg/jpegs) - let's call them documents. You need to create new button, next to "add person" - "add document".
@@ -252,6 +262,7 @@ When document is added you need to open form where i can give name to this docum
 When document is added, it should end up in ./data/documents directory. 
 
 Add new model for documents:
+   - id
    - path
    - name
    - notes
@@ -265,4 +276,9 @@ Document can have unlimited number of participants - so form should support addi
 So when selecting participants i want to have model lookup option, similar to one used in events view.
 
 Step 58.
-In person card I want to see documents linked to given person.
+Next to "Add document" button, add "show documents" button. Once clicked, it should show list of all documents. Each document should be clickable. If cliked, document card should appear.
+
+It should be similar to person card and show document details. I should be able to edit document data.
+
+Step 59.
+In person card I want to see documents linked to a given person.

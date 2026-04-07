@@ -317,7 +317,9 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
                 'last_name': person_data.get('surname', person_data.get('last_name', '')),
                 'gender': person_data.get('gender', 'U'),
                 'maiden_name': person_data.get('maiden_name'),
-                'occupation': person_data.get('occupation', person_data.get('occupations'))
+                'occupation': person_data.get('occupation', person_data.get('occupations')),
+                'tags': person_data.get('tags', []),
+                'notes': person_data.get('notes') or None
             }
 
             # Handle birth date
@@ -461,6 +463,11 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
                 person['gender'] = person_data['gender']
             if 'occupation' in person_data:
                 person['occupation'] = person_data['occupation']
+            # Step 56: tags and notes
+            if 'tags' in person_data:
+                person['tags'] = person_data['tags'] if isinstance(person_data['tags'], list) else []
+            if 'notes' in person_data:
+                person['notes'] = person_data['notes'] or None
 
             # Handle birth date/place update - sync to birth event
             if 'birth_date' in person_data or 'place_of_birth' in person_data:
@@ -1378,12 +1385,16 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
                             'circa': True
                         }
 
+                    # Step 52: Infer gender from role if not explicitly provided
+                    role_gender_map = {'groom': 'M', 'bride': 'F', 'father': 'M', 'mother': 'F'}
+                    inferred_gender = participant.get('gender') or role_gender_map.get(participant.get('role'), 'U')
+
                     new_person = {
                         'id': person_id,
                         'first_name': participant['first_name'],
                         'last_name': participant['last_name'],
                         'maiden_name': participant.get('maiden_name'),
-                        'gender': participant.get('gender', 'U'),
+                        'gender': inferred_gender,
                         'birth_date': birth_date,
                         'death_date': None,
                         'occupation': participant.get('occupation')
@@ -1653,12 +1664,16 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
                             'circa': True
                         }
 
+                    # Step 52: Infer gender from role if not explicitly provided
+                    role_gender_map = {'groom': 'M', 'bride': 'F', 'father': 'M', 'mother': 'F'}
+                    inferred_gender = participant.get('gender') or role_gender_map.get(participant.get('role'), 'U')
+
                     new_person = {
                         'id': person_id,
                         'first_name': participant['first_name'],
                         'last_name': participant['last_name'],
                         'maiden_name': participant.get('maiden_name'),
-                        'gender': participant.get('gender', 'U'),
+                        'gender': inferred_gender,
                         'birth_date': birth_date,
                         'death_date': None,
                         'occupation': participant.get('occupation')
