@@ -43,6 +43,33 @@ class GenealogyApp {
         return dateObj?.year || null;
     }
 
+    // Step 56.1: Get birth/death dates from events (not from person model)
+    getPersonBirthDate(personId) {
+        const eps = this.participationsByPerson[personId] || [];
+        for (const ep of eps) {
+            if (ep.role === 'child') {
+                const event = this.events[ep.event_id];
+                if (event && (event.type === 'birth' || event.type === 'baptism') && event.date) {
+                    return event.date;
+                }
+            }
+        }
+        return null;
+    }
+
+    getPersonDeathDate(personId) {
+        const eps = this.participationsByPerson[personId] || [];
+        for (const ep of eps) {
+            if (ep.role === 'deceased') {
+                const event = this.events[ep.event_id];
+                if (event && (event.type === 'death' || event.type === 'burial') && event.date) {
+                    return event.date;
+                }
+            }
+        }
+        return null;
+    }
+
     // Person name helper
     getFullName(person) {
         return `${person.first_name || ''} ${person.last_name || ''}`.trim();
@@ -50,8 +77,8 @@ class GenealogyApp {
 
     // Step 50: Compact lifespan label, e.g. "1820–1875" or "?–1875"
     lifespan(person) {
-        const b = this.extractYear(person?.birth_date) ?? '?';
-        const d = this.extractYear(person?.death_date) ?? '?';
+        const b = this.extractYear(this.getPersonBirthDate(person?.id)) ?? '?';
+        const d = this.extractYear(this.getPersonDeathDate(person?.id)) ?? '?';
         return `${b}–${d}`;
     }
 
@@ -106,6 +133,26 @@ class GenealogyApp {
         } catch (error) {
             console.error('Error loading data:', error);
             alert('Error loading genealogical data. Please ensure the data files are in the correct location.');
+        }
+    }
+
+    // Step 56.1: Merge new events/participations from server response into local data and indices
+    _mergeNewEventsAndParticipations(newEvents, newParticipations) {
+        if (newEvents) {
+            Object.assign(this.events, newEvents);
+        }
+        if (newParticipations) {
+            Object.assign(this.event_participations, newParticipations);
+            Object.entries(newParticipations).forEach(([, ep]) => {
+                if (!this.participationsByPerson[ep.person_id]) {
+                    this.participationsByPerson[ep.person_id] = [];
+                }
+                this.participationsByPerson[ep.person_id].push(ep);
+                if (!this.participationsByEvent[ep.event_id]) {
+                    this.participationsByEvent[ep.event_id] = [];
+                }
+                this.participationsByEvent[ep.event_id].push(ep);
+            });
         }
     }
 
@@ -370,8 +417,8 @@ class GenealogyApp {
         visibleIds.forEach(id => {
             const person = this.persons[id];
             if (!person) return;
-            const birthYear = this.extractYear(person.birth_date);
-            const deathYear = this.extractYear(person.death_date);
+            const birthYear = this.extractYear(this.getPersonBirthDate(id));
+            const deathYear = this.extractYear(this.getPersonDeathDate(id));
             const yearsLabel = birthYear || deathYear ? `\n(${birthYear || '?'}-${deathYear || '?'})` : '';
             nodes.push({
                 id,
@@ -517,8 +564,8 @@ class GenealogyApp {
     }
 
     getPersonTooltip(id, person) {
-        const birthYear = this.extractYear(person.birth_date);
-        const deathYear = this.extractYear(person.death_date);
+        const birthYear = this.extractYear(this.getPersonBirthDate(id));
+        const deathYear = this.extractYear(this.getPersonDeathDate(id));
         const birth = birthYear ? `b. ${birthYear}` : '';
         const death = deathYear ? `d. ${deathYear}` : '';
         const years = [birth, death].filter(Boolean).join(', ');
@@ -538,14 +585,18 @@ class GenealogyApp {
         const query = document.getElementById('search-input').value.trim().toLowerCase();
         if (!query) return;
 
+        const queryParts = query.split(/\s+/);
         const results = [];
         Object.entries(this.persons).forEach(([id, person]) => {
-            const fullName = this.getFullName(person).toLowerCase();
             const idMatch = id.toLowerCase().includes(query);
-            const nameMatch = fullName.includes(query);
-            const surnameMatch = person.last_name ? person.last_name.toLowerCase().includes(query) : false;
+            const allPartsMatch = queryParts.every(part => {
+                return (person.first_name || '').toLowerCase().includes(part) ||
+                       (person.last_name || '').toLowerCase().includes(part) ||
+                       (person.maiden_name || '').toLowerCase().includes(part) ||
+                       id.toLowerCase().includes(part);
+            });
 
-            if (idMatch || nameMatch || surnameMatch) {
+            if (idMatch || allPartsMatch) {
                 results.push({ id, person });
             }
         });
@@ -566,8 +617,8 @@ class GenealogyApp {
             const item = document.createElement('div');
             item.className = 'search-result-item';
 
-            const birth = this.extractYear(person.birth_date) || '?';
-            const death = this.extractYear(person.death_date) || '?';
+            const birth = this.extractYear(this.getPersonBirthDate(id)) || '?';
+            const death = this.extractYear(this.getPersonDeathDate(id)) || '?';
             const gender = person.gender === 'M' ? '♂' : person.gender === 'F' ? '♀' : '?';
 
             // Get parent information
@@ -581,12 +632,22 @@ class GenealogyApp {
                 parentInfo = ` • Parents: ${parentNames}`;
             }
 
+            let spouseInfo = '';
+            if (family.spouses.length > 0) {
+                const spouseNames = family.spouses.map(s => {
+                    const sp = this.persons[s.id];
+                    return sp ? this.getFullName(sp) : s.id;
+                }).join(', ');
+                spouseInfo = ` • Spouse(s): ${spouseNames}`;
+            }
+
             item.innerHTML = `
                 <div class="result-name">${this.getFullName(person)} ${gender}</div>
                 <div class="result-info">
                     ${id} • ${birth}-${death}
                     ${person.maiden_name ? `• maiden: ${person.maiden_name}` : ''}
                     ${parentInfo}
+                    ${spouseInfo}
                 </div>
             `;
 
@@ -643,8 +704,8 @@ class GenealogyApp {
                 <div class="person-id">${personId}</div>
                 ${person.maiden_name ? `<div style="margin-top: 8px; color: #666;">née ${person.maiden_name}</div>` : ''}
                 <div class="person-dates">
-                    ${person.birth_date ? `Born: ${this.formatFlexibleDate(person.birth_date)}` : ''}
-                    ${person.death_date ? `<br>Died: ${this.formatFlexibleDate(person.death_date)}` : ''}
+                    ${this.getPersonBirthDate(personId) ? `Born: ${this.formatFlexibleDate(this.getPersonBirthDate(personId))}` : ''}
+                    ${this.getPersonDeathDate(personId) ? `<br>Died: ${this.formatFlexibleDate(this.getPersonDeathDate(personId))}` : ''}
                 </div>
                 <div style="margin-top: 10px;">
                     ${this.getGenderBadge(person.gender)}
@@ -718,8 +779,8 @@ class GenealogyApp {
                 html += '<div class="detail-item">';
                 html += `<div class="detail-label">Children (${family.children.length})</div>`;
                 const sortedChildren = [...family.children].sort((a, b) => {
-                    const ya = this.extractYear(this.persons[a.id]?.birth_date) || Infinity;
-                    const yb = this.extractYear(this.persons[b.id]?.birth_date) || Infinity;
+                    const ya = this.extractYear(this.getPersonBirthDate(a.id)) || Infinity;
+                    const yb = this.extractYear(this.getPersonBirthDate(b.id)) || Infinity;
                     return ya - yb;
                 });
                 sortedChildren.forEach(c => {
@@ -743,8 +804,8 @@ class GenealogyApp {
                 html += '<div class="detail-item">';
                 html += `<div class="detail-label">Siblings (${family.siblings.length})</div>`;
                 const sortedSiblings = [...family.siblings].sort((a, b) => {
-                    const ya = this.extractYear(this.persons[a]?.birth_date) || Infinity;
-                    const yb = this.extractYear(this.persons[b]?.birth_date) || Infinity;
+                    const ya = this.extractYear(this.getPersonBirthDate(a)) || Infinity;
+                    const yb = this.extractYear(this.getPersonBirthDate(b)) || Infinity;
                     return ya - yb;
                 });
                 sortedSiblings.forEach(siblingId => {
@@ -781,7 +842,7 @@ class GenealogyApp {
                 html += `<div class="detail-label">Godchildren (${godrelations.godchildren.length})</div>`;
                 godrelations.godchildren.forEach(godchildId => {
                     const godchild = this.persons[godchildId];
-                    const birthYear = this.extractYear(godchild.birth_date) || '?';
+                    const birthYear = this.extractYear(this.getPersonBirthDate(godchildId)) || '?';
                     html += `<div><a href="#" class="person-link" data-person-id="${godchildId}">
                         ${this.getFullNameWithMaiden(godchild)} (b. ${birthYear})
                     </a></div>`;
@@ -822,7 +883,7 @@ class GenealogyApp {
                 if (personParticipation) {
                     const role = personParticipation.role;
                     const person = this.persons[personId];
-                    const birthYear = this.extractYear(person.birth_date);
+                    const birthYear = this.extractYear(this.getPersonBirthDate(personId));
                     const eventYear = event.date?.year;
 
                     let roleInfo = `Role: <strong>${role}</strong>`;
@@ -836,31 +897,38 @@ class GenealogyApp {
                         ${roleInfo}
                     </div>`;
                 } else if (event.isFamilyEvent) {
-                    // Step 34: Show relationship between primary participant(s) and the blood witness
-                    const primaryParticipants = this.getEventPrimaryParticipants(eventId);
-                    const relParts = [];
-                    primaryParticipants.forEach(({ personId: primId }) => {
-                        if (primId && this.selectedPerson && primId !== this.selectedPerson) {
-                            const rel = this.getRelationship(this.selectedPerson, primId);
-                            const primPerson = this.persons[primId];
-                            if (rel && primPerson) {
-                                relParts.push(`${this.getFullName(primPerson)} (your <strong>${rel}</strong>)`);
-                            } else if (primPerson) {
-                                relParts.push(this.getFullName(primPerson));
+                    if (event.type === 'global') {
+                        // Step 56.2: Global events shown for everyone
+                        personRoleHTML = `<div style="margin-top: 8px; padding: 6px 8px; background: #fff3cd; border-left: 3px solid #e6a800; border-radius: 3px; font-size: 0.9rem;">
+                            <strong>🌍 Global Event</strong>
+                        </div>`;
+                    } else {
+                        // Step 34: Show relationship between primary participant(s) and the blood witness
+                        const primaryParticipants = this.getEventPrimaryParticipants(eventId);
+                        const relParts = [];
+                        primaryParticipants.forEach(({ personId: primId }) => {
+                            if (primId && this.selectedPerson && primId !== this.selectedPerson) {
+                                const rel = this.getRelationship(this.selectedPerson, primId);
+                                const primPerson = this.persons[primId];
+                                if (rel && primPerson) {
+                                    relParts.push(`${this.getFullName(primPerson)} (your <strong>${rel}</strong>)`);
+                                } else if (primPerson) {
+                                    relParts.push(this.getFullName(primPerson));
+                                }
                             }
-                        }
-                    });
-                    const relText = relParts.length > 0 ? ' - ' + relParts.join(' &amp; ') : '';
-                    personRoleHTML = `<div style="margin-top: 8px; padding: 6px 8px; background: #e3f2fd; border-left: 3px solid #1976d2; border-radius: 3px; font-size: 0.9rem;">
-                        <strong>👨‍👩‍👧‍👦 Family Event</strong>${relText}
-                    </div>`;
+                        });
+                        const relText = relParts.length > 0 ? ' - ' + relParts.join(' &amp; ') : '';
+                        personRoleHTML = `<div style="margin-top: 8px; padding: 6px 8px; background: #e3f2fd; border-left: 3px solid #1976d2; border-radius: 3px; font-size: 0.9rem;">
+                            <strong>👨‍👩‍👧‍👦 Family Event</strong>${relText}
+                        </div>`;
+                    }
                 }
 
                 // Step 23: Check for validation issues
                 const validationWarning = this.hasEventValidationIssue(eventId, personId) ? ' <span style="color: red; font-weight: bold;" title="Data issue detected">!</span>' : '';
 
-                // Step 32: Add "assumed" indicator for family events
-                const familyEventIndicator = event.isFamilyEvent ? ' <span style="color: #667eea; font-size: 0.8rem; font-style: italic;">(assumed)</span>' : '';
+                // Step 32: Add "assumed" indicator for family events (not for global events)
+                const familyEventIndicator = (event.isFamilyEvent && event.type !== 'global') ? ' <span style="color: #667eea; font-size: 0.8rem; font-style: italic;">(assumed)</span>' : '';
 
                 html += `
                     <div class="event-item expandable-event" data-event-id="${eventId}">
@@ -869,7 +937,7 @@ class GenealogyApp {
                                 <div style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
                                     <span class="event-expand-icon" id="expand-icon-${eventId}">▶</span>
                                     <div class="event-year">${year}${validationWarning}</div>
-                                    <span class="event-type">${event.type === 'generic' ? (event.title || 'generic') : event.type}${familyEventIndicator}</span>
+                                    <span class="event-type">${event.type === 'generic' ? ('📜 ' + (event.title || event.type)) : event.type === 'global' ? (event.title || event.type) : event.type}${familyEventIndicator}</span>
                                     <span style="font-size: 0.75rem; color: #999; font-family: monospace;">${eventId}</span>
                                 </div>
                             </div>
@@ -1124,10 +1192,17 @@ class GenealogyApp {
             });
         });
 
+        // Step 56.2: Add all global events (visible for every person, subject to lifetime filtering like family events)
+        Object.values(this.events).forEach(event => {
+            if (event.type === 'global' && !eventIds.has(event.id)) {
+                eventIds.add(event.id);
+                familyEventIds.add(event.id); // Treat as family-style event for lifetime filtering
+            }
+        });
+
         // Step 33: Filter family events by person's lifetime
-        const person = this.persons[personId];
-        const birthYear = person?.birth_date?.year ?? null;
-        const deathYear = person?.death_date?.year ?? null;
+        const birthYear = this.getPersonBirthDate(personId)?.year ?? null;
+        const deathYear = this.getPersonDeathDate(personId)?.year ?? null;
 
         let upperBound;
         if (deathYear !== null) {
@@ -1271,7 +1346,7 @@ class GenealogyApp {
             personIds.forEach(personId => {
                 const person = this.persons[personId];
                 if (person) {
-                    const birthYear = this.extractYear(person.birth_date);
+                    const birthYear = this.extractYear(this.getPersonBirthDate(personId));
                     let ageInfo = '';
 
                     if (birthYear && eventYear) {
@@ -1385,7 +1460,7 @@ class GenealogyApp {
             }
 
             // Year filter
-            const birthYear = this.extractYear(person.birth_date);
+            const birthYear = this.extractYear(this.getPersonBirthDate(node.id));
             if (birthYear) {
                 visible = visible &&
                     birthYear >= yearFrom &&
@@ -1667,8 +1742,8 @@ class GenealogyApp {
             return false;
         }
 
-        const birthYear = this.extractYear(person.birth_date);
-        const deathYear = this.extractYear(person.death_date);
+        const birthYear = this.extractYear(this.getPersonBirthDate(personId));
+        const deathYear = this.extractYear(this.getPersonDeathDate(personId));
         const event = this.events[eventId];
         const eventYear = event?.date?.year;
 
@@ -2267,7 +2342,7 @@ class GenealogyApp {
         // Final fallback: both parent first names only (no surname), year-bounded
         if (!filtered.length) {
             const parents = this._getPersonParents(personId);
-            const birthYear = person.birth_date?.year ?? null;
+            const birthYear = this.getPersonBirthDate(personId)?.year ?? null;
             if (parents.fatherFirstName && parents.motherFirstName) {
                 filtered = all.filter(r => {
                     if (birthYear !== null) {

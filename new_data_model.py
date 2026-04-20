@@ -58,8 +58,6 @@ class Person:
     maiden_name: Optional[str] = None
     previous_last_names: List[str] = field(default_factory=list)
     gender: str = "U"  # M/F/U
-    birth_date: Optional[FlexibleDate] = None
-    death_date: Optional[FlexibleDate] = None
     occupation: Optional[str] = None
     tags: List[str] = field(default_factory=list)
     links: List[str] = field(default_factory=list)
@@ -80,10 +78,6 @@ class Person:
             result['maiden_name'] = self.maiden_name
         if self.previous_last_names:
             result['previous_last_names'] = self.previous_last_names
-        if self.birth_date:
-            result['birth_date'] = self.birth_date.to_dict()
-        if self.death_date:
-            result['death_date'] = self.death_date.to_dict()
         if self.occupation:
             result['occupation'] = self.occupation
         if self.tags:
@@ -236,14 +230,6 @@ class GenealogyDatabase:
 
         # Load persons
         for pid, pdata in data.get('persons', {}).items():
-            birth_date = None
-            if 'birth_date' in pdata:
-                birth_date = FlexibleDate(**pdata['birth_date'])
-
-            death_date = None
-            if 'death_date' in pdata:
-                death_date = FlexibleDate(**pdata['death_date'])
-
             db.persons[pid] = Person(
                 id=pdata['id'],
                 first_name=pdata['first_name'],
@@ -252,8 +238,6 @@ class GenealogyDatabase:
                 maiden_name=pdata.get('maiden_name'),
                 previous_last_names=pdata.get('previous_last_names', []),
                 gender=pdata.get('gender', 'U'),
-                birth_date=birth_date,
-                death_date=death_date,
                 occupation=pdata.get('occupation'),
                 tags=pdata.get('tags', []),
                 links=pdata.get('links', []),

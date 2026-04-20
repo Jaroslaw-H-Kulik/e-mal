@@ -29,6 +29,7 @@
         <!-- Editor Toolbar -->
         <div class="toolbar">
             <button class="btn-success" onclick="editor && editor.openAddPersonModal()">➕ Add Person</button>
+            <button class="btn-success" onclick="eventEditor && eventEditor.openAddGlobalEventModal()">🌍 Add Global Event</button>
             <button class="btn-success" onclick="editor && editor.openMergeModal()">🔗 Merge Persons</button>
             <button class="btn-warning" onclick="app && app.openEnrichmentReview()" id="enrichment-btn">
                 📦 Review GEDCOM Matches <span id="enrichment-count">(0)</span>
@@ -282,14 +283,6 @@
                                     <option value="F">Female</option>
                                     <option value="U">Unknown</option>
                                 </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="edit-birth-year">Birth Year</label>
-                                <input type="number" id="edit-birth-year" name="birth_year_estimate" min="1700" max="2100">
-                            </div>
-                            <div class="form-group">
-                                <label for="edit-death-year">Death Year</label>
-                                <input type="number" id="edit-death-year" name="death_year_estimate" min="1700" max="2100">
                             </div>
                             <div class="form-group">
                                 <label for="edit-place-birth">Place of Birth</label>
@@ -560,10 +553,10 @@
         </div>
     </div>
 
-    <script src="app.js?v=11"></script>
+    <script src="app.js?v=12"></script>
     <script src="editor.js?v=8"></script>
     <script src="enrichment.js?v=2"></script>
-    <script src="event-editor.js?v=5"></script>
+    <script src="event-editor.js?v=6"></script>
     <script>
         // Initialize enrichment reviewer after app is ready
         window.addEventListener('load', () => {

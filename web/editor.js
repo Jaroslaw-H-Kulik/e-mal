@@ -192,8 +192,6 @@ class GenealogyEditor {
         document.getElementById('edit-surname').value = person.last_name || '';
         document.getElementById('edit-maiden-name').value = person.maiden_name || '';
         document.getElementById('edit-gender').value = person.gender || 'U';
-        document.getElementById('edit-birth-year').value = this.app.extractYear(person.birth_date) || '';
-        document.getElementById('edit-death-year').value = this.app.extractYear(person.death_date) || '';
 
         // Clear place fields (using correct IDs from index.html)
         const placeBirthEl = document.getElementById('edit-place-birth');
@@ -267,8 +265,8 @@ class GenealogyEditor {
 
         matches.forEach((match, index) => {
             const currentPerson = this.app.persons[this.editingPerson];
-            const birthYear = this.app.extractYear(currentPerson.birth_date);
-            const deathYear = this.app.extractYear(currentPerson.death_date);
+            const birthYear = this.app.extractYear(this.app.getPersonBirthDate(this.editingPerson));
+            const deathYear = this.app.extractYear(this.app.getPersonDeathDate(this.editingPerson));
 
             html += `
                 <div class="gedcom-result-item" style="border: 1px solid #ddd; border-radius: 8px; padding: 15px; margin-bottom: 15px; background: white;">
@@ -458,10 +456,6 @@ class GenealogyEditor {
 
         const oldData = { ...person };
 
-        // Get birth and death years from form
-        const birthYearInput = parseInt(document.getElementById('edit-birth-year').value) || null;
-        const deathYearInput = parseInt(document.getElementById('edit-death-year').value) || null;
-
         // Get place values
         const placeBirth = document.getElementById('edit-place-birth')?.value.trim() || null;
         const placeDeath = document.getElementById('edit-place-death')?.value.trim() || null;
@@ -476,8 +470,6 @@ class GenealogyEditor {
             last_name: document.getElementById('edit-surname').value,
             maiden_name: document.getElementById('edit-maiden-name').value || null,
             gender: document.getElementById('edit-gender').value,
-            birth_date: birthYearInput ? { year: birthYearInput, month: null, day: null, circa: true } : null,
-            death_date: deathYearInput ? { year: deathYearInput, month: null, day: null, circa: true } : null,
             occupation: document.getElementById('edit-occupations').value || null,
             place_of_birth: placeBirth,
             place_of_death: placeDeath,
@@ -512,8 +504,8 @@ class GenealogyEditor {
                 });
 
                 // Update network
-                const birthYear = this.app.extractYear(result.person.birth_date);
-                const deathYear = this.app.extractYear(result.person.death_date);
+                const birthYear = this.app.extractYear(this.app.getPersonBirthDate(personId));
+                const deathYear = this.app.extractYear(this.app.getPersonDeathDate(personId));
                 this.app.network.body.data.nodes.update({
                     id: personId,
                     label: `${this.app.getFullName(result.person)}\n(${birthYear || '?'}-${deathYear || '?'})`,
@@ -624,7 +616,7 @@ class GenealogyEditor {
             <div class="person-info">
                 <strong>${person.first_name} ${person.last_name}</strong>
                 <div class="person-meta">
-                    ${personId} • ${this.app.extractYear(person.birth_date) || '?'}-${this.app.extractYear(person.death_date) || '?'}
+                    ${personId} • ${this.app.extractYear(this.app.getPersonBirthDate(personId)) || '?'}-${this.app.extractYear(this.app.getPersonDeathDate(personId)) || '?'}
                 </div>
                 ${person.maiden_name ? `<div>Maiden: ${person.maiden_name}</div>` : ''}
             </div>
@@ -1090,9 +1082,12 @@ class GenealogyEditor {
                 const newPerson = result.person;
                 this.app.persons[newPerson.id] = newPerson;
 
+                // Update local events and participations so birth/death dates are available
+                this.app._mergeNewEventsAndParticipations(result.new_events, result.new_participations);
+
                 // Add node to network
-                const birthYear = this.app.extractYear(newPerson.birth_date);
-                const deathYear = this.app.extractYear(newPerson.death_date);
+                const birthYear = this.app.extractYear(this.app.getPersonBirthDate(newPerson.id));
+                const deathYear = this.app.extractYear(this.app.getPersonDeathDate(newPerson.id));
                 this.app.network.body.data.nodes.add({
                     id: newPerson.id,
                     label: `${this.app.getFullName(newPerson)}\n(${birthYear || '?'}-${deathYear || '?'})`,
@@ -1178,10 +1173,17 @@ class GenealogyEditor {
             return;
         }
 
+        const queryParts = query.split(/\s+/);
         const results = [];
         Object.entries(this.app.persons).forEach(([id, person]) => {
-            const fullName = `${person.first_name} ${person.last_name}`.toLowerCase();
-            if (fullName.includes(query) || id.toLowerCase().includes(query)) {
+            const idMatch = id.toLowerCase().includes(query);
+            const allPartsMatch = queryParts.every(part => {
+                return (person.first_name || '').toLowerCase().includes(part) ||
+                       (person.last_name || '').toLowerCase().includes(part) ||
+                       (person.maiden_name || '').toLowerCase().includes(part) ||
+                       id.toLowerCase().includes(part);
+            });
+            if (idMatch || allPartsMatch) {
                 results.push({ id, person });
             }
         });
@@ -1200,15 +1202,23 @@ class GenealogyEditor {
         let html = `<div style="font-weight: 600; margin-bottom: 10px; color: #333;">Found ${results.length} person(s):</div>`;
 
         results.forEach(({ id, person }) => {
+            const family = this.app.getFamily(id);
+            const spouseNames = family.spouses.map(s => {
+                const sp = this.app.persons[s.id];
+                return sp ? this.app.getFullName(sp) : s.id;
+            }).join(', ');
+
             html += `
                 <div class="relationship-search-result">
                     <div class="relationship-search-result-info">
                         <div class="relationship-search-result-name">
                             ${person.first_name} ${person.last_name}
+                            ${person.maiden_name ? `<span style="font-weight: normal; color: #888;">(née ${person.maiden_name})</span>` : ''}
                         </div>
                         <div class="relationship-search-result-details">
-                            ${id} • ${this.app.extractYear(person.birth_date) || '?'}-${this.app.extractYear(person.death_date) || '?'}
+                            ${id} • ${this.app.extractYear(this.app.getPersonBirthDate(id)) || '?'}-${this.app.extractYear(this.app.getPersonDeathDate(id)) || '?'}
                             ${person.gender ? ` • ${person.gender === 'M' ? 'Male' : person.gender === 'F' ? 'Female' : 'Unknown'}` : ''}
+                            ${spouseNames ? ` • Spouse(s): ${spouseNames}` : ''}
                         </div>
                     </div>
                     <button type="button" class="btn-select-person" onclick="editor.selectPersonForRelationship('${id}')">
@@ -1264,8 +1274,9 @@ class GenealogyEditor {
 
                 // Add to local data
                 this.app.persons[newPerson.id] = newPerson;
-                const birthYear = this.app.extractYear(newPerson.birth_date);
-                const deathYear = this.app.extractYear(newPerson.death_date);
+                this.app._mergeNewEventsAndParticipations(result.new_events, result.new_participations);
+                const birthYear = this.app.extractYear(this.app.getPersonBirthDate(newPerson.id));
+                const deathYear = this.app.extractYear(this.app.getPersonDeathDate(newPerson.id));
                 this.app.network.body.data.nodes.add({
                     id: newPerson.id,
                     label: `${this.app.getFullName(newPerson)}\n(${birthYear || '?'}-${deathYear || '?'})`,
@@ -1494,11 +1505,18 @@ class GenealogyEditor {
         const query = document.getElementById('gedcom-merge-search').value.toLowerCase();
         const resultsContainer = document.getElementById('gedcom-merge-results');
 
+        const queryParts = query.split(/\s+/);
         const matches = Object.entries(this.app.persons)
             .filter(([id, person]) => {
                 if (!query) return true; // Show all if no query
-                const fullName = this.app.getFullName(person).toLowerCase();
-                return fullName.includes(query) || id.toLowerCase().includes(query);
+                const idMatch = id.toLowerCase().includes(query);
+                const allPartsMatch = queryParts.every(part => {
+                    return (person.first_name || '').toLowerCase().includes(part) ||
+                           (person.last_name || '').toLowerCase().includes(part) ||
+                           (person.maiden_name || '').toLowerCase().includes(part) ||
+                           id.toLowerCase().includes(part);
+                });
+                return idMatch || allPartsMatch;
             })
             .slice(0, 20); // Limit to 20 results
 
@@ -1508,18 +1526,24 @@ class GenealogyEditor {
         }
 
         resultsContainer.innerHTML = matches.map(([id, person]) => {
-            const birthYear = this.app.extractYear(person.birth_date);
-            const deathYear = this.app.extractYear(person.death_date);
+            const birthYear = this.app.extractYear(this.app.getPersonBirthDate(id));
+            const deathYear = this.app.extractYear(this.app.getPersonDeathDate(id));
+            const family = this.app.getFamily(id);
+            const spouseNames = family.spouses.map(s => {
+                const sp = this.app.persons[s.id];
+                return sp ? this.app.getFullName(sp) : s.id;
+            }).join(', ');
 
             return `
                 <div style="padding: 10px; border-bottom: 1px solid #eee; cursor: pointer; border-radius: 4px;"
                      onmouseover="this.style.background='#f5f5f5'"
                      onmouseout="this.style.background='white'"
                      onclick="editor.selectPersonForMerge('${id}', event)">
-                    <div style="font-weight: 600;">${this.app.getFullName(person)}</div>
+                    <div style="font-weight: 600;">${this.app.getFullName(person)}${person.maiden_name ? ` <span style="font-weight: normal; color: #888;">(née ${person.maiden_name})</span>` : ''}</div>
                     <div style="font-size: 0.85rem; color: #666;">
                         ${id} • ${birthYear || '?'} - ${deathYear || '?'}
                         ${person.gender ? ` • ${person.gender}` : ''}
+                        ${spouseNames ? ` • Spouse(s): ${spouseNames}` : ''}
                     </div>
                 </div>
             `;
@@ -1567,10 +1591,10 @@ class GenealogyEditor {
             if (!person.maiden_name && gedcomPerson.maiden_name) {
                 fields.push({ field: 'maiden_name', label: 'Maiden Name', value: gedcomPerson.maiden_name });
             }
-            if (!this.app.extractYear(person.birth_date) && gedcomPerson.birth_date?.year) {
+            if (!this.app.extractYear(this.app.getPersonBirthDate(person.id)) && gedcomPerson.birth_date?.year) {
                 fields.push({ field: 'birth_date', label: 'Birth Date', value: this.app.formatFlexibleDate(gedcomPerson.birth_date) });
             }
-            if (!this.app.extractYear(person.death_date) && gedcomPerson.death_date?.year) {
+            if (!this.app.extractYear(this.app.getPersonDeathDate(person.id)) && gedcomPerson.death_date?.year) {
                 fields.push({ field: 'death_date', label: 'Death Date', value: this.app.formatFlexibleDate(gedcomPerson.death_date) });
             }
             if (!person.occupation && gedcomPerson.occupation) {

@@ -2,7 +2,15 @@
   "permissions": {
     "allow": [
       "Bash(python3:*)",
-      "Bash(python:*)"
+      "Bash(python:*)",
+      "Bash(curl -s http://localhost:8000/data/genealogy_new_model.json)",
+      "Bash(curl -s http://localhost:8000/)",
+      "Bash(netstat -ano)",
+      "Bash(findstr :8000)",
+      "Bash(curl -s -X POST http://localhost:8001/api/update-person -H 'Content-Type: application/json' -d '{\"person_id\":\"P1085\",\"first_name\":\"Test\",\"last_name\":\"User\",\"gender\":\"M\",\"maiden_name\":null,\"occupation\":null,\"place_of_birth\":null,\"place_of_death\":null,\"tags\":[],\"notes\":null}')",
+      "Bash(curl:*)",
+      "Bash(taskkill /F /IM python.exe)",
+      "Bash(taskkill:*)"
     ]
   }
 }

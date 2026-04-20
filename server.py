@@ -6,8 +6,23 @@ Serves static files and handles POST requests to save merge logs.
 
 import json
 import os
+import sys
 from http.server import HTTPServer, SimpleHTTPRequestHandler
 from urllib.parse import urlparse, parse_qs
+
+# Ensure stdout/stderr use UTF-8 on Windows
+import io
+try:
+    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', errors='replace', line_buffering=True)
+    sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8', errors='replace', line_buffering=True)
+except AttributeError:
+    try:
+        sys.stdout.reconfigure(encoding='utf-8', errors='replace')
+        sys.stderr.reconfigure(encoding='utf-8', errors='replace')
+    except Exception:
+        pass
+
+print("[SERVER] Starting server (utf-8 stdout/stderr configured)")
 
 class GenealogyServerHandler(SimpleHTTPRequestHandler):
     """Extended HTTP handler with POST support for saving data"""
@@ -85,8 +100,6 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
                 response_data = self.delete_event(data)
             elif self.path == '/api/generate-parent-marriages':
                 response_data = self.generate_parent_marriages()
-            elif self.path == '/api/sync-event-dates-to-persons':
-                response_data = self.sync_all_event_dates_to_persons()
             elif self.path == '/api/sync-all-ages-to-birth-years':
                 response_data = self.sync_all_ages_to_birth_years_migration()
             elif self.path == '/api/deduplicate-witnesses-godparents':
@@ -103,7 +116,20 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
             self.wfile.write(json.dumps(response_data).encode('utf-8'))
 
         except Exception as e:
-            self.send_error(500, f"Error saving data: {str(e)}")
+            import traceback
+            log_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'error.log')
+            try:
+                with open(log_path, 'a', encoding='utf-8') as _log:
+                    _log.write(f"=== do_POST exception ===\n")
+                    _log.write(f"Type: {type(e).__name__}\n")
+                    _log.write(f"Repr: {repr(e)}\n")
+                    traceback.print_exc(file=_log)
+                    _log.write("---\n")
+            except Exception as log_err:
+                pass
+            # Use ascii-safe message for HTTP status line (latin-1 encoding required)
+            safe_msg = repr(e).encode('ascii', errors='replace').decode('ascii')
+            self.send_error(500, f"Error saving data: {safe_msg}")
 
     def do_OPTIONS(self):
         """Handle OPTIONS requests (CORS preflight)"""
@@ -150,7 +176,7 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
         with open(merge_log_path, 'w', encoding='utf-8') as f:
             json.dump(merge_log, f, ensure_ascii=False, indent=2)
 
-        print(f"✓ Saved merge log: {len(existing_merges)} total merges")
+        print(f"[OK] Saved merge log: {len(existing_merges)} total merges")
 
     def save_genealogy_data(self, data):
         """Save complete genealogy data to data/genealogy_new_model.json"""
@@ -159,7 +185,7 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
         with open(data_path, 'w', encoding='utf-8') as f:
             json.dump(data, f, ensure_ascii=False, indent=2)
 
-        print(f"✓ Saved genealogy data: {len(data.get('persons', {}))} persons")
+        print(f"[OK] Saved genealogy data: {len(data.get('persons', {}))} persons")
 
     def apply_enrichment(self, decision):
         """Apply enrichment decision and update genealogy data"""
@@ -276,7 +302,7 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
             with open(data_path, 'w', encoding='utf-8') as f:
                 json.dump(data, f, ensure_ascii=False, indent=2)
 
-            print(f"✓ Applied enrichment: {len(changes)} changes")
+            print(f"[OK] Applied enrichment: {len(changes)} changes")
             for change in changes:
                 print(f"  - {change}")
 
@@ -288,7 +314,7 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
             }
 
         except Exception as e:
-            print(f"✗ Error applying enrichment: {str(e)}")
+            print(f"[ERR] Error applying enrichment: {str(e)}")
             return {
                 'success': False,
                 'error': str(e)
@@ -322,21 +348,19 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
                 'notes': person_data.get('notes') or None
             }
 
-            # Handle birth date
+            # Handle birth date (used for event creation only, not stored on person)
             birth_date = None
             if 'birth_date' in person_data and person_data['birth_date']:
                 birth_date = person_data['birth_date']
             elif 'birth_year_estimate' in person_data and person_data['birth_year_estimate']:
                 birth_date = {'year': person_data['birth_year_estimate'], 'month': None, 'day': None, 'circa': True}
-            new_person['birth_date'] = birth_date
 
-            # Handle death date
+            # Handle death date (used for event creation only, not stored on person)
             death_date = None
             if 'death_date' in person_data and person_data['death_date']:
                 death_date = person_data['death_date']
             elif 'death_year_estimate' in person_data and person_data['death_year_estimate']:
                 death_date = {'year': person_data['death_year_estimate'], 'month': None, 'day': None, 'circa': True}
-            new_person['death_date'] = death_date
 
             # Add person to data
             persons[new_id] = new_person
@@ -371,7 +395,7 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
                 'role': 'child'
             }
             created_events.append(birth_event_id)
-            print(f"  ✓ Auto-created birth event: {birth_event_id}")
+            print(f"  [OK] Auto-created birth event: {birth_event_id}")
 
             # Step 9: Auto-create death event if death data available
             if death_date or person_data.get('place_of_death'):
@@ -403,7 +427,7 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
                     'role': 'deceased'
                 }
                 created_events.append(death_event_id)
-                print(f"  ✓ Auto-created death event: {death_event_id}")
+                print(f"  [OK] Auto-created death event: {death_event_id}")
 
             # Update data structure
             data['places'] = places
@@ -412,19 +436,23 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
             with open(data_path, 'w', encoding='utf-8') as f:
                 json.dump(data, f, ensure_ascii=False, indent=2)
 
-            print(f"✓ Added new person: {new_id} - {new_person['first_name']} {new_person['last_name']}")
+            print(f"[OK] Added new person: {new_id} - {new_person['first_name']} {new_person['last_name']}")
             if created_events:
                 print(f"  Created {len(created_events)} event(s): {', '.join(created_events)}")
 
+            created_event_set = set(created_events)
             return {
                 'success': True,
                 'person': new_person,
                 'created_events': created_events,
+                'new_events': {eid: events[eid] for eid in created_events},
+                'new_participations': {epid: ep for epid, ep in event_participations.items()
+                                       if ep['event_id'] in created_event_set},
                 'message': f'Successfully added person {new_id}'
             }
 
         except Exception as e:
-            print(f"✗ Error adding person: {str(e)}")
+            print(f"[ERR] Error adding person: {str(e)}")
             import traceback
             traceback.print_exc()
             return {
@@ -473,20 +501,16 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
             if 'birth_date' in person_data or 'place_of_birth' in person_data:
                 birth_event_id = self.find_birth_event_for_person(events, event_participations, person_id)
 
-                # Only update person birth_date if new value is provided (not None)
-                if 'birth_date' in person_data and person_data['birth_date']:
-                    person['birth_date'] = person_data['birth_date']
-
                 if birth_event_id:
                     # Update existing birth event
                     if 'birth_date' in person_data and person_data['birth_date']:
                         events[birth_event_id]['date'] = person_data['birth_date']
-                        print(f"  ✓ Synced birth date to event {birth_event_id}")
+                        print(f"  [OK] Synced birth date to event {birth_event_id}")
 
                     if 'place_of_birth' in person_data and person_data['place_of_birth']:
                         place_id = self.find_or_create_place(places, person_data['place_of_birth'])
                         events[birth_event_id]['place_id'] = place_id
-                        print(f"  ✓ Synced birth place to event {birth_event_id}")
+                        print(f"  [OK] Synced birth place to event {birth_event_id}")
 
                     updated_events.append(birth_event_id)
                 else:
@@ -519,35 +543,30 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
                         }
 
                         updated_events.append(birth_event_id)
-                        print(f"  ✓ Created birth event: {birth_event_id}")
+                        print(f"  [OK] Created birth event: {birth_event_id}")
 
             # Handle death date/place update - sync to death event
             if 'death_date' in person_data or 'place_of_death' in person_data:
-                print(f"  → Processing death data: date={person_data.get('death_date')}, place={person_data.get('place_of_death')}")
+                print(f"  -> Processing death data: date={person_data.get('death_date')}, place={person_data.get('place_of_death')}")
                 death_event_id = self.find_death_event_for_person(events, event_participations, person_id)
-                print(f"  → Existing death event: {death_event_id}")
-
-                # Only update person death_date if new value is provided (not None)
-                if 'death_date' in person_data and person_data['death_date']:
-                    person['death_date'] = person_data['death_date']
-                    print(f"  ✓ Updated person death_date field")
+                print(f"  -> Existing death event: {death_event_id}")
 
                 if death_event_id:
                     # Update existing death event
                     if 'death_date' in person_data and person_data['death_date']:
                         events[death_event_id]['date'] = person_data['death_date']
-                        print(f"  ✓ Synced death date to event {death_event_id}")
+                        print(f"  [OK] Synced death date to event {death_event_id}")
 
                     if 'place_of_death' in person_data and person_data['place_of_death']:
                         place_id = self.find_or_create_place(places, person_data['place_of_death'])
                         events[death_event_id]['place_id'] = place_id
-                        print(f"  ✓ Synced death place to event {death_event_id}")
+                        print(f"  [OK] Synced death place to event {death_event_id}")
 
                     updated_events.append(death_event_id)
                 else:
                     # Create death event if data provided
                     if person_data.get('death_date') or person_data.get('place_of_death'):
-                        print(f"  → Creating new death event...")
+                        print(f"  -> Creating new death event...")
                         death_event_id = self.get_next_event_id(events)
 
                         place_id = None
@@ -575,7 +594,7 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
                         }
 
                         updated_events.append(death_event_id)
-                        print(f"  ✓ Created death event: {death_event_id} with participation {ep_id}")
+                        print(f"  [OK] Created death event: {death_event_id} with participation {ep_id}")
 
             # Update data structure
             data['places'] = places
@@ -584,7 +603,7 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
             with open(data_path, 'w', encoding='utf-8') as f:
                 json.dump(data, f, ensure_ascii=False, indent=2)
 
-            print(f"✓ Updated person: {person_id}")
+            print(f"[OK] Updated person: {person_id}")
             if updated_events:
                 print(f"  Synced to {len(updated_events)} event(s): {', '.join(updated_events)}")
 
@@ -596,7 +615,7 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
             }
 
         except Exception as e:
-            print(f"✗ Error updating person: {str(e)}")
+            print(f"[ERR] Error updating person: {str(e)}")
             import traceback
             traceback.print_exc()
             return {
@@ -654,7 +673,7 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
             with open(data_path, 'w', encoding='utf-8') as f:
                 json.dump(data, f, ensure_ascii=False, indent=2)
 
-            print(f"✓ Deleted person: {person_id}")
+            print(f"[OK] Deleted person: {person_id}")
             print(f"  Removed {len(eps_to_delete)} event participations")
             print(f"  Removed {len(rels_to_delete)} family relationships")
             if events_deleted:
@@ -670,7 +689,7 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
             }
 
         except Exception as e:
-            print(f"✗ Error deleting person: {str(e)}")
+            print(f"[ERR] Error deleting person: {str(e)}")
             import traceback
             traceback.print_exc()
             return {
@@ -707,7 +726,7 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
             with open(data_path, 'w', encoding='utf-8') as f:
                 json.dump(data, f, ensure_ascii=False, indent=2)
 
-            print(f"✓ Deleted event: {event_id}")
+            print(f"[OK] Deleted event: {event_id}")
             print(f"  Removed {len(eps_to_delete)} event participations")
 
             return {
@@ -718,7 +737,7 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
             }
 
         except Exception as e:
-            print(f"✗ Error deleting event: {str(e)}")
+            print(f"[ERR] Error deleting event: {str(e)}")
             import traceback
             traceback.print_exc()
             return {
@@ -892,7 +911,7 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
             # Sort by name
             matches.sort(key=lambda x: (x.get('surname', ''), x.get('given_name', '')))
 
-            print(f"✓ GEDCOM lookup for '{search_term}': found {len(matches)} matches")
+            print(f"[OK] GEDCOM lookup for '{search_term}': found {len(matches)} matches")
 
             return {
                 'success': True,
@@ -901,7 +920,7 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
             }
 
         except Exception as e:
-            print(f"✗ Error looking up GEDCOM: {str(e)}")
+            print(f"[ERR] Error looking up GEDCOM: {str(e)}")
             import traceback
             traceback.print_exc()
             return {
@@ -926,7 +945,7 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
 
             person = gedcom_persons[person_id]
 
-            print(f"✓ Fetched GEDCOM person: {person_id}")
+            print(f"[OK] Fetched GEDCOM person: {person_id}")
 
             return {
                 'success': True,
@@ -934,7 +953,7 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
             }
 
         except Exception as e:
-            print(f"✗ Error fetching GEDCOM person: {str(e)}")
+            print(f"[ERR] Error fetching GEDCOM person: {str(e)}")
             import traceback
             traceback.print_exc()
             return {
@@ -984,7 +1003,7 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
             'name': place_name,
             'type': 'settlement'
         }
-        print(f"  ✓ Created new place: {new_place_id} - {place_name}")
+        print(f"  [OK] Created new place: {new_place_id} - {place_name}")
         return new_place_id
 
     def find_birth_event_for_person(self, events, event_participations, person_id):
@@ -1058,7 +1077,7 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
                         'role': role
                     }
 
-                print(f"  ✓ Step 13: Auto-created parent marriage event: {marriage_event_id}")
+                print(f"  [OK] Step 13: Auto-created parent marriage event: {marriage_event_id}")
                 return marriage_event_id
 
         return None
@@ -1113,7 +1132,7 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
                     events[birth_event_id] = {
                         'id': birth_event_id,
                         'type': 'birth',
-                        'date': child.get('birth_date'),
+                        'date': None,
                         'place_id': None,
                         'description': f"Birth of {child['first_name']} {child['last_name']}",
                         'tags': [],
@@ -1129,7 +1148,7 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
                         'role': 'child'
                     }
                     created_event = birth_event_id
-                    print(f"  ✓ Created birth event: {birth_event_id}")
+                    print(f"  [OK] Created birth event: {birth_event_id}")
 
                 # Add parent as participant
                 ep_id = self.get_next_event_participation_id(event_participations)
@@ -1139,7 +1158,7 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
                     'person_id': parent_id,
                     'role': parent_role
                 }
-                print(f"  ✓ Added {parent_role} to birth event")
+                print(f"  [OK] Added {parent_role} to birth event")
 
                 # Step 13: Check if both parents are now in birth event, create marriage if needed
                 self.create_parent_marriage_if_needed(events, event_participations, birth_event_id, persons)
@@ -1163,7 +1182,7 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
                     events[birth_event_id] = {
                         'id': birth_event_id,
                         'type': 'birth',
-                        'date': child.get('birth_date'),
+                        'date': None,
                         'place_id': None,
                         'description': f"Birth of {child['first_name']} {child['last_name']}",
                         'tags': [],
@@ -1179,7 +1198,7 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
                         'role': 'child'
                     }
                     created_event = birth_event_id
-                    print(f"  ✓ Created birth event: {birth_event_id}")
+                    print(f"  [OK] Created birth event: {birth_event_id}")
 
                 # Add parent as participant
                 ep_id = self.get_next_event_participation_id(event_participations)
@@ -1189,7 +1208,7 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
                     'person_id': parent_id,
                     'role': parent_role
                 }
-                print(f"  ✓ Added {parent_role} to birth event")
+                print(f"  [OK] Added {parent_role} to birth event")
 
                 # Step 13: Check if both parents are now in birth event, create marriage if needed
                 self.create_parent_marriage_if_needed(events, event_participations, birth_event_id, persons)
@@ -1233,7 +1252,7 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
                         }
 
                     created_event = marriage_event_id
-                    print(f"  ✓ Created marriage event: {marriage_event_id}")
+                    print(f"  [OK] Created marriage event: {marriage_event_id}")
 
             elif rel_type == 'godparent':
                 # Godparent: find/create birth/baptism event for base, add target as godparent
@@ -1253,7 +1272,7 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
                     events[birth_event_id] = {
                         'id': birth_event_id,
                         'type': 'birth',
-                        'date': child.get('birth_date'),
+                        'date': None,
                         'place_id': None,
                         'description': f"Birth of {child['first_name']} {child['last_name']}",
                         'tags': [],
@@ -1269,7 +1288,7 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
                         'role': 'child'
                     }
                     created_event = birth_event_id
-                    print(f"  ✓ Created birth event: {birth_event_id}")
+                    print(f"  [OK] Created birth event: {birth_event_id}")
 
                 # Add godparent as participant
                 ep_id = self.get_next_event_participation_id(event_participations)
@@ -1279,7 +1298,7 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
                     'person_id': godparent_id,
                     'role': 'godparent'
                 }
-                print(f"  ✓ Added godparent to birth event")
+                print(f"  [OK] Added godparent to birth event")
 
             else:
                 return {'success': False, 'error': f'Unknown relationship type: {rel_type}'}
@@ -1288,7 +1307,7 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
             with open(data_path, 'w', encoding='utf-8') as f:
                 json.dump(data, f, ensure_ascii=False, indent=2)
 
-            print(f"✓ Added event-based relationship: {rel_type} between {base_person_id} and {target_person_id}")
+            print(f"[OK] Added event-based relationship: {rel_type} between {base_person_id} and {target_person_id}")
 
             return {
                 'success': True,
@@ -1298,7 +1317,7 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
             }
 
         except Exception as e:
-            print(f"✗ Error adding relationship: {str(e)}")
+            print(f"[ERR] Error adding relationship: {str(e)}")
             import traceback
             traceback.print_exc()
             return {
@@ -1369,6 +1388,7 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
 
             for participant in event_data.get('participants', []):
                 person_id = participant.get('existing_person_id')
+                is_existing_person = bool(person_id)
 
                 # Create new person if needed
                 if not person_id and participant.get('first_name') and participant.get('last_name'):
@@ -1395,8 +1415,6 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
                         'last_name': participant['last_name'],
                         'maiden_name': participant.get('maiden_name'),
                         'gender': inferred_gender,
-                        'birth_date': birth_date,
-                        'death_date': None,
                         'occupation': participant.get('occupation')
                     }
 
@@ -1423,19 +1441,17 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
                                     'last_name': parent_data['last_name'],
                                     'maiden_name': parent_data.get('maiden_name'),
                                     'gender': 'F' if parent_type == 'mother' else 'M',
-                                    'birth_date': None,
-                                    'death_date': None,
                                     'occupation': None
                                 }
 
                                 persons[parent_id] = parent_person
                                 new_persons.append(parent_person)
-                                print(f"  ✓ Created parent: {parent_id} - {parent_person['first_name']} {parent_person['last_name']}")
+                                print(f"  [OK] Created parent: {parent_id} - {parent_person['first_name']} {parent_person['last_name']}")
 
                             created_parents[parent_type] = parent_id
 
-                    # If parents were created/specified, create birth event and marriage event
-                    if created_parents['mother'] or created_parents['father']:
+                    # Create birth event if we have age-based date OR parents were specified
+                    if birth_date or created_parents['mother'] or created_parents['father']:
                         # Create birth event for the child
                         max_event_id = max([int(e['id'][1:]) for e in events.values()], default=0)
                         birth_event_id = f"E{(max_event_id + 1):04d}"
@@ -1443,7 +1459,7 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
                         birth_event = {
                             'id': birth_event_id,
                             'type': 'birth',
-                            'date': new_person.get('birth_date'),
+                            'date': birth_date,
                             'place_id': None,
                             'description': f"Birth of {new_person['first_name']} {new_person['last_name']}",
                             'tags': [],
@@ -1476,7 +1492,7 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
                                     'role': parent_type
                                 }
 
-                        print(f"  ✓ Created birth event: {birth_event_id} for {person_id} with parents")
+                        print(f"  [OK] Created birth event: {birth_event_id} for {person_id} with parents")
 
                         # Create marriage event between parents if both exist
                         if created_parents['mother'] and created_parents['father']:
@@ -1519,7 +1535,14 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
                                 'role': 'bride'
                             }
 
-                            print(f"  ✓ Created marriage event: {marriage_event_id} between parents")
+                            print(f"  [OK] Created marriage event: {marriage_event_id} between parents")
+
+                # Update maiden_name for existing persons if provided
+                if is_existing_person and person_id and person_id in persons:
+                    maiden_name = participant.get('maiden_name')
+                    if maiden_name:
+                        persons[person_id]['maiden_name'] = maiden_name
+                        print(f"  [OK] Updated maiden_name for existing person {person_id}: {maiden_name}")
 
                 if person_id:
                     # Create event participation
@@ -1549,9 +1572,6 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
             # Sync parents to birth events
             self.sync_parents_to_birth_events(event_data, persons, events, event_participations, places)
 
-            # Sync event dates to persons (birth/death)
-            self.sync_event_dates_to_persons(event_id, event_data, persons, event_participations)
-
             # Step 21: Sync ages to birth years
             self.sync_ages_to_birth_years(event_id, event_data, persons, events, event_participations)
 
@@ -1568,7 +1588,7 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
             with open(data_path, 'w', encoding='utf-8') as f:
                 json.dump(data, f, ensure_ascii=False, indent=2)
 
-            print(f"✓ Added event: {event_id} - {new_event['type']} with {len(content_parts)} participants")
+            print(f"[OK] Added event: {event_id} - {new_event['type']} with {len(content_parts)} participants")
             if new_persons:
                 print(f"  Created {len(new_persons)} new person(s)")
 
@@ -1580,7 +1600,7 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
             }
 
         except Exception as e:
-            print(f"✗ Error adding event: {str(e)}")
+            print(f"[ERR] Error adding event: {str(e)}")
             import traceback
             traceback.print_exc()
             return {
@@ -1649,6 +1669,7 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
 
             for participant in event_data.get('participants', []):
                 person_id = participant.get('existing_person_id')
+                is_existing_person = bool(person_id)
 
                 # Create new person if needed (same logic as add_event)
                 if not person_id and participant.get('first_name') and participant.get('last_name'):
@@ -1674,8 +1695,6 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
                         'last_name': participant['last_name'],
                         'maiden_name': participant.get('maiden_name'),
                         'gender': inferred_gender,
-                        'birth_date': birth_date,
-                        'death_date': None,
                         'occupation': participant.get('occupation')
                     }
 
@@ -1702,19 +1721,17 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
                                     'last_name': parent_data['last_name'],
                                     'maiden_name': parent_data.get('maiden_name'),
                                     'gender': 'F' if parent_type == 'mother' else 'M',
-                                    'birth_date': None,
-                                    'death_date': None,
                                     'occupation': None
                                 }
 
                                 persons[parent_id] = parent_person
                                 new_persons.append(parent_person)
-                                print(f"  ✓ Created parent: {parent_id} - {parent_person['first_name']} {parent_person['last_name']}")
+                                print(f"  [OK] Created parent: {parent_id} - {parent_person['first_name']} {parent_person['last_name']}")
 
                             created_parents[parent_type] = parent_id
 
-                    # If parents were created/specified, create birth event and marriage event
-                    if created_parents['mother'] or created_parents['father']:
+                    # Create birth event if we have age-based date OR parents were specified
+                    if birth_date or created_parents['mother'] or created_parents['father']:
                         # Create birth event for the child
                         max_event_id = max([int(e['id'][1:]) for e in events.values()], default=0)
                         birth_event_id = f"E{(max_event_id + 1):04d}"
@@ -1722,7 +1739,7 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
                         birth_event = {
                             'id': birth_event_id,
                             'type': 'birth',
-                            'date': new_person.get('birth_date'),
+                            'date': birth_date,
                             'place_id': None,
                             'description': f"Birth of {new_person['first_name']} {new_person['last_name']}",
                             'tags': [],
@@ -1755,7 +1772,7 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
                                     'role': parent_type
                                 }
 
-                        print(f"  ✓ Created birth event: {birth_event_id} for {person_id} with parents")
+                        print(f"  [OK] Created birth event: {birth_event_id} for {person_id} with parents")
 
                         # Create marriage event between parents if both exist
                         if created_parents['mother'] and created_parents['father']:
@@ -1798,7 +1815,14 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
                                 'role': 'bride'
                             }
 
-                            print(f"  ✓ Created marriage event: {marriage_event_id} between parents")
+                            print(f"  [OK] Created marriage event: {marriage_event_id} between parents")
+
+                # Update maiden_name for existing persons if provided
+                if is_existing_person and person_id and person_id in persons:
+                    maiden_name = participant.get('maiden_name')
+                    if maiden_name:
+                        persons[person_id]['maiden_name'] = maiden_name
+                        print(f"  [OK] Updated maiden_name for existing person {person_id}: {maiden_name}")
 
                 if person_id:
                     max_ep_id += 1
@@ -1826,9 +1850,6 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
             # Sync parents to birth events
             self.sync_parents_to_birth_events(event_data, persons, data['events'], event_participations, places)
 
-            # Sync event dates to persons (birth/death)
-            self.sync_event_dates_to_persons(event_id, event_data, persons, event_participations)
-
             # Step 21: Sync ages to birth years
             self.sync_ages_to_birth_years(event_id, event_data, persons, events, event_participations)
 
@@ -1836,13 +1857,25 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
             if event_data['type'] == 'birth':
                 self.create_parent_marriage_if_needed(events, event_participations, event_id, persons)
 
+            # Collect all persons that were modified (existing persons with updated maiden_name)
+            modified_persons = []
+            for participant in event_data.get('participants', []):
+                pid = participant.get('existing_person_id')
+                if pid and pid in persons and participant.get('maiden_name'):
+                    modified_persons.append(persons[pid])
+
+            # Ensure persons changes are reflected in data before saving
+            data['persons'] = persons
+
             # Save data
             with open(data_path, 'w', encoding='utf-8') as f:
                 json.dump(data, f, ensure_ascii=False, indent=2)
 
-            print(f"✓ Updated event: {event_id}")
+            print(f"[OK] Updated event: {event_id}")
             if new_persons:
                 print(f"  Created {len(new_persons)} new person(s)")
+            if modified_persons:
+                print(f"  Modified {len(modified_persons)} existing person(s)")
 
             # Return current participations for this event so client can patch in-memory
             updated_participations = {
@@ -1855,11 +1888,12 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
                 'event': event,
                 'event_participations': updated_participations,
                 'new_persons': new_persons,
+                'modified_persons': modified_persons,
                 'message': f'Successfully updated event {event_id}'
             }
 
         except Exception as e:
-            print(f"✗ Error updating event: {str(e)}")
+            print(f"[ERR] Error updating event: {str(e)}")
             import traceback
             traceback.print_exc()
             return {
@@ -1923,7 +1957,7 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
                     birth_event = {
                         'id': birth_event_id,
                         'type': 'birth',
-                        'date': child.get('birth_date'),
+                        'date': None,
                         'place_id': None,
                         'description': f"Birth of {child.get('first_name', '')} {child.get('last_name', '')}",
                         'tags': [],
@@ -1943,7 +1977,7 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
                         'role': 'child'
                     }
 
-                    print(f"  ✓ Created birth event {birth_event_id} for {child_id}")
+                    print(f"  [OK] Created birth event {birth_event_id} for {child_id}")
 
                 # Check if parent already exists in birth event
                 parent_exists = False
@@ -1975,48 +2009,13 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
 
                         parent = persons.get(parent_id)
                         child = persons.get(child_id)
-                        print(f"  ✓ Added {parent_role} {parent.get('first_name', '')} {parent.get('last_name', '')} to birth event of {child.get('first_name', '')} {child.get('last_name', '')}")
+                        print(f"  [OK] Added {parent_role} {parent.get('first_name', '')} {parent.get('last_name', '')} to birth event of {child.get('first_name', '')} {child.get('last_name', '')}")
                     else:
-                        print(f"  ⚠ {parent_role} slot already occupied in birth event {birth_event_id} for {child_id}")
+                        print(f"  [WARN] {parent_role} slot already occupied in birth event {birth_event_id} for {child_id}")
 
         except Exception as e:
-            print(f"⚠ Warning: Error syncing parents to birth events: {str(e)}")
+            print(f"[WARN] Warning: Error syncing parents to birth events: {str(e)}")
             # Don't fail the whole event operation if sync fails
-            import traceback
-            traceback.print_exc()
-
-    def sync_event_dates_to_persons(self, event_id, event_data, persons, event_participations):
-        """
-        Sync event dates back to person objects.
-        When a birth event is updated, update the person's birth_date.
-        When a death event is updated, update the person's death_date.
-        """
-        try:
-            event_type = event_data.get('type')
-            event_date = event_data.get('date')
-
-            if event_type == 'birth' or event_type == 'baptism':
-                # Find the child in this event
-                for ep in event_participations.values():
-                    if ep['event_id'] == event_id and ep['role'] == 'child':
-                        person_id = ep['person_id']
-                        if person_id in persons:
-                            persons[person_id]['birth_date'] = event_date
-                            print(f"  ✓ Synced birth date to person {person_id}")
-                        break
-
-            elif event_type == 'death' or event_type == 'burial':
-                # Find the deceased in this event
-                for ep in event_participations.values():
-                    if ep['event_id'] == event_id and ep['role'] == 'deceased':
-                        person_id = ep['person_id']
-                        if person_id in persons:
-                            persons[person_id]['death_date'] = event_date
-                            print(f"  ✓ Synced death date to person {person_id}")
-                        break
-
-        except Exception as e:
-            print(f"⚠ Warning: Error syncing event dates to persons: {str(e)}")
             import traceback
             traceback.print_exc()
 
@@ -2053,9 +2052,7 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
                                 'day': None,
                                 'circa': True
                             }
-                            # Also update person's birth_date
-                            persons[person_id]['birth_date'] = birth_event['date']
-                            print(f"  ✓ Step 21: Calculated birth year {calculated_birth_year} for {person_id} from age {age}")
+                            print(f"  [OK] Step 21: Calculated birth year {calculated_birth_year} for {person_id} from age {age}")
                     else:
                         # Step 29: Create birth event if it doesn't exist
                         birth_event_id = self.get_next_event_id(events)
@@ -2086,12 +2083,10 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
                             'role': 'child'
                         }
 
-                        # Update person's birth_date
-                        persons[person_id]['birth_date'] = events[birth_event_id]['date']
-                        print(f"  ✓ Step 29: Created birth event {birth_event_id} with year {calculated_birth_year} for {person_id} from age {age}")
+                        print(f"  [OK] Step 29: Created birth event {birth_event_id} with year {calculated_birth_year} for {person_id} from age {age}")
 
         except Exception as e:
-            print(f"⚠ Warning: Error syncing ages to birth years: {str(e)}")
+            print(f"[WARN] Warning: Error syncing ages to birth years: {str(e)}")
             import traceback
             traceback.print_exc()
 
@@ -2204,13 +2199,13 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
                     'mother': f"{mother.get('first_name', '')} {mother.get('last_name', '')} ({mother_id})"
                 })
 
-                print(f"  ✓ Created marriage {marriage_event_id}: {father_id} + {mother_id}")
+                print(f"  [OK] Created marriage {marriage_event_id}: {father_id} + {mother_id}")
 
             # Save data
             with open(data_path, 'w', encoding='utf-8') as f:
                 json.dump(data, f, ensure_ascii=False, indent=2)
 
-            print(f"✓ Generated {len(created_marriages)} synthetic marriage events")
+            print(f"[OK] Generated {len(created_marriages)} synthetic marriage events")
 
             return {
                 'success': True,
@@ -2220,80 +2215,7 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
             }
 
         except Exception as e:
-            print(f"✗ Error generating parent marriages: {str(e)}")
-            import traceback
-            traceback.print_exc()
-            return {
-                'success': False,
-                'error': str(e)
-            }
-
-    def sync_all_event_dates_to_persons(self):
-        """
-        Sync all birth and death event dates to person objects.
-        This is a migration to fix existing data where persons don't have dates
-        but their birth/death events do.
-        """
-        try:
-            # Load current data
-            data_path = 'data/genealogy_new_model.json'
-            with open(data_path, 'r', encoding='utf-8') as f:
-                data = json.load(f)
-
-            persons = data['persons']
-            events = data['events']
-            event_participations = data.get('event_participations', {})
-
-            synced_count = 0
-
-            # Process all events
-            for event_id, event in events.items():
-                event_type = event.get('type')
-                event_date = event.get('date')
-
-                if not event_date:
-                    continue
-
-                if event_type == 'birth' or event_type == 'baptism':
-                    # Find the child in this event
-                    for ep in event_participations.values():
-                        if ep['event_id'] == event_id and ep['role'] == 'child':
-                            person_id = ep['person_id']
-                            if person_id in persons:
-                                old_date = persons[person_id].get('birth_date')
-                                persons[person_id]['birth_date'] = event_date
-                                if old_date != event_date:
-                                    synced_count += 1
-                                    print(f"  ✓ Synced birth date to {person_id}: {event_date}")
-                            break
-
-                elif event_type == 'death' or event_type == 'burial':
-                    # Find the deceased in this event
-                    for ep in event_participations.values():
-                        if ep['event_id'] == event_id and ep['role'] == 'deceased':
-                            person_id = ep['person_id']
-                            if person_id in persons:
-                                old_date = persons[person_id].get('death_date')
-                                persons[person_id]['death_date'] = event_date
-                                if old_date != event_date:
-                                    synced_count += 1
-                                    print(f"  ✓ Synced death date to {person_id}: {event_date}")
-                            break
-
-            # Save data
-            with open(data_path, 'w', encoding='utf-8') as f:
-                json.dump(data, f, ensure_ascii=False, indent=2)
-
-            print(f"✓ Synced dates for {synced_count} persons")
-
-            return {
-                'success': True,
-                'synced_count': synced_count,
-                'message': f'Successfully synced dates for {synced_count} persons from events'
-            }
-
-        except Exception as e:
-            print(f"✗ Error syncing event dates to persons: {str(e)}")
+            print(f"[ERR] Error generating parent marriages: {str(e)}")
             import traceback
             traceback.print_exc()
             return {
@@ -2353,16 +2275,14 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
                             'day': None,
                             'circa': True
                         }
-                        # Also update person's birth_date
-                        persons[person_id]['birth_date'] = birth_event['date']
                         synced_count += 1
-                        print(f"  ✓ Calculated birth year {calculated_birth_year} for {person_id} from age {age} in event {event_id}")
+                        print(f"  [OK] Calculated birth year {calculated_birth_year} for {person_id} from age {age} in event {event_id}")
 
             # Save data
             with open(data_path, 'w', encoding='utf-8') as f:
                 json.dump(data, f, ensure_ascii=False, indent=2)
 
-            print(f"✓ Synced birth years for {synced_count} persons from ages")
+            print(f"[OK] Synced birth years for {synced_count} persons from ages")
 
             return {
                 'success': True,
@@ -2371,7 +2291,7 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
             }
 
         except Exception as e:
-            print(f"✗ Error syncing ages to birth years: {str(e)}")
+            print(f"[ERR] Error syncing ages to birth years: {str(e)}")
             import traceback
             traceback.print_exc()
             return {
@@ -2387,11 +2307,7 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
         person = persons[person_id]
         score = 0
 
-        # Data completeness
-        if person.get('birth_date'):
-            score += 10
-        if person.get('death_date'):
-            score += 10
+        # Data completeness (birth/death dates are now in events, score via event count below)
         if person.get('gender') and person['gender'] != 'U':
             score += 5
         if person.get('occupation'):
@@ -2414,8 +2330,6 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
         delete_person = persons[delete_id]
 
         # Merge data (keep most complete)
-        keep_person['birth_date'] = keep_person.get('birth_date') or delete_person.get('birth_date')
-        keep_person['death_date'] = keep_person.get('death_date') or delete_person.get('death_date')
         keep_person['gender'] = keep_person.get('gender') if keep_person.get('gender') != 'U' else delete_person.get('gender')
         keep_person['occupation'] = keep_person.get('occupation') or delete_person.get('occupation')
         keep_person['maiden_name'] = keep_person.get('maiden_name') or delete_person.get('maiden_name')
@@ -2519,7 +2433,7 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
                 with open(data_path, 'w', encoding='utf-8') as f:
                     json.dump(data, f, ensure_ascii=False, indent=2)
 
-            print(f"✓ Deduplicated {merges_performed} witness/godparent pairs")
+            print(f"[OK] Deduplicated {merges_performed} witness/godparent pairs")
 
             return {
                 'success': True,
@@ -2529,7 +2443,7 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
             }
 
         except Exception as e:
-            print(f"✗ Error deduplicating witnesses/godparents: {str(e)}")
+            print(f"[ERR] Error deduplicating witnesses/godparents: {str(e)}")
             import traceback
             traceback.print_exc()
             return {
@@ -2690,7 +2604,7 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
             }
 
         except Exception as e:
-            print(f"✗ Geneteka import error: {e}")
+            print(f"[ERR] Geneteka import error: {e}")
             return {'success': False, 'error': str(e), 'records': []}
 
 

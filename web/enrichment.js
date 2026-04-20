@@ -138,9 +138,10 @@ class EnrichmentReviewer {
             <span class="data-value">${person.name}</span>
         </div>`;
 
-        // Handle both date objects and simple year values
-        const birthValue = person.birth_date ?
-            (typeof person.birth_date === 'object' ? this.app.formatFlexibleDate(person.birth_date) : person.birth_date) :
+        // Handle birth date: gedcom persons have birth_date directly; internal persons use events
+        const birthDateObj = isGedcom ? person.birth_date : (person.id ? this.app.getPersonBirthDate(person.id) : null);
+        const birthValue = birthDateObj ?
+            (typeof birthDateObj === 'object' ? this.app.formatFlexibleDate(birthDateObj) : birthDateObj) :
             (person.birth_year || '?');
         const birthClass = isGedcom && person.birth_date ? 'new-data' : '';
         html += `<div class="data-row">
@@ -148,8 +149,9 @@ class EnrichmentReviewer {
             <span class="data-value ${birthClass}">${birthValue}</span>
         </div>`;
 
-        const deathValue = person.death_date ?
-            (typeof person.death_date === 'object' ? this.app.formatFlexibleDate(person.death_date) : person.death_date) :
+        const deathDateObj = isGedcom ? person.death_date : (person.id ? this.app.getPersonDeathDate(person.id) : null);
+        const deathValue = deathDateObj ?
+            (typeof deathDateObj === 'object' ? this.app.formatFlexibleDate(deathDateObj) : deathDateObj) :
             (person.death_year || '?');
         const deathClass = isGedcom && person.death_date ? 'new-data' : '';
         html += `<div class="data-row">

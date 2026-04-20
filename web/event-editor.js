@@ -24,11 +24,12 @@ class EventEditor {
                         <!-- Event Type Selection -->
                         <div id="event-type-selection">
                             <label style="font-weight: 600; margin-bottom: 10px; display: block;">Event Type:</label>
-                            <div style="display: flex; gap: 10px; margin-bottom: 20px;">
+                            <div style="display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap;">
                                 <button class="btn-primary" onclick="eventEditor.selectEventType('birth')">Birth/Baptism</button>
                                 <button class="btn-primary" onclick="eventEditor.selectEventType('marriage')">Marriage</button>
                                 <button class="btn-primary" onclick="eventEditor.selectEventType('death')">Death</button>
                                 <button class="btn-primary" onclick="eventEditor.selectEventType('generic')">Generic</button>
+                                <button class="btn-primary" onclick="eventEditor.selectEventType('global')">Global</button>
                             </div>
                         </div>
 
@@ -120,6 +121,17 @@ class EventEditor {
         document.getElementById('event-editor-modal').style.display = 'block';
     }
 
+    openAddGlobalEventModal() {
+        this.currentPersonId = null;
+        this.editingEventId = null;
+        document.getElementById('event-editor-title').textContent = 'Add Global Event';
+        document.getElementById('event-type-selection').style.display = 'none';
+        document.getElementById('event-form-container').style.display = 'none';
+        document.getElementById('event-form').reset();
+        document.getElementById('event-editor-modal').style.display = 'block';
+        this.selectEventType('global');
+    }
+
     openEditEventModal(eventId) {
         this.editingEventId = eventId;
         this.currentPersonId = this.app.selectedPerson; // Track which person's card to refresh
@@ -156,6 +168,11 @@ class EventEditor {
         // Step 47: Populate title field for generic events
         if (event.type === 'generic') {
             const titleField = document.getElementById('event-generic-title');
+            if (titleField) titleField.value = event.title || '';
+        }
+        // Step 56.2: Populate title field for global events
+        if (event.type === 'global') {
+            const titleField = document.getElementById('event-global-title');
             if (titleField) titleField.value = event.title || '';
         }
 
@@ -314,6 +331,16 @@ class EventEditor {
             html += this.buildPersonFields('participant_1', 'Participant 1', ['first_name', 'last_name', 'gender', 'age', 'occupation']);
             html += this.buildPersonFields('participant_2', 'Participant 2', ['first_name', 'last_name', 'gender', 'age', 'occupation']);
             html += this.buildPersonFields('participant_3', 'Participant 3', ['first_name', 'last_name', 'gender', 'age', 'occupation']);
+        } else if (type === 'global') {
+            html = `<div style="margin-bottom: 15px;">
+                <div class="form-group">
+                    <label style="font-weight: 600;">Event Title *</label>
+                    <input type="text" id="event-global-title" placeholder="e.g., War, Famine, Epidemic..." style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box;">
+                </div>
+                <div style="margin-top: 8px; padding: 8px 12px; background: #fff3cd; border-radius: 4px; font-size: 0.88rem; color: #856404;">
+                    🌍 Global event — visible in event list for every person in the model
+                </div>
+            </div>`;
         }
 
         container.innerHTML = html;
@@ -427,9 +454,10 @@ class EventEditor {
         Object.entries(this.app.persons).forEach(([id, person]) => {
             const personFirstName = (person.first_name || '').toLowerCase();
             const personLastName = (person.last_name || '').toLowerCase();
+            const personMaidenName = (person.maiden_name || '').toLowerCase();
 
             if (personFirstName.includes(firstName.toLowerCase()) &&
-                personLastName.includes(lastName.toLowerCase())) {
+                (personLastName.includes(lastName.toLowerCase()) || personMaidenName.includes(lastName.toLowerCase()))) {
                 matches.push({ id, person });
             }
         });
@@ -451,9 +479,14 @@ class EventEditor {
             <div style="font-weight: 600; margin-bottom: 8px;">Found ${matches.length} matching person(s):</div>`;
 
         matches.forEach(({ id, person }) => {
-            const birthYear = this.app.extractYear(person.birth_date);
-            const deathYear = this.app.extractYear(person.death_date);
+            const birthYear = this.app.extractYear(this.app.getPersonBirthDate(id));
+            const deathYear = this.app.extractYear(this.app.getPersonDeathDate(id));
             const years = birthYear || deathYear ? `(${birthYear || '?'} - ${deathYear || '?'})` : '';
+            const family = this.app.getFamily(id);
+            const spouseNames = family.spouses.map(s => {
+                const sp = this.app.persons[s.id];
+                return sp ? this.app.getFullName(sp) : s.id;
+            }).join(', ');
 
             html += `<div style="padding: 8px; border: 1px solid #e0e0e0; border-radius: 4px; margin-bottom: 6px; cursor: pointer; transition: background 0.2s;"
                      onmouseover="this.style.background='#f0f4ff'" onmouseout="this.style.background='white'"
@@ -461,6 +494,7 @@ class EventEditor {
                 <div style="font-weight: 500;">${this.app.getFullName(person)} ${years}</div>
                 ${person.maiden_name ? `<div style="font-size: 0.85rem; color: #666;">Maiden: ${person.maiden_name}</div>` : ''}
                 ${person.occupation ? `<div style="font-size: 0.85rem; color: #666;">Occupation: ${person.occupation}</div>` : ''}
+                ${spouseNames ? `<div style="font-size: 0.85rem; color: #666;">Spouse(s): ${spouseNames}</div>` : ''}
                 <div style="font-size: 0.85rem; color: #667eea;">Click to select</div>
             </div>`;
         });
@@ -638,7 +672,11 @@ class EventEditor {
             links: document.getElementById('event-links').value.split(',').map(l => l.trim()).filter(Boolean),
             notes: document.getElementById('event-notes').value.trim(),
             content: document.getElementById('event-content')?.value.trim() || null,
-            title: this.currentEventType === 'generic' ? (document.getElementById('event-generic-title')?.value.trim() || null) : null,
+            title: this.currentEventType === 'generic'
+                ? (document.getElementById('event-generic-title')?.value.trim() || null)
+                : this.currentEventType === 'global'
+                    ? (document.getElementById('event-global-title')?.value.trim() || null)
+                    : null,
             participants: []
         };
 
@@ -744,6 +782,13 @@ class EventEditor {
                     });
                     if (result.event_participations) {
                         Object.assign(this.app.event_participations, result.event_participations);
+                    }
+
+                    // Patch modified persons (e.g. maiden_name updated for existing participants)
+                    if (result.modified_persons && result.modified_persons.length > 0) {
+                        result.modified_persons.forEach(p => {
+                            this.app.persons[p.id] = p;
+                        });
                     }
 
                     // Rebuild indices and caches

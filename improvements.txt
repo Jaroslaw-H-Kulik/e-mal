@@ -255,6 +255,36 @@ Remove birth/death dates/place from person model (from json file and backend cod
 
 Before you remove them, check source code to avoid breaking app.
 
+Step 56.2
+
+I want you to add new type of event - global.
+
+You need to create new button, next to "add person" - "add global event".
+
+This event type should support event title, date, place, links, notes, event content. It does not have participants.
+
+Once created, It should be visible in event list for every person in the model.
+
+Event title should be later shown as label on the list of event (just like "birth", "marriage", "death") - just like in case of generic events.
+
+Step 56.3
+
+When I do search by name and surname, i want to you to also search by maiden surname if present.
+
+Same should apply to person lookup.
+
+When person details are returned, I want you to also show spouse name and surname if present.
+
+Step 56.4
+
+When new person is created through event, some data is not propagated into its model, namely: age (birth event should be created with date calculated from original event date and age), maiden name. 
+
+This should work for all types of events where person is created as participant.
+
+Step 56.5
+
+Add some icon/emoticon to be displayed in generic events. Family and global events have dedicated icons. Suggest icon. Some scroll of paper or something?
+
 Step 57.
 
 I want to be able to upload documents/pictures (jpg/jpegs) - let's call them documents. You need to create new button, next to "add person" - "add document".
