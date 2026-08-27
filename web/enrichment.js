@@ -9,7 +9,7 @@ class EnrichmentReviewer {
 
     async loadQueue() {
         try {
-            const response = await fetch('../data/enrichment_queue.json');
+            const response = await fetch('/data/enrichment_queue.json');
             this.queue = await response.json();
 
             // Update button count

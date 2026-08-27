@@ -10,7 +10,8 @@
       "Bash(curl -s -X POST http://localhost:8001/api/update-person -H 'Content-Type: application/json' -d '{\"person_id\":\"P1085\",\"first_name\":\"Test\",\"last_name\":\"User\",\"gender\":\"M\",\"maiden_name\":null,\"occupation\":null,\"place_of_birth\":null,\"place_of_death\":null,\"tags\":[],\"notes\":null}')",
       "Bash(curl:*)",
       "Bash(taskkill /F /IM python.exe)",
-      "Bash(taskkill:*)"
+      "Bash(taskkill:*)",
+      "Bash(Get-ChildItem)"
     ]
   }
 }

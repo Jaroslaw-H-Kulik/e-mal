@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Genealogical Database - Grzybowa Góra (1826-1914)</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/web/style.css">
     <script src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
 </head>
 <body>
@@ -30,6 +30,8 @@
         <div class="toolbar">
             <button class="btn-success" onclick="editor && editor.openAddPersonModal()">➕ Add Person</button>
             <button class="btn-success" onclick="eventEditor && eventEditor.openAddGlobalEventModal()">🌍 Add Global Event</button>
+            <button class="btn-success" onclick="documentManager && documentManager.showOptions()">📄 Documents</button>
+            <button class="btn-success" onclick="eventRegistry && eventRegistry.show()">📋 Events</button>
             <button class="btn-success" onclick="editor && editor.openMergeModal()">🔗 Merge Persons</button>
             <button class="btn-warning" onclick="app && app.openEnrichmentReview()" id="enrichment-btn">
                 📦 Review GEDCOM Matches <span id="enrichment-count">(0)</span>
@@ -101,6 +103,8 @@
                     </div>
                 </div>
                 <div id="network-container"></div>
+                <!-- Step 57: Document image viewer (replaces network when a document is open) -->
+                <div id="document-image-panel" style="display:none; height:100%; overflow-y:auto; background:#2a2a3e; align-items:flex-start; justify-content:center; padding:20px; box-sizing:border-box;"></div>
                 <div class="legend">
                     <div class="legend-item">
                         <span class="legend-color" style="background: #4A90E2;"></span>
@@ -553,12 +557,13 @@
         </div>
     </div>
 
-    <script src="app.js?v=12"></script>
-    <script src="editor.js?v=8"></script>
-    <script src="enrichment.js?v=2"></script>
-    <script src="event-editor.js?v=6"></script>
+    <script src="/web/app.js?v=13"></script>
+    <script src="/web/editor.js?v=8"></script>
+    <script src="/web/enrichment.js?v=2"></script>
+    <script src="/web/event-editor.js?v=7"></script>
+    <script src="/web/document-manager.js?v=2"></script>
+    <script src="/web/event-registry.js?v=1"></script>
     <script>
-        // Initialize enrichment reviewer after app is ready
         window.addEventListener('load', () => {
             if (window.app) {
                 initEnrichmentReviewer(window.app);

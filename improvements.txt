@@ -288,7 +288,7 @@ Add some icon/emoticon to be displayed in generic events. Family and global even
 Step 57.
 
 I want to be able to upload documents/pictures (jpg/jpegs) - let's call them documents. You need to create new button, next to "add person" - "add document".
-When document is added you need to open form where i can give name to this document.
+When document is being added you need to open form where i can give name to this document.
 When document is added, it should end up in ./data/documents directory. 
 
 Add new model for documents:
@@ -299,16 +299,67 @@ Add new model for documents:
    - transcription
    - tags
    - date
-   - participants
+   - events
    - link
 
-Document can have unlimited number of participants - so form should support adding new partipacts over oand over again in UI. Participants are people from model.
-So when selecting participants i want to have model lookup option, similar to one used in events view.
+
+Document can have unlimited number of events - so form should support adding new partipacts over oand over again in UI. Event are people from model.
+So when selecting event i want to have model lookup option, similar to one used in events view.
 
 Step 58.
 Next to "Add document" button, add "show documents" button. Once clicked, it should show list of all documents. Each document should be clickable. If cliked, document card should appear.
 
-It should be similar to person card and show document details. I should be able to edit document data.
+It should be similar to person card and show document details listed in step 57. I should be able to edit document data.
 
 Step 59.
-In person card I want to see documents linked to a given person.
+In person card I want to see documents linked to a given event.
+
+Step 60.
+Modify generic events in a way to support unlimited number of participants instead of 3. When new event is created it should start with one input field, i should be able to add extra participants.
+
+Remember to change schema of existing generic events.
+
+Step 61. 
+On document card (left side), you need to list events just as it happens on person card. No need to show relationship type - as it is from documents perspective. I want event to be expandanble to see list of particpants.
+
+Step 62.
+New URL structure is a mess. 
+example:
+http://localhost:8001/?document=D01&person=P0952
+
+I don't want dual approach. Keep either person or document selected. not both. Don't use params. Simply use http://localhost:8001/person/P0952 etc. I don't need to have displayed both person and document at the same time.
+
+This will simplify things.
+
+Step 63.
+On person card, next to gender I want to see settlement names that given person lived in. List all settlement names (deduplicated) taken from events of given person.
+
+Step 64. 
+I want to change the way global events work. If there's no settlement name specified, keep current behaviour - show for all people.
+
+If there's settlement name specified, show it only for those people, who have at least one event in a settlement with the same name - reuse logic from Step 63.
+
+Step 65. 
+Each event on event list should have a label with settlement name (if any).
+
+Step 66.
+Add zoom in/out options in document view. Sometimes letters are small and it is not convenient to have fixed size.
+
+Step 67.
+I want to see all events in the model on a single page. To get there, I want you to add new button "Events" next to "Documents" button. Once clicked, you need to list all events of all types on person card.
+
+They should be sorted by year - starting from earliest. I should be able to click on it and edit it in edit event modal.
+
+Each event should have a label saying its type and main participant (child for birth, deceased for death, bride and groom for marriage). 
+
+List should be filterable. I want to filter by year (from/to).
+
+Step 68.
+
+On event list from step 67 add expand button - similar to one from event list on person card. Once expanded I want to see all participants.
+
+Add button to remove event on the list from step 67.
+
+Events on both lists have labels with location name. I want you to add house number (if any) to this label, for example "Małyszyn 6" - 6 is house number.
+
+

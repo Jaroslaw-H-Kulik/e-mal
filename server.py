@@ -4,6 +4,7 @@ Simple HTTP server with write capability for genealogy editor.
 Serves static files and handles POST requests to save merge logs.
 """
 
+import base64
 import json
 import os
 import sys
@@ -60,6 +61,9 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
         # Default to serving from web/ directory
         if self.path == '/':
             self.path = '/web/index.html'
+        elif self.path.startswith('/person/') or self.path.startswith('/document/') or self.path == '/events':
+            # SPA routing: serve index.html for clean entity URLs
+            self.path = '/web/index.html'
         elif not self.path.startswith('/web/') and not self.path.startswith('/data/'):
             self.path = '/web' + self.path
 
@@ -104,6 +108,14 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
                 response_data = self.sync_all_ages_to_birth_years_migration()
             elif self.path == '/api/deduplicate-witnesses-godparents':
                 response_data = self.deduplicate_witnesses_godparents()
+            elif self.path == '/api/add-document':
+                response_data = self.add_document(data)
+            elif self.path == '/api/update-document':
+                response_data = self.update_document(data)
+            elif self.path == '/api/delete-document':
+                response_data = self.delete_document(data)
+            elif self.path == '/api/delete-document-page':
+                response_data = self.delete_document_page(data)
             else:
                 self.send_error(404, "Endpoint not found")
                 return
@@ -1450,9 +1462,38 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
 
                             created_parents[parent_type] = parent_id
 
-                    # Create birth event if we have age-based date OR parents were specified
-                    if birth_date or created_parents['mother'] or created_parents['father']:
-                        # Create birth event for the child
+                    # Create a birth event for new persons, unless:
+                    # - role is 'child' in a birth event (the main event IS already the birth event)
+                    # - a birth event already exists for this person (update it instead)
+                    participant_role = participant.get('role')
+                    is_child_in_birth_event = (participant_role == 'child' and event_data.get('type') == 'birth')
+                    existing_birth_event_id = self.find_birth_event_for_person(events, event_participations, person_id)
+
+                    if is_child_in_birth_event:
+                        # The main event is this person's birth event — no separate auto-birth-event needed
+                        print(f"  [SKIP] Auto-birth-event for {person_id}: main event {event_id} is the birth event")
+                    elif existing_birth_event_id:
+                        # Birth event already exists — add any new parents to it instead of creating a duplicate
+                        print(f"  [SKIP] Birth event {existing_birth_event_id} already exists for {person_id}, updating parents")
+                        for parent_type, par_id in created_parents.items():
+                            if par_id:
+                                already_participant = any(
+                                    ep['event_id'] == existing_birth_event_id and ep['person_id'] == par_id
+                                    for ep in event_participations.values()
+                                )
+                                if not already_participant:
+                                    max_ep_id = max([int(ep['id'][2:]) for ep in event_participations.values()], default=0)
+                                    max_ep_id += 1
+                                    ep_id = f"EP{max_ep_id:04d}"
+                                    event_participations[ep_id] = {
+                                        'id': ep_id,
+                                        'event_id': existing_birth_event_id,
+                                        'person_id': par_id,
+                                        'role': parent_type
+                                    }
+                                    print(f"  [OK] Added {parent_type} to existing birth event {existing_birth_event_id}")
+                    else:
+                        # Create new auto-birth-event for this new person
                         max_event_id = max([int(e['id'][1:]) for e in events.values()], default=0)
                         birth_event_id = f"E{(max_event_id + 1):04d}"
 
@@ -1464,7 +1505,7 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
                             'description': f"Birth of {new_person['first_name']} {new_person['last_name']}",
                             'tags': [],
                             'links': [],
-                            'notes': 'Auto-generated from event with parent data',
+                            'notes': 'Auto-generated from event participation',
                             'content': ''
                         }
                         events[birth_event_id] = birth_event
@@ -1481,71 +1522,76 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
                         }
 
                         # Add parents as participants
-                        for parent_type, parent_id in created_parents.items():
-                            if parent_id:
+                        for parent_type, par_id in created_parents.items():
+                            if par_id:
                                 max_ep_id += 1
                                 ep_id = f"EP{max_ep_id:04d}"
                                 event_participations[ep_id] = {
                                     'id': ep_id,
                                     'event_id': birth_event_id,
-                                    'person_id': parent_id,
+                                    'person_id': par_id,
                                     'role': parent_type
                                 }
 
-                        print(f"  [OK] Created birth event: {birth_event_id} for {person_id} with parents")
+                        print(f"  [OK] Created birth event: {birth_event_id} for {person_id} (date: {birth_date})")
 
-                        # Create marriage event between parents if both exist
-                        if created_parents['mother'] and created_parents['father']:
-                            max_event_id = max([int(e['id'][1:]) for e in events.values()], default=0)
-                            marriage_event_id = f"E{(max_event_id + 1):04d}"
+                    # Create marriage event between parents if both exist
+                    if created_parents['mother'] and created_parents['father']:
+                        max_event_id = max([int(e['id'][1:]) for e in events.values()], default=0)
+                        marriage_event_id = f"E{(max_event_id + 1):04d}"
 
-                            mother = persons[created_parents['mother']]
-                            father = persons[created_parents['father']]
+                        mother = persons[created_parents['mother']]
+                        father = persons[created_parents['father']]
 
-                            marriage_event = {
-                                'id': marriage_event_id,
-                                'type': 'marriage',
-                                'date': None,
-                                'place_id': None,
-                                'description': f"Marriage of {father['first_name']} {father['last_name']} and {mother['first_name']} {mother['last_name']}",
-                                'tags': [],
-                                'links': [],
-                                'notes': 'Auto-generated from child birth event',
-                                'content': ''
-                            }
-                            events[marriage_event_id] = marriage_event
+                        marriage_event = {
+                            'id': marriage_event_id,
+                            'type': 'marriage',
+                            'date': None,
+                            'place_id': None,
+                            'description': f"Marriage of {father['first_name']} {father['last_name']} and {mother['first_name']} {mother['last_name']}",
+                            'tags': [],
+                            'links': [],
+                            'notes': 'Auto-generated from child birth event',
+                            'content': ''
+                        }
+                        events[marriage_event_id] = marriage_event
 
-                            # Add parents as bride and groom
-                            max_ep_id = max([int(ep['id'][2:]) for ep in event_participations.values()], default=0)
-                            max_ep_id += 1
-                            ep_id = f"EP{max_ep_id:04d}"
-                            event_participations[ep_id] = {
-                                'id': ep_id,
-                                'event_id': marriage_event_id,
-                                'person_id': created_parents['father'],
-                                'role': 'groom'
-                            }
+                        # Add parents as bride and groom
+                        max_ep_id = max([int(ep['id'][2:]) for ep in event_participations.values()], default=0)
+                        max_ep_id += 1
+                        ep_id = f"EP{max_ep_id:04d}"
+                        event_participations[ep_id] = {
+                            'id': ep_id,
+                            'event_id': marriage_event_id,
+                            'person_id': created_parents['father'],
+                            'role': 'groom'
+                        }
 
-                            max_ep_id += 1
-                            ep_id = f"EP{max_ep_id:04d}"
-                            event_participations[ep_id] = {
-                                'id': ep_id,
-                                'event_id': marriage_event_id,
-                                'person_id': created_parents['mother'],
-                                'role': 'bride'
-                            }
+                        max_ep_id += 1
+                        ep_id = f"EP{max_ep_id:04d}"
+                        event_participations[ep_id] = {
+                            'id': ep_id,
+                            'event_id': marriage_event_id,
+                            'person_id': created_parents['mother'],
+                            'role': 'bride'
+                        }
 
-                            print(f"  [OK] Created marriage event: {marriage_event_id} between parents")
+                        print(f"  [OK] Created marriage event: {marriage_event_id} between parents")
 
-                # Update maiden_name for existing persons if provided
+                # Update name fields for existing persons if changed in the form
                 if is_existing_person and person_id and person_id in persons:
-                    maiden_name = participant.get('maiden_name')
-                    if maiden_name:
+                    last_name = participant.get('last_name', '').strip()
+                    maiden_name = participant.get('maiden_name', '').strip()
+                    if last_name and last_name != persons[person_id].get('last_name'):
+                        persons[person_id]['last_name'] = last_name
+                        print(f"  [OK] Updated last_name for existing person {person_id}: {last_name}")
+                    if maiden_name and maiden_name != persons[person_id].get('maiden_name'):
                         persons[person_id]['maiden_name'] = maiden_name
                         print(f"  [OK] Updated maiden_name for existing person {person_id}: {maiden_name}")
 
                 if person_id:
-                    # Create event participation
+                    # Create event participation (recalculate max to stay correct regardless of which branch above ran)
+                    max_ep_id = max([int(ep['id'][2:]) for ep in event_participations.values()], default=0)
                     max_ep_id += 1
                     ep_id = f"EP{max_ep_id:04d}"
 
@@ -1730,97 +1776,99 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
 
                             created_parents[parent_type] = parent_id
 
-                    # Create birth event if we have age-based date OR parents were specified
-                    if birth_date or created_parents['mother'] or created_parents['father']:
-                        # Create birth event for the child
-                        max_event_id = max([int(e['id'][1:]) for e in events.values()], default=0)
-                        birth_event_id = f"E{(max_event_id + 1):04d}"
+                    # Always create a birth event for any new person
+                    max_event_id = max([int(e['id'][1:]) for e in events.values()], default=0)
+                    birth_event_id = f"E{(max_event_id + 1):04d}"
 
-                        birth_event = {
-                            'id': birth_event_id,
-                            'type': 'birth',
-                            'date': birth_date,
+                    birth_event = {
+                        'id': birth_event_id,
+                        'type': 'birth',
+                        'date': birth_date,
+                        'place_id': None,
+                        'description': f"Birth of {new_person['first_name']} {new_person['last_name']}",
+                        'tags': [],
+                        'links': [],
+                        'notes': 'Auto-generated from event participation',
+                        'content': ''
+                    }
+                    events[birth_event_id] = birth_event
+
+                    # Add child as participant — use outer max_ep_id to avoid ID collision
+                    max_ep_id = max([int(ep['id'][2:]) for ep in event_participations.values()], default=0)
+                    max_ep_id += 1
+                    ep_id = f"EP{max_ep_id:04d}"
+                    event_participations[ep_id] = {
+                        'id': ep_id,
+                        'event_id': birth_event_id,
+                        'person_id': person_id,
+                        'role': 'child'
+                    }
+
+                    # Add parents as participants
+                    for parent_type, parent_id_temp in created_parents.items():
+                        if parent_id_temp:
+                            max_ep_id += 1
+                            ep_id = f"EP{max_ep_id:04d}"
+                            event_participations[ep_id] = {
+                                'id': ep_id,
+                                'event_id': birth_event_id,
+                                'person_id': parent_id_temp,
+                                'role': parent_type
+                            }
+
+                    print(f"  [OK] Created birth event: {birth_event_id} for {person_id} (date: {birth_date})")
+
+                    # Create marriage event between parents if both exist
+                    if created_parents['mother'] and created_parents['father']:
+                        max_event_id = max([int(e['id'][1:]) for e in events.values()], default=0)
+                        marriage_event_id = f"E{(max_event_id + 1):04d}"
+
+                        mother = persons[created_parents['mother']]
+                        father = persons[created_parents['father']]
+
+                        marriage_event = {
+                            'id': marriage_event_id,
+                            'type': 'marriage',
+                            'date': None,
                             'place_id': None,
-                            'description': f"Birth of {new_person['first_name']} {new_person['last_name']}",
+                            'description': f"Marriage of {father['first_name']} {father['last_name']} and {mother['first_name']} {mother['last_name']}",
                             'tags': [],
                             'links': [],
-                            'notes': 'Auto-generated from event with parent data',
+                            'notes': 'Auto-generated from child birth event',
                             'content': ''
                         }
-                        events[birth_event_id] = birth_event
+                        events[marriage_event_id] = marriage_event
 
-                        # Add child as participant
-                        max_ep_id_temp = max([int(ep['id'][2:]) for ep in event_participations.values()], default=0)
-                        max_ep_id_temp += 1
-                        ep_id = f"EP{max_ep_id_temp:04d}"
+                        # Add parents as bride and groom
+                        max_ep_id = max([int(ep['id'][2:]) for ep in event_participations.values()], default=0)
+                        max_ep_id += 1
+                        ep_id = f"EP{max_ep_id:04d}"
                         event_participations[ep_id] = {
                             'id': ep_id,
-                            'event_id': birth_event_id,
-                            'person_id': person_id,
-                            'role': 'child'
+                            'event_id': marriage_event_id,
+                            'person_id': created_parents['father'],
+                            'role': 'groom'
                         }
 
-                        # Add parents as participants
-                        for parent_type, parent_id_temp in created_parents.items():
-                            if parent_id_temp:
-                                max_ep_id_temp += 1
-                                ep_id = f"EP{max_ep_id_temp:04d}"
-                                event_participations[ep_id] = {
-                                    'id': ep_id,
-                                    'event_id': birth_event_id,
-                                    'person_id': parent_id_temp,
-                                    'role': parent_type
-                                }
+                        max_ep_id += 1
+                        ep_id = f"EP{max_ep_id:04d}"
+                        event_participations[ep_id] = {
+                            'id': ep_id,
+                            'event_id': marriage_event_id,
+                            'person_id': created_parents['mother'],
+                            'role': 'bride'
+                        }
 
-                        print(f"  [OK] Created birth event: {birth_event_id} for {person_id} with parents")
+                        print(f"  [OK] Created marriage event: {marriage_event_id} between parents")
 
-                        # Create marriage event between parents if both exist
-                        if created_parents['mother'] and created_parents['father']:
-                            max_event_id = max([int(e['id'][1:]) for e in events.values()], default=0)
-                            marriage_event_id = f"E{(max_event_id + 1):04d}"
-
-                            mother = persons[created_parents['mother']]
-                            father = persons[created_parents['father']]
-
-                            marriage_event = {
-                                'id': marriage_event_id,
-                                'type': 'marriage',
-                                'date': None,
-                                'place_id': None,
-                                'description': f"Marriage of {father['first_name']} {father['last_name']} and {mother['first_name']} {mother['last_name']}",
-                                'tags': [],
-                                'links': [],
-                                'notes': 'Auto-generated from child birth event',
-                                'content': ''
-                            }
-                            events[marriage_event_id] = marriage_event
-
-                            # Add parents as bride and groom
-                            max_ep_id_temp = max([int(ep['id'][2:]) for ep in event_participations.values()], default=0)
-                            max_ep_id_temp += 1
-                            ep_id = f"EP{max_ep_id_temp:04d}"
-                            event_participations[ep_id] = {
-                                'id': ep_id,
-                                'event_id': marriage_event_id,
-                                'person_id': created_parents['father'],
-                                'role': 'groom'
-                            }
-
-                            max_ep_id_temp += 1
-                            ep_id = f"EP{max_ep_id_temp:04d}"
-                            event_participations[ep_id] = {
-                                'id': ep_id,
-                                'event_id': marriage_event_id,
-                                'person_id': created_parents['mother'],
-                                'role': 'bride'
-                            }
-
-                            print(f"  [OK] Created marriage event: {marriage_event_id} between parents")
-
-                # Update maiden_name for existing persons if provided
+                # Update name fields for existing persons if changed in the form
                 if is_existing_person and person_id and person_id in persons:
-                    maiden_name = participant.get('maiden_name')
-                    if maiden_name:
+                    last_name = participant.get('last_name', '').strip()
+                    maiden_name = participant.get('maiden_name', '').strip()
+                    if last_name and last_name != persons[person_id].get('last_name'):
+                        persons[person_id]['last_name'] = last_name
+                        print(f"  [OK] Updated last_name for existing person {person_id}: {last_name}")
+                    if maiden_name and maiden_name != persons[person_id].get('maiden_name'):
                         persons[person_id]['maiden_name'] = maiden_name
                         print(f"  [OK] Updated maiden_name for existing person {person_id}: {maiden_name}")
 
@@ -2043,16 +2091,15 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
                     birth_event_id = self.find_birth_event_for_person(events, event_participations, person_id)
 
                     if birth_event_id:
-                        # Update existing birth event if it doesn't have a year
+                        # Update existing birth event with age-derived year (always overwrite)
                         birth_event = events[birth_event_id]
-                        if not birth_event.get('date') or not birth_event['date'].get('year'):
-                            birth_event['date'] = {
-                                'year': calculated_birth_year,
-                                'month': None,
-                                'day': None,
-                                'circa': True
-                            }
-                            print(f"  [OK] Step 21: Calculated birth year {calculated_birth_year} for {person_id} from age {age}")
+                        birth_event['date'] = {
+                            'year': calculated_birth_year,
+                            'month': None,
+                            'day': None,
+                            'circa': True
+                        }
+                        print(f"  [OK] Step 21: Calculated birth year {calculated_birth_year} for {person_id} from age {age}")
                     else:
                         # Step 29: Create birth event if it doesn't exist
                         birth_event_id = self.get_next_event_id(events)
@@ -2606,6 +2653,128 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
         except Exception as e:
             print(f"[ERR] Geneteka import error: {e}")
             return {'success': False, 'error': str(e), 'records': []}
+
+
+    # ── Document management ──────────────────────────────────────────────────
+
+    def _documents_path(self):
+        return os.path.join(os.path.dirname(os.path.abspath(__file__)), 'data', 'documents.json')
+
+    def _documents_dir(self):
+        d = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'data', 'documents')
+        os.makedirs(d, exist_ok=True)
+        return d
+
+    def load_documents(self):
+        path = self._documents_path()
+        if not os.path.exists(path):
+            return {}
+        with open(path, 'r', encoding='utf-8') as f:
+            return json.load(f)
+
+    def save_documents(self, documents):
+        with open(self._documents_path(), 'w', encoding='utf-8') as f:
+            json.dump(documents, f, ensure_ascii=False, indent=2)
+
+    def get_next_document_id(self, documents):
+        existing = []
+        for k in documents.keys():
+            if k.startswith('D') and k[1:].isdigit():
+                existing.append(int(k[1:]))
+        next_num = max(existing, default=0) + 1
+        return f'D{next_num:02d}'
+
+    def add_document(self, data):
+        try:
+            documents = self.load_documents()
+            doc_id = self.get_next_document_id(documents)
+            docs_dir = self._documents_dir()
+
+            pages = []
+            for i, page_data in enumerate(data.get('pages', []), start=1):
+                ext = page_data.get('ext', 'jpg').lower()
+                filename = f'{doc_id}-{i}.{ext}'
+                filepath = os.path.join(docs_dir, filename)
+                file_bytes = base64.b64decode(page_data['data'])
+                with open(filepath, 'wb') as f:
+                    f.write(file_bytes)
+                pages.append({'filename': filename, 'transcription': ''})
+
+            document = {
+                'id': doc_id,
+                'name': data.get('name', ''),
+                'date': data.get('date'),
+                'notes': data.get('notes', ''),
+                'tags': data.get('tags', []),
+                'link': data.get('link', ''),
+                'events': data.get('events', []),
+                'pages': pages,
+            }
+            documents[doc_id] = document
+            self.save_documents(documents)
+            print(f'[OK] Created document {doc_id}: {document["name"]} ({len(pages)} pages)')
+            return {'success': True, 'document': document}
+        except Exception as e:
+            print(f'[ERR] add_document: {e}')
+            return {'success': False, 'error': str(e)}
+
+    def update_document(self, data):
+        try:
+            documents = self.load_documents()
+            doc_id = data.get('id')
+            if doc_id not in documents:
+                return {'success': False, 'error': 'Document not found'}
+            doc = documents[doc_id]
+            for field in ('name', 'date', 'notes', 'tags', 'link', 'events', 'pages'):
+                if field in data:
+                    doc[field] = data[field]
+            documents[doc_id] = doc
+            self.save_documents(documents)
+            print(f'[OK] Updated document {doc_id}')
+            return {'success': True, 'document': doc}
+        except Exception as e:
+            print(f'[ERR] update_document: {e}')
+            return {'success': False, 'error': str(e)}
+
+    def delete_document(self, data):
+        try:
+            documents = self.load_documents()
+            doc_id = data.get('id')
+            if doc_id not in documents:
+                return {'success': False, 'error': 'Document not found'}
+            docs_dir = self._documents_dir()
+            for page in documents[doc_id].get('pages', []):
+                filepath = os.path.join(docs_dir, page['filename'])
+                if os.path.exists(filepath):
+                    os.remove(filepath)
+            del documents[doc_id]
+            self.save_documents(documents)
+            print(f'[OK] Deleted document {doc_id}')
+            return {'success': True}
+        except Exception as e:
+            print(f'[ERR] delete_document: {e}')
+            return {'success': False, 'error': str(e)}
+
+    def delete_document_page(self, data):
+        try:
+            documents = self.load_documents()
+            doc_id = data.get('doc_id')
+            filename = data.get('filename')
+            if doc_id not in documents:
+                return {'success': False, 'error': 'Document not found'}
+            docs_dir = self._documents_dir()
+            filepath = os.path.join(docs_dir, filename)
+            if os.path.exists(filepath):
+                os.remove(filepath)
+            doc = documents[doc_id]
+            doc['pages'] = [p for p in doc.get('pages', []) if p['filename'] != filename]
+            documents[doc_id] = doc
+            self.save_documents(documents)
+            print(f'[OK] Deleted page {filename} from {doc_id}')
+            return {'success': True, 'document': doc}
+        except Exception as e:
+            print(f'[ERR] delete_document_page: {e}')
+            return {'success': False, 'error': str(e)}
 
 
 def run_server(port=8001):

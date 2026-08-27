@@ -82,6 +82,9 @@ class EventEditor {
                                     <textarea id="event-notes" rows="3" placeholder="Additional notes"></textarea>
                                 </div>
 
+                                <!-- Step 57: Documents section (only shown when editing an existing event) -->
+                                <div id="event-documents-section-container"></div>
+
                                 <div class="form-actions">
                                     <button type="submit" class="btn-primary">Save Event</button>
                                     <button type="button" class="btn-secondary" onclick="eventEditor.closeModal()">Cancel</button>
@@ -119,6 +122,9 @@ class EventEditor {
         document.getElementById('event-form-container').style.display = 'none';
         document.getElementById('event-form').reset();
         document.getElementById('event-editor-modal').style.display = 'block';
+        // Step 57: Clear documents section for new events
+        const docContainer = document.getElementById('event-documents-section-container');
+        if (docContainer) docContainer.innerHTML = '';
     }
 
     openAddGlobalEventModal() {
@@ -186,6 +192,9 @@ class EventEditor {
 
         // Step 20: Display event content at bottom
         this.displayEventContent(event);
+
+        // Step 57: Populate documents section
+        this.renderEventDocumentsSection(eventId);
     }
 
     displayEventContent(event) {
@@ -327,10 +336,11 @@ class EventEditor {
                     <input type="text" id="event-generic-title" placeholder="e.g., Land sale, Court record..." style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box;">
                 </div>
             </div>
-            <div style="margin-top: 20px; margin-bottom: 20px;"><h3>Participants</h3></div>`;
-            html += this.buildPersonFields('participant_1', 'Participant 1', ['first_name', 'last_name', 'gender', 'age', 'occupation']);
-            html += this.buildPersonFields('participant_2', 'Participant 2', ['first_name', 'last_name', 'gender', 'age', 'occupation']);
-            html += this.buildPersonFields('participant_3', 'Participant 3', ['first_name', 'last_name', 'gender', 'age', 'occupation']);
+            <div style="margin-top: 20px; margin-bottom: 10px; display: flex; align-items: center; justify-content: space-between;">
+                <h3 style="margin: 0;">Participants</h3>
+                <button type="button" onclick="eventEditor.addGenericParticipant()" style="padding: 5px 12px; background: #e8f4e8; border: 1px solid #6aaa6a; border-radius: 4px; cursor: pointer; font-size: 0.85rem; color: #2a7a2a;">+ Add Participant</button>
+            </div>
+            <div id="generic-participants-list"></div>`;
         } else if (type === 'global') {
             html = `<div style="margin-bottom: 15px;">
                 <div class="form-group">
@@ -338,12 +348,18 @@ class EventEditor {
                     <input type="text" id="event-global-title" placeholder="e.g., War, Famine, Epidemic..." style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box;">
                 </div>
                 <div style="margin-top: 8px; padding: 8px 12px; background: #fff3cd; border-radius: 4px; font-size: 0.88rem; color: #856404;">
-                    🌍 Global event — visible in event list for every person in the model
+                    🌍 Global event — if no place is set, visible for every person in the model. If a place is set, only shown for people who have at least one event in that settlement.
                 </div>
             </div>`;
         }
 
         container.innerHTML = html;
+
+        // Step 60: Initialize generic event with one participant slot
+        if (type === 'generic') {
+            this.genericParticipantCounter = 0;
+            this.addGenericParticipant();
+        }
 
         // Step 53: Auto-set gender from Polish name on blur for child in birth events
         if (type === 'birth' || type === 'baptism') {
@@ -403,6 +419,42 @@ class EventEditor {
         </div>`;
 
         return html;
+    }
+
+    // Step 60: Add a new participant slot to the generic event form
+    addGenericParticipant() {
+        this.genericParticipantCounter = (this.genericParticipantCounter || 0) + 1;
+        const idx = this.genericParticipantCounter;
+        const role = `participant_${idx}`;
+        const list = document.getElementById('generic-participants-list');
+        if (!list) return;
+
+        const wrapper = document.createElement('div');
+        wrapper.id = `generic-participant-wrapper-${idx}`;
+        wrapper.innerHTML = this.buildPersonFields(role, `Participant ${idx}`, ['first_name', 'last_name', 'gender', 'age', 'occupation']);
+
+        // Inject remove button into the header flex row alongside Lookup Person
+        const headerRow = wrapper.querySelector('[data-role] > div > div');
+        if (headerRow) {
+            const removeBtn = document.createElement('button');
+            removeBtn.type = 'button';
+            removeBtn.textContent = '✕ Remove';
+            removeBtn.style.cssText = 'padding: 4px 8px; font-size: 0.8rem; background: #fff0f0; border: 1px solid #f99; border-radius: 4px; cursor: pointer; margin-left: 6px;';
+            removeBtn.onclick = () => this.removeGenericParticipant(idx);
+            headerRow.appendChild(removeBtn);
+        }
+
+        list.appendChild(wrapper);
+    }
+
+    // Step 60: Remove a participant slot (minimum 1 must remain)
+    removeGenericParticipant(idx) {
+        const list = document.getElementById('generic-participants-list');
+        if (!list) return;
+        const wrappers = list.querySelectorAll('[id^="generic-participant-wrapper-"]');
+        if (wrappers.length <= 1) return;
+        const wrapper = document.getElementById(`generic-participant-wrapper-${idx}`);
+        if (wrapper) wrapper.remove();
     }
 
     buildParentFields(childRole) {
@@ -592,14 +644,19 @@ class EventEditor {
             });
         }
 
-        // Load generic event participants (participant_1, participant_2, participant_3)
+        // Step 60: Load generic event participants dynamically
         if (roleGroups['participant']) {
-            roleGroups['participant'].forEach((personId, index) => {
-                const slotRole = `participant_${index + 1}`;
-                if (document.getElementById(`${slotRole}_person_id`)) {
+            const list = document.getElementById('generic-participants-list');
+            if (list) {
+                // Clear the initial empty slot added by buildParticipantsForm
+                list.innerHTML = '';
+                this.genericParticipantCounter = 0;
+                roleGroups['participant'].forEach((personId) => {
+                    this.addGenericParticipant();
+                    const slotRole = `participant_${this.genericParticipantCounter}`;
                     this.selectExistingPerson(slotRole, personId);
-                }
-            });
+                });
+            }
         }
 
         // Step 5: Pre-populate parent fields for groom/bride/deceased if they exist
@@ -857,11 +914,11 @@ class EventEditor {
             'witness_3': 'witness',
             'godparent_1': 'godparent',
             'godparent_2': 'godparent',
-            'participant_1': 'participant',
-            'participant_2': 'participant',
-            'participant_3': 'participant'
         };
-        return roleMap[role] || role;
+        if (role in roleMap) return roleMap[role];
+        // Step 60: Handle any participant_N slot
+        if (role.startsWith('participant_')) return 'participant';
+        return role;
     }
 
     closeModal() {
@@ -1154,6 +1211,92 @@ class EventEditor {
         if (marriageResult.success) {
             await this.app.loadData();
             this.showNotification('Created marriage event for parents', 'info');
+        }
+    }
+
+    // ── Step 57: Event-editor document linking ─────────────────────────────────
+
+    renderEventDocumentsSection(eventId) {
+        const container = document.getElementById('event-documents-section-container');
+        if (!container) return;
+
+        const allDocs = this.app.documents || {};
+        const linkedDocs = Object.values(allDocs).filter(doc =>
+            (doc.events || []).includes(eventId)
+        );
+
+        let linkedHtml = linkedDocs.length === 0
+            ? '<div style="color:#aaa;font-size:0.85rem;">No documents linked</div>'
+            : linkedDocs.map(doc => `
+                <div style="display:flex;align-items:center;gap:8px;padding:6px;background:#f0f4ff;border-radius:4px;margin-bottom:4px;">
+                    <span style="flex:1;font-size:0.9rem;">📄 ${doc.name || doc.id}</span>
+                    <button type="button" class="btn-danger" style="padding:2px 8px;font-size:0.75rem;"
+                            onclick="eventEditor.unlinkDocumentFromEvent('${doc.id}')">✕ Unlink</button>
+                </div>`
+            ).join('');
+
+        container.innerHTML = `
+            <div style="margin-top:20px;padding-top:16px;border-top:1px solid #eee;">
+                <label style="font-weight:600;margin-bottom:10px;display:block;">📄 Linked Documents</label>
+                <div id="event-linked-docs-list">${linkedHtml}</div>
+                <div style="margin-top:10px;display:flex;gap:8px;">
+                    <input type="text" id="doc-name-search"
+                           placeholder="Search document by name…"
+                           style="flex:1;padding:6px 8px;border:1px solid #ddd;border-radius:4px;">
+                    <button type="button" class="btn-secondary"
+                            onclick="eventEditor.searchDocumentsForEvent()">Search</button>
+                </div>
+                <div id="doc-name-search-results" style="margin-top:8px;"></div>
+            </div>`;
+    }
+
+    searchDocumentsForEvent() {
+        const query = document.getElementById('doc-name-search')?.value.trim();
+        if (!query || !window.documentManager) return;
+
+        const results = documentManager.searchByName(query);
+        const container = document.getElementById('doc-name-search-results');
+        if (!container) return;
+
+        if (results.length === 0) {
+            container.innerHTML = '<div style="color:#aaa;font-size:0.85rem;">No documents found</div>';
+            return;
+        }
+
+        const currentEventId = this.editingEventId;
+        container.innerHTML = results.map(doc => {
+            const alreadyLinked = (doc.events || []).includes(currentEventId);
+            return `<div style="display:flex;align-items:center;gap:8px;padding:6px;background:#f8f9fa;border-radius:4px;margin-bottom:4px;">
+                <span style="flex:1;font-size:0.9rem;">📄 ${doc.name}${doc.date ? ` (${doc.date})` : ''}</span>
+                ${alreadyLinked
+                    ? '<span style="font-size:0.8rem;color:#888;">Already linked</span>'
+                    : `<button type="button" class="btn-success" style="padding:2px 8px;font-size:0.75rem;"
+                               onclick="eventEditor.linkDocumentToCurrentEvent('${doc.id}')">Link</button>`}
+            </div>`;
+        }).join('');
+    }
+
+    async linkDocumentToCurrentEvent(docId) {
+        const eventId = this.editingEventId;
+        if (!eventId) {
+            alert('Save the event first before linking documents.');
+            return;
+        }
+        if (!window.documentManager) return;
+        const ok = await documentManager.linkDocumentToEvent(docId, eventId);
+        if (ok) {
+            this.renderEventDocumentsSection(eventId);
+            this.showNotification('Document linked', 'success');
+        }
+    }
+
+    async unlinkDocumentFromEvent(docId) {
+        const eventId = this.editingEventId;
+        if (!eventId || !window.documentManager) return;
+        const ok = await documentManager.unlinkDocumentFromEvent(docId, eventId);
+        if (ok) {
+            this.renderEventDocumentsSection(eventId);
+            this.showNotification('Document unlinked', 'info');
         }
     }
 }

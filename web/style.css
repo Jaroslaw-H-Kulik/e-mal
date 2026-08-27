@@ -493,6 +493,11 @@ button {
     color: white;
 }
 
+.badge.settlement-badge {
+    background: #2d7a4f;
+    color: white;
+}
+
 /* Loading Overlay */
 .loading-overlay {
     position: fixed;

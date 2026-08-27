@@ -5,6 +5,7 @@ class GenealogyApp {
         this.events = {};
         this.places = {};
         this.event_participations = {};
+        this.documents = {};
         this.network = null;
         this.currentView = 'all';
         this.selectedPerson = null;
@@ -101,7 +102,7 @@ class GenealogyApp {
         this.updateEditorButtons();
         this.hideLoading();
 
-        // Handle URL-based person selection or default to P0264
+        // Handle URL-based person/document selection or default to P0264
         this.handleInitialPersonSelection();
     }
 
@@ -112,7 +113,7 @@ class GenealogyApp {
                 ? 'gedcom_model.json'
                 : 'genealogy_new_model.json';
 
-            const response = await fetch(`../data/${modelFile}?t=${Date.now()}`);
+            const response = await fetch(`/data/${modelFile}?t=${Date.now()}`);
             const data = await response.json();
 
             // Update data structure references
@@ -127,6 +128,21 @@ class GenealogyApp {
                 events: Object.keys(this.events).length,
                 event_participations: Object.keys(this.event_participations).length
             });
+
+            // Load documents (separate file, optional)
+            try {
+                const docRes = await fetch(`/data/documents.json?t=${Date.now()}`);
+                if (docRes.ok) {
+                    this.documents = await docRes.json();
+                } else {
+                    this.documents = {};
+                }
+            } catch (_) {
+                this.documents = {};
+            }
+            if (window.documentManager) {
+                window.documentManager.documents = this.documents;
+            }
 
             // Performance: Build indices for fast lookups
             this.buildIndices();
@@ -271,13 +287,23 @@ class GenealogyApp {
     setupEventListeners() {
         // Handle browser back/forward buttons
         window.addEventListener('popstate', () => {
-            const urlParams = new URLSearchParams(window.location.search);
-            const personId = urlParams.get('person');
-            if (personId && this.persons[personId]) {
-                // Pass false to not update URL during popstate
-                this.showPersonDetails(personId, false);
-                this.network.selectNodes([personId]);
-                this.network.focus(personId, { scale: 1.5, animation: true });
+            const [, type, id] = window.location.pathname.split('/');
+
+            if (type === 'document' && id && window.documentManager && documentManager.documents[id]) {
+                documentManager.showCard(id, false);
+                return;
+            }
+
+            if (type === 'person' && id && this.persons[id]) {
+                this.showPersonDetails(id, false);
+                this.network.selectNodes([id]);
+                this.network.focus(id, { scale: 1.5, animation: true });
+                return;
+            }
+
+            // Navigated to root — show default person
+            if ((!type || type === '') && this.persons['P0264']) {
+                this.showPersonDetails('P0264', false);
             }
         });
 
@@ -345,7 +371,7 @@ class GenealogyApp {
                 hover: true,
                 tooltipDelay: 100,
                 navigationButtons: true,
-                keyboard: true
+                keyboard: { enabled: true, bindToWindow: false }
             }
         };
 
@@ -671,6 +697,15 @@ class GenealogyApp {
         console.log('showPersonDetails called with:', personId);
         this.selectedPerson = personId;
 
+        // Step 57: Close document image panel when switching to person view
+        if (window.documentManager && documentManager.currentDocId) {
+            documentManager.closeDocumentImagePanel();
+        }
+        // Step 67: Close events panel when switching to person view (no URL push — showPersonDetails handles that)
+        if (window.eventRegistry && eventRegistry.isVisible()) {
+            eventRegistry._closePanel();
+        }
+
         // Performance: Clear caches when switching persons
         this.relationshipCache.clear();
         this.validationCache.clear();
@@ -678,9 +713,7 @@ class GenealogyApp {
 
         // Update URL with person ID (unless we're handling back/forward)
         if (updateUrl) {
-            const url = new URL(window.location);
-            url.searchParams.set('person', personId);
-            window.history.pushState({}, '', url);
+            window.history.pushState({}, '', '/person/' + personId);
         }
 
         const person = this.persons[personId];
@@ -711,6 +744,7 @@ class GenealogyApp {
                     ${this.getGenderBadge(person.gender)}
                     ${person.occupation ? `<span class="badge">${person.occupation}</span>` : ''}
                     ${person.tags && person.tags.length > 0 ? person.tags.map(t => `<span class="badge tag-badge">${t}</span>`).join('') : ''}
+                    ${(() => { const settlements = this.getPersonSettlements(personId); return settlements.map(s => `<span class="badge settlement-badge" title="First recorded: ${s.firstYear || '?'}">📍 ${s.name} (${s.count})</span>`).join(''); })()}
                 </div>
                 <div class="person-actions">
                     <button class="btn-primary" onclick="editor.openEditModal('${personId}')">✏️ Edit</button>
@@ -734,7 +768,7 @@ class GenealogyApp {
                     const parent = this.persons[p.id];
                     html += `
                         <div style="display: flex; justify-content: space-between; align-items: center; margin: 4px 0;">
-                            <a href="#" class="person-link" data-person-id="${p.id}">
+                            <a href="javascript:void(0)" class="person-link" data-person-id="${p.id}">
                                 ${this.getFullNameWithMaiden(parent)} (${p.role}, ${this.lifespan(parent)})
                             </a>
                             <button class="btn-secondary"
@@ -762,7 +796,7 @@ class GenealogyApp {
                     const spouse = this.persons[s.id];
                     html += `
                         <div style="display: flex; justify-content: space-between; align-items: center; margin: 4px 0;">
-                            <a href="#" class="person-link" data-person-id="${s.id}">
+                            <a href="javascript:void(0)" class="person-link" data-person-id="${s.id}">
                                 ${this.getFullNameWithMaiden(spouse)} (${this.lifespan(spouse)})
                             </a>
                             <button class="btn-secondary"
@@ -787,7 +821,7 @@ class GenealogyApp {
                     const child = this.persons[c.id];
                     html += `
                         <div style="display: flex; justify-content: space-between; align-items: center; margin: 4px 0;">
-                            <a href="#" class="person-link" data-person-id="${c.id}">
+                            <a href="javascript:void(0)" class="person-link" data-person-id="${c.id}">
                                 ${this.getFullNameWithMaiden(child)} (${this.lifespan(child)})
                             </a>
                             <button class="btn-secondary"
@@ -810,7 +844,7 @@ class GenealogyApp {
                 });
                 sortedSiblings.forEach(siblingId => {
                     const sibling = this.persons[siblingId];
-                    html += `<div><a href="#" class="person-link" data-person-id="${siblingId}">
+                    html += `<div><a href="javascript:void(0)" class="person-link" data-person-id="${siblingId}">
                         ${this.getFullNameWithMaiden(sibling)} (${this.lifespan(sibling)})
                     </a></div>`;
                 });
@@ -830,7 +864,7 @@ class GenealogyApp {
                 html += `<div class="detail-label">Godparents (${godrelations.godparents.length})</div>`;
                 godrelations.godparents.forEach(godparentId => {
                     const godparent = this.persons[godparentId];
-                    html += `<div><a href="#" class="person-link" data-person-id="${godparentId}">
+                    html += `<div><a href="javascript:void(0)" class="person-link" data-person-id="${godparentId}">
                         ${this.getFullNameWithMaiden(godparent)}
                     </a></div>`;
                 });
@@ -843,7 +877,7 @@ class GenealogyApp {
                 godrelations.godchildren.forEach(godchildId => {
                     const godchild = this.persons[godchildId];
                     const birthYear = this.extractYear(this.getPersonBirthDate(godchildId)) || '?';
-                    html += `<div><a href="#" class="person-link" data-person-id="${godchildId}">
+                    html += `<div><a href="javascript:void(0)" class="person-link" data-person-id="${godchildId}">
                         ${this.getFullNameWithMaiden(godchild)} (b. ${birthYear})
                     </a></div>`;
                 });
@@ -898,7 +932,6 @@ class GenealogyApp {
                     </div>`;
                 } else if (event.isFamilyEvent) {
                     if (event.type === 'global') {
-                        // Step 56.2: Global events shown for everyone
                         personRoleHTML = `<div style="margin-top: 8px; padding: 6px 8px; background: #fff3cd; border-left: 3px solid #e6a800; border-radius: 3px; font-size: 0.9rem;">
                             <strong>🌍 Global Event</strong>
                         </div>`;
@@ -938,6 +971,7 @@ class GenealogyApp {
                                     <span class="event-expand-icon" id="expand-icon-${eventId}">▶</span>
                                     <div class="event-year">${year}${validationWarning}</div>
                                     <span class="event-type">${event.type === 'generic' ? ('📜 ' + (event.title || event.type)) : event.type === 'global' ? (event.title || event.type) : event.type}${familyEventIndicator}</span>
+                                    ${(() => { const place = event.place_id && this.places[event.place_id]; if (!place) return ''; const hn = place.house_number ? ` ${place.house_number}` : ''; return `<span class="badge settlement-badge">📍 ${place.name}${hn}</span>`; })()}
                                     <span style="font-size: 0.75rem; color: #999; font-family: monospace;">${eventId}</span>
                                 </div>
                             </div>
@@ -957,6 +991,21 @@ class GenealogyApp {
             html += '</div>';
         }
 
+        // Step 59: Documents section (after events)
+        const personDocs = this.getPersonDocuments(personId);
+        if (personDocs.length > 0) {
+            html += '<div class="detail-section">';
+            html += '<div class="section-title">📄 Documents</div>';
+            personDocs.forEach(doc => {
+                html += `<div style="margin:4px 0;">
+                    <a href="javascript:void(0)" class="doc-link" data-doc-id="${doc.id}" style="color:#667eea;text-decoration:none;">
+                        ${doc.name || doc.id}${doc.date ? ` (${doc.date})` : ''}
+                    </a>
+                </div>`;
+            });
+            html += '</div>';
+        }
+
         detailsContainer.innerHTML = html;
 
         // Step 55: Build and display the person's 2-hop network subgraph
@@ -972,12 +1021,116 @@ class GenealogyApp {
                 }
             });
         });
+
+        // Step 59: Document link handlers
+        detailsContainer.querySelectorAll('.doc-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const docId = link.getAttribute('data-doc-id');
+                if (docId && window.documentManager) {
+                    documentManager.showCard(docId);
+                }
+            });
+        });
+    }
+
+    // Step 59: Get documents linked to events relevant to this person
+    getPersonDocuments(personId) {
+        if (!this.documents || Object.keys(this.documents).length === 0) return [];
+        const relevantEvents = this.getPersonEvents(personId);
+        const relevantEventIds = new Set(relevantEvents.map(e => e.id));
+        return Object.values(this.documents).filter(doc =>
+            (doc.events || []).some(eid => relevantEventIds.has(eid))
+        );
     }
 
     getGenderBadge(gender) {
         if (gender === 'M') return '<span class="badge male">♂ Male</span>';
         if (gender === 'F') return '<span class="badge female">♀ Female</span>';
         return '<span class="badge">? Unknown</span>';
+    }
+
+    // Step 63: Return deduplicated settlement names from qualifying events,
+    // sorted by frequency desc then chronological first-appearance asc.
+    getPersonSettlements(personId) {
+        const qualifyingRoles = new Set(['child', 'father', 'mother', 'deceased', 'groom', 'bride', 'participant']);
+
+        // Collect qualifying event IDs for this person
+        const qualifyingEventIds = [];
+        Object.values(this.event_participations).forEach(ep => {
+            if (ep.person_id === personId && qualifyingRoles.has(ep.role)) {
+                qualifyingEventIds.push(ep.event_id);
+            }
+        });
+
+        const settlementData = new Map(); // name -> { count, firstYear }
+
+        qualifyingEventIds.forEach(eventId => {
+            const event = this.events[eventId];
+            if (!event) return;
+
+            let placeName = null;
+
+            if (event.place_id && this.places[event.place_id]) {
+                placeName = this.places[event.place_id].name;
+            } else {
+                // Fallback: infer from co-participants' settlements
+                placeName = this._inferSettlementFromCoParticipants(eventId, qualifyingRoles);
+            }
+
+            if (!placeName) return;
+
+            const year = event.date?.year ?? null;
+            if (!settlementData.has(placeName)) {
+                settlementData.set(placeName, { count: 0, firstYear: year });
+            }
+            const entry = settlementData.get(placeName);
+            entry.count++;
+            if (year !== null && (entry.firstYear === null || year < entry.firstYear)) {
+                entry.firstYear = year;
+            }
+        });
+
+        // Sort by frequency desc, then chronological first appearance asc
+        return Array.from(settlementData.entries())
+            .sort((a, b) => {
+                if (b[1].count !== a[1].count) return b[1].count - a[1].count;
+                const ya = a[1].firstYear ?? Infinity;
+                const yb = b[1].firstYear ?? Infinity;
+                return ya - yb;
+            })
+            .map(([name, { count, firstYear }]) => ({ name, count, firstYear }));
+    }
+
+    _inferSettlementFromCoParticipants(eventId, qualifyingRoles) {
+        // Collect co-participant person IDs from the same event
+        const coParticipantIds = [];
+        Object.values(this.event_participations).forEach(ep => {
+            if (ep.event_id === eventId && qualifyingRoles.has(ep.role)) {
+                coParticipantIds.push(ep.person_id);
+            }
+        });
+
+        if (coParticipantIds.length === 0) return null;
+
+        // Count settlement names across those participants' other qualifying events
+        const freq = new Map();
+        coParticipantIds.forEach(pid => {
+            Object.values(this.event_participations).forEach(ep => {
+                if (ep.person_id === pid && qualifyingRoles.has(ep.role) && ep.event_id !== eventId) {
+                    const evt = this.events[ep.event_id];
+                    if (evt?.place_id && this.places[evt.place_id]) {
+                        const name = this.places[evt.place_id].name;
+                        freq.set(name, (freq.get(name) || 0) + 1);
+                    }
+                }
+            });
+        });
+
+        if (freq.size === 0) return null;
+
+        // Return the most common settlement among co-participants
+        return Array.from(freq.entries()).sort((a, b) => b[1] - a[1])[0][0];
     }
 
     getFamily(personId) {
@@ -1192,9 +1345,21 @@ class GenealogyApp {
             });
         });
 
-        // Step 56.2: Add all global events (visible for every person, subject to lifetime filtering like family events)
+        // Step 56.2 / Step 64: Add global events, filtered by settlement if a place is specified
+        const personSettlementNames = new Set(
+            this.getPersonSettlements(personId).map(s => s.name.trim().toLowerCase())
+        );
         Object.values(this.events).forEach(event => {
             if (event.type === 'global' && !eventIds.has(event.id)) {
+                // Step 64: If global event has a place, only show to people with a matching settlement
+                if (event.place_id && this.places[event.place_id]) {
+                    const eventSettlement = this.places[event.place_id].name.trim().toLowerCase();
+                    if (!personSettlementNames.has(eventSettlement)) return;
+                } else if (event.place_id) {
+                    // place_id set but place not found — skip to be safe
+                    return;
+                }
+                // No place_id: show to everyone (original behavior)
                 eventIds.add(event.id);
                 familyEventIds.add(event.id); // Treat as family-style event for lifetime filtering
             }
@@ -1367,7 +1532,7 @@ class GenealogyApp {
 
                     html += `
                         <div style="margin-bottom: 3px;">
-                            <a href="#" class="person-link participant-link" data-person-id="${personId}"
+                            <a href="javascript:void(0)" class="person-link participant-link" data-person-id="${personId}"
                                style="color: #667eea; text-decoration: none; font-weight: 500;">
                                 ${this.getFullName(person)}${ageInfo}${relationshipInfo}
                             </a>
@@ -1688,18 +1853,42 @@ class GenealogyApp {
     }
 
     handleInitialPersonSelection() {
-        // Check if there's a person ID in the URL
-        const urlParams = new URLSearchParams(window.location.search);
-        let personId = urlParams.get('person');
-
-        // If no person in URL, default to P0264
-        if (!personId) {
-            personId = 'P0264';
+        // Create document manager now that all data is loaded
+        if (!window.documentManager) {
+            window.documentManager = new DocumentManager(this);
+        }
+        if (!window.eventRegistry) {
+            window.eventRegistry = new EventRegistry(this);
         }
 
-        // Check if the person exists
+        // Redirect legacy query-param URLs to clean paths
+        const params = new URLSearchParams(window.location.search);
+        const legacyPerson = params.get('person');
+        const legacyDoc = params.get('document');
+        if (legacyPerson) {
+            window.history.replaceState({}, '', '/person/' + legacyPerson);
+        } else if (legacyDoc) {
+            window.history.replaceState({}, '', '/document/' + legacyDoc);
+        }
+
+        const [, type, id] = window.location.pathname.split('/');
+
+        if (type === 'document' && id) {
+            if (documentManager.documents[id]) {
+                documentManager.showCard(id, false);
+            }
+            return;
+        }
+
+        if (type === 'events') {
+            eventRegistry.show();
+            return;
+        }
+
+        const personId = (type === 'person' && id) ? id : 'P0264';
+
         if (this.persons[personId]) {
-            // Small delay to ensure network is fully initialized
+            // Small delay to ensure vis.js network is fully initialized
             setTimeout(() => {
                 this.showPersonDetails(personId);
                 this.network.selectNodes([personId]);
@@ -2030,10 +2219,8 @@ class GenealogyApp {
                 // Deselect in network
                 this.network.unselectAll();
 
-                // Clear URL parameter
-                const url = new URL(window.location);
-                url.searchParams.delete('person');
-                window.history.pushState({}, '', url);
+                // Clear URL
+                window.history.pushState({}, '', '/');
 
                 // Show welcome message
                 document.getElementById('details-panel').innerHTML = '<p>Select a person to view details</p>';
