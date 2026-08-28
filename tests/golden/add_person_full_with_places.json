@@ -1,0 +1,153 @@
+{
+  "diff": {
+    "event_participations": {
+      "added": {
+        "EP6184": {
+          "event_id": "E2057",
+          "id": "EP6184",
+          "person_id": "P1370",
+          "role": "child"
+        },
+        "EP6185": {
+          "event_id": "E2058",
+          "id": "EP6185",
+          "person_id": "P1370",
+          "role": "deceased"
+        }
+      },
+      "changed": {},
+      "removed": {}
+    },
+    "events": {
+      "added": {
+        "E2057": {
+          "date": {
+            "circa": true,
+            "day": null,
+            "month": null,
+            "year": 1850
+          },
+          "description": "Birth of TestFull Fixture",
+          "id": "E2057",
+          "links": [],
+          "notes": "Auto-generated from person creation",
+          "place_id": "PL0001",
+          "tags": [],
+          "type": "birth"
+        },
+        "E2058": {
+          "date": {
+            "circa": true,
+            "day": null,
+            "month": null,
+            "year": 1920
+          },
+          "description": "Death of TestFull Fixture",
+          "id": "E2058",
+          "links": [],
+          "notes": "Auto-generated from person creation",
+          "place_id": "PL0103",
+          "tags": [],
+          "type": "death"
+        }
+      },
+      "changed": {},
+      "removed": {}
+    },
+    "persons": {
+      "added": {
+        "P1370": {
+          "first_name": "TestFull",
+          "gender": "F",
+          "id": "P1370",
+          "last_name": "Fixture",
+          "maiden_name": "MaidenFixture",
+          "notes": "fixture notes",
+          "occupation": "seamstress",
+          "tags": [
+            "test"
+          ]
+        }
+      },
+      "changed": {},
+      "removed": {}
+    },
+    "places": {
+      "added": {
+        "PL0103": {
+          "id": "PL0103",
+          "name": "Nowa Wies AddPersonTestOnly",
+          "type": "settlement"
+        }
+      },
+      "changed": {},
+      "removed": {}
+    }
+  },
+  "response": {
+    "created_events": [
+      "E2057",
+      "E2058"
+    ],
+    "message": "Successfully added person P1370",
+    "new_events": {
+      "E2057": {
+        "date": {
+          "circa": true,
+          "day": null,
+          "month": null,
+          "year": 1850
+        },
+        "description": "Birth of TestFull Fixture",
+        "id": "E2057",
+        "links": [],
+        "notes": "Auto-generated from person creation",
+        "place_id": "PL0001",
+        "tags": [],
+        "type": "birth"
+      },
+      "E2058": {
+        "date": {
+          "circa": true,
+          "day": null,
+          "month": null,
+          "year": 1920
+        },
+        "description": "Death of TestFull Fixture",
+        "id": "E2058",
+        "links": [],
+        "notes": "Auto-generated from person creation",
+        "place_id": "PL0103",
+        "tags": [],
+        "type": "death"
+      }
+    },
+    "new_participations": {
+      "EP6184": {
+        "event_id": "E2057",
+        "id": "EP6184",
+        "person_id": "P1370",
+        "role": "child"
+      },
+      "EP6185": {
+        "event_id": "E2058",
+        "id": "EP6185",
+        "person_id": "P1370",
+        "role": "deceased"
+      }
+    },
+    "person": {
+      "first_name": "TestFull",
+      "gender": "F",
+      "id": "P1370",
+      "last_name": "Fixture",
+      "maiden_name": "MaidenFixture",
+      "notes": "fixture notes",
+      "occupation": "seamstress",
+      "tags": [
+        "test"
+      ]
+    },
+    "success": true
+  }
+}

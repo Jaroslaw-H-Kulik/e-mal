@@ -51,7 +51,7 @@ POST endpoints (all accept/return JSON):
 - `/api/save-data`, `/api/update-person`, `/api/add-person`, `/api/delete-person`
 - `/api/add-event`, `/api/update-event`, `/api/delete-event`
 - `/api/add-relationship`
-- `/api/apply-enrichment`, `/api/gedcom-lookup`
+- `/api/gedcom-lookup`
 - `/api/generate-parent-marriages`, `/api/sync-event-dates-to-persons`, `/api/sync-all-ages-to-birth-years`, `/api/deduplicate-witnesses-godparents`
 
 ### Frontend (`web/`)
@@ -60,7 +60,6 @@ POST endpoints (all accept/return JSON):
 - `app.js` — main application, person card, network graph (vis.js), search/filter
 - `editor.js` — person edit modal, gedcom lookup UI
 - `event-editor.js` — event creation/editing modals for birth/marriage/death/generic events
-- `enrichment.js` — enrichment review workflow
 
 ### Supporting Scripts
 
@@ -72,7 +71,7 @@ POST endpoints (all accept/return JSON):
 | `convert_gedcom_to_model.py` | Import from GEDCOM file (`base.ged`) |
 | `enrich_from_gedcom.py` | Cross-reference model with GEDCOM data |
 | `migrate_to_new_model.py` / `migrate_to_event_relationships.py` | One-time migrations |
-| `generate_enrichment_queue.py` | Populate `data/enrichment_queue.json` |
+| `generate_enrichment_queue.py` | Populate `data/enrichment_queue.json` (its consumer, the GEDCOM Enrichment Review UI, was removed - this script is now orphaned) |
 
 ### External Data Sources
 

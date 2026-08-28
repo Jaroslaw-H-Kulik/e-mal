@@ -11,7 +11,13 @@
       "Bash(curl:*)",
       "Bash(taskkill /F /IM python.exe)",
       "Bash(taskkill:*)",
-      "Bash(Get-ChildItem)"
+      "Bash(Get-ChildItem)",
+      "Bash(where python *)",
+      "Bash(where uv *)",
+      "Bash(uv --version)",
+      "Bash(where poetry *)",
+      "Bash(poetry --version)",
+      "Bash(git status *)"
     ]
   }
 }

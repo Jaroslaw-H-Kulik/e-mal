@@ -1,0 +1,37 @@
+{
+  "diff": {
+    "event_participations": {
+      "added": {
+        "EP6184": {
+          "event_id": "E1746",
+          "id": "EP6184",
+          "person_id": "P0038",
+          "role": "father"
+        }
+      },
+      "changed": {},
+      "removed": {}
+    },
+    "events": {
+      "added": {},
+      "changed": {},
+      "removed": {}
+    },
+    "persons": {
+      "added": {},
+      "changed": {},
+      "removed": {}
+    },
+    "places": {
+      "added": {},
+      "changed": {},
+      "removed": {}
+    }
+  },
+  "response": {
+    "created_event": null,
+    "message": "Successfully added parent relationship",
+    "success": true,
+    "updated_event": "E1746"
+  }
+}

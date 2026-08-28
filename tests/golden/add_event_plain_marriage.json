@@ -1,0 +1,73 @@
+{
+  "diff": {
+    "event_participations": {
+      "added": {
+        "EP6184": {
+          "event_id": "E2057",
+          "id": "EP6184",
+          "person_id": "P0009",
+          "role": "groom"
+        },
+        "EP6185": {
+          "event_id": "E2057",
+          "id": "EP6185",
+          "person_id": "P0021",
+          "role": "bride"
+        }
+      },
+      "changed": {},
+      "removed": {}
+    },
+    "events": {
+      "added": {
+        "E2057": {
+          "content": "groom: Antoni Łapacz, bride: Franciszka Surdey",
+          "date": {
+            "day": null,
+            "month": null,
+            "year": 1850
+          },
+          "id": "E2057",
+          "links": [],
+          "notes": "Layer 1 golden-master test fixture",
+          "place_id": null,
+          "tags": [],
+          "title": null,
+          "type": "marriage"
+        }
+      },
+      "changed": {},
+      "removed": {}
+    },
+    "persons": {
+      "added": {},
+      "changed": {},
+      "removed": {}
+    },
+    "places": {
+      "added": {},
+      "changed": {},
+      "removed": {}
+    }
+  },
+  "response": {
+    "event": {
+      "content": "groom: Antoni Łapacz, bride: Franciszka Surdey",
+      "date": {
+        "day": null,
+        "month": null,
+        "year": 1850
+      },
+      "id": "E2057",
+      "links": [],
+      "notes": "Layer 1 golden-master test fixture",
+      "place_id": null,
+      "tags": [],
+      "title": null,
+      "type": "marriage"
+    },
+    "message": "Successfully added event E2057",
+    "new_persons": [],
+    "success": true
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "diff": {
+    "event_participations": {
+      "added": {
+        "EP6184": {
+          "event_id": "E0583",
+          "id": "EP6184",
+          "person_id": "P0042",
+          "role": "godparent"
+        }
+      },
+      "changed": {},
+      "removed": {}
+    },
+    "events": {
+      "added": {},
+      "changed": {},
+      "removed": {}
+    },
+    "persons": {
+      "added": {},
+      "changed": {},
+      "removed": {}
+    },
+    "places": {
+      "added": {},
+      "changed": {},
+      "removed": {}
+    }
+  },
+  "response": {
+    "created_event": null,
+    "message": "Successfully added godparent relationship",
+    "success": true,
+    "updated_event": "E0583"
+  }
+}

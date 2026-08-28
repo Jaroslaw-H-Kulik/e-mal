@@ -580,15 +580,6 @@ class GenealogyApp {
         return undefined;
     }
 
-    getRelationshipLabel(rel) {
-        const labels = {
-            'biological_parent': `Parent: ${rel.role || 'parent'}`,
-            'marriage': 'Marriage',
-            'godparent': 'Godparent'
-        };
-        return labels[rel.type] || rel.type;
-    }
-
     getPersonTooltip(id, person) {
         const birthYear = this.extractYear(this.getPersonBirthDate(id));
         const deathYear = this.extractYear(this.getPersonDeathDate(id));
@@ -1450,14 +1441,6 @@ class GenealogyApp {
         return relatives;
     }
 
-    getEventGodparents(eventId) {
-        // Get all godparents for this event
-        const godparents = Object.values(this.event_participations)
-            .filter(ep => ep.event_id === eventId && ep.role === 'godparent')
-            .map(ep => ep.person_id);
-        return godparents;
-    }
-
     getEventParticipantsHTML(eventId, isFamilyEvent = false) {
         // Performance: Use index instead of filtering all participations
         const participants = this.participationsByEvent[eventId] || [];
@@ -1676,123 +1659,6 @@ class GenealogyApp {
         });
     }
 
-    focusOnPerson(personId) {
-        // Highlight person and their immediate connections
-        const connectedNodes = this.network.getConnectedNodes(personId);
-        const connectedEdges = this.network.getConnectedEdges(personId);
-
-        // Dim all nodes
-        const allNodes = this.network.body.data.nodes;
-        allNodes.forEach(node => {
-            const opacity = node.id === personId || connectedNodes.includes(node.id) ? 1 : 0.2;
-            allNodes.update({ id: node.id, opacity: opacity });
-        });
-
-        // Dim all edges
-        const allEdges = this.network.body.data.edges;
-        allEdges.forEach(edge => {
-            const opacity = connectedEdges.includes(edge.id) ? 1 : 0.1;
-            allEdges.update({ id: edge.id, opacity: opacity });
-        });
-
-        this.network.focus(personId, {
-            scale: 2,
-            animation: {
-                duration: 1000,
-                easingFunction: 'easeInOutQuad'
-            }
-        });
-    }
-
-    focusOnPersonNetwork(personId) {
-        // Show only the person's network including secondary connections
-        // (e.g., selected person's children AND those children's godparents)
-
-        const visibleNodes = new Set([personId]);
-        const visibleEdges = new Set();
-
-        // Get all direct connections
-        const directlyConnected = this.network.getConnectedNodes(personId);
-        directlyConnected.forEach(nodeId => visibleNodes.add(nodeId));
-
-        // Get edges connecting to the selected person
-        const allEdges = this.network.body.data.edges;
-        allEdges.forEach(edge => {
-            const edgeData = allEdges.get(edge.id);
-            if (edgeData.from === personId || edgeData.to === personId) {
-                visibleEdges.add(edge.id);
-            }
-        });
-
-        // Add secondary connections: connections of directly connected people
-        directlyConnected.forEach(connectedId => {
-            const secondaryConnected = this.network.getConnectedNodes(connectedId);
-            secondaryConnected.forEach(nodeId => visibleNodes.add(nodeId));
-
-            // Add edges between primary and secondary connections
-            allEdges.forEach(edge => {
-                const edgeData = allEdges.get(edge.id);
-                if ((edgeData.from === connectedId || edgeData.to === connectedId) &&
-                    (visibleNodes.has(edgeData.from) && visibleNodes.has(edgeData.to))) {
-                    visibleEdges.add(edge.id);
-                }
-            });
-        });
-
-        // Hide/show nodes
-        const allNodes = this.network.body.data.nodes;
-        allNodes.forEach(node => {
-            allNodes.update({
-                id: node.id,
-                hidden: !visibleNodes.has(node.id)
-            });
-        });
-
-        // Hide/show edges
-        allEdges.forEach(edge => {
-            allEdges.update({
-                id: edge.id,
-                hidden: !visibleEdges.has(edge.id)
-            });
-        });
-
-        // Focus on the selected person
-        this.network.focus(personId, {
-            scale: 1.5,
-            animation: {
-                duration: 1000,
-                easingFunction: 'easeInOutQuad'
-            }
-        });
-
-        this.network.stabilize();
-    }
-
-    showFullNetwork() {
-        // Show all nodes and edges
-        const allNodes = this.network.body.data.nodes;
-        const allEdges = this.network.body.data.edges;
-
-        allNodes.forEach(node => {
-            allNodes.update({ id: node.id, hidden: false });
-        });
-
-        allEdges.forEach(edge => {
-            allEdges.update({ id: edge.id, hidden: false });
-        });
-
-        // Apply current view filter (all/families/marriages/etc.)
-        this.changeView(this.currentView);
-
-        // Fit to show everything
-        this.network.fit({
-            animation: {
-                duration: 1000,
-                easingFunction: 'easeInOutQuad'
-            }
-        });
-    }
-
     updateStats() {
         // Stats bar was removed in Step 11, but keep this function for backward compatibility
         // Just check if elements exist before updating
@@ -1838,18 +1704,6 @@ class GenealogyApp {
 
     hideLoading() {
         document.getElementById('loading-overlay').classList.add('hidden');
-    }
-
-    openEnrichmentReview() {
-        if (typeof enrichmentReviewer !== 'undefined' && enrichmentReviewer) {
-            enrichmentReviewer.open();
-        }
-    }
-
-    closeEnrichmentReview() {
-        if (typeof enrichmentReviewer !== 'undefined' && enrichmentReviewer) {
-            enrichmentReviewer.close();
-        }
     }
 
     handleInitialPersonSelection() {

@@ -1,0 +1,59 @@
+{
+  "diff": {
+    "event_participations": {
+      "added": {},
+      "changed": {},
+      "removed": {
+        "EP0258": {
+          "event_id": "E0055",
+          "id": "EP0258",
+          "person_id": "P0170",
+          "role": "child"
+        },
+        "EP0259": {
+          "event_id": "E0055",
+          "id": "EP0259",
+          "person_id": "P0168",
+          "role": "father"
+        },
+        "EP0260": {
+          "event_id": "E0055",
+          "id": "EP0260",
+          "person_id": "P0169",
+          "role": "mother"
+        }
+      }
+    },
+    "events": {
+      "added": {},
+      "changed": {},
+      "removed": {
+        "E0055": {
+          "content": "Franciszek Przyrowski (44, młynarz w Mircu) i Tekla z d. Szmit -  świadkowie: Józef Pogodzieński (29, młynarz w Tychowie) i Ambroży Dymiński (71, dziad szpitalny) - chrzestni: J.P. i Agnieszka Nosowicz. Ur: Anastazja - Mirzec",
+          "date": {
+            "year": 1855
+          },
+          "id": "E0055",
+          "notes": "Source line: 125",
+          "type": "birth"
+        }
+      }
+    },
+    "persons": {
+      "added": {},
+      "changed": {},
+      "removed": {}
+    },
+    "places": {
+      "added": {},
+      "changed": {},
+      "removed": {}
+    }
+  },
+  "response": {
+    "deleted_participations": 3,
+    "event_id": "E0055",
+    "message": "Successfully deleted event E0055",
+    "success": true
+  }
+}

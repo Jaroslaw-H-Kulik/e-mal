@@ -1,0 +1,200 @@
+{
+  "diff": {
+    "event_participations": {
+      "added": {
+        "EP6184": {
+          "event_id": "E1746",
+          "id": "EP6184",
+          "person_id": "P1371",
+          "role": "mother"
+        },
+        "EP6185": {
+          "event_id": "E1746",
+          "id": "EP6185",
+          "person_id": "P1372",
+          "role": "father"
+        },
+        "EP6186": {
+          "event_id": "E2057",
+          "id": "EP6186",
+          "person_id": "P1372",
+          "role": "groom"
+        },
+        "EP6187": {
+          "event_id": "E2057",
+          "id": "EP6187",
+          "person_id": "P1371",
+          "role": "bride"
+        },
+        "EP6188": {
+          "event_id": "E1746",
+          "id": "EP6188",
+          "person_id": "P1370",
+          "role": "child"
+        }
+      },
+      "changed": {},
+      "removed": {
+        "EP5424": {
+          "event_id": "E1746",
+          "id": "EP5424",
+          "person_id": "P0800",
+          "role": "child"
+        }
+      }
+    },
+    "events": {
+      "added": {
+        "E2057": {
+          "content": "",
+          "date": null,
+          "description": "Marriage of TestFather2 Fixture and TestMother2 Fixture",
+          "id": "E2057",
+          "links": [],
+          "notes": "Auto-generated from child birth event",
+          "place_id": null,
+          "tags": [],
+          "type": "marriage"
+        }
+      },
+      "changed": {
+        "E1746": {
+          "after": {
+            "content": "child: TestChild2 Fixture",
+            "date": {
+              "circa": true,
+              "day": null,
+              "month": null,
+              "year": 1802
+            },
+            "id": "E1746",
+            "links": [],
+            "notes": "Migrated from person model (step 56.1)",
+            "place_id": null,
+            "tags": [],
+            "title": null,
+            "type": "birth"
+          },
+          "before": {
+            "content": "Birth of Karol Strzembosz",
+            "date": {
+              "circa": true,
+              "day": null,
+              "month": null,
+              "year": 1802
+            },
+            "id": "E1746",
+            "links": [],
+            "notes": "Migrated from person model (step 56.1)",
+            "place_id": null,
+            "tags": [],
+            "type": "birth"
+          }
+        }
+      },
+      "removed": {}
+    },
+    "persons": {
+      "added": {
+        "P1370": {
+          "first_name": "TestChild2",
+          "gender": "U",
+          "id": "P1370",
+          "last_name": "Fixture",
+          "maiden_name": null,
+          "occupation": null
+        },
+        "P1371": {
+          "first_name": "TestMother2",
+          "gender": "F",
+          "id": "P1371",
+          "last_name": "Fixture",
+          "maiden_name": null,
+          "occupation": null
+        },
+        "P1372": {
+          "first_name": "TestFather2",
+          "gender": "M",
+          "id": "P1372",
+          "last_name": "Fixture",
+          "maiden_name": null,
+          "occupation": null
+        }
+      },
+      "changed": {},
+      "removed": {}
+    },
+    "places": {
+      "added": {},
+      "changed": {},
+      "removed": {}
+    }
+  },
+  "response": {
+    "event": {
+      "content": "child: TestChild2 Fixture",
+      "date": {
+        "circa": true,
+        "day": null,
+        "month": null,
+        "year": 1802
+      },
+      "id": "E1746",
+      "links": [],
+      "notes": "Migrated from person model (step 56.1)",
+      "place_id": null,
+      "tags": [],
+      "title": null,
+      "type": "birth"
+    },
+    "event_participations": {
+      "EP6184": {
+        "event_id": "E1746",
+        "id": "EP6184",
+        "person_id": "P1371",
+        "role": "mother"
+      },
+      "EP6185": {
+        "event_id": "E1746",
+        "id": "EP6185",
+        "person_id": "P1372",
+        "role": "father"
+      },
+      "EP6188": {
+        "event_id": "E1746",
+        "id": "EP6188",
+        "person_id": "P1370",
+        "role": "child"
+      }
+    },
+    "message": "Successfully updated event E1746",
+    "modified_persons": [],
+    "new_persons": [
+      {
+        "first_name": "TestChild2",
+        "gender": "U",
+        "id": "P1370",
+        "last_name": "Fixture",
+        "maiden_name": null,
+        "occupation": null
+      },
+      {
+        "first_name": "TestMother2",
+        "gender": "F",
+        "id": "P1371",
+        "last_name": "Fixture",
+        "maiden_name": null,
+        "occupation": null
+      },
+      {
+        "first_name": "TestFather2",
+        "gender": "M",
+        "id": "P1372",
+        "last_name": "Fixture",
+        "maiden_name": null,
+        "occupation": null
+      }
+    ],
+    "success": true
+  }
+}

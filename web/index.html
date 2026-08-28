@@ -33,9 +33,6 @@
             <button class="btn-success" onclick="documentManager && documentManager.showOptions()">📄 Documents</button>
             <button class="btn-success" onclick="eventRegistry && eventRegistry.show()">📋 Events</button>
             <button class="btn-success" onclick="editor && editor.openMergeModal()">🔗 Merge Persons</button>
-            <button class="btn-warning" onclick="app && app.openEnrichmentReview()" id="enrichment-btn">
-                📦 Review GEDCOM Matches <span id="enrichment-count">(0)</span>
-            </button>
             <div class="search-bar-inline">
                 <input
                     type="text"
@@ -134,19 +131,6 @@
                         <span class="legend-line witness"></span>
                         <span>Witness</span>
                     </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Enrichment Review Modal -->
-        <div id="enrichment-modal" class="modal" style="display: none;">
-            <div class="modal-content enrichment-modal">
-                <div class="modal-header">
-                    <h2>📦 GEDCOM Enrichment Review</h2>
-                    <span class="close" onclick="app && app.closeEnrichmentReview()">&times;</span>
-                </div>
-                <div class="modal-body">
-                    <div id="enrichment-content"></div>
                 </div>
             </div>
         </div>
@@ -559,16 +543,8 @@
 
     <script src="/web/app.js?v=13"></script>
     <script src="/web/editor.js?v=8"></script>
-    <script src="/web/enrichment.js?v=2"></script>
     <script src="/web/event-editor.js?v=7"></script>
     <script src="/web/document-manager.js?v=2"></script>
     <script src="/web/event-registry.js?v=1"></script>
-    <script>
-        window.addEventListener('load', () => {
-            if (window.app) {
-                initEnrichmentReviewer(window.app);
-            }
-        });
-    </script>
 </body>
 </html>

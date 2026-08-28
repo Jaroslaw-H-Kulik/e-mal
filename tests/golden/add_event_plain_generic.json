@@ -1,0 +1,67 @@
+{
+  "diff": {
+    "event_participations": {
+      "added": {
+        "EP6184": {
+          "event_id": "E2057",
+          "id": "EP6184",
+          "person_id": "P0033",
+          "role": "participant"
+        }
+      },
+      "changed": {},
+      "removed": {}
+    },
+    "events": {
+      "added": {
+        "E2057": {
+          "content": "participant: Marianna Jarosz",
+          "date": {
+            "day": null,
+            "month": null,
+            "year": 1850
+          },
+          "id": "E2057",
+          "links": [],
+          "notes": "Layer 1 golden-master test fixture",
+          "place_id": null,
+          "tags": [],
+          "title": null,
+          "type": "generic"
+        }
+      },
+      "changed": {},
+      "removed": {}
+    },
+    "persons": {
+      "added": {},
+      "changed": {},
+      "removed": {}
+    },
+    "places": {
+      "added": {},
+      "changed": {},
+      "removed": {}
+    }
+  },
+  "response": {
+    "event": {
+      "content": "participant: Marianna Jarosz",
+      "date": {
+        "day": null,
+        "month": null,
+        "year": 1850
+      },
+      "id": "E2057",
+      "links": [],
+      "notes": "Layer 1 golden-master test fixture",
+      "place_id": null,
+      "tags": [],
+      "title": null,
+      "type": "generic"
+    },
+    "message": "Successfully added event E2057",
+    "new_persons": [],
+    "success": true
+  }
+}

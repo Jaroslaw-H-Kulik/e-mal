@@ -1,0 +1,102 @@
+{
+  "diff": {
+    "event_participations": {
+      "added": {
+        "EP6184": {
+          "event_id": "E2057",
+          "id": "EP6184",
+          "person_id": "P0073",
+          "role": "groom"
+        },
+        "EP6185": {
+          "event_id": "E2057",
+          "id": "EP6185",
+          "person_id": "P0089",
+          "role": "bride"
+        },
+        "EP6186": {
+          "event_id": "E2057",
+          "id": "EP6186",
+          "person_id": "P0081",
+          "role": "groom_parent_father"
+        },
+        "EP6187": {
+          "event_id": "E2058",
+          "id": "EP6187",
+          "person_id": "P0073",
+          "role": "child"
+        },
+        "EP6188": {
+          "event_id": "E2058",
+          "id": "EP6188",
+          "person_id": "P0081",
+          "role": "father"
+        }
+      },
+      "changed": {},
+      "removed": {}
+    },
+    "events": {
+      "added": {
+        "E2057": {
+          "content": "groom: Onufry Mieszała, bride: Anna Orłowski, groom_parent_father: Franciszek Niewczas",
+          "date": {
+            "day": null,
+            "month": null,
+            "year": 1850
+          },
+          "id": "E2057",
+          "links": [],
+          "notes": "Layer 1 golden-master test fixture",
+          "place_id": null,
+          "tags": [],
+          "title": null,
+          "type": "marriage"
+        },
+        "E2058": {
+          "content": "",
+          "date": null,
+          "description": "Birth of Onufry Mieszała",
+          "id": "E2058",
+          "links": [],
+          "notes": "Auto-generated for parent synchronization",
+          "place_id": null,
+          "tags": [],
+          "type": "birth"
+        }
+      },
+      "changed": {},
+      "removed": {}
+    },
+    "persons": {
+      "added": {},
+      "changed": {},
+      "removed": {}
+    },
+    "places": {
+      "added": {},
+      "changed": {},
+      "removed": {}
+    }
+  },
+  "response": {
+    "event": {
+      "content": "groom: Onufry Mieszała, bride: Anna Orłowski, groom_parent_father: Franciszek Niewczas",
+      "date": {
+        "day": null,
+        "month": null,
+        "year": 1850
+      },
+      "id": "E2057",
+      "links": [],
+      "notes": "Layer 1 golden-master test fixture",
+      "place_id": null,
+      "tags": [],
+      "title": null,
+      "type": "marriage"
+    },
+    "message": "Successfully added event E2057",
+    "new_persons": [],
+    "success": true
+  }
+}

@@ -1,0 +1,136 @@
+{
+  "diff": {
+    "event_participations": {
+      "added": {
+        "EP6184": {
+          "event_id": "E2057",
+          "id": "EP6184",
+          "person_id": "P1371",
+          "role": "mother"
+        },
+        "EP6185": {
+          "event_id": "E2057",
+          "id": "EP6185",
+          "person_id": "P0038",
+          "role": "father"
+        },
+        "EP6186": {
+          "event_id": "E2058",
+          "id": "EP6186",
+          "person_id": "P0038",
+          "role": "groom"
+        },
+        "EP6187": {
+          "event_id": "E2058",
+          "id": "EP6187",
+          "person_id": "P1371",
+          "role": "bride"
+        },
+        "EP6188": {
+          "event_id": "E2057",
+          "id": "EP6188",
+          "person_id": "P1370",
+          "role": "child"
+        }
+      },
+      "changed": {},
+      "removed": {}
+    },
+    "events": {
+      "added": {
+        "E2057": {
+          "content": "child: TestChild4 Fixture",
+          "date": {
+            "day": null,
+            "month": null,
+            "year": 1881
+          },
+          "id": "E2057",
+          "links": [],
+          "notes": "Layer 1 golden-master test fixture",
+          "place_id": null,
+          "tags": [],
+          "title": null,
+          "type": "birth"
+        },
+        "E2058": {
+          "content": "",
+          "date": null,
+          "description": "Marriage of Bernard Borowiec and TestMother4 Fixture",
+          "id": "E2058",
+          "links": [],
+          "notes": "Auto-generated from child birth event",
+          "place_id": null,
+          "tags": [],
+          "type": "marriage"
+        }
+      },
+      "changed": {},
+      "removed": {}
+    },
+    "persons": {
+      "added": {
+        "P1370": {
+          "first_name": "TestChild4",
+          "gender": "U",
+          "id": "P1370",
+          "last_name": "Fixture",
+          "maiden_name": null,
+          "occupation": null
+        },
+        "P1371": {
+          "first_name": "TestMother4",
+          "gender": "F",
+          "id": "P1371",
+          "last_name": "Fixture",
+          "maiden_name": null,
+          "occupation": null
+        }
+      },
+      "changed": {},
+      "removed": {}
+    },
+    "places": {
+      "added": {},
+      "changed": {},
+      "removed": {}
+    }
+  },
+  "response": {
+    "event": {
+      "content": "child: TestChild4 Fixture",
+      "date": {
+        "day": null,
+        "month": null,
+        "year": 1881
+      },
+      "id": "E2057",
+      "links": [],
+      "notes": "Layer 1 golden-master test fixture",
+      "place_id": null,
+      "tags": [],
+      "title": null,
+      "type": "birth"
+    },
+    "message": "Successfully added event E2057",
+    "new_persons": [
+      {
+        "first_name": "TestChild4",
+        "gender": "U",
+        "id": "P1370",
+        "last_name": "Fixture",
+        "maiden_name": null,
+        "occupation": null
+      },
+      {
+        "first_name": "TestMother4",
+        "gender": "F",
+        "id": "P1371",
+        "last_name": "Fixture",
+        "maiden_name": null,
+        "occupation": null
+      }
+    ],
+    "success": true
+  }
+}

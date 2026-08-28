@@ -1,0 +1,141 @@
+{
+  "diff": {
+    "event_participations": {
+      "added": {
+        "EP6184": {
+          "event_id": "E0013",
+          "id": "EP6184",
+          "person_id": "P0020",
+          "role": "deceased"
+        },
+        "EP6185": {
+          "event_id": "E0013",
+          "id": "EP6185",
+          "person_id": "P0015",
+          "role": "witness"
+        },
+        "EP6186": {
+          "event_id": "E0013",
+          "id": "EP6186",
+          "person_id": "P0022",
+          "role": "witness"
+        }
+      },
+      "changed": {},
+      "removed": {
+        "EP1759": {
+          "event_id": "E0013",
+          "id": "EP1759",
+          "person_id": "P0020",
+          "role": "deceased"
+        },
+        "EP1760": {
+          "event_id": "E0013",
+          "id": "EP1760",
+          "person_id": "P0015",
+          "role": "witness"
+        },
+        "EP1761": {
+          "event_id": "E0013",
+          "id": "EP1761",
+          "person_id": "P0632",
+          "role": "witness"
+        }
+      }
+    },
+    "events": {
+      "added": {},
+      "changed": {
+        "E0013": {
+          "after": {
+            "content": "deceased: Salomea Surdey, witness: Onufry Zatorski, witness: Piotr Kleczaj",
+            "date": {
+              "day": 7,
+              "month": 2,
+              "year": 1831
+            },
+            "id": "E0013",
+            "links": [
+              "https://www.familysearch.org/ark:/61903/3:1:939V-T69C-NG?cc=1407440&lang=en&i=187"
+            ],
+            "notes": "Source line: 46",
+            "place_id": "PL0040",
+            "tags": [],
+            "title": null,
+            "type": "death"
+          },
+          "before": {
+            "content": "świadkowie: Onufry Zatorski  (32) i Tomasz Kiełek (46), Salomea Surdey (Niewczas) (córka Józefa, żona Wojciecha, wyrobnica, 80 lat), dom 21",
+            "date": {
+              "day": 7,
+              "month": 2,
+              "year": 1831
+            },
+            "id": "E0013",
+            "links": [
+              "https://www.familysearch.org/ark:/61903/3:1:939V-T69C-NG?cc=1407440&lang=en&i=187"
+            ],
+            "notes": "Source line: 46",
+            "place_id": "PL0040",
+            "tags": [],
+            "type": "death"
+          }
+        }
+      },
+      "removed": {}
+    },
+    "persons": {
+      "added": {},
+      "changed": {},
+      "removed": {}
+    },
+    "places": {
+      "added": {},
+      "changed": {},
+      "removed": {}
+    }
+  },
+  "response": {
+    "event": {
+      "content": "deceased: Salomea Surdey, witness: Onufry Zatorski, witness: Piotr Kleczaj",
+      "date": {
+        "day": 7,
+        "month": 2,
+        "year": 1831
+      },
+      "id": "E0013",
+      "links": [
+        "https://www.familysearch.org/ark:/61903/3:1:939V-T69C-NG?cc=1407440&lang=en&i=187"
+      ],
+      "notes": "Source line: 46",
+      "place_id": "PL0040",
+      "tags": [],
+      "title": null,
+      "type": "death"
+    },
+    "event_participations": {
+      "EP6184": {
+        "event_id": "E0013",
+        "id": "EP6184",
+        "person_id": "P0020",
+        "role": "deceased"
+      },
+      "EP6185": {
+        "event_id": "E0013",
+        "id": "EP6185",
+        "person_id": "P0015",
+        "role": "witness"
+      },
+      "EP6186": {
+        "event_id": "E0013",
+        "id": "EP6186",
+        "person_id": "P0022",
+        "role": "witness"
+      }
+    },
+    "message": "Successfully updated event E0013",
+    "modified_persons": [],
+    "new_persons": [],
+    "success": true
+  }
+}

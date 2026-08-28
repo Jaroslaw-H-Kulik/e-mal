@@ -1,0 +1,38 @@
+{
+  "diff": {
+    "event_participations": {
+      "added": {},
+      "changed": {},
+      "removed": {}
+    },
+    "events": {
+      "added": {},
+      "changed": {},
+      "removed": {}
+    },
+    "persons": {
+      "added": {},
+      "changed": {},
+      "removed": {}
+    },
+    "places": {
+      "added": {},
+      "changed": {},
+      "removed": {}
+    }
+  },
+  "response": {
+    "message": "Successfully updated person P0001",
+    "person": {
+      "first_name": "Jan",
+      "gender": "M",
+      "id": "P0001",
+      "last_name": "Surdey"
+    },
+    "success": true,
+    "updated_events": [
+      "E0539",
+      "E0543"
+    ]
+  }
+}

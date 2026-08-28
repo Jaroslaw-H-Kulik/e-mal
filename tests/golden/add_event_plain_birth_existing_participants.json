@@ -1,0 +1,79 @@
+{
+  "diff": {
+    "event_participations": {
+      "added": {
+        "EP6184": {
+          "event_id": "E2057",
+          "id": "EP6184",
+          "person_id": "P0012",
+          "role": "child"
+        },
+        "EP6185": {
+          "event_id": "E2057",
+          "id": "EP6185",
+          "person_id": "P0001",
+          "role": "father"
+        },
+        "EP6186": {
+          "event_id": "E2057",
+          "id": "EP6186",
+          "person_id": "P0002",
+          "role": "mother"
+        }
+      },
+      "changed": {},
+      "removed": {}
+    },
+    "events": {
+      "added": {
+        "E2057": {
+          "content": "child: Ignacy Raczyński, father: Jan Surdey, mother: Helena Surdey",
+          "date": {
+            "day": null,
+            "month": null,
+            "year": 1850
+          },
+          "id": "E2057",
+          "links": [],
+          "notes": "Layer 1 golden-master test fixture",
+          "place_id": null,
+          "tags": [],
+          "title": null,
+          "type": "birth"
+        }
+      },
+      "changed": {},
+      "removed": {}
+    },
+    "persons": {
+      "added": {},
+      "changed": {},
+      "removed": {}
+    },
+    "places": {
+      "added": {},
+      "changed": {},
+      "removed": {}
+    }
+  },
+  "response": {
+    "event": {
+      "content": "child: Ignacy Raczyński, father: Jan Surdey, mother: Helena Surdey",
+      "date": {
+        "day": null,
+        "month": null,
+        "year": 1850
+      },
+      "id": "E2057",
+      "links": [],
+      "notes": "Layer 1 golden-master test fixture",
+      "place_id": null,
+      "tags": [],
+      "title": null,
+      "type": "birth"
+    },
+    "message": "Successfully added event E2057",
+    "new_persons": [],
+    "success": true
+  }
+}

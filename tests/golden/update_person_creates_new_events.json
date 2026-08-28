@@ -1,0 +1,93 @@
+{
+  "diff": {
+    "event_participations": {
+      "added": {
+        "EP6184": {
+          "event_id": "E2057",
+          "id": "EP6184",
+          "person_id": "P0012",
+          "role": "child"
+        },
+        "EP6185": {
+          "event_id": "E2058",
+          "id": "EP6185",
+          "person_id": "P0012",
+          "role": "deceased"
+        }
+      },
+      "changed": {},
+      "removed": {}
+    },
+    "events": {
+      "added": {
+        "E2057": {
+          "date": {
+            "circa": true,
+            "day": null,
+            "month": null,
+            "year": 1852
+          },
+          "description": "Birth of Ignacy Raczyński",
+          "id": "E2057",
+          "links": [],
+          "notes": "Auto-generated from person update",
+          "place_id": "PL0103",
+          "tags": [],
+          "type": "birth"
+        },
+        "E2058": {
+          "date": {
+            "circa": true,
+            "day": null,
+            "month": null,
+            "year": 1930
+          },
+          "description": "Death of Ignacy Raczyński",
+          "id": "E2058",
+          "links": [],
+          "notes": "Auto-generated from person update",
+          "place_id": "PL0104",
+          "tags": [],
+          "type": "death"
+        }
+      },
+      "changed": {},
+      "removed": {}
+    },
+    "persons": {
+      "added": {},
+      "changed": {},
+      "removed": {}
+    },
+    "places": {
+      "added": {
+        "PL0103": {
+          "id": "PL0103",
+          "name": "UpdatePersonTestBirthPlace",
+          "type": "settlement"
+        },
+        "PL0104": {
+          "id": "PL0104",
+          "name": "UpdatePersonTestDeathPlace",
+          "type": "settlement"
+        }
+      },
+      "changed": {},
+      "removed": {}
+    }
+  },
+  "response": {
+    "message": "Successfully updated person P0012",
+    "person": {
+      "first_name": "Ignacy",
+      "gender": "M",
+      "id": "P0012",
+      "last_name": "Raczyński"
+    },
+    "success": true,
+    "updated_events": [
+      "E2057",
+      "E2058"
+    ]
+  }
+}

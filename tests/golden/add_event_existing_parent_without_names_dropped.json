@@ -1,0 +1,85 @@
+{
+  "diff": {
+    "event_participations": {
+      "added": {
+        "EP6184": {
+          "event_id": "E2057",
+          "id": "EP6184",
+          "person_id": "P1370",
+          "role": "child"
+        }
+      },
+      "changed": {},
+      "removed": {}
+    },
+    "events": {
+      "added": {
+        "E2057": {
+          "content": "child: TestChild8 Fixture",
+          "date": {
+            "day": null,
+            "month": null,
+            "year": 1885
+          },
+          "id": "E2057",
+          "links": [],
+          "notes": "Layer 1 golden-master test fixture",
+          "place_id": null,
+          "tags": [],
+          "title": null,
+          "type": "birth"
+        }
+      },
+      "changed": {},
+      "removed": {}
+    },
+    "persons": {
+      "added": {
+        "P1370": {
+          "first_name": "TestChild8",
+          "gender": "U",
+          "id": "P1370",
+          "last_name": "Fixture",
+          "maiden_name": null,
+          "occupation": null
+        }
+      },
+      "changed": {},
+      "removed": {}
+    },
+    "places": {
+      "added": {},
+      "changed": {},
+      "removed": {}
+    }
+  },
+  "response": {
+    "event": {
+      "content": "child: TestChild8 Fixture",
+      "date": {
+        "day": null,
+        "month": null,
+        "year": 1885
+      },
+      "id": "E2057",
+      "links": [],
+      "notes": "Layer 1 golden-master test fixture",
+      "place_id": null,
+      "tags": [],
+      "title": null,
+      "type": "birth"
+    },
+    "message": "Successfully added event E2057",
+    "new_persons": [
+      {
+        "first_name": "TestChild8",
+        "gender": "U",
+        "id": "P1370",
+        "last_name": "Fixture",
+        "maiden_name": null,
+        "occupation": null
+      }
+    ],
+    "success": true
+  }
+}

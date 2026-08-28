@@ -84,8 +84,6 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
             elif self.path == '/api/save-data':
                 self.save_genealogy_data(data)
                 response_data = {'status': 'success', 'message': 'Data saved successfully'}
-            elif self.path == '/api/apply-enrichment':
-                response_data = self.apply_enrichment(data)
             elif self.path == '/api/add-person':
                 response_data = self.add_person(data)
             elif self.path == '/api/gedcom-lookup':
@@ -102,12 +100,6 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
                 response_data = self.delete_person(data)
             elif self.path == '/api/delete-event':
                 response_data = self.delete_event(data)
-            elif self.path == '/api/generate-parent-marriages':
-                response_data = self.generate_parent_marriages()
-            elif self.path == '/api/sync-all-ages-to-birth-years':
-                response_data = self.sync_all_ages_to_birth_years_migration()
-            elif self.path == '/api/deduplicate-witnesses-godparents':
-                response_data = self.deduplicate_witnesses_godparents()
             elif self.path == '/api/add-document':
                 response_data = self.add_document(data)
             elif self.path == '/api/update-document':
@@ -192,153 +184,14 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
 
     def save_genealogy_data(self, data):
         """Save complete genealogy data to data/genealogy_new_model.json"""
-        data_path = 'data/genealogy_new_model.json'
-
-        with open(data_path, 'w', encoding='utf-8') as f:
-            json.dump(data, f, ensure_ascii=False, indent=2)
+        self.save_data(data)
 
         print(f"[OK] Saved genealogy data: {len(data.get('persons', {}))} persons")
-
-    def apply_enrichment(self, decision):
-        """Apply enrichment decision and update genealogy data"""
-        try:
-            # Load current data
-            data_path = 'data/genealogy_complete.json'
-            with open(data_path, 'r', encoding='utf-8') as f:
-                data = json.load(f)
-
-            persons = data['persons']
-            relationships = data['relationships']
-
-            base_person_id = decision['base_person_id']
-            changes = []
-
-            # Apply personal data updates
-            if decision.get('personal_data'):
-                person = persons[base_person_id]
-                for key, value in decision['personal_data'].items():
-                    person[key] = value
-                    changes.append(f"Updated {base_person_id}: {key} = {value}")
-
-            # Apply parent decisions
-            for parent_decision in decision.get('parents', []):
-                if parent_decision['action'] == 'merge':
-                    # Merge with existing person
-                    merge_with_id = parent_decision['merge_with']
-                    # Add parent relationship
-                    rel_id = self.get_next_relationship_id(relationships)
-                    relationships[rel_id] = {
-                        'id': rel_id,
-                        'type': 'biological_parent',
-                        'from_person': merge_with_id,
-                        'to_person': base_person_id,
-                        'role': parent_decision['relationship'],
-                        'evidence': ['gedcom_enrichment']
-                    }
-                    changes.append(f"Added parent relationship: {merge_with_id} -> {base_person_id}")
-
-                elif parent_decision['action'] == 'create':
-                    # Create new person
-                    new_id = self.get_next_person_id(persons)
-                    parent_data = parent_decision['data']
-                    persons[new_id] = {
-                        'id': new_id,
-                        'given_name': parent_data['given_name'],
-                        'surname': parent_data['surname'],
-                        'gender': parent_data['gender'],
-                        'birth_year_estimate': parent_data.get('birth_year'),
-                        'death_year_estimate': parent_data.get('death_year'),
-                        'confidence': 'high',
-                        'data_quality': 'from_gedcom_enrichment'
-                    }
-                    if parent_data.get('maiden_name'):
-                        persons[new_id]['maiden_name'] = parent_data['maiden_name']
-
-                    # Add relationship
-                    rel_id = self.get_next_relationship_id(relationships)
-                    relationships[rel_id] = {
-                        'id': rel_id,
-                        'type': 'biological_parent',
-                        'from_person': new_id,
-                        'to_person': base_person_id,
-                        'role': parent_decision['relationship'],
-                        'evidence': ['gedcom_enrichment']
-                    }
-                    changes.append(f"Created parent {new_id}: {parent_data['given_name']} {parent_data['surname']}")
-
-            # Apply children decisions
-            for child_decision in decision.get('children', []):
-                if child_decision['action'] == 'merge':
-                    # Merge with existing person
-                    merge_with_id = child_decision['merge_with']
-                    # Add child relationship
-                    rel_id = self.get_next_relationship_id(relationships)
-                    relationships[rel_id] = {
-                        'id': rel_id,
-                        'type': 'biological_parent',
-                        'from_person': base_person_id,
-                        'to_person': merge_with_id,
-                        'role': self.determine_parent_role(persons[base_person_id]),
-                        'evidence': ['gedcom_enrichment']
-                    }
-                    changes.append(f"Added child relationship: {base_person_id} -> {merge_with_id}")
-
-                elif child_decision['action'] == 'create':
-                    # Create new person
-                    new_id = self.get_next_person_id(persons)
-                    child_data = child_decision['data']
-                    persons[new_id] = {
-                        'id': new_id,
-                        'given_name': child_data['given_name'],
-                        'surname': child_data['surname'],
-                        'gender': child_data['gender'],
-                        'birth_year_estimate': child_data.get('birth_year'),
-                        'death_year_estimate': child_data.get('death_year'),
-                        'confidence': 'high',
-                        'data_quality': 'from_gedcom_enrichment'
-                    }
-
-                    # Add relationship
-                    rel_id = self.get_next_relationship_id(relationships)
-                    relationships[rel_id] = {
-                        'id': rel_id,
-                        'type': 'biological_parent',
-                        'from_person': base_person_id,
-                        'to_person': new_id,
-                        'role': self.determine_parent_role(persons[base_person_id]),
-                        'evidence': ['gedcom_enrichment']
-                    }
-                    changes.append(f"Created child {new_id}: {child_data['given_name']} {child_data['surname']}")
-
-            # Save updated data
-            with open(data_path, 'w', encoding='utf-8') as f:
-                json.dump(data, f, ensure_ascii=False, indent=2)
-
-            print(f"[OK] Applied enrichment: {len(changes)} changes")
-            for change in changes:
-                print(f"  - {change}")
-
-            return {
-                'success': True,
-                'changes': changes,
-                'persons_count': len(persons),
-                'relationships_count': len(relationships)
-            }
-
-        except Exception as e:
-            print(f"[ERR] Error applying enrichment: {str(e)}")
-            return {
-                'success': False,
-                'error': str(e)
-            }
 
     def add_person(self, person_data):
         """Add a new person to the genealogy data with auto-created events (Step 9)"""
         try:
-            # Load current data (NEW MODEL)
-            data_path = 'data/genealogy_new_model.json'
-            with open(data_path, 'r', encoding='utf-8') as f:
-                data = json.load(f)
+            data = self.load_data()
 
             persons = data['persons']
             places = data.get('places', {})
@@ -384,7 +237,7 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
             # Handle place
             place_id = None
             if person_data.get('place_of_birth'):
-                place_id = self.find_or_create_place(places, person_data['place_of_birth'])
+                place_id = self.resolve_place(places, person_data['place_of_birth'])
 
             birth_event = {
                 'id': birth_event_id,
@@ -416,7 +269,7 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
                 # Handle place
                 place_id = None
                 if person_data.get('place_of_death'):
-                    place_id = self.find_or_create_place(places, person_data['place_of_death'])
+                    place_id = self.resolve_place(places, person_data['place_of_death'])
 
                 death_event = {
                     'id': death_event_id,
@@ -444,9 +297,7 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
             # Update data structure
             data['places'] = places
 
-            # Save updated data
-            with open(data_path, 'w', encoding='utf-8') as f:
-                json.dump(data, f, ensure_ascii=False, indent=2)
+            self.save_data(data)
 
             print(f"[OK] Added new person: {new_id} - {new_person['first_name']} {new_person['last_name']}")
             if created_events:
@@ -475,10 +326,7 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
     def update_person(self, person_data):
         """Update person and sync to events (Step 9 bidirectional sync)"""
         try:
-            # Load current data
-            data_path = 'data/genealogy_new_model.json'
-            with open(data_path, 'r', encoding='utf-8') as f:
-                data = json.load(f)
+            data = self.load_data()
 
             persons = data['persons']
             places = data.get('places', {})
@@ -520,7 +368,7 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
                         print(f"  [OK] Synced birth date to event {birth_event_id}")
 
                     if 'place_of_birth' in person_data and person_data['place_of_birth']:
-                        place_id = self.find_or_create_place(places, person_data['place_of_birth'])
+                        place_id = self.resolve_place(places, person_data['place_of_birth'])
                         events[birth_event_id]['place_id'] = place_id
                         print(f"  [OK] Synced birth place to event {birth_event_id}")
 
@@ -532,7 +380,7 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
 
                         place_id = None
                         if person_data.get('place_of_birth'):
-                            place_id = self.find_or_create_place(places, person_data['place_of_birth'])
+                            place_id = self.resolve_place(places, person_data['place_of_birth'])
 
                         events[birth_event_id] = {
                             'id': birth_event_id,
@@ -570,7 +418,7 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
                         print(f"  [OK] Synced death date to event {death_event_id}")
 
                     if 'place_of_death' in person_data and person_data['place_of_death']:
-                        place_id = self.find_or_create_place(places, person_data['place_of_death'])
+                        place_id = self.resolve_place(places, person_data['place_of_death'])
                         events[death_event_id]['place_id'] = place_id
                         print(f"  [OK] Synced death place to event {death_event_id}")
 
@@ -583,7 +431,7 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
 
                         place_id = None
                         if person_data.get('place_of_death'):
-                            place_id = self.find_or_create_place(places, person_data['place_of_death'])
+                            place_id = self.resolve_place(places, person_data['place_of_death'])
 
                         events[death_event_id] = {
                             'id': death_event_id,
@@ -611,9 +459,7 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
             # Update data structure
             data['places'] = places
 
-            # Save updated data
-            with open(data_path, 'w', encoding='utf-8') as f:
-                json.dump(data, f, ensure_ascii=False, indent=2)
+            self.save_data(data)
 
             print(f"[OK] Updated person: {person_id}")
             if updated_events:
@@ -638,10 +484,7 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
     def delete_person(self, request_data):
         """Delete a person and all their event participations and relationships"""
         try:
-            # Load current data
-            data_path = 'data/genealogy_new_model.json'
-            with open(data_path, 'r', encoding='utf-8') as f:
-                data = json.load(f)
+            data = self.load_data()
 
             persons = data['persons']
             events = data['events']
@@ -671,9 +514,11 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
             for rel_id in rels_to_delete:
                 del family_relationships[rel_id]
 
-            # Check for and delete empty events
+            # Check for and delete empty events. events_to_check is a set, whose
+            # iteration order depends on Python's per-process string hash
+            # randomization - sorted() keeps events_deleted deterministic.
             events_deleted = []
-            for event_id in events_to_check:
+            for event_id in sorted(events_to_check):
                 # Count remaining participants
                 remaining_participants = sum(1 for ep in event_participations.values()
                                            if ep['event_id'] == event_id)
@@ -681,9 +526,7 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
                     events.pop(event_id, None)
                     events_deleted.append(event_id)
 
-            # Save updated data
-            with open(data_path, 'w', encoding='utf-8') as f:
-                json.dump(data, f, ensure_ascii=False, indent=2)
+            self.save_data(data)
 
             print(f"[OK] Deleted person: {person_id}")
             print(f"  Removed {len(eps_to_delete)} event participations")
@@ -712,10 +555,7 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
     def delete_event(self, request_data):
         """Delete an event and all its participations"""
         try:
-            # Load current data
-            data_path = 'data/genealogy_new_model.json'
-            with open(data_path, 'r', encoding='utf-8') as f:
-                data = json.load(f)
+            data = self.load_data()
 
             events = data['events']
             event_participations = data.get('event_participations', {})
@@ -734,9 +574,7 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
             for ep_id in eps_to_delete:
                 del event_participations[ep_id]
 
-            # Save updated data
-            with open(data_path, 'w', encoding='utf-8') as f:
-                json.dump(data, f, ensure_ascii=False, indent=2)
+            self.save_data(data)
 
             print(f"[OK] Deleted event: {event_id}")
             print(f"  Removed {len(eps_to_delete)} event participations")
@@ -979,11 +817,6 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
         max_id = max([int(p['id'][1:]) for p in persons.values()], default=0)
         return f"P{(max_id + 1):04d}"
 
-    def get_next_relationship_id(self, relationships):
-        """Generate next relationship ID"""
-        max_id = max([int(r['id'][1:]) for r in relationships.values()], default=0)
-        return f"R{(max_id + 1):04d}"
-
     def determine_parent_role(self, person):
         """Determine parent role based on gender"""
         return 'father' if person.get('gender') == 'M' else 'mother'
@@ -1000,21 +833,39 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
         max_id = max([int(ep['id'][2:]) for ep in event_participations.values()], default=0)
         return f"EP{(max_id + 1):04d}"
 
-    def find_or_create_place(self, places, place_name):
-        """Find existing place by name or create new one"""
-        # Search for existing place
+    def resolve_place(self, places, place_name, house_number=None):
+        """Find an existing place or create a new one.
+
+        house_number=None (add_person/update_person callers): match by name
+        only, case-insensitive, and create a place with no house_number field.
+        house_number='' or a real value (add_event/update_event via
+        handle_place): match by name (case-sensitive) AND house_number, and
+        create a place with a house_number field. The two call sites had
+        independently-duplicated, slightly different matching rules before
+        this was unified - preserved as-is rather than reconciled, since
+        changing either would change which existing places get reused.
+        """
         for place_id, place in places.items():
-            if place.get('name', '').lower() == place_name.lower():
+            if house_number is None:
+                if place.get('name', '').lower() == place_name.lower():
+                    return place_id
+            elif place.get('name') == place_name and place.get('house_number', '') == house_number:
                 return place_id
 
-        # Create new place
         max_id = max([int(p['id'][2:]) for p in places.values()], default=0) if places else 0
         new_place_id = f"PL{(max_id + 1):04d}"
-        places[new_place_id] = {
-            'id': new_place_id,
-            'name': place_name,
-            'type': 'settlement'
-        }
+        if house_number is None:
+            places[new_place_id] = {
+                'id': new_place_id,
+                'name': place_name,
+                'type': 'settlement'
+            }
+        else:
+            places[new_place_id] = {
+                'id': new_place_id,
+                'name': place_name,
+                'house_number': house_number
+            }
         print(f"  [OK] Created new place: {new_place_id} - {place_name}")
         return new_place_id
 
@@ -1097,10 +948,7 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
     def add_relationship(self, rel_data):
         """Add a new EVENT-BASED relationship between two persons (Step 10)"""
         try:
-            # Load current data (NEW MODEL)
-            data_path = 'data/genealogy_new_model.json'
-            with open(data_path, 'r', encoding='utf-8') as f:
-                data = json.load(f)
+            data = self.load_data()
 
             persons = data['persons']
             events = data['events']
@@ -1315,9 +1163,7 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
             else:
                 return {'success': False, 'error': f'Unknown relationship type: {rel_type}'}
 
-            # Save updated data
-            with open(data_path, 'w', encoding='utf-8') as f:
-                json.dump(data, f, ensure_ascii=False, indent=2)
+            self.save_data(data)
 
             print(f"[OK] Added event-based relationship: {rel_type} between {base_person_id} and {target_person_id}")
 
@@ -1340,10 +1186,7 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
     def add_event(self, event_data):
         """Add a new event with participants"""
         try:
-            # Load current data
-            data_path = 'data/genealogy_new_model.json'
-            with open(data_path, 'r', encoding='utf-8') as f:
-                data = json.load(f)
+            data = self.load_data()
 
             persons = data['persons']
             places = data.get('places', {})
@@ -1355,27 +1198,7 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
             event_id = f"E{(max_event_id + 1):04d}"
 
             # Handle place
-            place_id = None
-            if event_data.get('place_name'):
-                place_name = event_data['place_name']
-                house_number = event_data.get('house_number', '')
-
-                # Find existing place or create new one
-                place_id = None
-                for pid, place in places.items():
-                    if place['name'] == place_name and place.get('house_number', '') == house_number:
-                        place_id = pid
-                        break
-
-                if not place_id:
-                    # Create new place
-                    max_place_id = max([int(p['id'][2:]) for p in places.values()], default=0) if places else 0
-                    place_id = f"PL{(max_place_id + 1):04d}"
-                    places[place_id] = {
-                        'id': place_id,
-                        'name': place_name,
-                        'house_number': house_number
-                    }
+            place_id = self.handle_place(places, event_data)
 
             # Create event
             new_event = {
@@ -1470,8 +1293,26 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
                     existing_birth_event_id = self.find_birth_event_for_person(events, event_participations, person_id)
 
                     if is_child_in_birth_event:
-                        # The main event is this person's birth event — no separate auto-birth-event needed
+                        # The main event is this person's birth event — no separate auto-birth-event needed,
+                        # but any new parents still need to be linked to THIS event as father/mother.
                         print(f"  [SKIP] Auto-birth-event for {person_id}: main event {event_id} is the birth event")
+                        for parent_type, par_id in created_parents.items():
+                            if par_id:
+                                already_participant = any(
+                                    ep['event_id'] == event_id and ep['person_id'] == par_id
+                                    for ep in event_participations.values()
+                                )
+                                if not already_participant:
+                                    max_ep_id = max([int(ep['id'][2:]) for ep in event_participations.values()], default=0)
+                                    max_ep_id += 1
+                                    ep_id = f"EP{max_ep_id:04d}"
+                                    event_participations[ep_id] = {
+                                        'id': ep_id,
+                                        'event_id': event_id,
+                                        'person_id': par_id,
+                                        'role': parent_type
+                                    }
+                                    print(f"  [OK] Added {parent_type} to birth event {event_id} (main event)")
                     elif existing_birth_event_id:
                         # Birth event already exists — add any new parents to it instead of creating a duplicate
                         print(f"  [SKIP] Birth event {existing_birth_event_id} already exists for {person_id}, updating parents")
@@ -1631,8 +1472,7 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
             data['event_participations'] = event_participations
             data['persons'] = persons
 
-            with open(data_path, 'w', encoding='utf-8') as f:
-                json.dump(data, f, ensure_ascii=False, indent=2)
+            self.save_data(data)
 
             print(f"[OK] Added event: {event_id} - {new_event['type']} with {len(content_parts)} participants")
             if new_persons:
@@ -1654,22 +1494,37 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
                 'error': str(e)
             }
 
+    def get_data_path(self):
+        return 'data/genealogy_new_model.json'
+
+    def load_data(self):
+        with open(self.get_data_path(), 'r', encoding='utf-8') as f:
+            data = json.load(f)
+        return data
+
+    def save_data(self, data):
+        with open(self.get_data_path(), 'w', encoding='utf-8') as f:
+            json.dump(data, f, ensure_ascii=False, indent=2)
+
+    def handle_place(self, places, event_data):
+        if not event_data.get('place_name'):
+            return None
+        return self.resolve_place(places, event_data['place_name'], event_data.get('house_number', ''))
+
     def update_event(self, event_data):
         """Update an existing event"""
         try:
-            # Load current data
-            data_path = 'data/genealogy_new_model.json'
-            with open(data_path, 'r', encoding='utf-8') as f:
-                data = json.load(f)
+            data = self.load_data()
 
             event_id = event_data['event_id']
             events = data['events']
-            places = data.get('places', {})
-            event_participations = data.get('event_participations', {})
-            persons = data['persons']
 
             if event_id not in events:
                 return {'success': False, 'error': f'Event {event_id} not found'}
+
+            places = data.get('places', {})
+            event_participations = data.get('event_participations', {})
+            persons = data['persons']
 
             # Update event basic info
             event = events[event_id]
@@ -1680,26 +1535,7 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
             event['links'] = event_data.get('links', [])
             event['notes'] = event_data.get('notes', '')
 
-            # Handle place
-            place_id = None
-            if event_data.get('place_name'):
-                place_name = event_data['place_name']
-                house_number = event_data.get('house_number', '')
-
-                # Find existing place or create new one
-                for pid, place in places.items():
-                    if place['name'] == place_name and place.get('house_number', '') == house_number:
-                        place_id = pid
-                        break
-
-                if not place_id:
-                    max_place_id = max([int(p['id'][2:]) for p in places.values()], default=0) if places else 0
-                    place_id = f"PL{(max_place_id + 1):04d}"
-                    places[place_id] = {
-                        'id': place_id,
-                        'name': place_name,
-                        'house_number': house_number
-                    }
+            place_id = self.handle_place(places, event_data)
 
             event['place_id'] = place_id
 
@@ -1776,47 +1612,97 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
 
                             created_parents[parent_type] = parent_id
 
-                    # Always create a birth event for any new person
-                    max_event_id = max([int(e['id'][1:]) for e in events.values()], default=0)
-                    birth_event_id = f"E{(max_event_id + 1):04d}"
+                    # Create a birth event for this new person, unless:
+                    # - role is 'child' in a birth event (the event being
+                    #   updated IS already their birth event)
+                    # - a birth event already exists for this person (update
+                    #   it instead of creating a duplicate)
+                    # Mirrors add_event's equivalent branch.
+                    participant_role = participant.get('role')
+                    is_child_in_birth_event = (participant_role == 'child' and event_data.get('type') == 'birth')
+                    existing_birth_event_id = self.find_birth_event_for_person(events, event_participations, person_id)
 
-                    birth_event = {
-                        'id': birth_event_id,
-                        'type': 'birth',
-                        'date': birth_date,
-                        'place_id': None,
-                        'description': f"Birth of {new_person['first_name']} {new_person['last_name']}",
-                        'tags': [],
-                        'links': [],
-                        'notes': 'Auto-generated from event participation',
-                        'content': ''
-                    }
-                    events[birth_event_id] = birth_event
+                    if is_child_in_birth_event:
+                        # The main event is this person's birth event — no separate auto-birth-event needed,
+                        # but any new parents still need to be linked to THIS event as father/mother.
+                        print(f"  [SKIP] Auto-birth-event for {person_id}: main event {event_id} is the birth event")
+                        for parent_type, par_id in created_parents.items():
+                            if par_id:
+                                already_participant = any(
+                                    ep['event_id'] == event_id and ep['person_id'] == par_id
+                                    for ep in event_participations.values()
+                                )
+                                if not already_participant:
+                                    max_ep_id = max([int(ep['id'][2:]) for ep in event_participations.values()], default=0)
+                                    max_ep_id += 1
+                                    ep_id = f"EP{max_ep_id:04d}"
+                                    event_participations[ep_id] = {
+                                        'id': ep_id,
+                                        'event_id': event_id,
+                                        'person_id': par_id,
+                                        'role': parent_type
+                                    }
+                                    print(f"  [OK] Added {parent_type} to birth event {event_id} (main event)")
+                    elif existing_birth_event_id:
+                        print(f"  [SKIP] Birth event {existing_birth_event_id} already exists for {person_id}, updating parents")
+                        for parent_type, par_id in created_parents.items():
+                            if par_id:
+                                already_participant = any(
+                                    ep['event_id'] == existing_birth_event_id and ep['person_id'] == par_id
+                                    for ep in event_participations.values()
+                                )
+                                if not already_participant:
+                                    max_ep_id = max([int(ep['id'][2:]) for ep in event_participations.values()], default=0)
+                                    max_ep_id += 1
+                                    ep_id = f"EP{max_ep_id:04d}"
+                                    event_participations[ep_id] = {
+                                        'id': ep_id,
+                                        'event_id': existing_birth_event_id,
+                                        'person_id': par_id,
+                                        'role': parent_type
+                                    }
+                                    print(f"  [OK] Added {parent_type} to existing birth event {existing_birth_event_id}")
+                    else:
+                        max_event_id = max([int(e['id'][1:]) for e in events.values()], default=0)
+                        birth_event_id = f"E{(max_event_id + 1):04d}"
 
-                    # Add child as participant — use outer max_ep_id to avoid ID collision
-                    max_ep_id = max([int(ep['id'][2:]) for ep in event_participations.values()], default=0)
-                    max_ep_id += 1
-                    ep_id = f"EP{max_ep_id:04d}"
-                    event_participations[ep_id] = {
-                        'id': ep_id,
-                        'event_id': birth_event_id,
-                        'person_id': person_id,
-                        'role': 'child'
-                    }
+                        birth_event = {
+                            'id': birth_event_id,
+                            'type': 'birth',
+                            'date': birth_date,
+                            'place_id': None,
+                            'description': f"Birth of {new_person['first_name']} {new_person['last_name']}",
+                            'tags': [],
+                            'links': [],
+                            'notes': 'Auto-generated from event participation',
+                            'content': ''
+                        }
+                        events[birth_event_id] = birth_event
 
-                    # Add parents as participants
-                    for parent_type, parent_id_temp in created_parents.items():
-                        if parent_id_temp:
-                            max_ep_id += 1
-                            ep_id = f"EP{max_ep_id:04d}"
-                            event_participations[ep_id] = {
-                                'id': ep_id,
-                                'event_id': birth_event_id,
-                                'person_id': parent_id_temp,
-                                'role': parent_type
-                            }
+                        # Add child as participant — use outer max_ep_id to avoid ID collision
+                        max_ep_id = max([int(ep['id'][2:]) for ep in event_participations.values()], default=0)
+                        max_ep_id += 1
+                        ep_id = f"EP{max_ep_id:04d}"
+                        event_participations[ep_id] = {
+                            'id': ep_id,
+                            'event_id': birth_event_id,
+                            'person_id': person_id,
+                            'role': 'child'
+                        }
 
-                    print(f"  [OK] Created birth event: {birth_event_id} for {person_id} (date: {birth_date})")
+                        # Add parents as participants
+                        for parent_type, parent_id_temp in created_parents.items():
+                            if parent_id_temp:
+                                max_ep_id += 1
+                                ep_id = f"EP{max_ep_id:04d}"
+                                event_participations[ep_id] = {
+                                    'id': ep_id,
+                                    'event_id': birth_event_id,
+                                    'person_id': parent_id_temp,
+                                    'role': parent_type
+                                }
+
+                        print(f"  [OK] Created birth event: {birth_event_id} for {person_id} (date: {birth_date})")
 
                     # Create marriage event between parents if both exist
                     if created_parents['mother'] and created_parents['father']:
@@ -1915,11 +1801,10 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
             # Ensure persons changes are reflected in data before saving
             data['persons'] = persons
 
-            # Save data
-            with open(data_path, 'w', encoding='utf-8') as f:
-                json.dump(data, f, ensure_ascii=False, indent=2)
+            self.save_data(data)
+            
+            print(f"[OK] Updated event {event_id}")
 
-            print(f"[OK] Updated event: {event_id}")
             if new_persons:
                 print(f"  Created {len(new_persons)} new person(s)")
             if modified_persons:
@@ -2136,368 +2021,6 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
             print(f"[WARN] Warning: Error syncing ages to birth years: {str(e)}")
             import traceback
             traceback.print_exc()
-
-    def generate_parent_marriages(self):
-        """
-        Step 18: Parse all birth events and create synthetic marriage events
-        between mothers and fathers if they don't exist already.
-        """
-        try:
-            # Load current data
-            data_path = 'data/genealogy_new_model.json'
-            with open(data_path, 'r', encoding='utf-8') as f:
-                data = json.load(f)
-
-            persons = data['persons']
-            events = data['events']
-            event_participations = data.get('event_participations', {})
-
-            # First pass: collect all parent pairs that need marriage events
-            parent_pairs_to_marry = []
-
-            for event_id, event in events.items():
-                if event['type'] != 'birth':
-                    continue
-
-                # Find mother and father in this birth event
-                mother_id = None
-                father_id = None
-
-                for ep in event_participations.values():
-                    if ep['event_id'] == event_id:
-                        if ep['role'] == 'mother':
-                            mother_id = ep['person_id']
-                        elif ep['role'] == 'father':
-                            father_id = ep['person_id']
-
-                # If both parents exist, check if they have a marriage event
-                if mother_id and father_id:
-                    # Check if marriage event already exists between them
-                    marriage_exists = False
-                    for ev_id, ev in events.items():
-                        if ev['type'] == 'marriage':
-                            participants = [ep['person_id'] for ep in event_participations.values()
-                                          if ep['event_id'] == ev_id and ep['role'] in ['bride', 'groom']]
-                            if mother_id in participants and father_id in participants:
-                                marriage_exists = True
-                                break
-
-                    if not marriage_exists:
-                        # Check if we haven't already queued this pair
-                        pair = tuple(sorted([mother_id, father_id]))
-                        if pair not in [tuple(sorted([p['mother'], p['father']])) for p in parent_pairs_to_marry]:
-                            parent_pairs_to_marry.append({
-                                'mother': mother_id,
-                                'father': father_id
-                            })
-
-            # Second pass: create marriage events for collected pairs
-            created_marriages = []
-            for pair in parent_pairs_to_marry:
-                mother_id = pair['mother']
-                father_id = pair['father']
-
-                # Create marriage event
-                max_event_id = max([int(e['id'][1:]) for e in events.values()], default=0)
-                marriage_event_id = f"E{(max_event_id + 1):04d}"
-
-                mother = persons.get(mother_id, {})
-                father = persons.get(father_id, {})
-
-                marriage_event = {
-                    'id': marriage_event_id,
-                    'type': 'marriage',
-                    'date': None,
-                    'place_id': None,
-                    'description': f"Marriage of {father.get('first_name', '')} {father.get('last_name', '')} and {mother.get('first_name', '')} {mother.get('last_name', '')}",
-                    'tags': [],
-                    'links': [],
-                    'notes': 'Auto-generated from birth records (Step 30)',
-                    'content': ''
-                }
-                events[marriage_event_id] = marriage_event
-
-                # Add participants
-                max_ep_id = max([int(ep['id'][2:]) for ep in event_participations.values()], default=0)
-
-                # Add groom
-                max_ep_id += 1
-                ep_id = f"EP{max_ep_id:04d}"
-                event_participations[ep_id] = {
-                    'id': ep_id,
-                    'event_id': marriage_event_id,
-                    'person_id': father_id,
-                    'role': 'groom'
-                }
-
-                # Add bride
-                max_ep_id += 1
-                ep_id = f"EP{max_ep_id:04d}"
-                event_participations[ep_id] = {
-                    'id': ep_id,
-                    'event_id': marriage_event_id,
-                    'person_id': mother_id,
-                    'role': 'bride'
-                }
-
-                created_marriages.append({
-                    'event_id': marriage_event_id,
-                    'father': f"{father.get('first_name', '')} {father.get('last_name', '')} ({father_id})",
-                    'mother': f"{mother.get('first_name', '')} {mother.get('last_name', '')} ({mother_id})"
-                })
-
-                print(f"  [OK] Created marriage {marriage_event_id}: {father_id} + {mother_id}")
-
-            # Save data
-            with open(data_path, 'w', encoding='utf-8') as f:
-                json.dump(data, f, ensure_ascii=False, indent=2)
-
-            print(f"[OK] Generated {len(created_marriages)} synthetic marriage events")
-
-            return {
-                'success': True,
-                'created_count': len(created_marriages),
-                'marriages': created_marriages,
-                'message': f'Successfully created {len(created_marriages)} marriage events from birth records'
-            }
-
-        except Exception as e:
-            print(f"[ERR] Error generating parent marriages: {str(e)}")
-            import traceback
-            traceback.print_exc()
-            return {
-                'success': False,
-                'error': str(e)
-            }
-
-    def sync_all_ages_to_birth_years_migration(self):
-        """
-        Step 21 Migration: Process all existing events and calculate birth years from ages.
-        """
-        try:
-            # Load current data
-            data_path = 'data/genealogy_new_model.json'
-            with open(data_path, 'r', encoding='utf-8') as f:
-                data = json.load(f)
-
-            persons = data['persons']
-            events = data['events']
-            event_participations = data.get('event_participations', {})
-
-            synced_count = 0
-
-            # Build a map of event_id -> event_year for quick lookup
-            event_years = {}
-            for event_id, event in events.items():
-                if event.get('date') and event['date'].get('year'):
-                    event_years[event_id] = event['date']['year']
-
-            # Process all event participations looking for ages
-            for ep in event_participations.values():
-                # Skip if no age data
-                age = ep.get('age')
-                if not age:
-                    continue
-
-                event_id = ep['event_id']
-                person_id = ep['person_id']
-
-                # Skip if event has no year or person doesn't exist
-                if event_id not in event_years or person_id not in persons:
-                    continue
-
-                event_year = event_years[event_id]
-                calculated_birth_year = event_year - age
-
-                # Find birth event for this person
-                birth_event_id = self.find_birth_event_for_person(events, event_participations, person_id)
-
-                if birth_event_id:
-                    birth_event = events[birth_event_id]
-                    # Only update if birth event doesn't have a year
-                    if not birth_event.get('date') or not birth_event['date'].get('year'):
-                        birth_event['date'] = {
-                            'year': calculated_birth_year,
-                            'month': None,
-                            'day': None,
-                            'circa': True
-                        }
-                        synced_count += 1
-                        print(f"  [OK] Calculated birth year {calculated_birth_year} for {person_id} from age {age} in event {event_id}")
-
-            # Save data
-            with open(data_path, 'w', encoding='utf-8') as f:
-                json.dump(data, f, ensure_ascii=False, indent=2)
-
-            print(f"[OK] Synced birth years for {synced_count} persons from ages")
-
-            return {
-                'success': True,
-                'synced_count': synced_count,
-                'message': f'Successfully calculated birth years for {synced_count} persons from event ages'
-            }
-
-        except Exception as e:
-            print(f"[ERR] Error syncing ages to birth years: {str(e)}")
-            import traceback
-            traceback.print_exc()
-            return {
-                'success': False,
-                'error': str(e)
-            }
-
-    def score_person_completeness(self, person_id, persons, event_participations):
-        """Score how complete a person's data is (Step 31 helper)"""
-        if person_id not in persons:
-            return 0
-
-        person = persons[person_id]
-        score = 0
-
-        # Data completeness (birth/death dates are now in events, score via event count below)
-        if person.get('gender') and person['gender'] != 'U':
-            score += 5
-        if person.get('occupation'):
-            score += 5
-        if person.get('maiden_name'):
-            score += 3
-
-        # Count events participated in
-        num_events = sum(1 for ep in event_participations.values() if ep['person_id'] == person_id)
-        score += num_events * 2
-
-        return score
-
-    def merge_persons(self, keep_id, delete_id, persons, event_participations, merge_log):
-        """Merge two person entities, keeping the one with more complete data (Step 31)"""
-        if keep_id not in persons or delete_id not in persons:
-            return False
-
-        keep_person = persons[keep_id]
-        delete_person = persons[delete_id]
-
-        # Merge data (keep most complete)
-        keep_person['gender'] = keep_person.get('gender') if keep_person.get('gender') != 'U' else delete_person.get('gender')
-        keep_person['occupation'] = keep_person.get('occupation') or delete_person.get('occupation')
-        keep_person['maiden_name'] = keep_person.get('maiden_name') or delete_person.get('maiden_name')
-
-        # Update all event participations
-        for ep in event_participations.values():
-            if ep['person_id'] == delete_id:
-                ep['person_id'] = keep_id
-
-        # Remove duplicate participations (same person, same event, same role)
-        seen = {}
-        to_delete = []
-        for ep_id, ep in event_participations.items():
-            key = (ep['event_id'], ep['person_id'], ep['role'])
-            if key in seen:
-                # Duplicate found, mark for deletion
-                to_delete.append(ep_id)
-            else:
-                seen[key] = ep_id
-
-        for ep_id in to_delete:
-            del event_participations[ep_id]
-
-        # Delete the duplicate person
-        del persons[delete_id]
-
-        # Log the merge
-        merge_log.append({
-            'kept_id': keep_id,
-            'kept_name': f"{keep_person['first_name']} {keep_person['last_name']}",
-            'deleted_id': delete_id,
-            'deleted_name': f"{delete_person['first_name']} {delete_person['last_name']}",
-            'removed_duplicate_participations': len(to_delete)
-        })
-
-        return True
-
-    def deduplicate_witnesses_godparents(self):
-        """
-        Step 31: Find and merge witnesses and godparents with matching names
-        within the same birth event.
-        """
-        try:
-            # Load current data
-            data_path = 'data/genealogy_new_model.json'
-            with open(data_path, 'r', encoding='utf-8') as f:
-                data = json.load(f)
-
-            persons = data['persons']
-            events = data['events']
-            event_participations = data.get('event_participations', {})
-
-            merge_log = []
-            merges_performed = 0
-
-            # Scan all birth events
-            for event_id, event in events.items():
-                if event['type'] != 'birth':
-                    continue
-
-                # Get all participants in this event
-                participants = [ep for ep in event_participations.values() if ep['event_id'] == event_id]
-
-                # Separate witnesses and godparents
-                witnesses = [ep for ep in participants if ep['role'] == 'witness']
-                godparents = [ep for ep in participants if 'god' in ep['role'].lower()]
-
-                # Check for name matches
-                for witness_ep in witnesses:
-                    witness_id = witness_ep['person_id']
-                    if witness_id not in persons:
-                        continue
-                    witness = persons[witness_id]
-                    witness_name = (witness['first_name'].lower(), witness['last_name'].lower())
-
-                    for godparent_ep in godparents:
-                        godparent_id = godparent_ep['person_id']
-                        if godparent_id not in persons or godparent_id == witness_id:
-                            continue
-                        godparent = persons[godparent_id]
-                        godparent_name = (godparent['first_name'].lower(), godparent['last_name'].lower())
-
-                        # Case-insensitive name match
-                        if witness_name == godparent_name:
-                            # Score each person
-                            witness_score = self.score_person_completeness(witness_id, persons, event_participations)
-                            godparent_score = self.score_person_completeness(godparent_id, persons, event_participations)
-
-                            # Keep the one with higher score
-                            keep_id, delete_id = (witness_id, godparent_id) if witness_score >= godparent_score else (godparent_id, witness_id)
-
-                            print(f"  Merging {delete_id} into {keep_id} in event {event_id}: {witness['first_name']} {witness['last_name']}")
-
-                            # Perform merge
-                            if self.merge_persons(keep_id, delete_id, persons, event_participations, merge_log):
-                                merges_performed += 1
-                                break  # Move to next witness (avoid modifying list while iterating)
-
-            # Save data
-            if merges_performed > 0:
-                with open(data_path, 'w', encoding='utf-8') as f:
-                    json.dump(data, f, ensure_ascii=False, indent=2)
-
-            print(f"[OK] Deduplicated {merges_performed} witness/godparent pairs")
-
-            return {
-                'success': True,
-                'merges_performed': merges_performed,
-                'merge_log': merge_log,
-                'message': f'Successfully merged {merges_performed} duplicate witness/godparent persons'
-            }
-
-        except Exception as e:
-            print(f"[ERR] Error deduplicating witnesses/godparents: {str(e)}")
-            import traceback
-            traceback.print_exc()
-            return {
-                'success': False,
-                'error': str(e)
-            }
-
 
     def geneteka_import(self, first_name, last_name, record_type='birth'):
         """Proxy request to Geneteka API and return parsed records (birth/marriage/death)"""

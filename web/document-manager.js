@@ -25,12 +25,6 @@ class DocumentManager {
         return document.getElementById('person-details');
     }
 
-    _notify(msg, type = 'info') {
-        if (window.eventEditor) {
-            window.eventEditor.showNotification(msg, type);
-        }
-    }
-
     // ── Options modal ──────────────────────────────────────────────────────────
 
     _setupOptionsModal() {

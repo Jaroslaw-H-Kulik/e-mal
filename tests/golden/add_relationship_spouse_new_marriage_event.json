@@ -1,0 +1,54 @@
+{
+  "diff": {
+    "event_participations": {
+      "added": {
+        "EP6184": {
+          "event_id": "E2057",
+          "id": "EP6184",
+          "person_id": "P0001",
+          "role": "groom"
+        },
+        "EP6185": {
+          "event_id": "E2057",
+          "id": "EP6185",
+          "person_id": "P0007",
+          "role": "bride"
+        }
+      },
+      "changed": {},
+      "removed": {}
+    },
+    "events": {
+      "added": {
+        "E2057": {
+          "date": null,
+          "description": "Marriage of Jan Surdey and Marianna Surdey",
+          "id": "E2057",
+          "links": [],
+          "notes": "Auto-generated from relationship addition",
+          "place_id": null,
+          "tags": [],
+          "type": "marriage"
+        }
+      },
+      "changed": {},
+      "removed": {}
+    },
+    "persons": {
+      "added": {},
+      "changed": {},
+      "removed": {}
+    },
+    "places": {
+      "added": {},
+      "changed": {},
+      "removed": {}
+    }
+  },
+  "response": {
+    "created_event": "E2057",
+    "message": "Successfully added spouse relationship",
+    "success": true,
+    "updated_event": null
+  }
+}

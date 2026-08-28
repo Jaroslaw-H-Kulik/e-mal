@@ -1,0 +1,101 @@
+{
+  "diff": {
+    "event_participations": {
+      "added": {},
+      "changed": {},
+      "removed": {}
+    },
+    "events": {
+      "added": {},
+      "changed": {
+        "E0539": {
+          "after": {
+            "content": "child: Jan Surdey, father: Wojciech Surdey, mother: Marianna Surdey",
+            "date": {
+              "circa": false,
+              "day": 1,
+              "month": 6,
+              "year": 1799
+            },
+            "id": "E0539",
+            "links": [],
+            "notes": "",
+            "place_id": "PL0001",
+            "tags": [],
+            "type": "birth"
+          },
+          "before": {
+            "content": "child: Jan Surdey, father: Wojciech Surdey, mother: Marianna Surdey",
+            "date": {
+              "day": null,
+              "month": null,
+              "year": 1785
+            },
+            "id": "E0539",
+            "links": [],
+            "notes": "",
+            "place_id": "PL0053",
+            "tags": [],
+            "type": "birth"
+          }
+        },
+        "E0543": {
+          "after": {
+            "content": "deceased: Jan Surdey",
+            "date": {
+              "circa": true,
+              "day": null,
+              "month": null,
+              "year": 1870
+            },
+            "id": "E0543",
+            "links": [],
+            "notes": "",
+            "place_id": "PL0001",
+            "tags": [],
+            "type": "death"
+          },
+          "before": {
+            "content": "deceased: Jan Surdey",
+            "date": {
+              "day": null,
+              "month": null,
+              "year": 1843
+            },
+            "id": "E0543",
+            "links": [],
+            "notes": "",
+            "place_id": null,
+            "tags": [],
+            "type": "death"
+          }
+        }
+      },
+      "removed": {}
+    },
+    "persons": {
+      "added": {},
+      "changed": {},
+      "removed": {}
+    },
+    "places": {
+      "added": {},
+      "changed": {},
+      "removed": {}
+    }
+  },
+  "response": {
+    "message": "Successfully updated person P0001",
+    "person": {
+      "first_name": "Jan",
+      "gender": "M",
+      "id": "P0001",
+      "last_name": "Surdey"
+    },
+    "success": true,
+    "updated_events": [
+      "E0539",
+      "E0543"
+    ]
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "diff": {
+    "event_participations": {
+      "added": {
+        "EP6184": {
+          "event_id": "E2057",
+          "id": "EP6184",
+          "person_id": "P1370",
+          "role": "child"
+        }
+      },
+      "changed": {},
+      "removed": {}
+    },
+    "events": {
+      "added": {
+        "E2057": {
+          "date": null,
+          "description": "Birth of TestMinimal Fixture",
+          "id": "E2057",
+          "links": [],
+          "notes": "Auto-generated from person creation",
+          "place_id": null,
+          "tags": [],
+          "type": "birth"
+        }
+      },
+      "changed": {},
+      "removed": {}
+    },
+    "persons": {
+      "added": {
+        "P1370": {
+          "first_name": "TestMinimal",
+          "gender": "M",
+          "id": "P1370",
+          "last_name": "Fixture",
+          "maiden_name": null,
+          "notes": null,
+          "occupation": null,
+          "tags": []
+        }
+      },
+      "changed": {},
+      "removed": {}
+    },
+    "places": {
+      "added": {},
+      "changed": {},
+      "removed": {}
+    }
+  },
+  "response": {
+    "created_events": [
+      "E2057"
+    ],
+    "message": "Successfully added person P1370",
+    "new_events": {
+      "E2057": {
+        "date": null,
+        "description": "Birth of TestMinimal Fixture",
+        "id": "E2057",
+        "links": [],
+        "notes": "Auto-generated from person creation",
+        "place_id": null,
+        "tags": [],
+        "type": "birth"
+      }
+    },
+    "new_participations": {
+      "EP6184": {
+        "event_id": "E2057",
+        "id": "EP6184",
+        "person_id": "P1370",
+        "role": "child"
+      }
+    },
+    "person": {
+      "first_name": "TestMinimal",
+      "gender": "M",
+      "id": "P1370",
+      "last_name": "Fixture",
+      "maiden_name": null,
+      "notes": null,
+      "occupation": null,
+      "tags": []
+    },
+    "success": true
+  }
+}
