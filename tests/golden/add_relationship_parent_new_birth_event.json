@@ -2,15 +2,15 @@
   "diff": {
     "event_participations": {
       "added": {
-        "EP6184": {
-          "event_id": "E2057",
-          "id": "EP6184",
+        "EP_NEW_1": {
+          "event_id": "E_NEW_1",
+          "id": "EP_NEW_1",
           "person_id": "P0012",
           "role": "child"
         },
-        "EP6185": {
-          "event_id": "E2057",
-          "id": "EP6185",
+        "EP_NEW_2": {
+          "event_id": "E_NEW_1",
+          "id": "EP_NEW_2",
           "person_id": "P0033",
           "role": "mother"
         }
@@ -20,10 +20,10 @@
     },
     "events": {
       "added": {
-        "E2057": {
+        "E_NEW_1": {
           "date": null,
           "description": "Birth of Ignacy Raczyński",
-          "id": "E2057",
+          "id": "E_NEW_1",
           "links": [],
           "notes": "Auto-generated from relationship addition",
           "place_id": null,
@@ -46,7 +46,7 @@
     }
   },
   "response": {
-    "created_event": "E2057",
+    "created_event": "E_NEW_1",
     "message": "Successfully added parent relationship",
     "success": true,
     "updated_event": null

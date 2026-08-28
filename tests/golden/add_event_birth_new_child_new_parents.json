@@ -2,34 +2,34 @@
   "diff": {
     "event_participations": {
       "added": {
-        "EP6184": {
-          "event_id": "E2057",
-          "id": "EP6184",
-          "person_id": "P1371",
+        "EP_NEW_1": {
+          "event_id": "E_NEW_1",
+          "id": "EP_NEW_1",
+          "person_id": "P_NEW_2",
           "role": "mother"
         },
-        "EP6185": {
-          "event_id": "E2057",
-          "id": "EP6185",
-          "person_id": "P1372",
+        "EP_NEW_2": {
+          "event_id": "E_NEW_1",
+          "id": "EP_NEW_2",
+          "person_id": "P_NEW_3",
           "role": "father"
         },
-        "EP6186": {
-          "event_id": "E2058",
-          "id": "EP6186",
-          "person_id": "P1372",
+        "EP_NEW_3": {
+          "event_id": "E_NEW_2",
+          "id": "EP_NEW_3",
+          "person_id": "P_NEW_3",
           "role": "groom"
         },
-        "EP6187": {
-          "event_id": "E2058",
-          "id": "EP6187",
-          "person_id": "P1371",
+        "EP_NEW_4": {
+          "event_id": "E_NEW_2",
+          "id": "EP_NEW_4",
+          "person_id": "P_NEW_2",
           "role": "bride"
         },
-        "EP6188": {
-          "event_id": "E2057",
-          "id": "EP6188",
-          "person_id": "P1370",
+        "EP_NEW_5": {
+          "event_id": "E_NEW_1",
+          "id": "EP_NEW_5",
+          "person_id": "P_NEW_1",
           "role": "child"
         }
       },
@@ -38,14 +38,14 @@
     },
     "events": {
       "added": {
-        "E2057": {
+        "E_NEW_1": {
           "content": "child: TestChild Fixture",
           "date": {
             "day": 1,
             "month": 5,
             "year": 1880
           },
-          "id": "E2057",
+          "id": "E_NEW_1",
           "links": [],
           "notes": "Layer 1 golden-master test fixture",
           "place_id": null,
@@ -53,11 +53,11 @@
           "title": null,
           "type": "birth"
         },
-        "E2058": {
+        "E_NEW_2": {
           "content": "",
           "date": null,
           "description": "Marriage of TestFather Fixture and TestMother Fixture",
-          "id": "E2058",
+          "id": "E_NEW_2",
           "links": [],
           "notes": "Auto-generated from child birth event",
           "place_id": null,
@@ -70,26 +70,26 @@
     },
     "persons": {
       "added": {
-        "P1370": {
+        "P_NEW_1": {
           "first_name": "TestChild",
           "gender": "U",
-          "id": "P1370",
+          "id": "P_NEW_1",
           "last_name": "Fixture",
           "maiden_name": null,
           "occupation": null
         },
-        "P1371": {
+        "P_NEW_2": {
           "first_name": "TestMother",
           "gender": "F",
-          "id": "P1371",
+          "id": "P_NEW_2",
           "last_name": "Fixture",
           "maiden_name": null,
           "occupation": null
         },
-        "P1372": {
+        "P_NEW_3": {
           "first_name": "TestFather",
           "gender": "M",
-          "id": "P1372",
+          "id": "P_NEW_3",
           "last_name": "Fixture",
           "maiden_name": null,
           "occupation": null
@@ -112,7 +112,7 @@
         "month": 5,
         "year": 1880
       },
-      "id": "E2057",
+      "id": "E_NEW_1",
       "links": [],
       "notes": "Layer 1 golden-master test fixture",
       "place_id": null,
@@ -120,12 +120,12 @@
       "title": null,
       "type": "birth"
     },
-    "message": "Successfully added event E2057",
+    "message": "Successfully added event E_NEW_1",
     "new_persons": [
       {
         "first_name": "TestChild",
         "gender": "U",
-        "id": "P1370",
+        "id": "P_NEW_1",
         "last_name": "Fixture",
         "maiden_name": null,
         "occupation": null
@@ -133,7 +133,7 @@
       {
         "first_name": "TestMother",
         "gender": "F",
-        "id": "P1371",
+        "id": "P_NEW_2",
         "last_name": "Fixture",
         "maiden_name": null,
         "occupation": null
@@ -141,7 +141,7 @@
       {
         "first_name": "TestFather",
         "gender": "M",
-        "id": "P1372",
+        "id": "P_NEW_3",
         "last_name": "Fixture",
         "maiden_name": null,
         "occupation": null

@@ -2,9 +2,9 @@
   "diff": {
     "event_participations": {
       "added": {
-        "EP6184": {
+        "EP_NEW_1": {
           "event_id": "E0583",
-          "id": "EP6184",
+          "id": "EP_NEW_1",
           "person_id": "P0042",
           "role": "godparent"
         }

@@ -6,13 +6,15 @@ import anchors
 from golden_utils import assert_matches_golden, assert_no_new_invariant_issues, state_diff
 
 
-def _run(live_server, name, payload):
+def _run(live_server, name, payload, extra_new_id_diffs=None):
     before = live_server.get_state()
     response = live_server.post("/api/update-event", payload).json()
     after = live_server.get_state()
 
     assert_no_new_invariant_issues(before, after)
-    assert_matches_golden(name, {"response": response, "diff": state_diff(before, after)})
+    assert_matches_golden(
+        name, {"response": response, "diff": state_diff(before, after)}, extra_new_id_diffs
+    )
     return response, before, after
 
 
@@ -115,7 +117,14 @@ def test_swap_participants_and_new_child_combined(live_server):
     two witnesses (not itself asserted against a fixture - just gets a
     known event_id to update). Then update it, replacing the child with a
     new one (new parents included) while keeping both witnesses.
+
+    The setup call's own ids (the event and its 3 participations) are real,
+    live-dataset-derived ids too, and would otherwise drift the fixture the
+    same way the diffed call's ids would - so its before/after is diffed
+    and passed to assert_matches_golden purely to get those ids normalized,
+    even though that diff isn't itself part of what's persisted.
     """
+    pre_setup_state = live_server.get_state()
     setup_payload = {
         "type": "birth",
         "date": {"year": 1884, "month": None, "day": None},
@@ -129,6 +138,7 @@ def test_swap_participants_and_new_child_combined(live_server):
     setup_response = live_server.post("/api/add-event", setup_payload).json()
     assert setup_response["success"] is True
     target_event_id = setup_response["event"]["id"]
+    setup_diff = state_diff(pre_setup_state, live_server.get_state())
 
     update_payload = {
         "event_id": target_event_id,
@@ -149,7 +159,10 @@ def test_swap_participants_and_new_child_combined(live_server):
             },
         ],
     }
-    response, before, after = _run(live_server, "update_event_swap_and_new_child_combined", update_payload)
+    response, before, after = _run(
+        live_server, "update_event_swap_and_new_child_combined", update_payload,
+        extra_new_id_diffs=[setup_diff],
+    )
     assert response["success"] is True
     assert len(response["new_persons"]) == 3  # child, mother, father
 

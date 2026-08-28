@@ -2,16 +2,16 @@
   "diff": {
     "event_participations": {
       "added": {
-        "EP6184": {
-          "event_id": "E2057",
-          "id": "EP6184",
-          "person_id": "P1370",
+        "EP_NEW_1": {
+          "event_id": "E_NEW_1",
+          "id": "EP_NEW_1",
+          "person_id": "P_NEW_1",
           "role": "child"
         },
-        "EP6185": {
-          "event_id": "E2058",
-          "id": "EP6185",
-          "person_id": "P1370",
+        "EP_NEW_2": {
+          "event_id": "E_NEW_2",
+          "id": "EP_NEW_2",
+          "person_id": "P_NEW_1",
           "role": "deceased"
         }
       },
@@ -20,7 +20,7 @@
     },
     "events": {
       "added": {
-        "E2057": {
+        "E_NEW_1": {
           "date": {
             "circa": true,
             "day": null,
@@ -28,14 +28,14 @@
             "year": 1850
           },
           "description": "Birth of TestFull Fixture",
-          "id": "E2057",
+          "id": "E_NEW_1",
           "links": [],
           "notes": "Auto-generated from person creation",
           "place_id": "PL0001",
           "tags": [],
           "type": "birth"
         },
-        "E2058": {
+        "E_NEW_2": {
           "date": {
             "circa": true,
             "day": null,
@@ -43,10 +43,10 @@
             "year": 1920
           },
           "description": "Death of TestFull Fixture",
-          "id": "E2058",
+          "id": "E_NEW_2",
           "links": [],
           "notes": "Auto-generated from person creation",
-          "place_id": "PL0103",
+          "place_id": "PL_NEW_1",
           "tags": [],
           "type": "death"
         }
@@ -56,10 +56,10 @@
     },
     "persons": {
       "added": {
-        "P1370": {
+        "P_NEW_1": {
           "first_name": "TestFull",
           "gender": "F",
-          "id": "P1370",
+          "id": "P_NEW_1",
           "last_name": "Fixture",
           "maiden_name": "MaidenFixture",
           "notes": "fixture notes",
@@ -74,8 +74,8 @@
     },
     "places": {
       "added": {
-        "PL0103": {
-          "id": "PL0103",
+        "PL_NEW_1": {
+          "id": "PL_NEW_1",
           "name": "Nowa Wies AddPersonTestOnly",
           "type": "settlement"
         }
@@ -86,12 +86,12 @@
   },
   "response": {
     "created_events": [
-      "E2057",
-      "E2058"
+      "E_NEW_1",
+      "E_NEW_2"
     ],
-    "message": "Successfully added person P1370",
+    "message": "Successfully added person P_NEW_1",
     "new_events": {
-      "E2057": {
+      "E_NEW_1": {
         "date": {
           "circa": true,
           "day": null,
@@ -99,14 +99,14 @@
           "year": 1850
         },
         "description": "Birth of TestFull Fixture",
-        "id": "E2057",
+        "id": "E_NEW_1",
         "links": [],
         "notes": "Auto-generated from person creation",
         "place_id": "PL0001",
         "tags": [],
         "type": "birth"
       },
-      "E2058": {
+      "E_NEW_2": {
         "date": {
           "circa": true,
           "day": null,
@@ -114,32 +114,32 @@
           "year": 1920
         },
         "description": "Death of TestFull Fixture",
-        "id": "E2058",
+        "id": "E_NEW_2",
         "links": [],
         "notes": "Auto-generated from person creation",
-        "place_id": "PL0103",
+        "place_id": "PL_NEW_1",
         "tags": [],
         "type": "death"
       }
     },
     "new_participations": {
-      "EP6184": {
-        "event_id": "E2057",
-        "id": "EP6184",
-        "person_id": "P1370",
+      "EP_NEW_1": {
+        "event_id": "E_NEW_1",
+        "id": "EP_NEW_1",
+        "person_id": "P_NEW_1",
         "role": "child"
       },
-      "EP6185": {
-        "event_id": "E2058",
-        "id": "EP6185",
-        "person_id": "P1370",
+      "EP_NEW_2": {
+        "event_id": "E_NEW_2",
+        "id": "EP_NEW_2",
+        "person_id": "P_NEW_1",
         "role": "deceased"
       }
     },
     "person": {
       "first_name": "TestFull",
       "gender": "F",
-      "id": "P1370",
+      "id": "P_NEW_1",
       "last_name": "Fixture",
       "maiden_name": "MaidenFixture",
       "notes": "fixture notes",

@@ -24,7 +24,7 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 # data/ directory is ~424MB (mostly scanned document images) which would
 # make every test slow to set up for no benefit while we're only exercising
 # person/event/relationship endpoints.
-SANDBOX_COPY = ["server.py", "web"]
+SANDBOX_COPY = ["server.py", "app", "web"]
 SANDBOX_DATA_FILES = ["genealogy_new_model.json", "documents.json"]
 
 STARTUP_TIMEOUT_SECONDS = 10

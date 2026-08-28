@@ -2,22 +2,22 @@
   "diff": {
     "event_participations": {
       "added": {
-        "EP6184": {
-          "event_id": "E2057",
-          "id": "EP6184",
+        "EP_NEW_1": {
+          "event_id": "E_NEW_1",
+          "id": "EP_NEW_1",
           "person_id": "P0046",
           "role": "father"
         },
-        "EP6185": {
-          "event_id": "E2057",
-          "id": "EP6185",
-          "person_id": "P1371",
+        "EP_NEW_2": {
+          "event_id": "E_NEW_1",
+          "id": "EP_NEW_2",
+          "person_id": "P_NEW_2",
           "role": "father"
         },
-        "EP6186": {
-          "event_id": "E2057",
-          "id": "EP6186",
-          "person_id": "P1370",
+        "EP_NEW_3": {
+          "event_id": "E_NEW_1",
+          "id": "EP_NEW_3",
+          "person_id": "P_NEW_1",
           "role": "child"
         }
       },
@@ -26,14 +26,14 @@
     },
     "events": {
       "added": {
-        "E2057": {
+        "E_NEW_1": {
           "content": "father: Jan Krakowiak, child: TestChild5 Fixture",
           "date": {
             "day": null,
             "month": null,
             "year": 1882
           },
-          "id": "E2057",
+          "id": "E_NEW_1",
           "links": [],
           "notes": "Layer 1 golden-master test fixture",
           "place_id": null,
@@ -47,18 +47,18 @@
     },
     "persons": {
       "added": {
-        "P1370": {
+        "P_NEW_1": {
           "first_name": "TestChild5",
           "gender": "U",
-          "id": "P1370",
+          "id": "P_NEW_1",
           "last_name": "Fixture",
           "maiden_name": null,
           "occupation": null
         },
-        "P1371": {
+        "P_NEW_2": {
           "first_name": "TestFather5",
           "gender": "M",
-          "id": "P1371",
+          "id": "P_NEW_2",
           "last_name": "Fixture",
           "maiden_name": null,
           "occupation": null
@@ -81,7 +81,7 @@
         "month": null,
         "year": 1882
       },
-      "id": "E2057",
+      "id": "E_NEW_1",
       "links": [],
       "notes": "Layer 1 golden-master test fixture",
       "place_id": null,
@@ -89,12 +89,12 @@
       "title": null,
       "type": "birth"
     },
-    "message": "Successfully added event E2057",
+    "message": "Successfully added event E_NEW_1",
     "new_persons": [
       {
         "first_name": "TestChild5",
         "gender": "U",
-        "id": "P1370",
+        "id": "P_NEW_1",
         "last_name": "Fixture",
         "maiden_name": null,
         "occupation": null
@@ -102,7 +102,7 @@
       {
         "first_name": "TestFather5",
         "gender": "M",
-        "id": "P1371",
+        "id": "P_NEW_2",
         "last_name": "Fixture",
         "maiden_name": null,
         "occupation": null

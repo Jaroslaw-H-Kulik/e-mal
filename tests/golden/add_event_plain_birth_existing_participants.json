@@ -2,21 +2,21 @@
   "diff": {
     "event_participations": {
       "added": {
-        "EP6184": {
-          "event_id": "E2057",
-          "id": "EP6184",
+        "EP_NEW_1": {
+          "event_id": "E_NEW_1",
+          "id": "EP_NEW_1",
           "person_id": "P0012",
           "role": "child"
         },
-        "EP6185": {
-          "event_id": "E2057",
-          "id": "EP6185",
+        "EP_NEW_2": {
+          "event_id": "E_NEW_1",
+          "id": "EP_NEW_2",
           "person_id": "P0001",
           "role": "father"
         },
-        "EP6186": {
-          "event_id": "E2057",
-          "id": "EP6186",
+        "EP_NEW_3": {
+          "event_id": "E_NEW_1",
+          "id": "EP_NEW_3",
           "person_id": "P0002",
           "role": "mother"
         }
@@ -26,14 +26,14 @@
     },
     "events": {
       "added": {
-        "E2057": {
+        "E_NEW_1": {
           "content": "child: Ignacy Raczyński, father: Jan Surdey, mother: Helena Surdey",
           "date": {
             "day": null,
             "month": null,
             "year": 1850
           },
-          "id": "E2057",
+          "id": "E_NEW_1",
           "links": [],
           "notes": "Layer 1 golden-master test fixture",
           "place_id": null,
@@ -64,7 +64,7 @@
         "month": null,
         "year": 1850
       },
-      "id": "E2057",
+      "id": "E_NEW_1",
       "links": [],
       "notes": "Layer 1 golden-master test fixture",
       "place_id": null,
@@ -72,7 +72,7 @@
       "title": null,
       "type": "birth"
     },
-    "message": "Successfully added event E2057",
+    "message": "Successfully added event E_NEW_1",
     "new_persons": [],
     "success": true
   }

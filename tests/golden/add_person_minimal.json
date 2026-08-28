@@ -2,10 +2,10 @@
   "diff": {
     "event_participations": {
       "added": {
-        "EP6184": {
-          "event_id": "E2057",
-          "id": "EP6184",
-          "person_id": "P1370",
+        "EP_NEW_1": {
+          "event_id": "E_NEW_1",
+          "id": "EP_NEW_1",
+          "person_id": "P_NEW_1",
           "role": "child"
         }
       },
@@ -14,10 +14,10 @@
     },
     "events": {
       "added": {
-        "E2057": {
+        "E_NEW_1": {
           "date": null,
           "description": "Birth of TestMinimal Fixture",
-          "id": "E2057",
+          "id": "E_NEW_1",
           "links": [],
           "notes": "Auto-generated from person creation",
           "place_id": null,
@@ -30,10 +30,10 @@
     },
     "persons": {
       "added": {
-        "P1370": {
+        "P_NEW_1": {
           "first_name": "TestMinimal",
           "gender": "M",
-          "id": "P1370",
+          "id": "P_NEW_1",
           "last_name": "Fixture",
           "maiden_name": null,
           "notes": null,
@@ -52,14 +52,14 @@
   },
   "response": {
     "created_events": [
-      "E2057"
+      "E_NEW_1"
     ],
-    "message": "Successfully added person P1370",
+    "message": "Successfully added person P_NEW_1",
     "new_events": {
-      "E2057": {
+      "E_NEW_1": {
         "date": null,
         "description": "Birth of TestMinimal Fixture",
-        "id": "E2057",
+        "id": "E_NEW_1",
         "links": [],
         "notes": "Auto-generated from person creation",
         "place_id": null,
@@ -68,17 +68,17 @@
       }
     },
     "new_participations": {
-      "EP6184": {
-        "event_id": "E2057",
-        "id": "EP6184",
-        "person_id": "P1370",
+      "EP_NEW_1": {
+        "event_id": "E_NEW_1",
+        "id": "EP_NEW_1",
+        "person_id": "P_NEW_1",
         "role": "child"
       }
     },
     "person": {
       "first_name": "TestMinimal",
       "gender": "M",
-      "id": "P1370",
+      "id": "P_NEW_1",
       "last_name": "Fixture",
       "maiden_name": null,
       "notes": null,

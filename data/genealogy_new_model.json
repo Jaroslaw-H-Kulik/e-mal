@@ -2991,7 +2991,11 @@
       "id": "P0501",
       "first_name": "Tomasz",
       "last_name": "Niewczas",
-      "gender": "M"
+      "gender": "M",
+      "maiden_name": null,
+      "occupation": null,
+      "tags": [],
+      "notes": null
     },
     "P0502": {
       "id": "P0502",
@@ -9551,6 +9555,14 @@
       "last_name": "Krasiński",
       "maiden_name": null,
       "gender": "M",
+      "occupation": null
+    },
+    "P1370": {
+      "id": "P1370",
+      "first_name": "Józefa",
+      "last_name": "Chmolowska",
+      "maiden_name": "Ptarowska",
+      "gender": "F",
       "occupation": null
     }
   },
@@ -33050,14 +33062,14 @@
       "date": {
         "year": 1864,
         "month": null,
-        "day": null,
-        "circa": true
+        "day": null
       },
       "place_id": null,
       "content": "Birth of Łucja Niewczas",
       "tags": [],
       "links": [],
-      "notes": "Migrated from person model (step 56.1)"
+      "notes": "Migrated from person model (step 56.1)",
+      "title": null
     },
     "E1756": {
       "id": "E1756",
@@ -37368,6 +37380,27 @@
       "tags": [],
       "links": [],
       "notes": "Auto-generated from age 21 in event E0497"
+    },
+    "E2061": {
+      "id": "E2061",
+      "type": "birth",
+      "date": null,
+      "place_id": null,
+      "description": "Birth of Józefa Chmolowska",
+      "tags": [],
+      "links": [],
+      "notes": "Auto-generated from event participation",
+      "content": ""
+    },
+    "E2062": {
+      "id": "E2062",
+      "type": "marriage",
+      "date": null,
+      "place_id": null,
+      "description": "Marriage of Tomasz Chmolowski and Józefa Chmolowska",
+      "tags": [],
+      "links": [],
+      "notes": "Auto-generated from birth event E1755 (Step 30)"
     }
   },
   "event_participations": {
@@ -59997,12 +60030,6 @@
       "person_id": "P1064",
       "role": "child"
     },
-    "EP5433": {
-      "id": "EP5433",
-      "event_id": "E1755",
-      "person_id": "P1073",
-      "role": "child"
-    },
     "EP5434": {
       "id": "EP5434",
       "event_id": "E1756",
@@ -64484,6 +64511,42 @@
       "event_id": "E0322",
       "person_id": "P0511",
       "role": "godparent"
+    },
+    "EP6251": {
+      "id": "EP6251",
+      "event_id": "E1755",
+      "person_id": "P1073",
+      "role": "child"
+    },
+    "EP6252": {
+      "id": "EP6252",
+      "event_id": "E1755",
+      "person_id": "P0501",
+      "role": "father"
+    },
+    "EP6253": {
+      "id": "EP6253",
+      "event_id": "E2061",
+      "person_id": "P1370",
+      "role": "child"
+    },
+    "EP6254": {
+      "id": "EP6254",
+      "event_id": "E1755",
+      "person_id": "P1370",
+      "role": "mother"
+    },
+    "EP6255": {
+      "id": "EP6255",
+      "event_id": "E2062",
+      "person_id": "P0501",
+      "role": "groom"
+    },
+    "EP6256": {
+      "id": "EP6256",
+      "event_id": "E2062",
+      "person_id": "P1370",
+      "role": "bride"
     }
   },
   "metadata": {
