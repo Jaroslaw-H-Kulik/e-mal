@@ -17,11 +17,14 @@
               "month": 6,
               "year": 1799
             },
+            "description": null,
             "id": "E0539",
             "links": [],
             "notes": "",
             "place_id": "PL0001",
+            "source": null,
             "tags": [],
+            "title": null,
             "type": "birth"
           },
           "before": {
@@ -31,11 +34,14 @@
               "month": null,
               "year": 1785
             },
+            "description": null,
             "id": "E0539",
             "links": [],
             "notes": "",
             "place_id": "PL0053",
+            "source": null,
             "tags": [],
+            "title": null,
             "type": "birth"
           }
         },
@@ -48,11 +54,14 @@
               "month": null,
               "year": 1870
             },
+            "description": null,
             "id": "E0543",
             "links": [],
             "notes": "",
             "place_id": "PL0001",
+            "source": null,
             "tags": [],
+            "title": null,
             "type": "death"
           },
           "before": {
@@ -62,11 +71,14 @@
               "month": null,
               "year": 1843
             },
+            "description": null,
             "id": "E0543",
             "links": [],
             "notes": "",
             "place_id": null,
+            "source": null,
             "tags": [],
+            "title": null,
             "type": "death"
           }
         }
@@ -90,7 +102,11 @@
       "first_name": "Jan",
       "gender": "M",
       "id": "P0001",
-      "last_name": "Surdey"
+      "last_name": "Surdey",
+      "maiden_name": null,
+      "notes": null,
+      "occupation": null,
+      "tags": []
     },
     "success": true,
     "updated_events": [

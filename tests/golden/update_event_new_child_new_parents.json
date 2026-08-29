@@ -67,10 +67,12 @@
               "month": null,
               "year": 1802
             },
+            "description": null,
             "id": "E1746",
             "links": [],
             "notes": "Migrated from person model (step 56.1)",
             "place_id": null,
+            "source": null,
             "tags": [],
             "title": null,
             "type": "birth"
@@ -83,11 +85,14 @@
               "month": null,
               "year": 1802
             },
+            "description": null,
             "id": "E1746",
             "links": [],
             "notes": "Migrated from person model (step 56.1)",
             "place_id": null,
+            "source": null,
             "tags": [],
+            "title": null,
             "type": "birth"
           }
         }
@@ -139,10 +144,12 @@
         "month": null,
         "year": 1802
       },
+      "description": null,
       "id": "E1746",
       "links": [],
       "notes": "Migrated from person model (step 56.1)",
       "place_id": null,
+      "source": null,
       "tags": [],
       "title": null,
       "type": "birth"

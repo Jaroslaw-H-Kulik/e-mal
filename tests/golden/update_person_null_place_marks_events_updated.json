@@ -27,7 +27,11 @@
       "first_name": "Jan",
       "gender": "M",
       "id": "P0001",
-      "last_name": "Surdey"
+      "last_name": "Surdey",
+      "maiden_name": null,
+      "notes": null,
+      "occupation": null,
+      "tags": []
     },
     "success": true,
     "updated_events": [

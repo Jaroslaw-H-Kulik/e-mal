@@ -82,7 +82,11 @@
       "first_name": "Ignacy",
       "gender": "M",
       "id": "P0012",
-      "last_name": "Raczyński"
+      "last_name": "Raczyński",
+      "maiden_name": null,
+      "notes": null,
+      "occupation": null,
+      "tags": []
     },
     "success": true,
     "updated_events": [

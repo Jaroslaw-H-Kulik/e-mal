@@ -19,6 +19,7 @@
             "gender": "M",
             "id": "P0012",
             "last_name": "UpdatedLast",
+            "maiden_name": null,
             "notes": "updated notes",
             "occupation": "farmer",
             "tags": [
@@ -29,7 +30,11 @@
             "first_name": "Ignacy",
             "gender": "M",
             "id": "P0012",
-            "last_name": "Raczyński"
+            "last_name": "Raczyński",
+            "maiden_name": null,
+            "notes": null,
+            "occupation": null,
+            "tags": []
           }
         }
       },
@@ -48,6 +53,7 @@
       "gender": "M",
       "id": "P0012",
       "last_name": "UpdatedLast",
+      "maiden_name": null,
       "notes": "updated notes",
       "occupation": "farmer",
       "tags": [
