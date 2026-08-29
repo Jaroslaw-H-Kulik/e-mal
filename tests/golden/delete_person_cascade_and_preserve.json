@@ -57,8 +57,14 @@
           "date": {
             "year": 1828
           },
+          "description": null,
           "id": "E0004",
+          "links": [],
           "notes": "Source line: 34",
+          "place_id": null,
+          "source": null,
+          "tags": [],
+          "title": null,
           "type": "death"
         },
         "E0653": {
@@ -69,11 +75,14 @@
             "month": null,
             "year": 1767
           },
+          "description": null,
           "id": "E0653",
           "links": [],
           "notes": "Auto-generated from age 60 in event E0651",
           "place_id": null,
+          "source": null,
           "tags": [],
+          "title": null,
           "type": "birth"
         }
       }
@@ -86,7 +95,11 @@
           "first_name": "Krzysztof",
           "gender": "M",
           "id": "P0011",
-          "last_name": "Słyk"
+          "last_name": "Słyk",
+          "maiden_name": null,
+          "notes": null,
+          "occupation": null,
+          "tags": []
         }
       }
     },

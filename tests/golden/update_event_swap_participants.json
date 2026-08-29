@@ -54,12 +54,14 @@
               "month": 2,
               "year": 1831
             },
+            "description": null,
             "id": "E0013",
             "links": [
               "https://www.familysearch.org/ark:/61903/3:1:939V-T69C-NG?cc=1407440&lang=en&i=187"
             ],
             "notes": "Source line: 46",
             "place_id": "PL0040",
+            "source": null,
             "tags": [],
             "title": null,
             "type": "death"
@@ -71,13 +73,16 @@
               "month": 2,
               "year": 1831
             },
+            "description": null,
             "id": "E0013",
             "links": [
               "https://www.familysearch.org/ark:/61903/3:1:939V-T69C-NG?cc=1407440&lang=en&i=187"
             ],
             "notes": "Source line: 46",
             "place_id": "PL0040",
+            "source": null,
             "tags": [],
+            "title": null,
             "type": "death"
           }
         }
@@ -103,12 +108,14 @@
         "month": 2,
         "year": 1831
       },
+      "description": null,
       "id": "E0013",
       "links": [
         "https://www.familysearch.org/ark:/61903/3:1:939V-T69C-NG?cc=1407440&lang=en&i=187"
       ],
       "notes": "Source line: 46",
       "place_id": "PL0040",
+      "source": null,
       "tags": [],
       "title": null,
       "type": "death"

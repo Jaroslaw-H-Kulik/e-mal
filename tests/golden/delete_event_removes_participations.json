@@ -33,8 +33,14 @@
           "date": {
             "year": 1855
           },
+          "description": null,
           "id": "E0055",
+          "links": [],
           "notes": "Source line: 125",
+          "place_id": null,
+          "source": null,
+          "tags": [],
+          "title": null,
           "type": "birth"
         }
       }
