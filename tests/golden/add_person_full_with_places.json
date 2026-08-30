@@ -21,6 +21,7 @@
     "events": {
       "added": {
         "E_NEW_1": {
+          "content": null,
           "date": {
             "circa": true,
             "day": null,
@@ -32,10 +33,13 @@
           "links": [],
           "notes": "Auto-generated from person creation",
           "place_id": "PL0001",
+          "source": null,
           "tags": [],
+          "title": null,
           "type": "birth"
         },
         "E_NEW_2": {
+          "content": null,
           "date": {
             "circa": true,
             "day": null,
@@ -47,7 +51,9 @@
           "links": [],
           "notes": "Auto-generated from person creation",
           "place_id": "PL_NEW_1",
+          "source": null,
           "tags": [],
+          "title": null,
           "type": "death"
         }
       },
@@ -75,8 +81,10 @@
     "places": {
       "added": {
         "PL_NEW_1": {
+          "house_number": null,
           "id": "PL_NEW_1",
           "name": "Nowa Wies AddPersonTestOnly",
+          "parish_name": null,
           "type": "settlement"
         }
       },
@@ -92,6 +100,7 @@
     "message": "Successfully added person P_NEW_1",
     "new_events": {
       "E_NEW_1": {
+        "content": null,
         "date": {
           "circa": true,
           "day": null,
@@ -103,10 +112,13 @@
         "links": [],
         "notes": "Auto-generated from person creation",
         "place_id": "PL0001",
+        "source": null,
         "tags": [],
+        "title": null,
         "type": "birth"
       },
       "E_NEW_2": {
+        "content": null,
         "date": {
           "circa": true,
           "day": null,
@@ -118,7 +130,9 @@
         "links": [],
         "notes": "Auto-generated from person creation",
         "place_id": "PL_NEW_1",
+        "source": null,
         "tags": [],
+        "title": null,
         "type": "death"
       }
     },

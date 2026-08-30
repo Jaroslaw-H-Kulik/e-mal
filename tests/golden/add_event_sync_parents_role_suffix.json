@@ -41,14 +41,17 @@
         "E_NEW_1": {
           "content": "groom: Onufry Mieszała, bride: Anna Orłowski, groom_parent_father: Franciszek Niewczas",
           "date": {
+            "circa": false,
             "day": null,
             "month": null,
             "year": 1850
           },
+          "description": null,
           "id": "E_NEW_1",
           "links": [],
           "notes": "Layer 1 golden-master test fixture",
           "place_id": null,
+          "source": null,
           "tags": [],
           "title": null,
           "type": "marriage"
@@ -61,7 +64,9 @@
           "links": [],
           "notes": "Auto-generated for parent synchronization",
           "place_id": null,
+          "source": null,
           "tags": [],
+          "title": null,
           "type": "birth"
         }
       },
@@ -83,14 +88,17 @@
     "event": {
       "content": "groom: Onufry Mieszała, bride: Anna Orłowski, groom_parent_father: Franciszek Niewczas",
       "date": {
+        "circa": false,
         "day": null,
         "month": null,
         "year": 1850
       },
+      "description": null,
       "id": "E_NEW_1",
       "links": [],
       "notes": "Layer 1 golden-master test fixture",
       "place_id": null,
+      "source": null,
       "tags": [],
       "title": null,
       "type": "marriage"

@@ -1,11 +1,10 @@
 """
 Data access + business logic for data/genealogy_new_model.json: persons,
-events, event participations, places, and the merge log. No HTTP awareness -
+events, event participations, and places. No HTTP awareness -
 GenealogyServerHandler (server.py) delegates to a module-level instance of
 this class and just serializes whatever it returns.
 """
 import json
-import os
 
 
 class GenealogyRepository:
@@ -21,45 +20,6 @@ class GenealogyRepository:
     def save_data(self, data):
         with open(self.get_data_path(), 'w', encoding='utf-8') as f:
             json.dump(data, f, ensure_ascii=False, indent=2)
-
-    def save_merge_log(self, data):
-        """Save merge log to data/merge_log.json"""
-        merge_log_path = 'data/merge_log.json'
-
-        # Load existing merge log if it exists
-        existing_merges = []
-        if os.path.exists(merge_log_path):
-            try:
-                with open(merge_log_path, 'r', encoding='utf-8') as f:
-                    existing_data = json.load(f)
-                    existing_merges = existing_data.get('merges', [])
-            except:
-                pass  # If file is corrupted, start fresh
-
-        # Append new merges (avoid duplicates)
-        new_merges = data.get('merges', [])
-        for new_merge in new_merges:
-            # Check if this merge already exists
-            is_duplicate = any(
-                m['kept_name'] == new_merge['kept_name'] and
-                m['merged_name'] == new_merge['merged_name']
-                for m in existing_merges
-            )
-            if not is_duplicate:
-                existing_merges.append(new_merge)
-
-        # Save updated merge log
-        merge_log = {
-            'instructions': 'This file contains merge records. The parser will automatically apply these merges when processing base.md.',
-            'merges': existing_merges,
-            'total_merges': len(existing_merges),
-            'last_updated': data.get('last_updated')
-        }
-
-        with open(merge_log_path, 'w', encoding='utf-8') as f:
-            json.dump(merge_log, f, ensure_ascii=False, indent=2)
-
-        print(f"[OK] Saved merge log: {len(existing_merges)} total merges")
 
     def save_genealogy_data(self, data):
         """Save complete genealogy data to data/genealogy_new_model.json"""
@@ -110,16 +70,29 @@ class GenealogyRepository:
         max_id = max([int(p['id'][2:]) for p in places.values()], default=0) if places else 0
         new_place_id = f"PL{(max_id + 1):04d}"
         if house_number is None:
+            # Canonical field set/order (normalize_data_schema.py) - written
+            # here so add_person/update_person keep producing the same closed
+            # shape as the normalized data file, rather than reintroducing
+            # missing-key drift on every new place (see JAVA_MIGRATION.md's
+            # Phase 0 addendum, and the golden-fixture regen this required).
             places[new_place_id] = {
                 'id': new_place_id,
                 'name': place_name,
+                'parish_name': None,
+                'house_number': None,
                 'type': 'settlement'
             }
         else:
+            # Same canonical-shape fix as the house_number-is-None branch
+            # above (parish_name/type as null) - see JAVA_MIGRATION.md's
+            # `resolve_place` Phase 0 addendum, closed for this branch
+            # while porting step 3 (add-event).
             places[new_place_id] = {
                 'id': new_place_id,
                 'name': place_name,
-                'house_number': house_number
+                'parish_name': None,
+                'house_number': house_number,
+                'type': None
             }
         print(f"  [OK] Created new place: {new_place_id} - {place_name}")
         return new_place_id
@@ -128,6 +101,24 @@ class GenealogyRepository:
         if not event_data.get('place_name'):
             return None
         return self.resolve_place(places, event_data['place_name'], event_data.get('house_number', ''))
+
+    def normalize_date(self, date_value):
+        """Ensures a date dict always carries all four canonical keys
+        (year/month/day = None if absent, circa = False if absent), the
+        same shape normalize_data_schema.py's DATE_FIELDS pass enforces at
+        rest. add_event/update_event store event_data['date'] as sent by
+        the client, which (e.g. web/event-editor.js) omits 'circa'
+        entirely - closed here for add_event while porting step 3, and for
+        update_event while porting step 4, so Python and Java write the
+        same shape going forward. Returns None unchanged."""
+        if date_value is None:
+            return None
+        return {
+            'year': date_value.get('year'),
+            'month': date_value.get('month'),
+            'day': date_value.get('day'),
+            'circa': bool(date_value.get('circa', False)),
+        }
 
     def find_birth_event_for_person(self, events, event_participations, person_id):
         """Find birth event where person is the child"""
@@ -193,10 +184,13 @@ class GenealogyRepository:
                     'type': 'marriage',
                     'date': None,
                     'place_id': None,
+                    'content': '',
                     'description': f"Marriage of {father['first_name']} {father['last_name']} and {mother['first_name']} {mother['last_name']}",
+                    'title': None,
+                    'source': None,
+                    'notes': f'Auto-generated from birth event {birth_event_id} (Step 30)',
                     'tags': [],
-                    'links': [],
-                    'notes': f'Auto-generated from birth event {birth_event_id} (Step 30)'
+                    'links': []
                 }
 
                 # Add both parents as participants
@@ -230,8 +224,8 @@ class GenealogyRepository:
             # Create person object with NEW model fields
             new_person = {
                 'id': new_id,
-                'first_name': person_data.get('given_name', person_data.get('first_name', '')),
-                'last_name': person_data.get('surname', person_data.get('last_name', '')),
+                'first_name': person_data.get('given_name', ''),
+                'last_name': person_data.get('surname', ''),
                 'gender': person_data.get('gender', 'U'),
                 'maiden_name': person_data.get('maiden_name'),
                 'occupation': person_data.get('occupation', person_data.get('occupations')),
@@ -241,16 +235,12 @@ class GenealogyRepository:
 
             # Handle birth date (used for event creation only, not stored on person)
             birth_date = None
-            if 'birth_date' in person_data and person_data['birth_date']:
-                birth_date = person_data['birth_date']
-            elif 'birth_year_estimate' in person_data and person_data['birth_year_estimate']:
+            if person_data.get('birth_year_estimate'):
                 birth_date = {'year': person_data['birth_year_estimate'], 'month': None, 'day': None, 'circa': True}
 
             # Handle death date (used for event creation only, not stored on person)
             death_date = None
-            if 'death_date' in person_data and person_data['death_date']:
-                death_date = person_data['death_date']
-            elif 'death_year_estimate' in person_data and person_data['death_year_estimate']:
+            if person_data.get('death_year_estimate'):
                 death_date = {'year': person_data['death_year_estimate'], 'month': None, 'day': None, 'circa': True}
 
             # Add person to data
@@ -265,15 +255,23 @@ class GenealogyRepository:
             if person_data.get('place_of_birth'):
                 place_id = self.resolve_place(places, person_data['place_of_birth'])
 
+            # Canonical field set/order (normalize_data_schema.py) - see
+            # JAVA_MIGRATION.md's `resolve_place`/event-shape addendum: a
+            # typed Java Event always serializes every field, so this must
+            # write the full canonical shape (content/title/source as null)
+            # rather than omitting keys, or step 2's port can't round-trip.
             birth_event = {
                 'id': birth_event_id,
                 'type': 'birth',
                 'date': birth_date,
                 'place_id': place_id,
+                'content': None,
                 'description': f"Birth of {new_person['first_name']} {new_person['last_name']}",
+                'title': None,
+                'source': None,
+                'notes': 'Auto-generated from person creation',
                 'tags': [],
-                'links': [],
-                'notes': 'Auto-generated from person creation'
+                'links': []
             }
             events[birth_event_id] = birth_event
 
@@ -302,10 +300,13 @@ class GenealogyRepository:
                     'type': 'death',
                     'date': death_date,
                     'place_id': place_id,
+                    'content': None,
                     'description': f"Death of {new_person['first_name']} {new_person['last_name']}",
+                    'title': None,
+                    'source': None,
+                    'notes': 'Auto-generated from person creation',
                     'tags': [],
-                    'links': [],
-                    'notes': 'Auto-generated from person creation'
+                    'links': []
                 }
                 events[death_event_id] = death_event
 
@@ -413,10 +414,13 @@ class GenealogyRepository:
                             'type': 'birth',
                             'date': person_data.get('birth_date'),
                             'place_id': place_id,
+                            'content': None,
                             'description': f"Birth of {person['first_name']} {person['last_name']}",
+                            'title': None,
+                            'source': None,
+                            'notes': 'Auto-generated from person update',
                             'tags': [],
-                            'links': [],
-                            'notes': 'Auto-generated from person update'
+                            'links': []
                         }
 
                         # Add person as child
@@ -464,10 +468,13 @@ class GenealogyRepository:
                             'type': 'death',
                             'date': person_data.get('death_date'),
                             'place_id': place_id,
+                            'content': None,
                             'description': f"Death of {person['first_name']} {person['last_name']}",
+                            'title': None,
+                            'source': None,
+                            'notes': 'Auto-generated from person update',
                             'tags': [],
-                            'links': [],
-                            'notes': 'Auto-generated from person update'
+                            'links': []
                         }
 
                         # Add person as deceased
@@ -670,10 +677,13 @@ class GenealogyRepository:
                         'type': 'birth',
                         'date': None,
                         'place_id': None,
+                        'content': None,
                         'description': f"Birth of {child['first_name']} {child['last_name']}",
+                        'title': None,
+                        'source': None,
+                        'notes': 'Auto-generated from relationship addition',
                         'tags': [],
-                        'links': [],
-                        'notes': 'Auto-generated from relationship addition'
+                        'links': []
                     }
                     # Add child as participant
                     ep_id = self.get_next_event_participation_id(event_participations)
@@ -720,10 +730,13 @@ class GenealogyRepository:
                         'type': 'birth',
                         'date': None,
                         'place_id': None,
+                        'content': None,
                         'description': f"Birth of {child['first_name']} {child['last_name']}",
+                        'title': None,
+                        'source': None,
+                        'notes': 'Auto-generated from relationship addition',
                         'tags': [],
-                        'links': [],
-                        'notes': 'Auto-generated from relationship addition'
+                        'links': []
                     }
                     # Add child as participant
                     ep_id = self.get_next_event_participation_id(event_participations)
@@ -770,10 +783,13 @@ class GenealogyRepository:
                         'type': 'marriage',
                         'date': None,
                         'place_id': None,
+                        'content': None,
                         'description': f"Marriage of {person1['first_name']} {person1['last_name']} and {person2['first_name']} {person2['last_name']}",
+                        'title': None,
+                        'source': None,
+                        'notes': 'Auto-generated from relationship addition',
                         'tags': [],
-                        'links': [],
-                        'notes': 'Auto-generated from relationship addition'
+                        'links': []
                     }
 
                     # Add both as participants
@@ -810,10 +826,13 @@ class GenealogyRepository:
                         'type': 'birth',
                         'date': None,
                         'place_id': None,
+                        'content': None,
                         'description': f"Birth of {child['first_name']} {child['last_name']}",
+                        'title': None,
+                        'source': None,
+                        'notes': 'Auto-generated from relationship addition',
                         'tags': [],
-                        'links': [],
-                        'notes': 'Auto-generated from relationship addition'
+                        'links': []
                     }
                     # Add child as participant
                     ep_id = self.get_next_event_participation_id(event_participations)
@@ -876,17 +895,25 @@ class GenealogyRepository:
             # Handle place
             place_id = self.handle_place(places, event_data)
 
-            # Create event
+            # Create event. Canonical field set/order
+            # (normalize_data_schema.py) - this literal was previously
+            # missing 'description'/'source' entirely (see
+            # JAVA_MIGRATION.md's Phase 0 addendum on add_event's event
+            # shape) and stored event_data['date'] unnormalized (missing
+            # 'circa' - see the date-shape addendum). Both closed here
+            # while porting step 3.
             new_event = {
                 'id': event_id,
                 'type': event_data['type'],
-                'title': event_data.get('title', None),
-                'date': event_data['date'],
+                'date': self.normalize_date(event_data['date']),
                 'place_id': place_id,
                 'content': '',  # Will be generated from participants
+                'description': None,
+                'title': event_data.get('title', None),
+                'source': None,
+                'notes': event_data.get('notes', ''),
                 'tags': event_data.get('tags', []),
-                'links': event_data.get('links', []),
-                'notes': event_data.get('notes', '')
+                'links': event_data.get('links', [])
             }
 
             events[event_id] = new_event
@@ -920,13 +947,19 @@ class GenealogyRepository:
                     role_gender_map = {'groom': 'M', 'bride': 'F', 'father': 'M', 'mother': 'F'}
                     inferred_gender = participant.get('gender') or role_gender_map.get(participant.get('role'), 'U')
 
+                    # Canonical field set/order (normalize_data_schema.py) -
+                    # this literal (and parent_person below) was previously
+                    # missing 'tags'/'notes' entirely (see JAVA_MIGRATION.md's
+                    # Phase 0 addendum on add_event's person literals).
                     new_person = {
                         'id': person_id,
                         'first_name': participant['first_name'],
                         'last_name': participant['last_name'],
-                        'maiden_name': participant.get('maiden_name'),
                         'gender': inferred_gender,
-                        'occupation': participant.get('occupation')
+                        'maiden_name': participant.get('maiden_name'),
+                        'occupation': participant.get('occupation'),
+                        'tags': [],
+                        'notes': None
                     }
 
                     persons[person_id] = new_person
@@ -950,9 +983,11 @@ class GenealogyRepository:
                                     'id': parent_id,
                                     'first_name': parent_data['first_name'],
                                     'last_name': parent_data['last_name'],
-                                    'maiden_name': parent_data.get('maiden_name'),
                                     'gender': 'F' if parent_type == 'mother' else 'M',
-                                    'occupation': None
+                                    'maiden_name': parent_data.get('maiden_name'),
+                                    'occupation': None,
+                                    'tags': [],
+                                    'notes': None
                                 }
 
                                 persons[parent_id] = parent_person
@@ -1019,11 +1054,13 @@ class GenealogyRepository:
                             'type': 'birth',
                             'date': birth_date,
                             'place_id': None,
+                            'content': '',
                             'description': f"Birth of {new_person['first_name']} {new_person['last_name']}",
-                            'tags': [],
-                            'links': [],
+                            'title': None,
+                            'source': None,
                             'notes': 'Auto-generated from event participation',
-                            'content': ''
+                            'tags': [],
+                            'links': []
                         }
                         events[birth_event_id] = birth_event
 
@@ -1065,11 +1102,13 @@ class GenealogyRepository:
                             'type': 'marriage',
                             'date': None,
                             'place_id': None,
+                            'content': '',
                             'description': f"Marriage of {father['first_name']} {father['last_name']} and {mother['first_name']} {mother['last_name']}",
-                            'tags': [],
-                            'links': [],
+                            'title': None,
+                            'source': None,
                             'notes': 'Auto-generated from child birth event',
-                            'content': ''
+                            'tags': [],
+                            'links': []
                         }
                         events[marriage_event_id] = marriage_event
 
@@ -1189,7 +1228,7 @@ class GenealogyRepository:
             event = events[event_id]
             event['type'] = event_data['type']
             event['title'] = event_data.get('title', None)
-            event['date'] = event_data['date']
+            event['date'] = self.normalize_date(event_data['date'])
             event['tags'] = event_data.get('tags', [])
             event['links'] = event_data.get('links', [])
             event['notes'] = event_data.get('notes', '')
@@ -1236,7 +1275,9 @@ class GenealogyRepository:
                         'last_name': participant['last_name'],
                         'maiden_name': participant.get('maiden_name'),
                         'gender': inferred_gender,
-                        'occupation': participant.get('occupation')
+                        'occupation': participant.get('occupation'),
+                        'tags': [],
+                        'notes': None
                     }
 
                     persons[person_id] = new_person
@@ -1262,7 +1303,9 @@ class GenealogyRepository:
                                     'last_name': parent_data['last_name'],
                                     'maiden_name': parent_data.get('maiden_name'),
                                     'gender': 'F' if parent_type == 'mother' else 'M',
-                                    'occupation': None
+                                    'occupation': None,
+                                    'tags': [],
+                                    'notes': None
                                 }
 
                                 persons[parent_id] = parent_person
@@ -1330,11 +1373,13 @@ class GenealogyRepository:
                             'type': 'birth',
                             'date': birth_date,
                             'place_id': None,
+                            'content': '',
                             'description': f"Birth of {new_person['first_name']} {new_person['last_name']}",
-                            'tags': [],
-                            'links': [],
+                            'title': None,
+                            'source': None,
                             'notes': 'Auto-generated from event participation',
-                            'content': ''
+                            'tags': [],
+                            'links': []
                         }
                         events[birth_event_id] = birth_event
 
@@ -1376,11 +1421,13 @@ class GenealogyRepository:
                             'type': 'marriage',
                             'date': None,
                             'place_id': None,
+                            'content': '',
                             'description': f"Marriage of {father['first_name']} {father['last_name']} and {mother['first_name']} {mother['last_name']}",
-                            'tags': [],
-                            'links': [],
+                            'title': None,
+                            'source': None,
                             'notes': 'Auto-generated from child birth event',
-                            'content': ''
+                            'tags': [],
+                            'links': []
                         }
                         events[marriage_event_id] = marriage_event
 
@@ -1551,11 +1598,13 @@ class GenealogyRepository:
                         'type': 'birth',
                         'date': None,
                         'place_id': None,
+                        'content': '',
                         'description': f"Birth of {child.get('first_name', '')} {child.get('last_name', '')}",
-                        'tags': [],
-                        'links': [],
+                        'title': None,
+                        'source': None,
                         'notes': 'Auto-generated for parent synchronization',
-                        'content': ''
+                        'tags': [],
+                        'links': []
                     }
                     events[birth_event_id] = birth_event
 
@@ -1659,10 +1708,13 @@ class GenealogyRepository:
                                 'circa': True
                             },
                             'place_id': None,
-                            'content': f"Birth of {person.get('first_name', '')} {person.get('last_name', '')}",
+                            'content': '',
+                            'description': f"Birth of {person.get('first_name', '')} {person.get('last_name', '')}",
+                            'title': None,
+                            'source': None,
+                            'notes': f'Auto-generated from age {age} in event {event_id}',
                             'tags': [],
-                            'links': [],
-                            'notes': f'Auto-generated from age {age} in event {event_id}'
+                            'links': []
                         }
 
                         # Add person as child

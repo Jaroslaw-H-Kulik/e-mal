@@ -2,8 +2,8 @@
 """
 HTTP server for the genealogy editor: routes GET/POST requests, serves
 static files from web/, and delegates genealogy data logic to
-app.genealogy_repository.GenealogyRepository. GEDCOM lookup, the Geneteka
-proxy, and document management remain in this file for now.
+app.genealogy_repository.GenealogyRepository. The Geneteka proxy and
+document management remain in this file for now.
 """
 
 import base64
@@ -53,18 +53,6 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
             self.wfile.write(json.dumps(response_data, ensure_ascii=False).encode('utf-8'))
             return
 
-        if self.path.startswith('/api/gedcom-person/'):
-            # Extract person ID from path
-            person_id = self.path.split('/')[-1]
-            response_data = self.get_gedcom_person(person_id)
-
-            self.send_response(200)
-            self.send_header('Content-type', 'application/json')
-            self.send_header('Access-Control-Allow-Origin', '*')
-            self.end_headers()
-            self.wfile.write(json.dumps(response_data).encode('utf-8'))
-            return
-
         # Default to serving from web/ directory
         if self.path == '/':
             self.path = '/web/index.html'
@@ -85,16 +73,11 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
             data = json.loads(post_data.decode('utf-8'))
 
             # Handle different endpoints
-            if self.path == '/api/save-merge-log':
-                genealogy_repo.save_merge_log(data)
-                response_data = {'status': 'success', 'message': 'Data saved successfully'}
-            elif self.path == '/api/save-data':
+            if self.path == '/api/save-data':
                 genealogy_repo.save_genealogy_data(data)
                 response_data = {'status': 'success', 'message': 'Data saved successfully'}
             elif self.path == '/api/add-person':
                 response_data = genealogy_repo.add_person(data)
-            elif self.path == '/api/gedcom-lookup':
-                response_data = self.gedcom_lookup(data)
             elif self.path == '/api/add-relationship':
                 response_data = genealogy_repo.add_relationship(data)
             elif self.path == '/api/add-event':
@@ -149,214 +132,6 @@ class GenealogyServerHandler(SimpleHTTPRequestHandler):
         self.send_header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS')
         self.send_header('Access-Control-Allow-Headers', 'Content-Type')
         self.end_headers()
-
-    def gedcom_lookup(self, search_data):
-        """Search for persons in converted GEDCOM data with full details"""
-        try:
-            search_term = search_data.get('search', '').strip().lower()
-            if not search_term:
-                return {'success': False, 'error': 'No search term provided'}
-
-            # Load converted GEDCOM JSON data
-            gedcom_json_path = 'data/gedcom_model.json'
-            if not os.path.exists(gedcom_json_path):
-                return {'success': False, 'error': 'GEDCOM data file not found. Run convert_gedcom_to_model.py first.'}
-
-            with open(gedcom_json_path, 'r', encoding='utf-8') as f:
-                gedcom_data = json.load(f)
-
-            gedcom_persons = gedcom_data['persons']
-            gedcom_events = gedcom_data['events']
-            gedcom_participations = gedcom_data['event_participations']
-            gedcom_places = gedcom_data.get('places', {})
-
-            # Build helper indexes
-            # Index: person_id -> list of event_participations
-            person_to_events = {}
-            for ep_id, ep in gedcom_participations.items():
-                person_id = ep['person_id']
-                if person_id not in person_to_events:
-                    person_to_events[person_id] = []
-                person_to_events[person_id].append(ep)
-
-            # Search for matching persons (fuzzy matching)
-            matches = []
-            search_parts = search_term.split()  # Split search into parts
-
-            for person_id, person in gedcom_persons.items():
-                first_name = person.get('first_name', '').lower()
-                last_name = person.get('last_name', '').lower()
-                full_name = f"{first_name} {last_name}"
-
-                # Check if search term matches: all parts must be found in either first or last name
-                match = True
-                for part in search_parts:
-                    if not (part in first_name or part in last_name or part in full_name):
-                        match = False
-                        break
-
-                if match:
-                    # Extract year and place from birth/death dates
-                    birth_year = person.get('birth_date', {}).get('year') if person.get('birth_date') else None
-                    death_year = person.get('death_date', {}).get('year') if person.get('death_date') else None
-
-                    # Find birth and death places from events
-                    birth_place = None
-                    death_place = None
-                    parents = {'father': None, 'mother': None}
-                    children = []
-                    spouses = []
-                    all_events = []
-
-                    person_events = person_to_events.get(person_id, [])
-                    for ep in person_events:
-                        event = gedcom_events.get(ep['event_id'])
-                        if not event:
-                            continue
-
-                        event_info = {
-                            'id': event['id'],
-                            'type': event['type'],
-                            'date': event.get('date'),
-                            'place': gedcom_places.get(event.get('place_id'), {}).get('name') if event.get('place_id') else None
-                        }
-
-                        # Get birth event and place
-                        if event['type'] == 'birth' and ep['role'] == 'child':
-                            if event.get('place_id'):
-                                place = gedcom_places.get(event['place_id'])
-                                if place:
-                                    birth_place = place.get('name')
-
-                            # Find parents in this birth event
-                            for other_ep in gedcom_participations.values():
-                                if other_ep['event_id'] == event['id']:
-                                    if other_ep['role'] == 'father':
-                                        father = gedcom_persons.get(other_ep['person_id'])
-                                        if father:
-                                            parents['father'] = {
-                                                'id': other_ep['person_id'],
-                                                'name': f"{father.get('first_name', '')} {father.get('last_name', '')}".strip()
-                                            }
-                                    elif other_ep['role'] == 'mother':
-                                        mother = gedcom_persons.get(other_ep['person_id'])
-                                        if mother:
-                                            parents['mother'] = {
-                                                'id': other_ep['person_id'],
-                                                'name': f"{mother.get('first_name', '')} {mother.get('last_name', '')}".strip()
-                                            }
-
-                        # Get death event and place
-                        elif event['type'] == 'death' and ep['role'] == 'deceased':
-                            if event.get('place_id'):
-                                place = gedcom_places.get(event['place_id'])
-                                if place:
-                                    death_place = place.get('name')
-
-                        # Get children (birth events where this person is parent)
-                        elif event['type'] == 'birth' and ep['role'] in ['father', 'mother']:
-                            for other_ep in gedcom_participations.values():
-                                if other_ep['event_id'] == event['id'] and other_ep['role'] == 'child':
-                                    child = gedcom_persons.get(other_ep['person_id'])
-                                    if child:
-                                        child_info = {
-                                            'id': other_ep['person_id'],
-                                            'name': f"{child.get('first_name', '')} {child.get('last_name', '')}".strip()
-                                        }
-                                        if child_info not in children:
-                                            children.append(child_info)
-
-                        # Get spouses (marriage events)
-                        elif event['type'] == 'marriage' and ep['role'] in ['groom', 'bride']:
-                            for other_ep in gedcom_participations.values():
-                                if other_ep['event_id'] == event['id'] and other_ep['role'] in ['groom', 'bride'] and other_ep['person_id'] != person_id:
-                                    spouse = gedcom_persons.get(other_ep['person_id'])
-                                    if spouse:
-                                        spouse_info = {
-                                            'id': other_ep['person_id'],
-                                            'name': f"{spouse.get('first_name', '')} {spouse.get('last_name', '')}".strip()
-                                        }
-                                        if spouse_info not in spouses:
-                                            spouses.append(spouse_info)
-
-                        all_events.append(event_info)
-
-                    # Build match result with comprehensive data
-                    match = {
-                        'gedcom_id': person_id,
-                        'given_name': person.get('first_name', ''),
-                        'surname': person.get('last_name', ''),
-                        'maiden_name': person.get('maiden_name'),
-                        'gender': person.get('gender', ''),
-                        'birth_year': birth_year,
-                        'death_year': death_year,
-                        'birth_place': birth_place,
-                        'death_place': death_place,
-                        'occupation': person.get('occupation'),
-                        'birth_year_estimate': birth_year,  # For compatibility
-                        'death_year_estimate': death_year,  # For compatibility
-                        'father_name': parents['father']['name'] if parents['father'] else None,
-                        'mother_name': parents['mother']['name'] if parents['mother'] else None,
-                        'parents': parents,
-                        'children': children,
-                        'spouses': spouses,
-                        'events': all_events
-                    }
-                    matches.append(match)
-
-            # Sort by name
-            matches.sort(key=lambda x: (x.get('surname', ''), x.get('given_name', '')))
-
-            print(f"[OK] GEDCOM lookup for '{search_term}': found {len(matches)} matches")
-
-            return {
-                'success': True,
-                'matches': matches,
-                'count': len(matches)
-            }
-
-        except Exception as e:
-            print(f"[ERR] Error looking up GEDCOM: {str(e)}")
-            import traceback
-            traceback.print_exc()
-            return {
-                'success': False,
-                'error': str(e)
-            }
-
-    def get_gedcom_person(self, person_id):
-        """Get a single person from GEDCOM by ID"""
-        try:
-            # Load GEDCOM data
-            with open('data/gedcom_model.json', 'r', encoding='utf-8') as f:
-                gedcom_data = json.load(f)
-
-            gedcom_persons = gedcom_data.get('persons', {})
-
-            if person_id not in gedcom_persons:
-                return {
-                    'success': False,
-                    'error': f'Person {person_id} not found in GEDCOM'
-                }
-
-            person = gedcom_persons[person_id]
-
-            print(f"[OK] Fetched GEDCOM person: {person_id}")
-
-            return {
-                'success': True,
-                'person': person
-            }
-
-        except Exception as e:
-            print(f"[ERR] Error fetching GEDCOM person: {str(e)}")
-            import traceback
-            traceback.print_exc()
-            return {
-                'success': False,
-                'error': str(e)
-            }
-
 
     def geneteka_import(self, first_name, last_name, record_type='birth'):
         """Proxy request to Geneteka API and return parsed records (birth/marriage/death)"""

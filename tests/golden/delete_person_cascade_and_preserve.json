@@ -55,6 +55,9 @@
         "E0004": {
           "content": "świadkowie: Franciszek Zarzycki (60), Krzysztof Słyk (60), Wojciech Surdey (ojciec Jana, dziadek Brygidy)",
           "date": {
+            "circa": false,
+            "day": null,
+            "month": null,
             "year": 1828
           },
           "description": null,

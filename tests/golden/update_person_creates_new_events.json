@@ -21,6 +21,7 @@
     "events": {
       "added": {
         "E_NEW_1": {
+          "content": null,
           "date": {
             "circa": true,
             "day": null,
@@ -32,10 +33,13 @@
           "links": [],
           "notes": "Auto-generated from person update",
           "place_id": "PL_NEW_1",
+          "source": null,
           "tags": [],
+          "title": null,
           "type": "birth"
         },
         "E_NEW_2": {
+          "content": null,
           "date": {
             "circa": true,
             "day": null,
@@ -47,7 +51,9 @@
           "links": [],
           "notes": "Auto-generated from person update",
           "place_id": "PL_NEW_2",
+          "source": null,
           "tags": [],
+          "title": null,
           "type": "death"
         }
       },
@@ -62,13 +68,17 @@
     "places": {
       "added": {
         "PL_NEW_1": {
+          "house_number": null,
           "id": "PL_NEW_1",
           "name": "UpdatePersonTestBirthPlace",
+          "parish_name": null,
           "type": "settlement"
         },
         "PL_NEW_2": {
+          "house_number": null,
           "id": "PL_NEW_2",
           "name": "UpdatePersonTestDeathPlace",
+          "parish_name": null,
           "type": "settlement"
         }
       },

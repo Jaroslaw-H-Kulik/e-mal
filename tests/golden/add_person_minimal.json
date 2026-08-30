@@ -15,13 +15,16 @@
     "events": {
       "added": {
         "E_NEW_1": {
+          "content": null,
           "date": null,
           "description": "Birth of TestMinimal Fixture",
           "id": "E_NEW_1",
           "links": [],
           "notes": "Auto-generated from person creation",
           "place_id": null,
+          "source": null,
           "tags": [],
+          "title": null,
           "type": "birth"
         }
       },
@@ -57,13 +60,16 @@
     "message": "Successfully added person P_NEW_1",
     "new_events": {
       "E_NEW_1": {
+        "content": null,
         "date": null,
         "description": "Birth of TestMinimal Fixture",
         "id": "E_NEW_1",
         "links": [],
         "notes": "Auto-generated from person creation",
         "place_id": null,
+        "source": null,
         "tags": [],
+        "title": null,
         "type": "birth"
       }
     },

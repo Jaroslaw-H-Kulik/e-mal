@@ -50,6 +50,7 @@
           "after": {
             "content": "deceased: Salomea Surdey, witness: Onufry Zatorski, witness: Piotr Kleczaj",
             "date": {
+              "circa": false,
               "day": 7,
               "month": 2,
               "year": 1831
@@ -69,6 +70,7 @@
           "before": {
             "content": "świadkowie: Onufry Zatorski  (32) i Tomasz Kiełek (46), Salomea Surdey (Niewczas) (córka Józefa, żona Wojciecha, wyrobnica, 80 lat), dom 21",
             "date": {
+              "circa": false,
               "day": 7,
               "month": 2,
               "year": 1831
@@ -104,6 +106,7 @@
     "event": {
       "content": "deceased: Salomea Surdey, witness: Onufry Zatorski, witness: Piotr Kleczaj",
       "date": {
+        "circa": false,
         "day": 7,
         "month": 2,
         "year": 1831

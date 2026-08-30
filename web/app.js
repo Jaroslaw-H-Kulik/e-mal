@@ -9,7 +9,6 @@ class GenealogyApp {
         this.network = null;
         this.currentView = 'all';
         this.selectedPerson = null;
-        this.currentModel = 'internal'; // 'internal' or 'gedcom'
 
         // Step 36/38: Geneteka import queue state
         this.genetikaImportQueue = [];
@@ -98,8 +97,6 @@ class GenealogyApp {
         this.setupEventListeners();
         this.createNetwork();
         this.updateStats();
-        this.updateModelCounts();
-        this.updateEditorButtons();
         this.hideLoading();
 
         // Handle URL-based person/document selection or default to P0264
@@ -108,12 +105,8 @@ class GenealogyApp {
 
     async loadData() {
         try {
-            // Load selected model with cache-busting to ensure fresh data
-            const modelFile = this.currentModel === 'gedcom'
-                ? 'gedcom_model.json'
-                : 'genealogy_new_model.json';
-
-            const response = await fetch(`/data/${modelFile}?t=${Date.now()}`);
+            // Cache-busting to ensure fresh data
+            const response = await fetch(`/data/genealogy_new_model.json?t=${Date.now()}`);
             const data = await response.json();
 
             // Update data structure references
@@ -194,73 +187,6 @@ class GenealogyApp {
         console.log('Indices built');
     }
 
-    async switchModel(modelType) {
-        if (this.currentModel === modelType) return;
-
-        // Show loading indicator
-        document.getElementById('network-container').innerHTML = '<div style="display: flex; align-items: center; justify-content: center; height: 100%; font-size: 1.2rem; color: #666;">Loading model...</div>';
-
-        // Update model type
-        this.currentModel = modelType;
-
-        // Update tab UI
-        document.getElementById('model-tab-internal').classList.toggle('active', modelType === 'internal');
-        document.getElementById('model-tab-gedcom').classList.toggle('active', modelType === 'gedcom');
-
-        // Clear selected person
-        this.selectedPerson = null;
-        document.getElementById('person-details').innerHTML = `
-            <div class="empty-state">
-                <div class="empty-icon">👤</div>
-                <p>Click on a person in the network to view details</p>
-            </div>`;
-
-        // Reload data
-        await this.loadData();
-
-        // Rebuild UI
-        this.setupUI();
-        this.createNetwork();
-        this.updateModelCounts();
-
-        // Disable/enable editor buttons based on model
-        this.updateEditorButtons();
-
-        console.log(`Switched to ${modelType} model`);
-    }
-
-    updateModelCounts() {
-        const internalCount = document.getElementById('internal-count');
-        const gedcomCount = document.getElementById('gedcom-count');
-
-        if (this.currentModel === 'internal') {
-            internalCount.textContent = `(${Object.keys(this.persons).length} persons)`;
-            gedcomCount.textContent = '';
-        } else {
-            gedcomCount.textContent = `(${Object.keys(this.persons).length} persons)`;
-            internalCount.textContent = '';
-        }
-    }
-
-    updateEditorButtons() {
-        // Disable editor buttons when viewing GEDCOM model (read-only)
-        const isReadOnly = this.currentModel === 'gedcom';
-        const editorButtons = document.querySelectorAll('.toolbar button');
-
-        editorButtons.forEach(button => {
-            if (button.id !== 'reset-btn' && button.id !== 'search-btn') {
-                button.disabled = isReadOnly;
-                button.style.opacity = isReadOnly ? '0.5' : '1';
-                button.style.cursor = isReadOnly ? 'not-allowed' : 'pointer';
-                if (isReadOnly) {
-                    button.title = 'Editing disabled in GEDCOM view';
-                } else {
-                    button.title = '';
-                }
-            }
-        });
-    }
-
     setupUI() {
         // Populate surname filter
         const surnames = new Set();
@@ -312,9 +238,6 @@ class GenealogyApp {
         document.getElementById('search-input').addEventListener('keypress', (e) => {
             if (e.key === 'Enter') this.handleSearch();
         });
-
-        // Reset view
-        document.getElementById('reset-btn').addEventListener('click', () => this.resetView());
 
         // View controls
         document.getElementById('view-all-btn').addEventListener('click', () => this.changeView('all'));
@@ -1619,44 +1542,6 @@ class GenealogyApp {
         });
 
         this.network.stabilize();
-    }
-
-    resetView() {
-        // Clear search
-        document.getElementById('search-input').value = '';
-        document.getElementById('search-results').innerHTML = '';
-
-        // Reset filters
-        document.getElementById('filter-surname').checked = false;
-        document.getElementById('surname-select').disabled = true;
-        document.getElementById('year-from').value = '';
-        document.getElementById('year-to').value = '';
-
-        // Show all nodes and edges
-        const allNodes = this.network.body.data.nodes;
-        allNodes.forEach(node => {
-            allNodes.update({ id: node.id, hidden: false });
-        });
-
-        const allEdges = this.network.body.data.edges;
-        allEdges.forEach(edge => {
-            allEdges.update({ id: edge.id, hidden: false });
-        });
-
-        // Reset view to all
-        this.currentView = 'all';
-        document.querySelectorAll('.view-controls button').forEach(btn => {
-            btn.classList.remove('active');
-        });
-        document.getElementById('view-all-btn').classList.add('active');
-
-        // Fit network
-        this.network.fit({
-            animation: {
-                duration: 1000,
-                easingFunction: 'easeInOutQuad'
-            }
-        });
     }
 
     updateStats() {

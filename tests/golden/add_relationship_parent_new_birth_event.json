@@ -21,13 +21,16 @@
     "events": {
       "added": {
         "E_NEW_1": {
+          "content": null,
           "date": null,
           "description": "Birth of Ignacy Raczyński",
           "id": "E_NEW_1",
           "links": [],
           "notes": "Auto-generated from relationship addition",
           "place_id": null,
+          "source": null,
           "tags": [],
+          "title": null,
           "type": "birth"
         }
       },

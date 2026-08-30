@@ -116,15 +116,6 @@ button {
     background: #5568d3;
 }
 
-#reset-btn {
-    background: #95a5a6;
-    color: white;
-}
-
-#reset-btn:hover {
-    background: #7f8c8d;
-}
-
 .filter-options {
     display: flex;
     align-items: center;
@@ -829,27 +820,6 @@ button {
     text-align: center;
 }
 
-/* Changes Summary */
-.changes-summary {
-    background: #f8f9fa;
-    padding: 15px;
-    border-radius: 8px;
-}
-
-.changes-log {
-    list-style: none;
-    padding: 0;
-    margin-top: 15px;
-}
-
-.changes-log li {
-    padding: 10px;
-    background: white;
-    border-left: 4px solid #667eea;
-    margin-bottom: 8px;
-    border-radius: 4px;
-}
-
 /* Notifications */
 .notification {
     position: fixed;
@@ -1037,86 +1007,6 @@ button {
     width: 90%;
 }
 
-/* GEDCOM Lookup Section */
-.gedcom-lookup-section {
-    background: #f8f9fa;
-    padding: 20px;
-    border-radius: 8px;
-    margin-bottom: 30px;
-    border: 2px solid #dee2e6;
-}
-
-#gedcom-lookup-results {
-    margin-top: 15px;
-}
-
-.gedcom-result-item {
-    background: white;
-    border: 2px solid #dee2e6;
-    border-radius: 8px;
-    padding: 15px;
-    margin-bottom: 10px;
-    transition: all 0.2s;
-}
-
-.gedcom-result-item:hover {
-    border-color: #667eea;
-    box-shadow: 0 2px 8px rgba(102, 126, 234, 0.2);
-}
-
-.gedcom-result-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 10px;
-}
-
-.gedcom-result-name {
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: #333;
-}
-
-.gedcom-result-details {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-    font-size: 0.95rem;
-    color: #666;
-}
-
-.gedcom-result-detail {
-    display: flex;
-    gap: 5px;
-}
-
-.gedcom-result-detail strong {
-    color: #333;
-    min-width: 100px;
-}
-
-.gedcom-no-results {
-    text-align: center;
-    padding: 20px;
-    color: #666;
-    font-style: italic;
-}
-
-.btn-select-gedcom {
-    background: #667eea;
-    color: white;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 0.9rem;
-    transition: background 0.2s;
-}
-
-.btn-select-gedcom:hover {
-    background: #5568d3;
-}
-
 /* Add Relationship Modal */
 .relationship-type-btn {
     padding: 20px;
@@ -1279,33 +1169,3 @@ button {
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
-/* Model Switcher Tabs */
-.model-tab {
-    padding: 10px 20px;
-    background: white;
-    border: 2px solid #e0e0e0;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 0.95rem;
-    font-weight: 500;
-    transition: all 0.2s;
-    color: #555;
-}
-
-.model-tab:hover {
-    background: #f0f4ff;
-    border-color: #667eea;
-    transform: translateY(-1px);
-}
-
-.model-tab.active {
-    background: #667eea;
-    color: white;
-    border-color: #667eea;
-    box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
-}
-
-.model-tab.active:hover {
-    background: #5568d3;
-    transform: translateY(0);
-}

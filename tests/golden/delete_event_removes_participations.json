@@ -31,6 +31,9 @@
         "E0055": {
           "content": "Franciszek Przyrowski (44, młynarz w Mircu) i Tekla z d. Szmit -  świadkowie: Józef Pogodzieński (29, młynarz w Tychowie) i Ambroży Dymiński (71, dziad szpitalny) - chrzestni: J.P. i Agnieszka Nosowicz. Ur: Anastazja - Mirzec",
           "date": {
+            "circa": false,
+            "day": null,
+            "month": null,
             "year": 1855
           },
           "description": null,

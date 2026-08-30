@@ -83,7 +83,9 @@
           "links": [],
           "notes": "Auto-generated from child birth event",
           "place_id": null,
+          "source": null,
           "tags": [],
+          "title": null,
           "type": "marriage"
         }
       },
@@ -92,14 +94,17 @@
           "after": {
             "content": "witness: Petronella Surdey, witness: Anna Morawińska, child: TestChild7 Fixture",
             "date": {
+              "circa": false,
               "day": null,
               "month": null,
               "year": 1884
             },
+            "description": null,
             "id": "E_NEW_1",
             "links": [],
             "notes": "Layer 1 golden-master test fixture (setup)",
             "place_id": null,
+            "source": null,
             "tags": [],
             "title": null,
             "type": "birth"
@@ -107,14 +112,17 @@
           "before": {
             "content": "child: Adam Wolski, witness: Petronella Surdey, witness: Anna Morawińska",
             "date": {
+              "circa": false,
               "day": null,
               "month": null,
               "year": 1884
             },
+            "description": null,
             "id": "E_NEW_1",
             "links": [],
             "notes": "Layer 1 golden-master test fixture (setup)",
             "place_id": null,
+            "source": null,
             "tags": [],
             "title": null,
             "type": "birth"
@@ -131,7 +139,9 @@
           "id": "P_NEW_1",
           "last_name": "Fixture",
           "maiden_name": null,
-          "occupation": null
+          "notes": null,
+          "occupation": null,
+          "tags": []
         },
         "P_NEW_2": {
           "first_name": "TestMother7",
@@ -139,7 +149,9 @@
           "id": "P_NEW_2",
           "last_name": "Fixture",
           "maiden_name": null,
-          "occupation": null
+          "notes": null,
+          "occupation": null,
+          "tags": []
         },
         "P_NEW_3": {
           "first_name": "TestFather7",
@@ -147,7 +159,9 @@
           "id": "P_NEW_3",
           "last_name": "Fixture",
           "maiden_name": null,
-          "occupation": null
+          "notes": null,
+          "occupation": null,
+          "tags": []
         }
       },
       "changed": {},
@@ -163,14 +177,17 @@
     "event": {
       "content": "witness: Petronella Surdey, witness: Anna Morawińska, child: TestChild7 Fixture",
       "date": {
+        "circa": false,
         "day": null,
         "month": null,
         "year": 1884
       },
+      "description": null,
       "id": "E_NEW_1",
       "links": [],
       "notes": "Layer 1 golden-master test fixture (setup)",
       "place_id": null,
+      "source": null,
       "tags": [],
       "title": null,
       "type": "birth"
@@ -216,7 +233,9 @@
         "id": "P_NEW_1",
         "last_name": "Fixture",
         "maiden_name": null,
-        "occupation": null
+        "notes": null,
+        "occupation": null,
+        "tags": []
       },
       {
         "first_name": "TestMother7",
@@ -224,7 +243,9 @@
         "id": "P_NEW_2",
         "last_name": "Fixture",
         "maiden_name": null,
-        "occupation": null
+        "notes": null,
+        "occupation": null,
+        "tags": []
       },
       {
         "first_name": "TestFather7",
@@ -232,7 +253,9 @@
         "id": "P_NEW_3",
         "last_name": "Fixture",
         "maiden_name": null,
-        "occupation": null
+        "notes": null,
+        "occupation": null,
+        "tags": []
       }
     ],
     "success": true

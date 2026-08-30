@@ -72,10 +72,11 @@ safety net of tests first, do the rewrite manually/incrementally afterward.
    setup only adds new files (`tests/`, `pyproject.toml`, `uv.lock`,
    `.gitignore`). Confirmed via `git status` after each step that nothing
    under `server.py`, `web/`, or `data/` changed.
-6. **geneteka-import and gedcom-lookup endpoints are explicitly out of scope
-   for now** — they don't fit the "POST then GET to verify" pattern (one
-   hits a live external site, the other reads local read-only
-   `gedcom_model.json`, neither mutates `genealogy_new_model.json`).
+6. **geneteka-import endpoint is explicitly out of scope for now** — it
+   doesn't fit the "POST then GET to verify" pattern (hits a live external
+   site, doesn't mutate `genealogy_new_model.json`). `gedcom-lookup` was in
+   the same boat but has since been removed entirely — see "Feature
+   removed: GEDCOM lookup/import" below.
 
 ## Priority order (agreed)
 
@@ -88,8 +89,8 @@ safety net of tests first, do the rewrite manually/incrementally afterward.
 4. **Layer 1** — golden-master tests for remaining endpoints (done —
    `tests/test_add_person.py`, `tests/test_update_person.py`,
    `tests/test_delete_person.py`, `tests/test_delete_event.py`; document
-   CRUD and the geneteka/gedcom-lookup endpoints remain uncovered, see
-   below). 36 tests pass total (`uv run pytest tests/`).
+   CRUD and the geneteka-import endpoint remain uncovered, see
+   below). 35 tests pass total (`uv run pytest tests/`).
 5. **Layer 3** — unit tests for near-pure helper methods, as prep for
    extracting them into a service layer (not started)
 
@@ -104,6 +105,39 @@ in `app.js`, and the CSS block in `style.css`) and its test file
 populated the queue this UI read from) is now orphaned but was left in
 place - out of scope for this pass. `add_relationship`/`/api/add-relationship`
 (a different, working, still-tested feature) was NOT touched.
+
+## Feature removed: GEDCOM lookup/import (2026-08-30)
+
+GEDCOM cross-referencing (`/api/gedcom-lookup`, `/api/gedcom-person/<id>`,
+and all of their UI - the Data Source model-switcher tabs, both "Search in
+GEDCOM" sections on the Add/Edit Person modals, and the GEDCOM
+relationship add/merge modal in `editor.js`) was removed wholesale, along
+with `data/gedcom_model.json`, `convert_gedcom_to_model.py`, and
+`enrich_from_gedcom.py`. `base.ged` (the raw export) was left in place as
+source data. The already-orphaned `generate_enrichment_queue.py` and
+`data/enrichment_queue.json` (dead since the GEDCOM Enrichment Review
+removal above) were deleted in the same pass.
+
+`add_person`'s dual-key-shape fallback (`given_name`/`first_name`,
+`birth_year_estimate`/`birth_date`) was simplified to just
+`given_name`/`birth_year_estimate` — the only caller that ever sent the
+other shape was `editor.js`'s GEDCOM "add relationship as new person"
+flow (confirmed via `tests/test_add_person.py`'s docstring); the real Add
+Person form only ever sent the first shape. `tests/golden/add_person_first_last_name_shape.json`
+and its test were removed along with it. The Java port
+(`service/PersonService.java`) was updated to match, and `JAVA_MIGRATION.md`'s
+migration order no longer lists GEDCOM endpoints/parser steps as a
+consequence.
+
+Also removed as part of the same cleanup pass (not GEDCOM-related, but
+found while auditing the toolbar): the "View Changes"/"Export Data"
+buttons and the `this.changes` in-memory edit/merge log backing them, and
+the "Reset" view button. `saveMergeLogToServer()`/`/api/save-merge-log`/
+`GenealogyRepository.save_merge_log` (an auto-save side-channel writing
+`data/merge_log.json` for `process_genealogy_v2.py` to consume on
+reparse) went with it, since it read from the same `this.changes` array
+and had no other caller. Person merging itself (`openMergeModal`/
+`executeMerge`) is untouched.
 
 ## Bugs/gaps found by the Layer 1 tests
 

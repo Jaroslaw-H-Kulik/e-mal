@@ -17,14 +17,17 @@
         "E_NEW_1": {
           "content": "participant: Marianna Jarosz",
           "date": {
+            "circa": false,
             "day": null,
             "month": null,
             "year": 1850
           },
+          "description": null,
           "id": "E_NEW_1",
           "links": [],
           "notes": "Layer 1 golden-master test fixture",
           "place_id": "PL_NEW_1",
+          "source": null,
           "tags": [],
           "title": null,
           "type": "generic"
@@ -43,7 +46,9 @@
         "PL_NEW_1": {
           "house_number": "5",
           "id": "PL_NEW_1",
-          "name": "Nowa Wies TestOnly"
+          "name": "Nowa Wies TestOnly",
+          "parish_name": null,
+          "type": null
         }
       },
       "changed": {},
@@ -54,14 +59,17 @@
     "event": {
       "content": "participant: Marianna Jarosz",
       "date": {
+        "circa": false,
         "day": null,
         "month": null,
         "year": 1850
       },
+      "description": null,
       "id": "E_NEW_1",
       "links": [],
       "notes": "Layer 1 golden-master test fixture",
       "place_id": "PL_NEW_1",
+      "source": null,
       "tags": [],
       "title": null,
       "type": "generic"

@@ -15,17 +15,6 @@
             <p class="subtitle">Parish of Grzybowa Góra (1826-1914)</p>
         </header>
 
-        <!-- Model Switcher -->
-        <div style="background: #f8f9fa; border-bottom: 2px solid #e0e0e0; padding: 10px 20px; display: flex; gap: 10px; align-items: center;">
-            <span style="font-weight: 600; color: #555; margin-right: 10px;">Data Source:</span>
-            <button id="model-tab-internal" class="model-tab active" onclick="app && app.switchModel('internal')">
-                📊 Internal Model <span id="internal-count" style="font-size: 0.85em; color: #666;"></span>
-            </button>
-            <button id="model-tab-gedcom" class="model-tab" onclick="app && app.switchModel('gedcom')">
-                📁 GEDCOM Model <span id="gedcom-count" style="font-size: 0.85em; color: #666;"></span>
-            </button>
-        </div>
-
         <!-- Editor Toolbar -->
         <div class="toolbar">
             <button class="btn-success" onclick="editor && editor.openAddPersonModal()">➕ Add Person</button>
@@ -42,10 +31,7 @@
                     onfocus="app && app.expandSearchFilters()"
                 />
                 <button id="search-btn" style="display: none;">Search</button>
-                <button id="reset-btn">↻ Reset</button>
             </div>
-            <button class="btn-secondary" onclick="editor && editor.showChangesModal()">📋 View Changes</button>
-            <button class="btn-primary" onclick="editor && editor.exportChanges()">💾 Export Data</button>
         </div>
 
         <!-- Collapsible Search Filters -->
@@ -143,20 +129,6 @@
                     <span class="close" onclick="editor && editor.closeAddPersonModal()">&times;</span>
                 </div>
                 <div class="modal-body">
-                    <!-- Lookup Section -->
-                    <div class="gedcom-lookup-section">
-                        <div style="display: flex; gap: 10px; align-items: flex-end; margin-bottom: 20px;">
-                            <div class="form-group" style="flex: 1;">
-                                <label for="lookup-name">Search in GEDCOM</label>
-                                <input type="text" id="lookup-name" placeholder="Enter given name and surname...">
-                            </div>
-                            <button type="button" class="btn-primary" onclick="editor && editor.lookupInGedcom()">
-                                🔍 Lookup in GEDCOM
-                            </button>
-                        </div>
-                        <div id="gedcom-lookup-results"></div>
-                    </div>
-
                     <!-- Form Section -->
                     <form id="add-person-form" onsubmit="editor && editor.submitAddPerson(event)">
                         <div class="form-grid">
@@ -234,20 +206,6 @@
                     <span class="close" onclick="editor && editor.closeEditModal()">&times;</span>
                 </div>
                 <div class="modal-body">
-                    <!-- GEDCOM Lookup Section -->
-                    <div class="gedcom-lookup-section">
-                        <div style="display: flex; gap: 10px; align-items: flex-end; margin-bottom: 20px;">
-                            <div class="form-group" style="flex: 1;">
-                                <label for="edit-lookup-name">Search in GEDCOM for additional data</label>
-                                <input type="text" id="edit-lookup-name" placeholder="Enter given name and surname...">
-                            </div>
-                            <button type="button" class="btn-primary" onclick="editor && editor.lookupInGedcomForEdit()">
-                                🔍 Lookup in GEDCOM
-                            </button>
-                        </div>
-                        <div id="edit-gedcom-lookup-results"></div>
-                    </div>
-
                     <!-- Form Section -->
                     <form id="edit-person-form" onsubmit="editor && editor.savePersonEdit(event)">
                         <input type="hidden" id="edit-id">
@@ -434,66 +392,6 @@
                                 </button>
                             </form>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- GEDCOM Relationship Add/Merge Modal -->
-        <div id="gedcom-relation-modal" class="modal" style="display: none;">
-            <div class="modal-content" style="max-width: 700px;">
-                <div class="modal-header">
-                    <h2>➕ Add Relationship from GEDCOM</h2>
-                    <span class="close" onclick="editor && editor.closeGedcomRelationModal()">&times;</span>
-                </div>
-                <div class="modal-body">
-                    <!-- Person Info -->
-                    <div id="gedcom-relation-person-info" style="background: #667eea; color: white; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
-                    </div>
-
-                    <!-- Relationship Info -->
-                    <div id="gedcom-relation-type-info" style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
-                    </div>
-
-                    <!-- Action Selection -->
-                    <div id="gedcom-relation-action-selection" style="margin-bottom: 20px;">
-                        <div style="font-weight: 600; margin-bottom: 15px; color: #333;">Choose an action:</div>
-                        <div style="display: grid; gap: 15px;">
-                            <button type="button" class="btn-primary" onclick="editor && editor.addGedcomRelationAsNew()" style="padding: 15px; font-size: 1rem;">
-                                ➕ Add as New Person
-                            </button>
-                            <button type="button" class="btn-secondary" onclick="editor && editor.showMergeWithExisting()" style="padding: 15px; font-size: 1rem;">
-                                🔀 Merge with Existing Person
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Merge Section (hidden initially) -->
-                    <div id="gedcom-relation-merge-section" style="display: none;">
-                        <div style="margin-bottom: 15px;">
-                            <label style="font-weight: 600; display: block; margin-bottom: 8px;">Search for person to merge with:</label>
-                            <input type="text" id="gedcom-merge-search" placeholder="Type name to search..."
-                                   style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px;">
-                        </div>
-                        <div id="gedcom-merge-results" style="max-height: 300px; overflow-y: auto; border: 1px solid #ddd; border-radius: 4px; padding: 10px;">
-                        </div>
-
-                        <!-- Field Selection (shown after person selected) -->
-                        <div id="gedcom-merge-fields" style="display: none; margin-top: 20px; background: #f8f9fa; padding: 15px; border-radius: 8px;">
-                            <div style="font-weight: 600; margin-bottom: 10px;">Select fields to import from GEDCOM:</div>
-                            <div id="gedcom-merge-field-list" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 15px;">
-                            </div>
-                            <button type="button" class="btn-primary" onclick="editor && editor.confirmMergeGedcomRelation()" style="width: 100%; padding: 10px;">
-                                Confirm Merge and Add Relationship
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Cancel Button -->
-                    <div style="margin-top: 20px; text-align: right;">
-                        <button type="button" class="btn-secondary" onclick="editor && editor.closeGedcomRelationModal()">
-                            Cancel
-                        </button>
                     </div>
                 </div>
             </div>

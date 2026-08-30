@@ -23,14 +23,17 @@
         "E_NEW_1": {
           "content": "groom: Antoni Łapacz, bride: Franciszka Surdey",
           "date": {
+            "circa": false,
             "day": null,
             "month": null,
             "year": 1850
           },
+          "description": null,
           "id": "E_NEW_1",
           "links": [],
           "notes": "Layer 1 golden-master test fixture",
           "place_id": null,
+          "source": null,
           "tags": [],
           "title": null,
           "type": "marriage"
@@ -54,14 +57,17 @@
     "event": {
       "content": "groom: Antoni Łapacz, bride: Franciszka Surdey",
       "date": {
+        "circa": false,
         "day": null,
         "month": null,
         "year": 1850
       },
+      "description": null,
       "id": "E_NEW_1",
       "links": [],
       "notes": "Layer 1 golden-master test fixture",
       "place_id": null,
+      "source": null,
       "tags": [],
       "title": null,
       "type": "marriage"

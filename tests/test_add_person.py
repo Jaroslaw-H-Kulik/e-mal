@@ -19,9 +19,7 @@ def _run(live_server, name, payload):
 def test_minimal_person_gets_auto_birth_event_only(live_server):
     """Step 9: every add-person call ALWAYS creates a birth event, even with
     no birth data at all (date=None, place_id=None) - and never a death
-    event unless death data is supplied. Note the birth event created here
-    has no 'content' key at all (only 'description') - a different event
-    shape than add_event/update_event produce, which always set 'content'."""
+    event unless death data is supplied."""
     payload = {
         "given_name": "TestMinimal",
         "surname": "Fixture",
@@ -72,23 +70,3 @@ def test_full_person_creates_birth_and_death_events_with_places(live_server):
     )
     assert birth_event["date"] == {"year": 1850, "month": None, "day": None, "circa": True}
     assert birth_event["place_id"] == "PL0001"
-
-
-def test_first_name_last_name_and_full_date_dicts_also_accepted(live_server):
-    """A different real call site (the GEDCOM-import add-person flow in
-    editor.js) sends first_name/last_name and a full birth_date dict
-    instead of given_name/surname + birth_year_estimate - both shapes are
-    accepted via the `.get('given_name', .get('first_name', ''))` fallback
-    chain."""
-    payload = {
-        "first_name": "TestAlt",
-        "last_name": "Fixture",
-        "gender": "M",
-        "birth_date": {"year": 1875, "month": 3, "day": 12, "circa": False},
-    }
-    response, before, after = _run(live_server, "add_person_first_last_name_shape", payload)
-    assert response["success"] is True
-    assert response["person"]["first_name"] == "TestAlt"
-    assert response["person"]["last_name"] == "Fixture"
-    birth_event = after["events"][response["created_events"][0]]
-    assert birth_event["date"] == {"year": 1875, "month": 3, "day": 12, "circa": False}

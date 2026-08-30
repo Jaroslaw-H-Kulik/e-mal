@@ -30,6 +30,7 @@
           "before": {
             "content": "child: Jan Surdey, father: Wojciech Surdey, mother: Marianna Surdey",
             "date": {
+              "circa": false,
               "day": null,
               "month": null,
               "year": 1785
@@ -67,6 +68,7 @@
           "before": {
             "content": "deceased: Jan Surdey",
             "date": {
+              "circa": false,
               "day": null,
               "month": null,
               "year": 1843

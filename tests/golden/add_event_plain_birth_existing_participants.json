@@ -29,14 +29,17 @@
         "E_NEW_1": {
           "content": "child: Ignacy Raczyński, father: Jan Surdey, mother: Helena Surdey",
           "date": {
+            "circa": false,
             "day": null,
             "month": null,
             "year": 1850
           },
+          "description": null,
           "id": "E_NEW_1",
           "links": [],
           "notes": "Layer 1 golden-master test fixture",
           "place_id": null,
+          "source": null,
           "tags": [],
           "title": null,
           "type": "birth"
@@ -60,14 +63,17 @@
     "event": {
       "content": "child: Ignacy Raczyński, father: Jan Surdey, mother: Helena Surdey",
       "date": {
+        "circa": false,
         "day": null,
         "month": null,
         "year": 1850
       },
+      "description": null,
       "id": "E_NEW_1",
       "links": [],
       "notes": "Layer 1 golden-master test fixture",
       "place_id": null,
+      "source": null,
       "tags": [],
       "title": null,
       "type": "birth"
