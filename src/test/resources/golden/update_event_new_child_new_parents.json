@@ -1,0 +1,220 @@
+{
+  "diff": {
+    "event_participations": {
+      "added": {
+        "EP_NEW_1": {
+          "event_id": "E1746",
+          "id": "EP_NEW_1",
+          "person_id": "P_NEW_2",
+          "role": "mother"
+        },
+        "EP_NEW_2": {
+          "event_id": "E1746",
+          "id": "EP_NEW_2",
+          "person_id": "P_NEW_3",
+          "role": "father"
+        },
+        "EP_NEW_3": {
+          "event_id": "E_NEW_1",
+          "id": "EP_NEW_3",
+          "person_id": "P_NEW_3",
+          "role": "groom"
+        },
+        "EP_NEW_4": {
+          "event_id": "E_NEW_1",
+          "id": "EP_NEW_4",
+          "person_id": "P_NEW_2",
+          "role": "bride"
+        },
+        "EP_NEW_5": {
+          "event_id": "E1746",
+          "id": "EP_NEW_5",
+          "person_id": "P_NEW_1",
+          "role": "child"
+        }
+      },
+      "changed": {},
+      "removed": {
+        "EP5424": {
+          "event_id": "E1746",
+          "id": "EP5424",
+          "person_id": "P0800",
+          "role": "child"
+        }
+      }
+    },
+    "events": {
+      "added": {
+        "E_NEW_1": {
+          "content": "",
+          "date": null,
+          "description": "Marriage of TestFather2 Fixture and TestMother2 Fixture",
+          "id": "E_NEW_1",
+          "links": [],
+          "notes": "Auto-generated from child birth event",
+          "place_id": null,
+          "source": null,
+          "tags": [],
+          "title": null,
+          "type": "marriage"
+        }
+      },
+      "changed": {
+        "E1746": {
+          "after": {
+            "content": "child: TestChild2 Fixture",
+            "date": {
+              "circa": true,
+              "day": null,
+              "month": null,
+              "year": 1802
+            },
+            "description": null,
+            "id": "E1746",
+            "links": [],
+            "notes": "Migrated from person model (step 56.1)",
+            "place_id": null,
+            "source": null,
+            "tags": [],
+            "title": null,
+            "type": "birth"
+          },
+          "before": {
+            "content": "Birth of Karol Strzembosz",
+            "date": {
+              "circa": true,
+              "day": null,
+              "month": null,
+              "year": 1802
+            },
+            "description": null,
+            "id": "E1746",
+            "links": [],
+            "notes": "Migrated from person model (step 56.1)",
+            "place_id": null,
+            "source": null,
+            "tags": [],
+            "title": null,
+            "type": "birth"
+          }
+        }
+      },
+      "removed": {}
+    },
+    "persons": {
+      "added": {
+        "P_NEW_1": {
+          "first_name": "TestChild2",
+          "gender": "U",
+          "id": "P_NEW_1",
+          "last_name": "Fixture",
+          "maiden_name": null,
+          "notes": null,
+          "occupation": null,
+          "tags": []
+        },
+        "P_NEW_2": {
+          "first_name": "TestMother2",
+          "gender": "F",
+          "id": "P_NEW_2",
+          "last_name": "Fixture",
+          "maiden_name": null,
+          "notes": null,
+          "occupation": null,
+          "tags": []
+        },
+        "P_NEW_3": {
+          "first_name": "TestFather2",
+          "gender": "M",
+          "id": "P_NEW_3",
+          "last_name": "Fixture",
+          "maiden_name": null,
+          "notes": null,
+          "occupation": null,
+          "tags": []
+        }
+      },
+      "changed": {},
+      "removed": {}
+    },
+    "places": {
+      "added": {},
+      "changed": {},
+      "removed": {}
+    }
+  },
+  "response": {
+    "event": {
+      "content": "child: TestChild2 Fixture",
+      "date": {
+        "circa": true,
+        "day": null,
+        "month": null,
+        "year": 1802
+      },
+      "description": null,
+      "id": "E1746",
+      "links": [],
+      "notes": "Migrated from person model (step 56.1)",
+      "place_id": null,
+      "source": null,
+      "tags": [],
+      "title": null,
+      "type": "birth"
+    },
+    "event_participations": {
+      "EP_NEW_1": {
+        "event_id": "E1746",
+        "id": "EP_NEW_1",
+        "person_id": "P_NEW_2",
+        "role": "mother"
+      },
+      "EP_NEW_2": {
+        "event_id": "E1746",
+        "id": "EP_NEW_2",
+        "person_id": "P_NEW_3",
+        "role": "father"
+      },
+      "EP_NEW_5": {
+        "event_id": "E1746",
+        "id": "EP_NEW_5",
+        "person_id": "P_NEW_1",
+        "role": "child"
+      }
+    },
+    "modified_persons": [],
+    "new_persons": [
+      {
+        "first_name": "TestChild2",
+        "gender": "U",
+        "id": "P_NEW_1",
+        "last_name": "Fixture",
+        "maiden_name": null,
+        "notes": null,
+        "occupation": null,
+        "tags": []
+      },
+      {
+        "first_name": "TestMother2",
+        "gender": "F",
+        "id": "P_NEW_2",
+        "last_name": "Fixture",
+        "maiden_name": null,
+        "notes": null,
+        "occupation": null,
+        "tags": []
+      },
+      {
+        "first_name": "TestFather2",
+        "gender": "M",
+        "id": "P_NEW_3",
+        "last_name": "Fixture",
+        "maiden_name": null,
+        "notes": null,
+        "occupation": null,
+        "tags": []
+      }
+    ],
+    "success": true
+  }
+}

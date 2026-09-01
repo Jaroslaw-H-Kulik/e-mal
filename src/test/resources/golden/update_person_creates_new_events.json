@@ -1,0 +1,106 @@
+{
+  "diff": {
+    "event_participations": {
+      "added": {
+        "EP_NEW_1": {
+          "event_id": "E_NEW_1",
+          "id": "EP_NEW_1",
+          "person_id": "P0012",
+          "role": "child"
+        },
+        "EP_NEW_2": {
+          "event_id": "E_NEW_2",
+          "id": "EP_NEW_2",
+          "person_id": "P0012",
+          "role": "deceased"
+        }
+      },
+      "changed": {},
+      "removed": {}
+    },
+    "events": {
+      "added": {
+        "E_NEW_1": {
+          "content": null,
+          "date": {
+            "circa": true,
+            "day": null,
+            "month": null,
+            "year": 1852
+          },
+          "description": "Birth of Ignacy Raczyński",
+          "id": "E_NEW_1",
+          "links": [],
+          "notes": "Auto-generated from person update",
+          "place_id": "PL_NEW_1",
+          "source": null,
+          "tags": [],
+          "title": null,
+          "type": "birth"
+        },
+        "E_NEW_2": {
+          "content": null,
+          "date": {
+            "circa": true,
+            "day": null,
+            "month": null,
+            "year": 1930
+          },
+          "description": "Death of Ignacy Raczyński",
+          "id": "E_NEW_2",
+          "links": [],
+          "notes": "Auto-generated from person update",
+          "place_id": "PL_NEW_2",
+          "source": null,
+          "tags": [],
+          "title": null,
+          "type": "death"
+        }
+      },
+      "changed": {},
+      "removed": {}
+    },
+    "persons": {
+      "added": {},
+      "changed": {},
+      "removed": {}
+    },
+    "places": {
+      "added": {
+        "PL_NEW_1": {
+          "house_number": null,
+          "id": "PL_NEW_1",
+          "name": "UpdatePersonTestBirthPlace",
+          "parish_name": null,
+          "type": "settlement"
+        },
+        "PL_NEW_2": {
+          "house_number": null,
+          "id": "PL_NEW_2",
+          "name": "UpdatePersonTestDeathPlace",
+          "parish_name": null,
+          "type": "settlement"
+        }
+      },
+      "changed": {},
+      "removed": {}
+    }
+  },
+  "response": {
+    "person": {
+      "first_name": "Ignacy",
+      "gender": "M",
+      "id": "P0012",
+      "last_name": "Raczyński",
+      "maiden_name": null,
+      "notes": null,
+      "occupation": null,
+      "tags": []
+    },
+    "success": true,
+    "updated_events": [
+      "E_NEW_1",
+      "E_NEW_2"
+    ]
+  }
+}

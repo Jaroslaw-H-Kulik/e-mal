@@ -1,0 +1,56 @@
+{
+  "diff": {
+    "event_participations": {
+      "added": {
+        "EP_NEW_1": {
+          "event_id": "E_NEW_1",
+          "id": "EP_NEW_1",
+          "person_id": "P0012",
+          "role": "child"
+        },
+        "EP_NEW_2": {
+          "event_id": "E_NEW_1",
+          "id": "EP_NEW_2",
+          "person_id": "P0033",
+          "role": "mother"
+        }
+      },
+      "changed": {},
+      "removed": {}
+    },
+    "events": {
+      "added": {
+        "E_NEW_1": {
+          "content": null,
+          "date": null,
+          "description": "Birth of Ignacy Raczyński",
+          "id": "E_NEW_1",
+          "links": [],
+          "notes": "Auto-generated from relationship addition",
+          "place_id": null,
+          "source": null,
+          "tags": [],
+          "title": null,
+          "type": "birth"
+        }
+      },
+      "changed": {},
+      "removed": {}
+    },
+    "persons": {
+      "added": {},
+      "changed": {},
+      "removed": {}
+    },
+    "places": {
+      "added": {},
+      "changed": {},
+      "removed": {}
+    }
+  },
+  "response": {
+    "created_event": "E_NEW_1",
+    "success": true,
+    "updated_event": null
+  }
+}

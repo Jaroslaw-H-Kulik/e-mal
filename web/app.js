@@ -45,25 +45,34 @@ class GenealogyApp {
 
     // Step 56.1: Get birth/death dates from events (not from person model)
     getPersonBirthDate(personId) {
+        return this.getPersonBirthEvent(personId)?.date || null;
+    }
+
+    getPersonDeathDate(personId) {
+        return this.getPersonDeathEvent(personId)?.date || null;
+    }
+
+    // Full birth/death event (not just its date) - needed to also read place_id, e.g. to pre-fill the edit-person form.
+    getPersonBirthEvent(personId) {
         const eps = this.participationsByPerson[personId] || [];
         for (const ep of eps) {
             if (ep.role === 'child') {
                 const event = this.events[ep.event_id];
-                if (event && (event.type === 'birth' || event.type === 'baptism') && event.date) {
-                    return event.date;
+                if (event && (event.type === 'birth' || event.type === 'baptism')) {
+                    return event;
                 }
             }
         }
         return null;
     }
 
-    getPersonDeathDate(personId) {
+    getPersonDeathEvent(personId) {
         const eps = this.participationsByPerson[personId] || [];
         for (const ep of eps) {
             if (ep.role === 'deceased') {
                 const event = this.events[ep.event_id];
-                if (event && (event.type === 'death' || event.type === 'burial') && event.date) {
-                    return event.date;
+                if (event && (event.type === 'death' || event.type === 'burial')) {
+                    return event;
                 }
             }
         }

@@ -1,0 +1,30 @@
+{
+  "diff": {
+    "added": {},
+    "changed": {},
+    "removed": {
+      "D_NEW_1": {
+        "date": 1900,
+        "events": [],
+        "id": "D_NEW_1",
+        "link": "",
+        "name": "Setup Fixture Document",
+        "notes": "",
+        "pages": [
+          {
+            "filename": "D_NEW_1-1.jpg",
+            "transcription": ""
+          },
+          {
+            "filename": "D_NEW_1-2.png",
+            "transcription": ""
+          }
+        ],
+        "tags": []
+      }
+    }
+  },
+  "response": {
+    "success": true
+  }
+}

@@ -230,9 +230,27 @@
                                     <option value="U">Unknown</option>
                                 </select>
                             </div>
+                            <div class="form-group" style="grid-column: 1 / -1;">
+                                <label>Birth Date</label>
+                                <div style="display: grid; grid-template-columns: 1fr 1fr 1fr auto; gap: 10px; align-items: center;">
+                                    <input type="number" id="edit-birth-day" placeholder="Day" min="1" max="31">
+                                    <input type="number" id="edit-birth-month" placeholder="Month" min="1" max="12">
+                                    <input type="number" id="edit-birth-year" placeholder="Year" min="1700" max="2100">
+                                    <label style="white-space: nowrap;"><input type="checkbox" id="edit-birth-circa"> circa</label>
+                                </div>
+                            </div>
                             <div class="form-group">
                                 <label for="edit-place-birth">Place of Birth</label>
                                 <input type="text" id="edit-place-birth" name="place_of_birth" placeholder="Settlement name" list="place-suggestions">
+                            </div>
+                            <div class="form-group" style="grid-column: 1 / -1;">
+                                <label>Death Date</label>
+                                <div style="display: grid; grid-template-columns: 1fr 1fr 1fr auto; gap: 10px; align-items: center;">
+                                    <input type="number" id="edit-death-day" placeholder="Day" min="1" max="31">
+                                    <input type="number" id="edit-death-month" placeholder="Month" min="1" max="12">
+                                    <input type="number" id="edit-death-year" placeholder="Year" min="1700" max="2100">
+                                    <label style="white-space: nowrap;"><input type="checkbox" id="edit-death-circa"> circa</label>
+                                </div>
                             </div>
                             <div class="form-group">
                                 <label for="edit-place-death">Place of Death</label>
@@ -439,8 +457,8 @@
         </div>
     </div>
 
-    <script src="/web/app.js?v=13"></script>
-    <script src="/web/editor.js?v=8"></script>
+    <script src="/web/app.js?v=14"></script>
+    <script src="/web/editor.js?v=9"></script>
     <script src="/web/event-editor.js?v=7"></script>
     <script src="/web/document-manager.js?v=2"></script>
     <script src="/web/event-registry.js?v=1"></script>

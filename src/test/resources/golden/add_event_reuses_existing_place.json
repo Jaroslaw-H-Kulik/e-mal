@@ -1,0 +1,72 @@
+{
+  "diff": {
+    "event_participations": {
+      "added": {
+        "EP_NEW_1": {
+          "event_id": "E_NEW_1",
+          "id": "EP_NEW_1",
+          "person_id": "P0033",
+          "role": "participant"
+        }
+      },
+      "changed": {},
+      "removed": {}
+    },
+    "events": {
+      "added": {
+        "E_NEW_1": {
+          "content": "participant: Marianna Jarosz",
+          "date": {
+            "circa": false,
+            "day": null,
+            "month": null,
+            "year": 1850
+          },
+          "description": null,
+          "id": "E_NEW_1",
+          "links": [],
+          "notes": "Layer 1 golden-master test fixture",
+          "place_id": "PL0001",
+          "source": null,
+          "tags": [],
+          "title": null,
+          "type": "generic"
+        }
+      },
+      "changed": {},
+      "removed": {}
+    },
+    "persons": {
+      "added": {},
+      "changed": {},
+      "removed": {}
+    },
+    "places": {
+      "added": {},
+      "changed": {},
+      "removed": {}
+    }
+  },
+  "response": {
+    "event": {
+      "content": "participant: Marianna Jarosz",
+      "date": {
+        "circa": false,
+        "day": null,
+        "month": null,
+        "year": 1850
+      },
+      "description": null,
+      "id": "E_NEW_1",
+      "links": [],
+      "notes": "Layer 1 golden-master test fixture",
+      "place_id": "PL0001",
+      "source": null,
+      "tags": [],
+      "title": null,
+      "type": "generic"
+    },
+    "new_persons": [],
+    "success": true
+  }
+}

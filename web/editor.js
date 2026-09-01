@@ -163,11 +163,26 @@ class GenealogyEditor {
         document.getElementById('edit-maiden-name').value = person.maiden_name || '';
         document.getElementById('edit-gender').value = person.gender || 'U';
 
-        // Clear place fields (using correct IDs from index.html)
+        // Pre-fill place/date/circa from the person's current birth/death event -
+        // update-person now always sends every field (PUT, not PATCH), so an
+        // un-pre-filled field here would blank out real data on save.
+        const birthEvent = this.app.getPersonBirthEvent(personId);
+        const deathEvent = this.app.getPersonDeathEvent(personId);
+
         const placeBirthEl = document.getElementById('edit-place-birth');
         const placeDeathEl = document.getElementById('edit-place-death');
-        if (placeBirthEl) placeBirthEl.value = '';
-        if (placeDeathEl) placeDeathEl.value = '';
+        if (placeBirthEl) placeBirthEl.value = (birthEvent?.place_id && this.app.places[birthEvent.place_id]?.name) || '';
+        if (placeDeathEl) placeDeathEl.value = (deathEvent?.place_id && this.app.places[deathEvent.place_id]?.name) || '';
+
+        document.getElementById('edit-birth-day').value = birthEvent?.date?.day ?? '';
+        document.getElementById('edit-birth-month').value = birthEvent?.date?.month ?? '';
+        document.getElementById('edit-birth-year').value = birthEvent?.date?.year ?? '';
+        document.getElementById('edit-birth-circa').checked = !!birthEvent?.date?.circa;
+
+        document.getElementById('edit-death-day').value = deathEvent?.date?.day ?? '';
+        document.getElementById('edit-death-month').value = deathEvent?.date?.month ?? '';
+        document.getElementById('edit-death-year').value = deathEvent?.date?.year ?? '';
+        document.getElementById('edit-death-circa').checked = !!deathEvent?.date?.circa;
 
         document.getElementById('edit-occupations').value = person.occupation || '';
         // Step 56: Populate tags and notes
@@ -197,6 +212,16 @@ class GenealogyEditor {
         const tagsRaw = document.getElementById('edit-tags')?.value || '';
         const tags = tagsRaw.split(',').map(t => t.trim()).filter(t => t.length > 0);
 
+        // Build a {year, month, day, circa} date object, or null if every field is empty/unchecked -
+        // matches "no date" rather than sending an all-null object on an unrelated edit.
+        const buildDate = (prefix) => {
+            const day = parseInt(document.getElementById(`edit-${prefix}-day`)?.value) || null;
+            const month = parseInt(document.getElementById(`edit-${prefix}-month`)?.value) || null;
+            const year = parseInt(document.getElementById(`edit-${prefix}-year`)?.value) || null;
+            const circa = document.getElementById(`edit-${prefix}-circa`)?.checked || false;
+            return (day || month || year || circa) ? { day, month, year, circa } : null;
+        };
+
         const updateData = {
             person_id: personId,
             first_name: document.getElementById('edit-given-name').value,
@@ -204,7 +229,9 @@ class GenealogyEditor {
             maiden_name: document.getElementById('edit-maiden-name').value || null,
             gender: document.getElementById('edit-gender').value,
             occupation: document.getElementById('edit-occupations').value || null,
+            birth_date: buildDate('birth'),
             place_of_birth: placeBirth,
+            death_date: buildDate('death'),
             place_of_death: placeDeath,
             tags: tags,
             notes: document.getElementById('edit-notes')?.value || null

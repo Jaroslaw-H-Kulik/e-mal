@@ -1,5 +1,42 @@
 # Java Migration Plan
 
+## Cutover complete (2026-09-01)
+
+The Python backend has been removed. Every endpoint CLAUDE.md documents as
+live had already been ported to Java (confirmed by diffing `server.py`'s
+`do_GET`/`do_POST` route table against the Java controllers — a 1:1 match,
+including the four sync endpoints CLAUDE.md lists, which turned out not to
+exist in either Python implementation, live or historical — see "Open items
+/ TBD" below). Both suites were green at removal time (42/42 Python,
+52/52 Java) and were treated as sufficient proof of parity — **the "Cutover
+gate" dual-run parity harness described below was never built**; this was a
+deliberate, explicit choice to skip it rather than an oversight, made when
+removing Python.
+
+What changed in this pass, beyond deleting `server.py`/`app/`/`tests/`/
+`.venv`/`pyproject.toml`/`uv.lock`:
+- The `java/` Spring Boot module was **flattened to the repo root**
+  (`pom.xml`, `mvnw`/`mvnw.cmd`/`.mvn/`, `src/` all moved up one level) —
+  resolving the "Open items / TBD" question below in favor of "flatten now."
+  `application.yml`'s `../web`/`../data` relative paths became `web`/`data`.
+- The `tests/golden/*.json` fixtures the Java golden-file tests read
+  (`GoldenFileTestSupport`/`DocumentGoldenFileTestSupport`) moved to
+  `src/test/resources/golden/` and are now self-contained inside the Java
+  module — the "Golden fixtures" open question below is resolved the same
+  way. `GoldenFileTestSupport`/`DocumentGoldenFileTestSupport`/
+  `GenealogyRepositoryRoundTripTest`'s path constants were updated to match
+  (module root == repo root now, so `../data/...` became `data/...`).
+- Full test suite reconfirmed green after both moves (52/52,
+  `./mvnw test` from repo root), plus a live `spring-boot:run` boot check on
+  a scratch port confirming `/`, `/web/**`, `/data/**`, `/events`,
+  `/person/**`, `/document/**`, and bare `/person` (404) all still resolve
+  correctly against the new on-disk layout.
+
+The rest of this document is kept as the historical record of how the
+migration got here — paths inside older entries below (e.g. `java/pom.xml`,
+`../../../tests/golden`) describe the pre-flatten layout at the time they
+were written, not the current one.
+
 ## Status
 
 - **Done:** Phase 0 data-schema normalization (see below) — `data/genealogy_new_model.json`
@@ -196,6 +233,158 @@
   regression test in `StaticAndSpaRoutingTest`
   (`webAssetsReferencedByIndexHtmlAreServedUnderWebPrefix`) so this can't
   silently break again.
+- **Done:** step 7 (document management). Documents had zero Python test
+  coverage before this step (unlike every prior endpoint family) - closed
+  first with `tests/test_documents.py` (7 tests, golden fixtures via a new
+  `tests/documents_golden_utils.py`, parallel to but distinct from
+  `golden_utils.py` since `data/documents.json` is one flat
+  `{doc_id: document}` map, not `GenealogyRepository`'s four collections).
+  Checking the real file found it already fully schema-consistent (all 14
+  documents share the identical 8-key set *and* order, all 133 pages share
+  the identical 2-key shape) - no Phase-0-style normalization pass was
+  needed, unlike every genealogy-model step. One real shape gotcha found
+  and documented instead: `document.date` is a plain nullable year
+  (`Integer`), not a `FlexibleDate` object like `Event.date`. Every test
+  adds its own fixture document via a setup `add-document` call rather
+  than anchoring to a real row (see `tests/anchors.py`'s documents
+  section) - the sandbox's `data/documents/` dir starts empty on purpose
+  (`tests/conftest.py` skips the real ~424MB of scanned page images), so a
+  real document's page files wouldn't exist to test deletion against
+  anyway, and documents.json's rows have no interesting cross-links worth
+  anchoring to the way persons/events do.
+
+  Ported to Java against those same fixtures: `model/Document.java` +
+  `model/DocumentPage.java` (plain records, the usual `@JsonAnySetter`/
+  `@JsonAnyGetter` catch-all), `repository/DocumentRepository.java` (a
+  separate `@Component` from `GenealogyRepository`, reusing
+  `GenealogyJsonMapper.create()` as-is since it was already generic; also
+  owns the page-image directory, lazily `Files.createDirectories`-ing it
+  on every access like `server.py`'s `_documents_dir()` does),
+  `config/DocumentDataProperties.java` (a new `documents.file` property
+  rather than a second field on `DataProperties`, which would have broken
+  every existing single-arg `new DataProperties(file)` call site),
+  `IdGenerator.nextDocumentId` (generalized the private `nextId` helper to
+  take a configurable digit width, since documents use a 2-digit `D##`
+  counter - `server.py`'s older `f'D{next_num:02d}'` - unlike every other
+  entity's 4-digit counter), `service/DocumentService.java` (the only
+  service in this codebase that performs real file I/O - base64
+  decode/write on add, delete on delete/delete-page - so its
+  `catch (RuntimeException e)` blocks became
+  `catch (IOException | RuntimeException e)`, the one place Java's checked
+  exceptions needed explicit handling that Python's blanket
+  `except Exception` gets for free), four result records
+  (`AddDocumentResult`/`UpdateDocumentResult`/`DeleteDocumentResult`/
+  `DeleteDocumentPageResult` - kept separate per the codebase's
+  one-type-per-endpoint convention even though three of the four share a
+  `{success, document}` shape), and `web/DocumentController.java`.
+  `web/SpaRoutingController.java` now also mirrors `/document/**` (with
+  the same bare-`/document`-404 exclusion `/person` already had) -
+  `StaticAndSpaRoutingTest` was updated accordingly, since it previously
+  pinned the pre-port behavior (`/document/foo` → 404) as a passing
+  regression test; that assertion now correctly expects `/document/<id>`
+  to serve `index.html` instead. No `/data/**` static-serving changes were
+  needed - `data/documents.json`/`data/documents/<filename>` were already
+  served for free by the existing config (same directory as
+  `genealogy_new_model.json`).
+
+  New test-side component: `golden/DocumentGoldenFileTestSupport.java`, a
+  single-map parallel to `GoldenFileTestSupport` (which is hardcoded to
+  `GenealogyRepository`'s four collections) - mirrors
+  `documents_golden_utils.py`'s split from `golden_utils.py` on the Python
+  side. `service/DocumentServiceTest.java` (7 tests) exercises
+  `DocumentService` directly against the same `tests/golden/*.json`
+  fixtures the Python tests wrote, including reading back real page-file
+  bytes from disk (`repository.pagesDirectory()`) to verify the
+  base64-decode/write path, not just the JSON diff. Verified live end to
+  end against a sandboxed copy (`add-document` with a real page write,
+  `/document/<id>` → 200 `index.html`, bare `/document` → 404,
+  `update-document`, `delete-document-page` removing the file from disk,
+  `delete-document` removing the entry and confirming no `D##` string
+  remains in the sandboxed `documents.json`, and the not-found path) - all
+  47 Java tests and all 42 Python tests pass.
+- **Done (deliberate Java-only divergence from Python, not a porting step):**
+  `update-person` redesigned from partial-update (JSON-key-presence)
+  semantics to a plain PUT plus change-detection event-sync.
+  `PersonService.updatePerson` now takes a typed `UpdatePersonRequest`
+  (replacing its `Map<String, Object>` + `RequestValues` reading, the last
+  endpoint still on that pattern) and always overwrites every person field;
+  its birth/death event-sync (`PersonService.syncLifeEvent`) only
+  touches/reports an event when the computed new date/place genuinely
+  differs from what's stored, rather than whenever the relevant JSON keys
+  were merely present - which used to mark an event "updated" even when
+  nothing inside it changed (a documented quirk in the old
+  `update_person_null_place_marks_events_updated` fixture), and could never
+  clear an existing date/place at all. The UI (`web/index.html`'s
+  edit-person modal, `web/editor.js`'s `savePersonEdit`/`openEditModal`)
+  was extended with real birth/death date+circa inputs (previously
+  place-only) and now always sends every field, which is what makes the
+  plain-PUT DTO possible - Jackson 3's record/constructor binding can't
+  distinguish "JSON key absent" from "key present as null" (verified
+  directly against this project's JsonMapper while investigating an
+  `Optional<T>`-based alternative), so partial-update semantics on a typed
+  record aren't expressible here at all; making the caller always send
+  everything sidesteps the question instead of working around Jackson.
+  Also surfaced and fixed a real data-model gotcha while building the
+  change-detection comparison: this dataset has ~80 separate `Place`
+  records all named "Małyszyn" (one per house number), and
+  `PlaceResolver.resolveByNameOnly` always resolves any of them to the
+  first match (`PL0001`) - comparing re-resolved ids would have falsely
+  flagged every save of a person whose birthplace is one of the other 79
+  duplicates as "changed" (and silently collapsed their event's `place_id`
+  to `PL0001` in the process). Fixed by comparing place *names* against an
+  existing event, only re-resolving (and only then risking that collapse)
+  when the name actually differs - see `PersonService.syncLifeEvent`'s
+  javadoc.
+
+  **This is an intentional exception to this migration's Python/Java parity
+  goal** (see "Goal" below), not an oversight: `app/genealogy_repository.py`'s
+  `update_person` and `tests/test_update_person.py` are deliberately left
+  unchanged and still pass (42 Python tests, unaffected) - confirmed
+  unaffected by running the full Python suite after this change. Of the
+  four `tests/golden/update_person_*.json` fixtures, only
+  `update_person_creates_new_events.json` stays shared with Python
+  (that scenario has no pre-existing event, so the redesign doesn't change
+  its output); the other three are no longer valid inputs/outputs for the
+  new PUT contract and are left untouched on disk for Python's tests only -
+  `PersonServiceTest`'s Java-side coverage for those scenarios was
+  rewritten as plain assertions with no golden fixture
+  (`resendingUnchangedDatesAndPlacesTouchesNoEvents`,
+  `onlyGenuinelyChangedLifeEventIsMarkedUpdated`,
+  `clearingAnExistingPlaceRemovesItFromEvent`,
+  `syncsDateIntoExistingEventsAndPreservesUnchangedPlaceIdentity`).
+  **Consequence for the "Cutover gate" below:** the eventual dual-run
+  parity harness will show a real, expected diff on `/api/update-person`
+  for any partial-payload request - it needs an explicit carve-out for this
+  one endpoint rather than being treated as a bug to fix.
+- **Done (ad hoc, outside the numbered migration steps):** `/api/save-data`
+  and `/api/geneteka-import` - the last two endpoints flagged in "Open
+  items / TBD" as unported, both still live-wired to real UI (`/api/save-data`
+  from `web/editor.js`'s merge-persons flow, `/api/geneteka-import` from the
+  person card's Geneteka lookup buttons in `web/app.js`).
+  `service/DataService.java` + `web/DataController.java` port
+  `save_genealogy_data` (`app/genealogy_repository.py`) - a whole-document
+  overwrite, not a merge like every add/update endpoint: `GenealogyRepository.replace`
+  (new) swaps all four in-memory collections plus `metadata` from the
+  posted `GenealogyDocument` and persists. Python's version is stateless
+  (rereads/rewrites the file around every call); Java's already-resident
+  in-memory store just gets swapped instead, same observable effect.
+  `service/GenetekaService.java` + `web/GenetekaController.java` port
+  `geneteka_import` - the two-step cookie-session HTTP flow
+  (`java.net.http.HttpClient` + `CookieManager`, mirroring Python's
+  `http.cookiejar`-backed `urllib` opener) and per-record-type HTML/regex
+  parsing (birth/marriage/death row shapes, `parse_rodzice`, `extract_uwagi`,
+  `extract_links`) are hand-ported 1:1; response modeled as a
+  `GenetekaImportResult` sealed interface (`Success`/`Failure`) since the
+  Python success/failure dicts have genuinely different key sets, matching
+  this codebase's existing `AddDocumentResult`-style convention. No
+  automated tests for `GenetekaService` - it proxies a live third-party site
+  with no existing seam (or Python test) to fake it against; only
+  `save-data` got the test treatment (`DataServiceTest`, `DataControllerTest`
+  - the first automated web-layer POST-endpoint test in this codebase, since
+  there's no Python golden fixture for save-data either to anchor a
+  service-level golden test against - see `DataServiceTest`'s javadoc).
+  This closes every endpoint CLAUDE.md documents as live except the four
+  sync endpoints already flagged below as not actually existing in Python.
 
 ## Goal
 
@@ -532,7 +721,7 @@ has a golden-fixture-backed test today - `add_person`, `update_person`,
 `add_event`, `update_event`, and `add_relationship` (steps 2-5) are now
 all closed against `CANONICAL_FIELDS`, so every `tests/golden/*.json`
 fixture round-trips through a canonical-shaped record. See "Open items /
-TBD" for a step-6/7 scoping gap this surfaced (unrelated to this
+TBD" for a step-6/8 scoping gap this surfaced (unrelated to this
 addendum's own fix).
 
 ## Folder structure
@@ -686,17 +875,182 @@ before tackling harder logic:
    `tests/golden/delete_person_cascade_and_preserve.json`/
    `delete_event_removes_participations.json` fixtures. No prerequisite
    Python fixes needed (see the step 6 Status entry above).
-7. Sync endpoints: `generate-parent-marriages`, `sync-event-dates-to-persons`,
+7. **[Done]** Document management: `add-document`, `update-document`,
+   `delete-document`, `delete-document-page`, plus mirroring `/document/*`
+   into `SpaRoutingController`. Unlike every prior step, this endpoint
+   family lives entirely outside `GenealogyRepository`/
+   `genealogy_new_model.json` - it's still implemented ad hoc in
+   `server.py` (never extracted into `app/genealogy_repository.py`), reads
+   and writes its own flat-map JSON file (`data/documents.json`,
+   `Map<docId, Document>` - no `GenealogyDocument`-style wrapper), and
+   manages binary page-image files on disk under `data/documents/`. Had
+   **zero existing Python test coverage** before this step (no
+   `tests/test_documents.py`), unlike every other endpoint family, which
+   already had golden fixtures proving Python behavior before the Java
+   port started - closed the same way as steps 2-6 (Python golden-fixture
+   tests first, then port to Java against those fixtures).
+   See "Document management port (step 7)" below for the full writeup.
+8. Sync endpoints: `generate-parent-marriages`, `sync-event-dates-to-persons`,
    `sync-all-ages-to-birth-years`, `deduplicate-witnesses-godparents` -
-   **next, but needs scoping first, see "Open items / TBD"**: none of
+   **needs scoping first, see "Open items / TBD"**: none of
    these four methods currently exist in `app/genealogy_repository.py` or
    `server.py`, despite being listed as live endpoints in CLAUDE.md.
-8. `geneteka-import` (GEDCOM lookup/import was removed from the Python app -
+9. `geneteka-import` (GEDCOM lookup/import was removed from the Python app -
    see the "Explicitly out of scope" note below - so there is no longer a
    `gedcom-lookup`/`gedcom-person` pair to port)
 
 Each step is done when: the Java service produces byte-for-byte-equivalent
 JSON (structurally) against every relevant fixture in `tests/golden/`.
+
+## Document management port (step 7, done)
+
+Documents turned out to be architecturally separate from every entity
+ported so far - a different JSON file, a different id scheme, and
+(uniquely) binary files on disk - so they needed their own mini version of
+the Phase 0 groundwork rather than just slotting into the existing
+`GenealogyRepository`/service pattern. See the step 7 Status entry above
+for the condensed summary; this section is the detailed record of what was
+found and built.
+
+**What's there today** (`server.py`, `web/document-manager.js`,
+`data/documents.json`, `data/documents/`):
+
+- `data/documents.json` is a flat `{doc_id: document}` map - `doc_id` is
+  `D##` (zero-padded to 2 digits via `f'D{next_num:02d}'`, e.g. `D01`,
+  growing to 3+ digits past `D99` the same way Python's `:02d` format
+  does), not the `P####`/`E####`/4-digit style used elsewhere.
+- Each `document` has exactly 8 fields, always in the same order: `id,
+  name, date, notes, tags, link, events, pages`. Checked directly against
+  the live file (14 documents, 133 pages): every record already has the
+  identical key set *and* key order, and every page has exactly
+  `{filename, transcription}` - so, unlike `genealogy_new_model.json`
+  before Phase 0, **no normalization pass is needed** before this can be a
+  plain Java record; every code path that writes a document
+  (`add_document`/`update_document`) already produces this exact shape.
+- `document.date` is a **plain nullable integer** (a year, e.g. `1868`),
+  not a `FlexibleDate` object like `events[*].date` - confirmed against
+  the live file (13 ints, 1 null, 0 objects). The Java `Document` record
+  must declare `Integer date`, not reuse `FlexibleDate`.
+- `add_document` decodes base64 page payloads and writes each to
+  `data/documents/{doc_id}-{n}.{ext}` (1-indexed); `delete_document`/
+  `delete_document_page` remove those files from disk. This file I/O has
+  no equivalent anywhere else in the migration so far (every other
+  endpoint only ever touches the one JSON file).
+- Reads already work against the Java backend for free: `/data/**` static
+  serving (done in an earlier ad hoc step) already serves both
+  `/data/documents.json` and `/data/documents/<filename>` - `web/app.js`'s
+  `loadData()` and `document-manager.js`'s `<img src>` tags need nothing
+  new. Only the four POST endpoints and the `/document/*` SPA route are
+  missing.
+- `SpaRoutingController`'s javadoc had flagged `/document/*` as
+  deliberately unmirrored pending this step - now updated, see below.
+
+**Java shapes built:**
+
+- `model/Document.java` - record `(String id, String name, Integer date,
+  String notes, List<String> tags, String link, List<String> events,
+  List<DocumentPage> pages)` + the usual `@JsonAnySetter`/`@JsonAnyGetter`
+  catch-all, matching every other model record.
+- `model/DocumentPage.java` - record `(String filename, String
+  transcription)`, same catch-all.
+- No root wrapper record needed (unlike `GenealogyDocument`) - the file's
+  root shape is just `Map<String, Document>`, loaded/saved directly via
+  Jackson's `TypeReference<Map<String, Document>>` map-type support.
+- `repository/DocumentRepository.java` - `@Component`, parallel to (not
+  reusing) `GenealogyRepository`: own `@PostConstruct` load, own
+  in-memory `Map<String, Document>`, own save. Reuses
+  `GenealogyJsonMapper.create()` as-is for the CRLF/snake_case/indent-2
+  formatting (it's already generic, not tied to `GenealogyDocument`) -
+  the same `@PostConstruct`-load-once-at-startup model as
+  `GenealogyRepository` turned out to fit fine, no complications from
+  `data/documents.json` being far smaller (14 records) or sandboxing.
+  Also owns the page-image directory (`data/documents/`, derived from the
+  same path's parent), lazily `Files.createDirectories`-ing it on every
+  `pagesDirectory()` call - mirrors `server.py`'s `_documents_dir()`
+  (`os.makedirs(d, exist_ok=True)` on every access, not just at startup).
+- `config/DocumentDataProperties.java` - a new `documents.file` property
+  in `application.yml` rather than a second field on `DataProperties`,
+  which would have broken every existing single-arg
+  `new DataProperties(file)` call site
+  (`GoldenFileTestSupport.freshRepository`, `StaticResourceConfig`, etc.).
+- `IdGenerator.nextDocumentId` - the private `nextId` helper gained a
+  configurable digit-width parameter (existing callers pass `4`
+  unchanged) so documents could reuse the same max-id-plus-one logic with
+  `server.py`'s older 2-digit `f'D{next_num:02d}'` counter instead of
+  every other entity's 4-digit one.
+- `service/DocumentService.java` + four result records
+  (`AddDocumentResult`/`UpdateDocumentResult`/`DeleteDocumentResult`/
+  `DeleteDocumentPageResult`) - kept one type per endpoint per this
+  codebase's established convention, even though three of the four share
+  a `{success, document}` shape (only `DeleteDocumentResult.Success` is
+  bare `{success}`, matching `delete_document`'s Python return exactly).
+  Ports `add_document`/`update_document`/`delete_document`/
+  `delete_document_page` byte-for-byte, including the base64 decode/
+  file-write and file-delete side effects - the one service in this
+  codebase where a checked `IOException` (from `Files.write`/
+  `Files.deleteIfExists`/`Files.createDirectories`) needed catching
+  alongside the usual `RuntimeException`, since Python's blanket
+  `except Exception` covers file errors for free but Jackson's own
+  read/write calls elsewhere in this codebase are unchecked
+  (`JacksonException extends RuntimeException` in Jackson 3).
+- `web/DocumentController.java` - thin controller, same style as
+  `PersonController`/`EventController`.
+- `SpaRoutingController` now also mirrors `/document/**` in its
+  `@GetMapping`, with the same bare-path exclusion `/person` already had
+  (Python's `self.path.startswith('/document/')` requires the trailing
+  slash, so bare `/document` still 404s even though Spring's
+  `/document/**` pattern would otherwise match it).
+
+**Testing built (Python golden fixtures first, matching steps 2-6's
+discipline):**
+
+1. `tests/test_documents.py` (7 tests) - golden-fixture coverage for
+   add/update/delete-document and delete-document-page, using the
+   existing `live_server` fixture (`tests/conftest.py` already copied
+   `documents.json` and created an empty `data/documents` dir into every
+   sandbox, so no harness change was needed there beyond adding
+   `LiveServer.get_documents_state()` to fetch `/data/documents.json`).
+   Every test adds its own fixture document via a setup `add-document`
+   call rather than anchoring to a real row - see `tests/anchors.py`'s
+   documents section for why (the sandbox's `data/documents/` starts
+   empty on purpose, and real rows have no interesting cross-links worth
+   anchoring to). Uses a few bytes of fake page data, base64-encoded -
+   content is only decoded and written, never validated as a real image.
+2. `tests/documents_golden_utils.py` - new, parallel to (not merged into)
+   `golden_utils.py`: reuses its already-generic `dict_diff` directly for
+   the single `{doc_id: document}` map, but needed its own
+   `D_NEW_n`-placeholder/fixture-write logic since `golden_utils.py`'s
+   `state_diff`/`_new_id_placeholders`/`ID_PLACEHOLDER_PREFIXES` are
+   hardcoded to `genealogy_new_model.json`'s four collections.
+3. Since `add_document`'s actual page *files* on disk aren't part of
+   `documents.json` (only `pages[*].filename` is), `test_documents.py`
+   also asserts directly against the sandbox's `data/documents/<filename>`
+   bytes, alongside the golden-fixture check for the JSON side.
+4. `java/.../service/DocumentServiceTest.java` (7 tests) - same role as
+   `PersonServiceTest`/`EventServiceTest`, against the exact same
+   `tests/golden/*.json` fixtures the Python tests wrote. Needed a new
+   `golden/DocumentGoldenFileTestSupport.java` (a single-map parallel to
+   `GoldenFileTestSupport`, which is hardcoded to `GenealogyRepository`'s
+   four collections) rather than a generalization of the existing one -
+   mirrors the Python-side `documents_golden_utils.py` split. Also reads
+   real page-file bytes back from `repository.pagesDirectory()` to verify
+   the write path, matching the Python test's disk assertion.
+5. Live HTTP smoke test against a sandboxed copy, run manually (same
+   pattern as every prior step): add-document with a real page write,
+   `/document/<id>` → 200 `index.html`, bare `/document` → 404,
+   update-document, delete-document-page removing the file from disk,
+   delete-document removing the entry and confirming no trace of the id
+   remains in the sandboxed `documents.json`, and the not-found path for
+   all three id-taking endpoints.
+6. `web/StaticAndSpaRoutingTest.java` updated: it had pinned the
+   *pre-port* behavior as a passing regression test
+   (`/document/foo` → 404, under a test named
+   `spaRoutingExcludesBarePersonAndDocumentUrls`) - that assertion now
+   checks bare `/document` (not `/document/foo`) 404s, and
+   `/document/D01` was added to the "serves index.html" test alongside
+   `/events`/`/person/**`.
+
+All 42 Python tests and all 47 Java tests pass.
 
 ## Cutover gate
 
@@ -752,17 +1106,26 @@ Cutover only happens once:
 - **[Done]** `/data/**` static file serving - was blocking the browser UI
   from loading any data at all against the Java backend; closed by
   `config/DataStaticResourceConfig.java`, see the Status entry above.
-  `/api/geneteka-import`, `/api/save-data`, and the four
-  `/api/*-document*` endpoints remain unported - see the next item for
-  why those are more than a config fix.
+  The four `/api/*-document*` endpoints were closed by step 7 (see its
+  Status entry above); `/api/geneteka-import` and `/api/save-data` were
+  closed by the ad hoc Status entry just above the "Cutover gate" section.
 - **CLAUDE.md lists four sync endpoints** (`/api/generate-parent-marriages`,
   `/api/sync-event-dates-to-persons`, `/api/sync-all-ages-to-birth-years`,
   `/api/deduplicate-witnesses-godparents`) as live `server.py` routes, and
-  the migration order's step 7 was scoped assuming they exist - but neither
+  the migration order's step 8 was scoped assuming they exist - but neither
   `server.py` nor `app/genealogy_repository.py` currently define any of
   them (`grep` for each name/route turns up nothing). Either they were
   removed/renamed at some point and CLAUDE.md is stale (same situation as
   its already-noted orphaned `generate_enrichment_queue.py` consumer), or
-  they live somewhere not yet checked. Needs a look before step 7 is
-  scoped for real - if they genuinely don't exist, step 7 shrinks to
+  they live somewhere not yet checked. Needs a look before step 8 is
+  scoped for real - if they genuinely don't exist, step 8 shrinks to
   whatever subset does, or drops out of the migration order entirely.
+- **[Done]** Document management (`/api/add-document`,
+  `/api/update-document`, `/api/delete-document`,
+  `/api/delete-document-page`, `/document/*` SPA routing) - see "Document
+  management port (step 7, done)" below and the step 7 Status entry
+  above.
+- **[Done]** `/api/save-data` and `/api/geneteka-import` - see the ad hoc
+  Status entry above (just before "## Goal" was previously the last gap;
+  now just before "## Cutover gate"). Every endpoint CLAUDE.md documents as
+  live is now ported.

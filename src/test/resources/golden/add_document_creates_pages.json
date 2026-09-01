@@ -1,0 +1,59 @@
+{
+  "diff": {
+    "added": {
+      "D_NEW_1": {
+        "date": 1900,
+        "events": [
+          "E0055"
+        ],
+        "id": "D_NEW_1",
+        "link": "https://example.invalid/doc",
+        "name": "Test Document Fixture",
+        "notes": "fixture notes",
+        "pages": [
+          {
+            "filename": "D_NEW_1-1.jpg",
+            "transcription": ""
+          },
+          {
+            "filename": "D_NEW_1-2.png",
+            "transcription": ""
+          }
+        ],
+        "tags": [
+          "test",
+          "fixture"
+        ]
+      }
+    },
+    "changed": {},
+    "removed": {}
+  },
+  "response": {
+    "document": {
+      "date": 1900,
+      "events": [
+        "E0055"
+      ],
+      "id": "D_NEW_1",
+      "link": "https://example.invalid/doc",
+      "name": "Test Document Fixture",
+      "notes": "fixture notes",
+      "pages": [
+        {
+          "filename": "D_NEW_1-1.jpg",
+          "transcription": ""
+        },
+        {
+          "filename": "D_NEW_1-2.png",
+          "transcription": ""
+        }
+      ],
+      "tags": [
+        "test",
+        "fixture"
+      ]
+    },
+    "success": true
+  }
+}

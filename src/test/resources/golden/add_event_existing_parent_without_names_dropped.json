@@ -1,0 +1,94 @@
+{
+  "diff": {
+    "event_participations": {
+      "added": {
+        "EP_NEW_1": {
+          "event_id": "E_NEW_1",
+          "id": "EP_NEW_1",
+          "person_id": "P_NEW_1",
+          "role": "child"
+        }
+      },
+      "changed": {},
+      "removed": {}
+    },
+    "events": {
+      "added": {
+        "E_NEW_1": {
+          "content": "child: TestChild8 Fixture",
+          "date": {
+            "circa": false,
+            "day": null,
+            "month": null,
+            "year": 1885
+          },
+          "description": null,
+          "id": "E_NEW_1",
+          "links": [],
+          "notes": "Layer 1 golden-master test fixture",
+          "place_id": null,
+          "source": null,
+          "tags": [],
+          "title": null,
+          "type": "birth"
+        }
+      },
+      "changed": {},
+      "removed": {}
+    },
+    "persons": {
+      "added": {
+        "P_NEW_1": {
+          "first_name": "TestChild8",
+          "gender": "U",
+          "id": "P_NEW_1",
+          "last_name": "Fixture",
+          "maiden_name": null,
+          "notes": null,
+          "occupation": null,
+          "tags": []
+        }
+      },
+      "changed": {},
+      "removed": {}
+    },
+    "places": {
+      "added": {},
+      "changed": {},
+      "removed": {}
+    }
+  },
+  "response": {
+    "event": {
+      "content": "child: TestChild8 Fixture",
+      "date": {
+        "circa": false,
+        "day": null,
+        "month": null,
+        "year": 1885
+      },
+      "description": null,
+      "id": "E_NEW_1",
+      "links": [],
+      "notes": "Layer 1 golden-master test fixture",
+      "place_id": null,
+      "source": null,
+      "tags": [],
+      "title": null,
+      "type": "birth"
+    },
+    "new_persons": [
+      {
+        "first_name": "TestChild8",
+        "gender": "U",
+        "id": "P_NEW_1",
+        "last_name": "Fixture",
+        "maiden_name": null,
+        "notes": null,
+        "occupation": null,
+        "tags": []
+      }
+    ],
+    "success": true
+  }
+}

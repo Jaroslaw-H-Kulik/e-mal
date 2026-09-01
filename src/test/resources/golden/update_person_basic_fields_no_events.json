@@ -1,0 +1,65 @@
+{
+  "diff": {
+    "event_participations": {
+      "added": {},
+      "changed": {},
+      "removed": {}
+    },
+    "events": {
+      "added": {},
+      "changed": {},
+      "removed": {}
+    },
+    "persons": {
+      "added": {},
+      "changed": {
+        "P0012": {
+          "after": {
+            "first_name": "UpdatedFirst",
+            "gender": "M",
+            "id": "P0012",
+            "last_name": "UpdatedLast",
+            "maiden_name": null,
+            "notes": "updated notes",
+            "occupation": "farmer",
+            "tags": [
+              "updated"
+            ]
+          },
+          "before": {
+            "first_name": "Ignacy",
+            "gender": "M",
+            "id": "P0012",
+            "last_name": "Raczyński",
+            "maiden_name": null,
+            "notes": null,
+            "occupation": null,
+            "tags": []
+          }
+        }
+      },
+      "removed": {}
+    },
+    "places": {
+      "added": {},
+      "changed": {},
+      "removed": {}
+    }
+  },
+  "response": {
+    "person": {
+      "first_name": "UpdatedFirst",
+      "gender": "M",
+      "id": "P0012",
+      "last_name": "UpdatedLast",
+      "maiden_name": null,
+      "notes": "updated notes",
+      "occupation": "farmer",
+      "tags": [
+        "updated"
+      ]
+    },
+    "success": true,
+    "updated_events": []
+  }
+}

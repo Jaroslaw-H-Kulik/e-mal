@@ -1,0 +1,66 @@
+{
+  "diff": {
+    "added": {},
+    "changed": {
+      "D_NEW_1": {
+        "after": {
+          "date": 1851,
+          "events": [
+            "E0055"
+          ],
+          "id": "D_NEW_1",
+          "link": "https://example.invalid/renamed",
+          "name": "After Rename",
+          "notes": "edited",
+          "pages": [
+            {
+              "filename": "D_NEW_1-1.jpg",
+              "transcription": ""
+            }
+          ],
+          "tags": [
+            "fixture"
+          ]
+        },
+        "before": {
+          "date": 1850,
+          "events": [],
+          "id": "D_NEW_1",
+          "link": "",
+          "name": "Before Rename",
+          "notes": "",
+          "pages": [
+            {
+              "filename": "D_NEW_1-1.jpg",
+              "transcription": ""
+            }
+          ],
+          "tags": []
+        }
+      }
+    },
+    "removed": {}
+  },
+  "response": {
+    "document": {
+      "date": 1851,
+      "events": [
+        "E0055"
+      ],
+      "id": "D_NEW_1",
+      "link": "https://example.invalid/renamed",
+      "name": "After Rename",
+      "notes": "edited",
+      "pages": [
+        {
+          "filename": "D_NEW_1-1.jpg",
+          "transcription": ""
+        }
+      ],
+      "tags": [
+        "fixture"
+      ]
+    },
+    "success": true
+  }
+}

@@ -1,0 +1,123 @@
+{
+  "diff": {
+    "event_participations": {
+      "added": {},
+      "changed": {},
+      "removed": {
+        "EP0014": {
+          "event_id": "E0004",
+          "id": "EP0014",
+          "person_id": "P0011",
+          "role": "deceased"
+        },
+        "EP1748": {
+          "event_id": "E0555",
+          "id": "EP1748",
+          "person_id": "P0011",
+          "role": "witness"
+        },
+        "EP2088": {
+          "event_id": "E0651",
+          "id": "EP2088",
+          "person_id": "P0011",
+          "role": "witness"
+        },
+        "EP2093": {
+          "event_id": "E0653",
+          "id": "EP2093",
+          "person_id": "P0011",
+          "role": "child"
+        },
+        "EP4697": {
+          "event_id": "E1415",
+          "id": "EP4697",
+          "person_id": "P0011",
+          "role": "groom"
+        },
+        "EP4700": {
+          "event_id": "E0776",
+          "id": "EP4700",
+          "person_id": "P0011",
+          "role": "father"
+        },
+        "EP4702": {
+          "event_id": "E1416",
+          "id": "EP4702",
+          "person_id": "P0011",
+          "role": "groom"
+        }
+      }
+    },
+    "events": {
+      "added": {},
+      "changed": {},
+      "removed": {
+        "E0004": {
+          "content": "świadkowie: Franciszek Zarzycki (60), Krzysztof Słyk (60), Wojciech Surdey (ojciec Jana, dziadek Brygidy)",
+          "date": {
+            "circa": false,
+            "day": null,
+            "month": null,
+            "year": 1828
+          },
+          "description": null,
+          "id": "E0004",
+          "links": [],
+          "notes": "Source line: 34",
+          "place_id": null,
+          "source": null,
+          "tags": [],
+          "title": null,
+          "type": "death"
+        },
+        "E0653": {
+          "content": "Birth of Krzysztof Słyk",
+          "date": {
+            "circa": true,
+            "day": null,
+            "month": null,
+            "year": 1767
+          },
+          "description": null,
+          "id": "E0653",
+          "links": [],
+          "notes": "Auto-generated from age 60 in event E0651",
+          "place_id": null,
+          "source": null,
+          "tags": [],
+          "title": null,
+          "type": "birth"
+        }
+      }
+    },
+    "persons": {
+      "added": {},
+      "changed": {},
+      "removed": {
+        "P0011": {
+          "first_name": "Krzysztof",
+          "gender": "M",
+          "id": "P0011",
+          "last_name": "Słyk",
+          "maiden_name": null,
+          "notes": null,
+          "occupation": null,
+          "tags": []
+        }
+      }
+    },
+    "places": {
+      "added": {},
+      "changed": {},
+      "removed": {}
+    }
+  },
+  "response": {
+    "deleted_events": [
+      "E0004",
+      "E0653"
+    ],
+    "deleted_participations": 7,
+    "success": true
+  }
+}

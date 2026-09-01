@@ -8549,7 +8549,7 @@
     "P0919": {
       "id": "P0919",
       "first_name": "Teresa",
-      "last_name": "Kruk",
+      "last_name": "Klepacz",
       "gender": "F",
       "maiden_name": "Kabat",
       "occupation": null,
@@ -9350,7 +9350,7 @@
       "id": "P1004",
       "first_name": "Katarzyna",
       "last_name": "Kruk",
-      "gender": "U",
+      "gender": "F",
       "maiden_name": "Siwiec",
       "occupation": null,
       "tags": [],
@@ -9389,9 +9389,9 @@
     "P1008": {
       "id": "P1008",
       "first_name": "Marianna",
-      "last_name": "Marcula",
+      "last_name": "Siwiec",
       "gender": "F",
-      "maiden_name": null,
+      "maiden_name": "Marcula",
       "occupation": null,
       "tags": [],
       "notes": null
@@ -9440,7 +9440,7 @@
       "id": "P1013",
       "first_name": "Mateusz",
       "last_name": "Siwiec",
-      "gender": "U",
+      "gender": "M",
       "maiden_name": null,
       "occupation": null,
       "tags": [],
@@ -10530,7 +10530,7 @@
       "id": "P1124",
       "first_name": "Andrzej",
       "last_name": "Sikora",
-      "gender": "U",
+      "gender": "M",
       "maiden_name": null,
       "occupation": null,
       "tags": [],
@@ -10540,7 +10540,7 @@
       "id": "P1125",
       "first_name": "Marianna",
       "last_name": "Sikora",
-      "gender": "U",
+      "gender": "F",
       "maiden_name": null,
       "occupation": null,
       "tags": [],
@@ -12995,6 +12995,266 @@
       "occupation": null,
       "tags": [],
       "notes": null
+    },
+    "P1372": {
+      "id": "P1372",
+      "first_name": "Jan",
+      "last_name": "Kruk",
+      "gender": "M",
+      "maiden_name": null,
+      "occupation": null,
+      "tags": [],
+      "notes": null
+    },
+    "P1373": {
+      "id": "P1373",
+      "first_name": "Elżbieta",
+      "last_name": "Kruk",
+      "gender": "F",
+      "maiden_name": null,
+      "occupation": null,
+      "tags": [],
+      "notes": null
+    },
+    "P1374": {
+      "id": "P1374",
+      "first_name": "Marianna",
+      "last_name": "Kruk",
+      "gender": "F",
+      "maiden_name": "Marcula",
+      "occupation": null,
+      "tags": [],
+      "notes": null
+    },
+    "P1375": {
+      "id": "P1375",
+      "first_name": "Aleksy",
+      "last_name": "Kruk",
+      "gender": "M",
+      "maiden_name": null,
+      "occupation": null,
+      "tags": [],
+      "notes": null
+    },
+    "P1376": {
+      "id": "P1376",
+      "first_name": "Mateusz",
+      "last_name": "Kruk",
+      "gender": "M",
+      "maiden_name": null,
+      "occupation": null,
+      "tags": [],
+      "notes": null
+    },
+    "P1377": {
+      "id": "P1377",
+      "first_name": "Julianna",
+      "last_name": "Kruk",
+      "gender": "F",
+      "maiden_name": null,
+      "occupation": null,
+      "tags": [],
+      "notes": null
+    },
+    "P1378": {
+      "id": "P1378",
+      "first_name": "Maciej",
+      "last_name": "Kruk",
+      "gender": "M",
+      "maiden_name": null,
+      "occupation": null,
+      "tags": [],
+      "notes": null
+    },
+    "P1379": {
+      "id": "P1379",
+      "first_name": "Jadwiga",
+      "last_name": "Kruk",
+      "gender": "F",
+      "maiden_name": null,
+      "occupation": null,
+      "tags": [],
+      "notes": null
+    },
+    "P1380": {
+      "id": "P1380",
+      "first_name": "Agnieszka",
+      "last_name": "Kruk",
+      "gender": "F",
+      "maiden_name": null,
+      "occupation": null,
+      "tags": [],
+      "notes": null
+    },
+    "P1381": {
+      "id": "P1381",
+      "first_name": "Marianna",
+      "last_name": "Kruk",
+      "gender": "F",
+      "maiden_name": null,
+      "occupation": null,
+      "tags": [],
+      "notes": null
+    },
+    "P1382": {
+      "id": "P1382",
+      "first_name": "Michał",
+      "last_name": "Marcula",
+      "gender": "M",
+      "maiden_name": null,
+      "occupation": null,
+      "tags": [],
+      "notes": null
+    },
+    "P1383": {
+      "id": "P1383",
+      "first_name": "Marianna",
+      "last_name": "Marcula",
+      "gender": "F",
+      "maiden_name": "Siwiec",
+      "occupation": null,
+      "tags": [],
+      "notes": null
+    },
+    "P1384": {
+      "id": "P1384",
+      "first_name": "Franciszek",
+      "last_name": "Marcula",
+      "gender": "M",
+      "maiden_name": null,
+      "occupation": null,
+      "tags": [],
+      "notes": null
+    },
+    "P1385": {
+      "id": "P1385",
+      "first_name": "Zofia",
+      "last_name": "Marcula",
+      "gender": "F",
+      "maiden_name": null,
+      "occupation": null,
+      "tags": [],
+      "notes": null
+    },
+    "P1386": {
+      "id": "P1386",
+      "first_name": "Wojciech",
+      "last_name": "Marcula",
+      "gender": "M",
+      "maiden_name": null,
+      "occupation": null,
+      "tags": [],
+      "notes": null
+    },
+    "P1387": {
+      "id": "P1387",
+      "first_name": "Walenty",
+      "last_name": "Marcula",
+      "gender": "M",
+      "maiden_name": null,
+      "occupation": null,
+      "tags": [],
+      "notes": null
+    },
+    "P1388": {
+      "id": "P1388",
+      "first_name": "Tomasz",
+      "last_name": "Klepacz",
+      "gender": "M",
+      "maiden_name": null,
+      "occupation": null,
+      "tags": [],
+      "notes": null
+    },
+    "P1389": {
+      "id": "P1389",
+      "first_name": "Małgorzata",
+      "last_name": "Kabat",
+      "gender": "F",
+      "maiden_name": null,
+      "occupation": null,
+      "tags": [],
+      "notes": null
+    },
+    "P1390": {
+      "id": "P1390",
+      "first_name": "Jan",
+      "last_name": "Klepacz",
+      "gender": "M",
+      "maiden_name": null,
+      "occupation": null,
+      "tags": [],
+      "notes": null
+    },
+    "P1391": {
+      "id": "P1391",
+      "first_name": "Antoni",
+      "last_name": "Klepacz",
+      "gender": "M",
+      "maiden_name": null,
+      "occupation": null,
+      "tags": [],
+      "notes": null
+    },
+    "P1392": {
+      "id": "P1392",
+      "first_name": "Maciej",
+      "last_name": "Klepacz",
+      "gender": "M",
+      "maiden_name": null,
+      "occupation": null,
+      "tags": [],
+      "notes": null
+    },
+    "P1393": {
+      "id": "P1393",
+      "first_name": "Franciszka",
+      "last_name": "Klepacz",
+      "gender": "F",
+      "maiden_name": "Bartos",
+      "occupation": null,
+      "tags": [],
+      "notes": null
+    },
+    "P1394": {
+      "id": "P1394",
+      "first_name": "Paweł",
+      "last_name": "Bartos",
+      "gender": "M",
+      "maiden_name": null,
+      "occupation": null,
+      "tags": [],
+      "notes": null
+    },
+    "P1395": {
+      "id": "P1395",
+      "first_name": "Julianna",
+      "last_name": "Bartos",
+      "gender": "F",
+      "maiden_name": "Drozd",
+      "occupation": null,
+      "tags": [],
+      "notes": null
+    },
+    "P1396": {
+      "id": "P1396",
+      "first_name": "Maciej",
+      "last_name": "Bartos",
+      "gender": "M",
+      "maiden_name": null,
+      "occupation": null,
+      "tags": [],
+      "notes": null
+    },
+    "P1397": {
+      "id": "P1397",
+      "first_name": "Marianna",
+      "last_name": "Bartos",
+      "gender": "F",
+      "maiden_name": "Srota",
+      "occupation": null,
+      "tags": [],
+      "notes": null
     }
   },
   "places": {
@@ -13725,6 +13985,13 @@
       "parish_name": null,
       "house_number": null,
       "type": "settlement"
+    },
+    "PL0105": {
+      "id": "PL0105",
+      "name": "Bór Iłżecki",
+      "parish_name": null,
+      "house_number": "",
+      "type": null
     }
   },
   "events": {
@@ -21959,10 +22226,10 @@
         "year": 1786,
         "month": null,
         "day": null,
-        "circa": true
+        "circa": false
       },
-      "place_id": null,
-      "content": null,
+      "place_id": "PL0102",
+      "content": "child: Kazimierz Bartos, father: Maciej Bartos, mother: Marianna Bartos",
       "description": "Birth of Kazimierz Bartos",
       "title": null,
       "source": null,
@@ -29242,13 +29509,13 @@
       "id": "E0944",
       "type": "birth",
       "date": {
-        "year": 1739,
+        "year": 1753,
         "month": null,
         "day": null,
-        "circa": true
+        "circa": false
       },
-      "place_id": "PL0048",
-      "content": null,
+      "place_id": "PL0105",
+      "content": "child: Wawrzyniec Kruk, father: Jan Kruk, mother: Elżbieta Kruk",
       "description": "Birth of Wawrzyniec Kruk",
       "title": null,
       "source": null,
@@ -48273,6 +48540,753 @@
       "notes": "",
       "tags": [],
       "links": []
+    },
+    "E2064": {
+      "id": "E2064",
+      "type": "birth",
+      "date": null,
+      "place_id": null,
+      "content": "",
+      "description": "Birth of Jan Kruk",
+      "title": null,
+      "source": null,
+      "notes": "Auto-generated from event participation",
+      "tags": [],
+      "links": []
+    },
+    "E2065": {
+      "id": "E2065",
+      "type": "birth",
+      "date": {
+        "year": 1716,
+        "month": null,
+        "day": null,
+        "circa": true
+      },
+      "place_id": null,
+      "content": "",
+      "description": "Birth of Elżbieta Kruk",
+      "title": null,
+      "source": null,
+      "notes": "Auto-generated from event participation",
+      "tags": [],
+      "links": []
+    },
+    "E2066": {
+      "id": "E2066",
+      "type": "marriage",
+      "date": null,
+      "place_id": null,
+      "content": "",
+      "description": "Marriage of Jan Kruk and Elżbieta Kruk",
+      "title": null,
+      "source": null,
+      "notes": "Auto-generated from birth event E0944 (Step 30)",
+      "tags": [],
+      "links": []
+    },
+    "E2067": {
+      "id": "E2067",
+      "type": "marriage",
+      "date": {
+        "year": 1779,
+        "month": null,
+        "day": null,
+        "circa": false
+      },
+      "place_id": "PL0105",
+      "content": "groom: Wawrzyniec Kruk, bride: Marianna Kruk",
+      "description": null,
+      "title": null,
+      "source": null,
+      "notes": "",
+      "tags": [],
+      "links": []
+    },
+    "E2068": {
+      "id": "E2068",
+      "type": "birth",
+      "date": {
+        "year": 1758,
+        "month": null,
+        "day": null,
+        "circa": false
+      },
+      "place_id": "PL0105",
+      "content": "child: Marianna Kruk, father: Michał Marcula, mother: Marianna Marcula",
+      "description": "Birth of Marianna Kruk",
+      "title": null,
+      "source": null,
+      "notes": "",
+      "tags": [],
+      "links": []
+    },
+    "E2069": {
+      "id": "E2069",
+      "type": "birth",
+      "date": {
+        "year": 1780,
+        "month": null,
+        "day": null,
+        "circa": false
+      },
+      "place_id": "PL0105",
+      "content": "child: Aleksy Kruk, father: Wawrzyniec Kruk, mother: Marianna Kruk",
+      "description": null,
+      "title": null,
+      "source": null,
+      "notes": "",
+      "tags": [],
+      "links": []
+    },
+    "E2070": {
+      "id": "E2070",
+      "type": "birth",
+      "date": {
+        "year": 1781,
+        "month": null,
+        "day": null,
+        "circa": false
+      },
+      "place_id": "PL0105",
+      "content": "child: Mateusz Kruk, father: Wawrzyniec Kruk, mother: Marianna Kruk",
+      "description": null,
+      "title": null,
+      "source": null,
+      "notes": "",
+      "tags": [],
+      "links": []
+    },
+    "E2071": {
+      "id": "E2071",
+      "type": "birth",
+      "date": {
+        "year": 1797,
+        "month": null,
+        "day": null,
+        "circa": false
+      },
+      "place_id": "PL0105",
+      "content": "child: Julianna Kruk, father: Wawrzyniec Kruk, mother: Marianna Kruk",
+      "description": null,
+      "title": null,
+      "source": null,
+      "notes": "",
+      "tags": [],
+      "links": []
+    },
+    "E2072": {
+      "id": "E2072",
+      "type": "birth",
+      "date": {
+        "year": null,
+        "month": null,
+        "day": null,
+        "circa": false
+      },
+      "place_id": "PL0105",
+      "content": "child: Maciej Kruk, father: Wawrzyniec Kruk, mother: Marianna Kruk",
+      "description": null,
+      "title": null,
+      "source": null,
+      "notes": "",
+      "tags": [],
+      "links": []
+    },
+    "E2073": {
+      "id": "E2073",
+      "type": "death",
+      "date": {
+        "year": 1785,
+        "month": 1,
+        "day": 8,
+        "circa": false
+      },
+      "place_id": "PL0105",
+      "content": "deceased: Aleksy Kruk",
+      "description": null,
+      "title": null,
+      "source": null,
+      "notes": "",
+      "tags": [],
+      "links": []
+    },
+    "E2074": {
+      "id": "E2074",
+      "type": "birth",
+      "date": {
+        "year": null,
+        "month": null,
+        "day": null,
+        "circa": false
+      },
+      "place_id": null,
+      "content": "child: Jadwiga Kruk, father: Wawrzyniec Kruk, mother: Marianna Kruk",
+      "description": null,
+      "title": null,
+      "source": null,
+      "notes": "",
+      "tags": [],
+      "links": []
+    },
+    "E2075": {
+      "id": "E2075",
+      "type": "death",
+      "date": {
+        "year": 1785,
+        "month": 1,
+        "day": 16,
+        "circa": false
+      },
+      "place_id": "PL0105",
+      "content": "deceased: Jadwiga Kruk",
+      "description": null,
+      "title": null,
+      "source": null,
+      "notes": "",
+      "tags": [],
+      "links": []
+    },
+    "E2076": {
+      "id": "E2076",
+      "type": "death",
+      "date": {
+        "year": 1785,
+        "month": 1,
+        "day": 14,
+        "circa": false
+      },
+      "place_id": "PL0105",
+      "content": "deceased: Mateusz Kruk",
+      "description": null,
+      "title": null,
+      "source": null,
+      "notes": "",
+      "tags": [],
+      "links": []
+    },
+    "E2077": {
+      "id": "E2077",
+      "type": "death",
+      "date": {
+        "year": 1776,
+        "month": null,
+        "day": null,
+        "circa": false
+      },
+      "place_id": "PL0105",
+      "content": "deceased: Elżbieta Kruk (60)",
+      "description": null,
+      "title": null,
+      "source": null,
+      "notes": "",
+      "tags": [],
+      "links": []
+    },
+    "E2078": {
+      "id": "E2078",
+      "type": "birth",
+      "date": {
+        "year": 1759,
+        "month": null,
+        "day": null,
+        "circa": false
+      },
+      "place_id": "PL0105",
+      "content": "child: Agnieszka Kruk, father: Jan Kruk, mother: Elżbieta Kruk",
+      "description": null,
+      "title": null,
+      "source": null,
+      "notes": "",
+      "tags": [],
+      "links": []
+    },
+    "E2079": {
+      "id": "E2079",
+      "type": "birth",
+      "date": {
+        "year": 1757,
+        "month": null,
+        "day": null,
+        "circa": false
+      },
+      "place_id": "PL0105",
+      "content": "child: Marianna Kruk, father: Jan Kruk, mother: Elżbieta Kruk",
+      "description": null,
+      "title": null,
+      "source": null,
+      "notes": "",
+      "tags": [],
+      "links": []
+    },
+    "E2080": {
+      "id": "E2080",
+      "type": "birth",
+      "date": {
+        "year": 1725,
+        "month": null,
+        "day": null,
+        "circa": true
+      },
+      "place_id": null,
+      "content": "",
+      "description": "Birth of Michał Marcula",
+      "title": null,
+      "source": null,
+      "notes": "Auto-generated from event participation",
+      "tags": [],
+      "links": []
+    },
+    "E2081": {
+      "id": "E2081",
+      "type": "birth",
+      "date": null,
+      "place_id": null,
+      "content": "",
+      "description": "Birth of Marianna Marcula",
+      "title": null,
+      "source": null,
+      "notes": "Auto-generated from event participation",
+      "tags": [],
+      "links": []
+    },
+    "E2082": {
+      "id": "E2082",
+      "type": "marriage",
+      "date": {
+        "year": 1757,
+        "month": null,
+        "day": null,
+        "circa": false
+      },
+      "place_id": "PL0105",
+      "content": "groom: Michał Marcula, bride: Marianna Marcula",
+      "description": "Marriage of Michał Marcula and Marianna Marcula",
+      "title": null,
+      "source": null,
+      "notes": "Auto-generated from birth event E2068 (Step 30)",
+      "tags": [],
+      "links": []
+    },
+    "E2083": {
+      "id": "E2083",
+      "type": "death",
+      "date": {
+        "year": 1810,
+        "month": null,
+        "day": null,
+        "circa": false
+      },
+      "place_id": "PL0105",
+      "content": "deceased: Michał Marcula (85)",
+      "description": null,
+      "title": null,
+      "source": null,
+      "notes": "",
+      "tags": [],
+      "links": []
+    },
+    "E2084": {
+      "id": "E2084",
+      "type": "birth",
+      "date": {
+        "year": 1759,
+        "month": null,
+        "day": null,
+        "circa": false
+      },
+      "place_id": "PL0105",
+      "content": "child: Franciszek Marcula, father: Michał Marcula, mother: Marianna Marcula",
+      "description": null,
+      "title": null,
+      "source": null,
+      "notes": "",
+      "tags": [],
+      "links": []
+    },
+    "E2085": {
+      "id": "E2085",
+      "type": "birth",
+      "date": {
+        "year": 1762,
+        "month": null,
+        "day": null,
+        "circa": false
+      },
+      "place_id": "PL0105",
+      "content": "child: Zofia Marcula, father: Michał Marcula, mother: Marianna Marcula",
+      "description": null,
+      "title": null,
+      "source": null,
+      "notes": "",
+      "tags": [],
+      "links": []
+    },
+    "E2086": {
+      "id": "E2086",
+      "type": "birth",
+      "date": {
+        "year": 1763,
+        "month": null,
+        "day": null,
+        "circa": false
+      },
+      "place_id": "PL0105",
+      "content": "child: Wojciech Marcula, father: Michał Marcula, mother: Marianna Marcula",
+      "description": null,
+      "title": null,
+      "source": null,
+      "notes": "",
+      "tags": [],
+      "links": []
+    },
+    "E2087": {
+      "id": "E2087",
+      "type": "birth",
+      "date": {
+        "year": 1769,
+        "month": null,
+        "day": null,
+        "circa": false
+      },
+      "place_id": "PL0105",
+      "content": "child: Walenty Marcula, father: Michał Marcula, mother: Marianna Marcula",
+      "description": null,
+      "title": null,
+      "source": null,
+      "notes": "",
+      "tags": [],
+      "links": []
+    },
+    "E2088": {
+      "id": "E2088",
+      "type": "marriage",
+      "date": {
+        "year": 1815,
+        "month": null,
+        "day": null,
+        "circa": false
+      },
+      "place_id": "PL0105",
+      "content": "groom: Tomasz Klepacz, bride: Teresa Klepacz",
+      "description": null,
+      "title": null,
+      "source": null,
+      "notes": "",
+      "tags": [],
+      "links": []
+    },
+    "E2089": {
+      "id": "E2089",
+      "type": "birth",
+      "date": {
+        "year": 1779,
+        "month": null,
+        "day": null,
+        "circa": true
+      },
+      "place_id": null,
+      "content": "",
+      "description": "Birth of Tomasz Klepacz",
+      "title": null,
+      "source": null,
+      "notes": "Auto-generated from event participation",
+      "tags": [],
+      "links": []
+    },
+    "E2090": {
+      "id": "E2090",
+      "type": "death",
+      "date": {
+        "year": 1846,
+        "month": null,
+        "day": null,
+        "circa": false
+      },
+      "place_id": "PL0105",
+      "content": "deceased: Teresa Klepacz (80)",
+      "description": null,
+      "title": null,
+      "source": null,
+      "notes": "",
+      "tags": [],
+      "links": []
+    },
+    "E2091": {
+      "id": "E2091",
+      "type": "birth",
+      "date": {
+        "year": 1766,
+        "month": null,
+        "day": null,
+        "circa": false
+      },
+      "place_id": "PL0105",
+      "content": "child: Teresa Klepacz, mother: Magorzata Kabat",
+      "description": "Birth of Teresa Klepacz",
+      "title": null,
+      "source": null,
+      "notes": "Auto-generated from age 80 in event E2090",
+      "tags": [],
+      "links": []
+    },
+    "E2092": {
+      "id": "E2092",
+      "type": "birth",
+      "date": null,
+      "place_id": null,
+      "content": "",
+      "description": "Birth of Magorzata Kabat",
+      "title": null,
+      "source": null,
+      "notes": "Auto-generated from event participation",
+      "tags": [],
+      "links": []
+    },
+    "E2093": {
+      "id": "E2093",
+      "type": "birth",
+      "date": {
+        "year": 1816,
+        "month": null,
+        "day": null,
+        "circa": false
+      },
+      "place_id": "PL0105",
+      "content": "child: Jan Klepacz, father: Tomasz Klepacz, mother: Teresa Klepacz",
+      "description": null,
+      "title": null,
+      "source": null,
+      "notes": "",
+      "tags": [],
+      "links": []
+    },
+    "E2094": {
+      "id": "E2094",
+      "type": "birth",
+      "date": {
+        "year": 1818,
+        "month": null,
+        "day": null,
+        "circa": false
+      },
+      "place_id": "PL0105",
+      "content": "child: Antoni Klepacz, father: Tomasz Klepacz, mother: Teresa Klepacz",
+      "description": null,
+      "title": null,
+      "source": null,
+      "notes": "",
+      "tags": [],
+      "links": []
+    },
+    "E2095": {
+      "id": "E2095",
+      "type": "birth",
+      "date": {
+        "year": 1820,
+        "month": null,
+        "day": null,
+        "circa": false
+      },
+      "place_id": "PL0105",
+      "content": "child: Maciej Klepacz, father: Tomasz Klepacz, mother: Teresa Klepacz",
+      "description": null,
+      "title": null,
+      "source": null,
+      "notes": "",
+      "tags": [],
+      "links": []
+    },
+    "E2096": {
+      "id": "E2096",
+      "type": "death",
+      "date": {
+        "year": 1849,
+        "month": null,
+        "day": null,
+        "circa": false
+      },
+      "place_id": "PL0105",
+      "content": "deceased: Tomasz Klepacz (70)",
+      "description": null,
+      "title": null,
+      "source": null,
+      "notes": "",
+      "tags": [],
+      "links": []
+    },
+    "E2097": {
+      "id": "E2097",
+      "type": "marriage",
+      "date": {
+        "year": 1837,
+        "month": null,
+        "day": null,
+        "circa": false
+      },
+      "place_id": "PL0098",
+      "content": "groom: Antoni Klepacz, bride: Franciszka Klepacz",
+      "description": null,
+      "title": null,
+      "source": null,
+      "notes": "",
+      "tags": [],
+      "links": []
+    },
+    "E2098": {
+      "id": "E2098",
+      "type": "birth",
+      "date": {
+        "year": 1819,
+        "month": null,
+        "day": null,
+        "circa": false
+      },
+      "place_id": "PL0102",
+      "content": "child: Franciszka Klepacz, father: Paweł Bartos, mother: Julianna Bartos",
+      "description": "Birth of Franciszka Klepacz",
+      "title": null,
+      "source": null,
+      "notes": "Auto-generated from event participation",
+      "tags": [],
+      "links": []
+    },
+    "E2099": {
+      "id": "E2099",
+      "type": "death",
+      "date": {
+        "year": 1865,
+        "month": null,
+        "day": null,
+        "circa": false
+      },
+      "place_id": "PL0102",
+      "content": "deceased: Franciszka Klepacz (46)",
+      "description": null,
+      "title": null,
+      "source": null,
+      "notes": "",
+      "tags": [],
+      "links": []
+    },
+    "E2100": {
+      "id": "E2100",
+      "type": "birth",
+      "date": null,
+      "place_id": null,
+      "content": "",
+      "description": "Birth of Paweł Bartos",
+      "title": null,
+      "source": null,
+      "notes": "Auto-generated from event participation",
+      "tags": [],
+      "links": []
+    },
+    "E2101": {
+      "id": "E2101",
+      "type": "birth",
+      "date": null,
+      "place_id": null,
+      "content": "",
+      "description": "Birth of Julianna Bartos",
+      "title": null,
+      "source": null,
+      "notes": "Auto-generated from event participation",
+      "tags": [],
+      "links": []
+    },
+    "E2102": {
+      "id": "E2102",
+      "type": "marriage",
+      "date": null,
+      "place_id": null,
+      "content": "",
+      "description": "Marriage of Paweł Bartos and Julianna Bartos",
+      "title": null,
+      "source": null,
+      "notes": "Auto-generated from birth event E2098 (Step 30)",
+      "tags": [],
+      "links": []
+    },
+    "E2103": {
+      "id": "E2103",
+      "type": "birth",
+      "date": {
+        "year": 1739,
+        "month": null,
+        "day": null,
+        "circa": true
+      },
+      "place_id": null,
+      "content": "",
+      "description": "Birth of Maciej Bartos",
+      "title": null,
+      "source": null,
+      "notes": "Auto-generated from event participation",
+      "tags": [],
+      "links": []
+    },
+    "E2104": {
+      "id": "E2104",
+      "type": "birth",
+      "date": null,
+      "place_id": null,
+      "content": "",
+      "description": "Birth of Marianna Bartos",
+      "title": null,
+      "source": null,
+      "notes": "Auto-generated from event participation",
+      "tags": [],
+      "links": []
+    },
+    "E2105": {
+      "id": "E2105",
+      "type": "marriage",
+      "date": null,
+      "place_id": null,
+      "content": "",
+      "description": "Marriage of Maciej Bartos and Marianna Bartos",
+      "title": null,
+      "source": null,
+      "notes": "Auto-generated from birth event E0509 (Step 30)",
+      "tags": [],
+      "links": []
+    },
+    "E2106": {
+      "id": "E2106",
+      "type": "death",
+      "date": {
+        "year": 1802,
+        "month": null,
+        "day": null,
+        "circa": false
+      },
+      "place_id": "PL0098",
+      "content": "deceased: Maciej Bartos (63)",
+      "description": null,
+      "title": null,
+      "source": null,
+      "notes": "",
+      "tags": [],
+      "links": []
+    },
+    "E2107": {
+      "id": "E2107",
+      "type": "death",
+      "date": {
+        "year": 1917,
+        "month": null,
+        "day": null,
+        "circa": false
+      },
+      "place_id": "PL0101",
+      "content": "deceased: Agnieszka Surdey",
+      "description": null,
+      "title": null,
+      "source": null,
+      "notes": "",
+      "tags": [],
+      "links": []
     }
   },
   "event_participations": {
@@ -52667,12 +53681,6 @@
       "event_id": "E0508",
       "person_id": "P0609",
       "role": "mother"
-    },
-    "EP1551": {
-      "id": "EP1551",
-      "event_id": "E0509",
-      "person_id": "P0611",
-      "role": "child"
     },
     "EP1556": {
       "id": "EP1556",
@@ -59592,12 +60600,6 @@
       "person_id": "P0910",
       "role": "deceased"
     },
-    "EP3209": {
-      "id": "EP3209",
-      "event_id": "E0944",
-      "person_id": "P0918",
-      "role": "child"
-    },
     "EP3211": {
       "id": "EP3211",
       "event_id": "E0946",
@@ -62039,18 +63041,6 @@
       "event_id": "E1130",
       "person_id": "P0461",
       "role": "mother"
-    },
-    "EP3799": {
-      "id": "EP3799",
-      "event_id": "E1131",
-      "person_id": "P1013",
-      "role": "groom"
-    },
-    "EP3800": {
-      "id": "EP3800",
-      "event_id": "E1131",
-      "person_id": "P1008",
-      "role": "bride"
     },
     "EP3801": {
       "id": "EP3801",
@@ -75437,6 +76427,558 @@
       "event_id": "E0323",
       "person_id": "P0516",
       "role": "godparent"
+    },
+    "EP6307": {
+      "id": "EP6307",
+      "event_id": "E0944",
+      "person_id": "P0918",
+      "role": "child"
+    },
+    "EP6308": {
+      "id": "EP6308",
+      "event_id": "E2064",
+      "person_id": "P1372",
+      "role": "child"
+    },
+    "EP6309": {
+      "id": "EP6309",
+      "event_id": "E0944",
+      "person_id": "P1372",
+      "role": "father"
+    },
+    "EP6310": {
+      "id": "EP6310",
+      "event_id": "E2065",
+      "person_id": "P1373",
+      "role": "child"
+    },
+    "EP6311": {
+      "id": "EP6311",
+      "event_id": "E0944",
+      "person_id": "P1373",
+      "role": "mother"
+    },
+    "EP6312": {
+      "id": "EP6312",
+      "event_id": "E2066",
+      "person_id": "P1372",
+      "role": "groom"
+    },
+    "EP6313": {
+      "id": "EP6313",
+      "event_id": "E2066",
+      "person_id": "P1373",
+      "role": "bride"
+    },
+    "EP6314": {
+      "id": "EP6314",
+      "event_id": "E2067",
+      "person_id": "P0918",
+      "role": "groom"
+    },
+    "EP6316": {
+      "id": "EP6316",
+      "event_id": "E2067",
+      "person_id": "P1374",
+      "role": "bride"
+    },
+    "EP6317": {
+      "id": "EP6317",
+      "event_id": "E2069",
+      "person_id": "P1375",
+      "role": "child"
+    },
+    "EP6318": {
+      "id": "EP6318",
+      "event_id": "E2069",
+      "person_id": "P0918",
+      "role": "father"
+    },
+    "EP6319": {
+      "id": "EP6319",
+      "event_id": "E2069",
+      "person_id": "P1374",
+      "role": "mother"
+    },
+    "EP6320": {
+      "id": "EP6320",
+      "event_id": "E2070",
+      "person_id": "P1376",
+      "role": "child"
+    },
+    "EP6321": {
+      "id": "EP6321",
+      "event_id": "E2070",
+      "person_id": "P0918",
+      "role": "father"
+    },
+    "EP6322": {
+      "id": "EP6322",
+      "event_id": "E2070",
+      "person_id": "P1374",
+      "role": "mother"
+    },
+    "EP6323": {
+      "id": "EP6323",
+      "event_id": "E2071",
+      "person_id": "P1377",
+      "role": "child"
+    },
+    "EP6324": {
+      "id": "EP6324",
+      "event_id": "E2071",
+      "person_id": "P0918",
+      "role": "father"
+    },
+    "EP6325": {
+      "id": "EP6325",
+      "event_id": "E2071",
+      "person_id": "P1374",
+      "role": "mother"
+    },
+    "EP6326": {
+      "id": "EP6326",
+      "event_id": "E2072",
+      "person_id": "P1378",
+      "role": "child"
+    },
+    "EP6327": {
+      "id": "EP6327",
+      "event_id": "E2072",
+      "person_id": "P0918",
+      "role": "father"
+    },
+    "EP6328": {
+      "id": "EP6328",
+      "event_id": "E2072",
+      "person_id": "P1374",
+      "role": "mother"
+    },
+    "EP6329": {
+      "id": "EP6329",
+      "event_id": "E2073",
+      "person_id": "P1375",
+      "role": "deceased"
+    },
+    "EP6330": {
+      "id": "EP6330",
+      "event_id": "E2074",
+      "person_id": "P1379",
+      "role": "child"
+    },
+    "EP6331": {
+      "id": "EP6331",
+      "event_id": "E2074",
+      "person_id": "P0918",
+      "role": "father"
+    },
+    "EP6332": {
+      "id": "EP6332",
+      "event_id": "E2074",
+      "person_id": "P1374",
+      "role": "mother"
+    },
+    "EP6333": {
+      "id": "EP6333",
+      "event_id": "E2075",
+      "person_id": "P1379",
+      "role": "deceased"
+    },
+    "EP6334": {
+      "id": "EP6334",
+      "event_id": "E2076",
+      "person_id": "P1376",
+      "role": "deceased"
+    },
+    "EP6335": {
+      "id": "EP6335",
+      "event_id": "E2077",
+      "person_id": "P1373",
+      "role": "deceased"
+    },
+    "EP6336": {
+      "id": "EP6336",
+      "event_id": "E2078",
+      "person_id": "P1380",
+      "role": "child"
+    },
+    "EP6337": {
+      "id": "EP6337",
+      "event_id": "E2078",
+      "person_id": "P1372",
+      "role": "father"
+    },
+    "EP6338": {
+      "id": "EP6338",
+      "event_id": "E2078",
+      "person_id": "P1373",
+      "role": "mother"
+    },
+    "EP6339": {
+      "id": "EP6339",
+      "event_id": "E2079",
+      "person_id": "P1381",
+      "role": "child"
+    },
+    "EP6340": {
+      "id": "EP6340",
+      "event_id": "E2079",
+      "person_id": "P1372",
+      "role": "father"
+    },
+    "EP6341": {
+      "id": "EP6341",
+      "event_id": "E2079",
+      "person_id": "P1373",
+      "role": "mother"
+    },
+    "EP6342": {
+      "id": "EP6342",
+      "event_id": "E2068",
+      "person_id": "P1374",
+      "role": "child"
+    },
+    "EP6343": {
+      "id": "EP6343",
+      "event_id": "E2080",
+      "person_id": "P1382",
+      "role": "child"
+    },
+    "EP6344": {
+      "id": "EP6344",
+      "event_id": "E2068",
+      "person_id": "P1382",
+      "role": "father"
+    },
+    "EP6345": {
+      "id": "EP6345",
+      "event_id": "E2081",
+      "person_id": "P1383",
+      "role": "child"
+    },
+    "EP6346": {
+      "id": "EP6346",
+      "event_id": "E2068",
+      "person_id": "P1383",
+      "role": "mother"
+    },
+    "EP6349": {
+      "id": "EP6349",
+      "event_id": "E2083",
+      "person_id": "P1382",
+      "role": "deceased"
+    },
+    "EP6350": {
+      "id": "EP6350",
+      "event_id": "E2082",
+      "person_id": "P1382",
+      "role": "groom"
+    },
+    "EP6351": {
+      "id": "EP6351",
+      "event_id": "E2082",
+      "person_id": "P1383",
+      "role": "bride"
+    },
+    "EP6352": {
+      "id": "EP6352",
+      "event_id": "E2084",
+      "person_id": "P1384",
+      "role": "child"
+    },
+    "EP6353": {
+      "id": "EP6353",
+      "event_id": "E2084",
+      "person_id": "P1382",
+      "role": "father"
+    },
+    "EP6354": {
+      "id": "EP6354",
+      "event_id": "E2084",
+      "person_id": "P1383",
+      "role": "mother"
+    },
+    "EP6355": {
+      "id": "EP6355",
+      "event_id": "E2085",
+      "person_id": "P1385",
+      "role": "child"
+    },
+    "EP6356": {
+      "id": "EP6356",
+      "event_id": "E2085",
+      "person_id": "P1382",
+      "role": "father"
+    },
+    "EP6357": {
+      "id": "EP6357",
+      "event_id": "E2085",
+      "person_id": "P1383",
+      "role": "mother"
+    },
+    "EP6358": {
+      "id": "EP6358",
+      "event_id": "E2086",
+      "person_id": "P1386",
+      "role": "child"
+    },
+    "EP6359": {
+      "id": "EP6359",
+      "event_id": "E2086",
+      "person_id": "P1382",
+      "role": "father"
+    },
+    "EP6360": {
+      "id": "EP6360",
+      "event_id": "E2086",
+      "person_id": "P1383",
+      "role": "mother"
+    },
+    "EP6361": {
+      "id": "EP6361",
+      "event_id": "E2087",
+      "person_id": "P1387",
+      "role": "child"
+    },
+    "EP6362": {
+      "id": "EP6362",
+      "event_id": "E2087",
+      "person_id": "P1382",
+      "role": "father"
+    },
+    "EP6363": {
+      "id": "EP6363",
+      "event_id": "E2087",
+      "person_id": "P1383",
+      "role": "mother"
+    },
+    "EP6364": {
+      "id": "EP6364",
+      "event_id": "E1131",
+      "person_id": "P1013",
+      "role": "groom"
+    },
+    "EP6365": {
+      "id": "EP6365",
+      "event_id": "E1131",
+      "person_id": "P1008",
+      "role": "bride"
+    },
+    "EP6366": {
+      "id": "EP6366",
+      "event_id": "E2089",
+      "person_id": "P1388",
+      "role": "child"
+    },
+    "EP6367": {
+      "id": "EP6367",
+      "event_id": "E2088",
+      "person_id": "P1388",
+      "role": "groom"
+    },
+    "EP6368": {
+      "id": "EP6368",
+      "event_id": "E2088",
+      "person_id": "P0919",
+      "role": "bride"
+    },
+    "EP6369": {
+      "id": "EP6369",
+      "event_id": "E2090",
+      "person_id": "P0919",
+      "role": "deceased"
+    },
+    "EP6370": {
+      "id": "EP6370",
+      "event_id": "E2091",
+      "person_id": "P0919",
+      "role": "child"
+    },
+    "EP6371": {
+      "id": "EP6371",
+      "event_id": "E2092",
+      "person_id": "P1389",
+      "role": "child"
+    },
+    "EP6372": {
+      "id": "EP6372",
+      "event_id": "E2091",
+      "person_id": "P1389",
+      "role": "mother"
+    },
+    "EP6373": {
+      "id": "EP6373",
+      "event_id": "E2093",
+      "person_id": "P1390",
+      "role": "child"
+    },
+    "EP6374": {
+      "id": "EP6374",
+      "event_id": "E2093",
+      "person_id": "P1388",
+      "role": "father"
+    },
+    "EP6375": {
+      "id": "EP6375",
+      "event_id": "E2093",
+      "person_id": "P0919",
+      "role": "mother"
+    },
+    "EP6376": {
+      "id": "EP6376",
+      "event_id": "E2094",
+      "person_id": "P1391",
+      "role": "child"
+    },
+    "EP6377": {
+      "id": "EP6377",
+      "event_id": "E2094",
+      "person_id": "P1388",
+      "role": "father"
+    },
+    "EP6378": {
+      "id": "EP6378",
+      "event_id": "E2094",
+      "person_id": "P0919",
+      "role": "mother"
+    },
+    "EP6379": {
+      "id": "EP6379",
+      "event_id": "E2095",
+      "person_id": "P1392",
+      "role": "child"
+    },
+    "EP6380": {
+      "id": "EP6380",
+      "event_id": "E2095",
+      "person_id": "P1388",
+      "role": "father"
+    },
+    "EP6381": {
+      "id": "EP6381",
+      "event_id": "E2095",
+      "person_id": "P0919",
+      "role": "mother"
+    },
+    "EP6382": {
+      "id": "EP6382",
+      "event_id": "E2096",
+      "person_id": "P1388",
+      "role": "deceased"
+    },
+    "EP6383": {
+      "id": "EP6383",
+      "event_id": "E2097",
+      "person_id": "P1391",
+      "role": "groom"
+    },
+    "EP6385": {
+      "id": "EP6385",
+      "event_id": "E2097",
+      "person_id": "P1393",
+      "role": "bride"
+    },
+    "EP6386": {
+      "id": "EP6386",
+      "event_id": "E2099",
+      "person_id": "P1393",
+      "role": "deceased"
+    },
+    "EP6387": {
+      "id": "EP6387",
+      "event_id": "E2098",
+      "person_id": "P1393",
+      "role": "child"
+    },
+    "EP6388": {
+      "id": "EP6388",
+      "event_id": "E2100",
+      "person_id": "P1394",
+      "role": "child"
+    },
+    "EP6389": {
+      "id": "EP6389",
+      "event_id": "E2098",
+      "person_id": "P1394",
+      "role": "father"
+    },
+    "EP6390": {
+      "id": "EP6390",
+      "event_id": "E2101",
+      "person_id": "P1395",
+      "role": "child"
+    },
+    "EP6391": {
+      "id": "EP6391",
+      "event_id": "E2098",
+      "person_id": "P1395",
+      "role": "mother"
+    },
+    "EP6392": {
+      "id": "EP6392",
+      "event_id": "E2102",
+      "person_id": "P1394",
+      "role": "groom"
+    },
+    "EP6393": {
+      "id": "EP6393",
+      "event_id": "E2102",
+      "person_id": "P1395",
+      "role": "bride"
+    },
+    "EP6394": {
+      "id": "EP6394",
+      "event_id": "E0509",
+      "person_id": "P0611",
+      "role": "child"
+    },
+    "EP6395": {
+      "id": "EP6395",
+      "event_id": "E2103",
+      "person_id": "P1396",
+      "role": "child"
+    },
+    "EP6396": {
+      "id": "EP6396",
+      "event_id": "E0509",
+      "person_id": "P1396",
+      "role": "father"
+    },
+    "EP6397": {
+      "id": "EP6397",
+      "event_id": "E2104",
+      "person_id": "P1397",
+      "role": "child"
+    },
+    "EP6398": {
+      "id": "EP6398",
+      "event_id": "E0509",
+      "person_id": "P1397",
+      "role": "mother"
+    },
+    "EP6399": {
+      "id": "EP6399",
+      "event_id": "E2105",
+      "person_id": "P1396",
+      "role": "groom"
+    },
+    "EP6400": {
+      "id": "EP6400",
+      "event_id": "E2105",
+      "person_id": "P1397",
+      "role": "bride"
+    },
+    "EP6401": {
+      "id": "EP6401",
+      "event_id": "E2106",
+      "person_id": "P1396",
+      "role": "deceased"
+    },
+    "EP6402": {
+      "id": "EP6402",
+      "event_id": "E2107",
+      "person_id": "P1286",
+      "role": "deceased"
     }
   },
   "metadata": {

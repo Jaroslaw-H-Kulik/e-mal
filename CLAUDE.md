@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-A web application for exploring Polish genealogical records from the parish of Grzybowa Góra (1826–1914). It parses historical records into a structured JSON database and provides an interactive web UI and Python query API.
+A web application for exploring Polish genealogical records from the parish of Grzybowa Góra (1826–1914). It parses historical records into a structured JSON database and provides an interactive web UI backed by a Java/Spring Boot REST API.
 
 ## Ways of work
 
@@ -15,41 +15,39 @@ Always apply this rule even if you are not explicitly asked to do so in command 
 ## Running the Server
 
 ```bash
-python3 server.py
+./mvnw spring-boot:run
+# Windows: mvnw.cmd spring-boot:run
 # Open: http://localhost:8000
 ```
 
-The server (`server.py`) serves the `web/` frontend and exposes a REST API. It reads/writes `data/genealogy_new_model.json` as the primary data store.
+The server is a Spring Boot app (`src/main/java/com/emal/genealogy/`) that serves the `web/` frontend and exposes a REST API. It loads `data/genealogy_new_model.json` into memory on startup and reads/writes it as the primary data store. Run tests with `./mvnw test`.
 
-## Regenerating Data from Source
-
-```bash
-python3 process_genealogy.py   # Parse base.md → data/ JSON files
-python3 query_genealogy.py     # Run example queries
-```
+There is no data-regeneration pipeline anymore — `base.md`/`base.ged` are kept as raw source records only; nothing in the codebase parses them at runtime. `data/genealogy_new_model.json` is edited exclusively through the running app.
 
 ## Architecture
 
-### Data Model (`new_data_model.py`)
+### Data Model (`src/main/java/com/emal/genealogy/model/`)
 
-The current (new) model uses these entities:
-- **Person** — individual with `id` (P0001...), `first_name`, `last_name`, `maiden_name`, `gender` (M/F/U), `birth_date`/`death_date` as `FlexibleDate`
-- **Event** — life event (`birth`, `marriage`, `death`, `generic`) with `id` (E0001...), `type`, `date`, `place_id`, `content`
-- **EventParticipation** — links persons to events via `role` (child/father/mother/deceased/bride/groom/witness/godparent/participant)
-- **FamilyRelationship** — derived relationship between two persons (parent/child/spouse/sibling), optionally sourced from an event
-- **Place** — location with optional `house_number` and `parish_name`
+Plain Java records, each with a Jackson catch-all (`@JsonAnySetter`/`@JsonAnyGetter`) so unrecognized fields still round-trip losslessly:
+- **Person** (`Person.java`) — `id` (P0001...), `first_name`, `last_name`, `maiden_name`, `gender` (M/F/U), `occupation`, `tags`, `notes`
+- **Event** (`Event.java`) — life event (`birth`, `marriage`, `death`, `generic`) with `id` (E0001...), `type`, `date` (`FlexibleDate`), `place_id`, `content`, `description`, `title`, `source`, `notes`, `tags`, `links`
+- **EventParticipation** (`EventParticipation.java`) — links persons to events via `role` (child/father/mother/deceased/bride/groom/witness/godparent/participant)
+- **Place** (`Place.java`) — location with optional `house_number` and `parish_name`
+- **Document**/**DocumentPage** (`Document.java`/`DocumentPage.java`) — scanned-record management, stored separately in `data/documents.json` + `data/documents/`
+- **FamilyRelationship** (`FamilyRelationship.java`) — modeled but unused; relationships are derived from event participations, not stored as their own collection (see its javadoc)
 
-All data lives in `data/genealogy_new_model.json`. Person IDs are `P####`, event IDs are `E####`, relationship IDs are `R####`.
+All genealogy data lives in `data/genealogy_new_model.json`. Person IDs are `P####`, event IDs are `E####`, place IDs are `PL####`, event-participation IDs are `EP####`, document IDs are `D##`.
 
-### Server API (`server.py`)
+### Server API (`src/main/java/com/emal/genealogy/web/`)
 
-`GenealogyServerHandler` extends `SimpleHTTPRequestHandler`. GET routes serve static files from `web/` and `data/`, plus:
+Thin `@RestController`s delegate to a `service/` layer (business logic, one class per entity family — `PersonService`, `EventService`, `RelationshipService`, `DocumentService`, `DataService`, `GenetekaService`). GET routes serve static files from `web/` and `data/` (`config/StaticResourceConfig.java`) plus SPA routes for `/events`, `/person/**`, `/document/**` (`web/SpaRoutingController.java`), plus:
 - `/api/geneteka-import` — external lookup proxy
 
 POST endpoints (all accept/return JSON):
 - `/api/save-data`, `/api/update-person`, `/api/add-person`, `/api/delete-person`
 - `/api/add-event`, `/api/update-event`, `/api/delete-event`
 - `/api/add-relationship`
+- `/api/add-document`, `/api/update-document`, `/api/delete-document`, `/api/delete-document-page`
 
 ### Frontend (`web/`)
 
@@ -58,14 +56,7 @@ POST endpoints (all accept/return JSON):
 - `editor.js` — person edit and merge modals
 - `event-editor.js` — event creation/editing modals for birth/marriage/death/generic events
 
-### Supporting Scripts
-
-| Script | Purpose |
-|--------|---------|
-| `process_genealogy.py` | Parse `base.md` → JSON (legacy model) |
-| `process_genealogy_v2.py` | Newer parser variant |
-| `query_genealogy.py` | `GenealogyQuery` class for programmatic queries |
-| `migrate_to_new_model.py` / `migrate_to_event_relationships.py` | One-time migrations |
+The frontend is unchanged by the Java migration — it talks to the same REST contract regardless of backend language.
 
 ### External Data Sources
 
@@ -83,6 +74,6 @@ POST endpoints (all accept/return JSON):
 
 `improvements.txt` tracks incremental feature steps. When implementing a step, read the full step description carefully — many steps have interdependencies (e.g., steps 29–31 around birth event parent handling, steps 32–34 around "family witness" events).
 
-The "new model" (in `new_data_model.py` and `data/genealogy_new_model.json`) replaced an older flat model. The old model files (`data/persons.json`, `data/events.json`, `data/relationships.json`) are legacy artifacts.
+The "new model" (`data/genealogy_new_model.json`, defined by the canonical field lists in `JAVA_MIGRATION.md`'s "Data schema normalization" section) replaced an older flat model. The old model files (`data/persons.json`, `data/events.json`, `data/relationships.json`, `data/genealogy_complete.json`, `data/genealogy_enriched.json`, `data/genealogy_fixed.json`, `data/gender_review.json`, `data/disambiguation_report.json`, `data/statistics.json`) are legacy artifacts — nothing in the codebase reads or writes them anymore.
 
 

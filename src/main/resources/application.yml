@@ -1,0 +1,18 @@
+server:
+  port: 8000
+
+spring:
+  application:
+    name: genealogy-service
+  web:
+    resources:
+      static-locations: file:web/
+
+data:
+  file: data/genealogy_new_model.json
+
+documents:
+  file: data/documents.json
+
+web:
+  root: web

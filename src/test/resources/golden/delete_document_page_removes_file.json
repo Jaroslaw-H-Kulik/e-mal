@@ -1,0 +1,62 @@
+{
+  "diff": {
+    "added": {},
+    "changed": {
+      "D_NEW_1": {
+        "after": {
+          "date": 1900,
+          "events": [],
+          "id": "D_NEW_1",
+          "link": "",
+          "name": "Setup Fixture Document",
+          "notes": "",
+          "pages": [
+            {
+              "filename": "D_NEW_1-1.jpg",
+              "transcription": ""
+            }
+          ],
+          "tags": []
+        },
+        "before": {
+          "date": 1900,
+          "events": [],
+          "id": "D_NEW_1",
+          "link": "",
+          "name": "Setup Fixture Document",
+          "notes": "",
+          "pages": [
+            {
+              "filename": "D_NEW_1-1.jpg",
+              "transcription": ""
+            },
+            {
+              "filename": "D_NEW_1-2.png",
+              "transcription": ""
+            }
+          ],
+          "tags": []
+        }
+      }
+    },
+    "removed": {}
+  },
+  "response": {
+    "document": {
+      "date": 1900,
+      "events": [],
+      "id": "D_NEW_1",
+      "link": "",
+      "name": "Setup Fixture Document",
+      "notes": "",
+      "pages": [
+        {
+          "filename": "D_NEW_1-1.jpg",
+          "transcription": ""
+        }
+      ],
+      "tags": []
+    },
+    "success": true
+  }
+}
